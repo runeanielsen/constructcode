@@ -1,10 +1,7 @@
 ﻿body {
-    padding-top: 50px;
     font-family: 'Open Sans', sans-serif;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 0;
     padding-right: 0;
@@ -18,12 +15,12 @@
 }
 
     .frontpage-banner .banner-content {
-        padding-top: 100px;
+        padding-top: 50px;
     }
 
         .frontpage-banner .banner-content h1 {
             color: white;
-            margin-top: 0;
+            margin-top: 30px;
         }
 
         .frontpage-banner .banner-content p {
@@ -34,7 +31,8 @@
 
 
 .side-menu {
-    padding-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 20px;
     border-left: 1px solid gray;
 }
 
@@ -63,8 +61,8 @@
 
 /* Bootstrap overrides */
 .navbar-inverse {
-    background-color: #733089;
-    border-color: #733089;
+    background-color: #52315c;
+    border-color: #52315c;
 }
 
     .navbar-inverse .navbar-brand {
@@ -74,6 +72,10 @@
     .navbar-inverse .navbar-nav > li > a {
         color: white;
         font-size: 16px;
+    }
+
+    .navbar-inverse .navbar-toggle {
+        border-color: #52315c;
     }
 
 .navbar-brand {
