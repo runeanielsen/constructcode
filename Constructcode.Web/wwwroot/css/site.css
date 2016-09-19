@@ -9,10 +9,11 @@
 }
 
 .frontpage-banner {
-    height: 250px;
+    height: 140px;
     width: 100%;
-    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
-    text-align: center;
+    border-bottom: 1px solid #EAEAEA;
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
 
     .frontpage-banner .banner-content {
@@ -20,17 +21,11 @@
         color: black;
     }
 
-        .frontpage-banner .banner-content h1 {
-            margin-top: 30px;
+        .frontpage-banner .banner-content .page-header {
+            font-size: 30px;
+            border-bottom: none;
+            padding-bottom: 0;
         }
-
-        .frontpage-banner .banner-content p {
-            margin-top: 0;
-            font-size: 20px;
-        }
-
-
-
 
 
 .no-padding-left-right {
@@ -38,11 +33,21 @@
     padding-left: 0;
 }
 
-
+.button-read-more {
+    background-color: #733089;
+    color: white;
+    border: none;
+    box-shadow: none;
+    border-radius: 4px;
+    height: 30px;
+    padding: 0 15px;
+}
 
 /* Main Content */
 .main-content {
+    border-bottom: 1px solid #EAEAEA;
     margin-bottom: 50px;
+    padding-bottom: 15px;
 }
 
     .main-content h1 {
@@ -51,7 +56,6 @@
     }
 
     .main-content .introduction-content {
-        padding: 0 100px;
         font-size: 17px;
     }
 
@@ -81,7 +85,7 @@
     .side-menu li {
         display: block;
         margin-bottom: 5px;
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
 
 
@@ -90,11 +94,11 @@
 .footer-container {
     background-color: #2d3142;
     color: white;
-    height: 75px;
+    height: 50px;
 }
 
 .footer-content {
-    padding-top: 20px;
+    padding-top: 15px;
 }
 
     .footer-content p {
@@ -133,6 +137,6 @@
 
 @media (min-width: 1200px) {
     .container {
-        width: 1500px;
+        width: auto;
     }
 }
