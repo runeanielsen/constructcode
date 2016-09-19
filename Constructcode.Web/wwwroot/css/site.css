@@ -1,31 +1,92 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"]
-{
+.frontpage-banner {
+    height: 300px;
     width: 100%;
+    background: #52315c;
+    text-align: center;
 }
 
+    .frontpage-banner .banner-content {
+        padding-top: 100px;
+    }
+
+        .frontpage-banner .banner-content h1 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .frontpage-banner .banner-content p {
+            color: white;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+
+.side-menu {
+    padding-top: 20px;
+    border-left: 1px solid gray;
+}
+
+    .side-menu ul {
+        text-align: center;
+        padding: 0;
+    }
+
+    .side-menu li {
+        display: block;
+    }
+
+.footer-container {
+    background-color: #2d3142;
+    color: white;
+    height: 150px;
+}
+
+.footer-content {
+    padding-top: 20px;
+}
+
+    .footer-content p {
+        margin-bottom: 0;
+    }
+
+/* Bootstrap overrides */
+.navbar-inverse {
+    background-color: #733089;
+    border-color: #733089;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: white;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+        font-size: 16px;
+    }
+
+.navbar-brand {
+    font-size: 25px;
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1500px;
+    }
+}
