@@ -1,142 +1,83 @@
 ﻿body {
     font-family: 'Open Sans', sans-serif;
+    background-color: #f1f2f1;
 }
 
 .body-content {
-    padding-left: 0;
-    padding-right: 0;
-    background-color: #fcfbf7;
+    margin: 15px 15px;
 }
 
-.frontpage-banner {
-    height: 140px;
-    width: 100%;
-    border-bottom: 1px solid #EAEAEA;
-    margin-bottom: 20px;
-    margin-left: 20px;
+
+/*Banner*/
+.banner {
+    background-color: #292c2f;
+    min-height: 245px;
 }
 
-    .frontpage-banner .banner-content {
+    .banner .banner-content {
+        color: white;
+        text-align: center;
         padding-top: 20px;
-        color: black;
     }
 
-        .frontpage-banner .banner-content .page-header {
-            font-size: 30px;
-            border-bottom: none;
-            padding-bottom: 0;
+        .banner .banner-content p {
+            font-size: 1.4em;
         }
 
-
-.no-padding-left-right {
-    padding-right: 0;
-    padding-left: 0;
+/*Frontpage content*/
+.frontpage-content {
+    background-color: white;
+    margin-top: -10px;
 }
 
-.button-read-more {
-    background-color: #733089;
-    color: white;
-    border: none;
-    box-shadow: none;
-    border-radius: 4px;
-    height: 30px;
-    padding: 0 15px;
-}
-
-/* Main Content */
-.main-content {
-    border-bottom: 1px solid #EAEAEA;
-    margin-bottom: 50px;
-    padding-bottom: 15px;
-}
-
-    .main-content h1 {
-        color: #A62E5C;
-        font-size: 28px;
-    }
-
-    .main-content .introduction-content {
-        font-size: 17px;
-    }
-
-    .main-content .post-datetime {
-        font-weight: bold;
-    }
-
-
-/* Side Menu */
-.side-menu {
-    padding-top: 5px;
+.section {
+    text-align: center;
+    padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #fcfbf7;
 }
 
-    .side-menu a {
-        color: #A62E5C;
-        text-decoration: underline;
+    .section .title {
+        color: #733089;
+        display: inline;
+        font-size: 32px;
     }
 
-    .side-menu ul {
-        text-align: center;
-        padding: 0;
-        border-bottom: 1px solid #EAEAEA;
+    .section .datetime {
+        font-weight: bold;
+        padding-top: 20px;
+        padding-bottom: 8px;
     }
 
-    .side-menu li {
-        display: block;
-        margin-bottom: 5px;
+    .section .introduction {
         font-size: 1.2em;
+        text-align: justify;
+        text-justify: inter-word;
+        margin-left: 30px;
+        margin-right: 30px;
+        border-bottom: 1px solid #e6e3df;
+        line-height: 35px;
+        padding-bottom: 25px;
     }
 
-
-
-/* Footer */
-.footer-container {
-    background-color: #2d3142;
+.button-readmore {
+    width: 100px;
     color: white;
-    height: 50px;
+    background-color: #733089;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 1em;
+    text-align: center;
+    text-justify: auto;
 }
 
-.footer-content {
-    padding-top: 15px;
-}
-
-    .footer-content p {
-        margin-bottom: 0;
-    }
-
-
-
-/* Bootstrap overrides */
-.navbar-inverse {
-    background-color: #52315c;
-    border-color: #52315c;
-}
-
-    .navbar-inverse .navbar-brand {
-        color: white;
-    }
-
-    .navbar-inverse .navbar-nav > li > a {
-        color: white;
-        font-size: 16px;
-    }
-
-    .navbar-inverse .navbar-toggle {
-        border-color: #52315c;
-    }
-
-.navbar-brand {
-    font-size: 25px;
-}
-
-.row {
-    margin-right: 0;
-    margin-left: 0;
+/*Frontpage content*/
+footer {
+    margin-top: 20px;
 }
 
 @media (min-width: 1200px) {
     .container {
-        width: auto;
+        width: 1100px;
     }
 }
