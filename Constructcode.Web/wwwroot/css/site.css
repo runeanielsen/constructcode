@@ -11,13 +11,13 @@
 /*Banner*/
 .banner {
     background-color: #292c2f;
-    min-height: 245px;
+    min-height: 260px;
 }
 
     .banner .banner-content {
         color: white;
         text-align: center;
-        padding-top: 20px;
+        padding-top: 30px;
     }
 
         .banner .banner-content p {
@@ -38,14 +38,13 @@
 
     .section .title {
         color: #733089;
-        display: inline;
         font-size: 32px;
     }
 
     .section .datetime {
-        font-weight: bold;
         padding-top: 20px;
         padding-bottom: 8px;
+        color: #c7c7c7;
     }
 
     .section .introduction {
@@ -69,6 +68,12 @@
     font-size: 1em;
     text-align: center;
     text-justify: auto;
+}
+
+.redirect-arrow {
+    color: #81bc3e;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 /*Frontpage content*/
