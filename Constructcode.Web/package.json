@@ -1,0 +1,15 @@
+{
+  "name": "constructcode",
+  "version": "1.0.0",
+  "description": "Blog site for construct code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Rune Andreas Nielsen",
+  "license": "ISC",
+  "devDependencies": {}
+}
