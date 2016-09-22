@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Constructcode.Web.Core;
+using Constructcode.Web.Persistence;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +27,7 @@ namespace ConstructCode.Web
         {
             // Add framework services.
             services.AddMvc();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
