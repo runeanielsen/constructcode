@@ -1,4 +1,4 @@
-﻿namespace Constructcode.Web.Models
+﻿namespace Constructcode.Web.Core.Domain
 {
     public class Message
     {
