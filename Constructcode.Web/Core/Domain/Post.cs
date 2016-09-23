@@ -9,8 +9,7 @@ namespace Constructcode.Web.Core.Domain
         public string Content { get; set; }
         public string Url { get; set; }
 
-        public IEnumerable<string> Tags { get; set; }
-        public IEnumerable<Category> Category { get; set; }
         public IEnumerable<Message> Messages { get; set; }
+        public IEnumerable<PostCategory> PostCategories { get; set; }
     }
 }

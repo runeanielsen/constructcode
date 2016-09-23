@@ -27,6 +27,9 @@ namespace ConstructCode.Web
         {
             // Add framework services.
             services.AddMvc();
+            services.AddDbContext<DatabaseContext>();
+            services.AddEntityFrameworkSqlServer();
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
@@ -45,9 +48,7 @@ namespace ConstructCode.Web
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
             app.UseStaticFiles();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

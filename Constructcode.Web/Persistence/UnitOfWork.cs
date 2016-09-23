@@ -11,9 +11,9 @@ namespace Constructcode.Web.Persistence
         public ICategoryRepository Categories { get; private set; }
         public IPostRepository Posts { get; private set; }
 
-        public UnitOfWork(DatabaseContext context)
+        public UnitOfWork()
         {
-            _context = context;
+            _context = new DatabaseContext();
             Posts = new PostRepository(_context);
             Categories = new CategoryRepository(_context);
         }
@@ -23,9 +23,9 @@ namespace Constructcode.Web.Persistence
             _context.Dispose();
         }
 
-        public int Complete()
+        public void Complete()
         {
-            throw new System.NotImplementedException();
+            _context.SaveChanges();
         }
     }
 }
