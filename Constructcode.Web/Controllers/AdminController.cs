@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Constructcode.Web.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Constructcode.Web.Controllers
 {
@@ -9,9 +10,9 @@ namespace Constructcode.Web.Controllers
             return View();
         }
 
-        public IActionResult Login()
+        public IActionResult Login(LoginViewModel vm)
         {
-            return Ok();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
