@@ -8,14 +8,16 @@ namespace Constructcode.Web.Persistence
     {
         private readonly DatabaseContext _context;
 
-        public ICategoryRepository Categories { get; private set; }
-        public IPostRepository Posts { get; private set; }
+        public ICategoryRepository Categories { get; }
+        public IAccountRepository Accounts { get; }
+        public IPostRepository Posts { get; }
 
         public UnitOfWork()
         {
             _context = new DatabaseContext();
             Posts = new PostRepository(_context);
             Categories = new CategoryRepository(_context);
+            Accounts = new AccountRepository(_context);
         }
 
         public void Dispose()
