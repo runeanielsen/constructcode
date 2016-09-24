@@ -21,7 +21,7 @@ namespace Constructcode.Web.Service.Helpers
 
         public static byte[] CreateSalt()
         {
-            var salt = new byte[128 / 8];
+            var salt = new byte[128/8];
 
             using (var rng = RandomNumberGenerator.Create())
             {
@@ -33,12 +33,12 @@ namespace Constructcode.Web.Service.Helpers
 
         public static string GetSaltAsString(byte[] salt)
         {
-            return Encoding.UTF8.GetString(salt);
+            return Convert.ToBase64String(salt);
         }
 
         public static byte[] GetSaltAsByteArray(string salt)
         {
-            return Encoding.UTF8.GetBytes(salt);
+            return Convert.FromBase64String(salt);
         }
     }
 }

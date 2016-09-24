@@ -1,4 +1,6 @@
-﻿using Constructcode.Web.Core.Domain;
+﻿using System.Threading.Tasks;
+using Constructcode.Web.Core.Domain;
+using Constructcode.Web.ViewModels;
 
 namespace Constructcode.Web.Service
 {
@@ -6,5 +8,6 @@ namespace Constructcode.Web.Service
     {
         Account CreateAccount(Account account);
         bool VerifyAccountLogin(Account account, string plainPasword);
+        Account GetAccount(string username);
     }
 }

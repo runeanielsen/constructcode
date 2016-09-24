@@ -1,4 +1,5 @@
-﻿using Constructcode.Web.Core;
+﻿
+using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service.Helpers;
 
@@ -21,6 +22,7 @@ namespace Constructcode.Web.Service
             account.Salt = Cryptography.GetSaltAsString(salt);
 
             _unitOfWork.Accounts.Add(account);
+            _unitOfWork.Complete();
 
             return account;
         }
@@ -30,6 +32,11 @@ namespace Constructcode.Web.Service
             var hashedPassword = Cryptography.CreateHashedPassword(plainPassword, Cryptography.GetSaltAsByteArray(account.Salt));
 
             return hashedPassword == account.Password;
+        }
+
+        public Account GetAccount(string username)
+        {
+            return _unitOfWork.Accounts.SingleOrDefault(a => a.Username == username);
         }
     }
 }
