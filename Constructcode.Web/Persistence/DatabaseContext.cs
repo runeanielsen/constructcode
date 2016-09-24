@@ -1,4 +1,5 @@
 ﻿using Constructcode.Web.Core.Domain;
+using Constructcode.Web.Persistence.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Constructcode.Web.Persistence
@@ -12,33 +13,11 @@ namespace Constructcode.Web.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Set primary key
-            modelBuilder.Entity<PostCategory>()
-                .HasKey(t => new { t.PostId, t.CategoryId });
-
-            // Auto increment
-            modelBuilder.Entity<Category>()
-                .Property(f => f.Id)
-                .ValueGeneratedOnAdd();
-
-            modelBuilder.Entity<Post>()
-                .Property(f => f.Id)
-                .ValueGeneratedOnAdd();
-
-            modelBuilder.Entity<Message>()
-                .Property(f => f.Id)
-                .ValueGeneratedOnAdd();
-
-            // Many to many relationship
-            modelBuilder.Entity<PostCategory>()
-                .HasOne(pc => pc.Post)
-                .WithMany(pc => pc.PostCategories)
-                .HasForeignKey(pt => pt.PostId);
-
-            modelBuilder.Entity<PostCategory>()
-                .HasOne(pc => pc.Category)
-                .WithMany(pc => pc.PostCategories)
-                .HasForeignKey(pt => pt.CategoryId);
+            PostCategoryConfigurations.Config(modelBuilder);
+            CategoryConfigurations.Config(modelBuilder);
+            PostConfigurations.Config(modelBuilder);
+            MessageConfigurations.Config(modelBuilder);
+            AccountConfigurations.Config(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
