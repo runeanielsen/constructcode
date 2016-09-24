@@ -16,12 +16,6 @@ namespace Constructcode.Web.Persistence.Repositories
             Context = context;
         }
 
-        public TEntity Get(int id)
-        {
-            //return Context.Set<TEntity>()
-            return null; // TODO IMPLEMENT
-        }
-
         public IEnumerable<TEntity> GetAll()
         {
             return Context.Set<TEntity>().ToList();

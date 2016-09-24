@@ -6,7 +6,6 @@ namespace Constructcode.Web.Core.Repositories
 {
     public interface IRepository<TEntitiy> where TEntitiy : class
     {
-        TEntitiy Get(int id);
         IEnumerable<TEntitiy> GetAll();
         IEnumerable<TEntitiy> Find(Expression<Func<TEntitiy, bool>> predicate);
 
