@@ -15,13 +15,6 @@ namespace ConstructCode.Web.Controllers
 
         public IActionResult Index()
         {
-            _unitOfWork.Categories.Add(new Category
-            {
-                Title = "RavenDB Introduction"
-            });
-
-            _unitOfWork.Complete();
-
             return View();
         }
 
