@@ -52,7 +52,7 @@ namespace ConstructCode.Web
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                AuthenticationScheme = "MyCookieMiddlewareInstance",
+                AuthenticationScheme = "CookieMiddlewareInstance",
                 LoginPath = new PathString("/Account/UnAuthorized/"),
                 AccessDeniedPath = new PathString("/Account/Forbidden/"),
                 AutomaticAuthenticate = true,
