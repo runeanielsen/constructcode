@@ -5,6 +5,6 @@ namespace Constructcode.Web.Service
     public interface IAccountService
     {
         Account CreateAccount(Account account);
-        Account VerifyAccount(Account account);
+        bool VerifyAccountLogin(Account account, string plainPasword);
     }
 }

@@ -25,9 +25,11 @@ namespace Constructcode.Web.Service
             return account;
         }
 
-        public Account VerifyAccount(Account account)
+        public bool VerifyAccountLogin(Account account, string plainPassword)
         {
-            throw new System.NotImplementedException();
+            var hashedPassword = Cryptography.CreateHashedPassword(plainPassword, Cryptography.GetSaltAsByteArray(account.Salt));
+
+            return hashedPassword == account.Password;
         }
     }
 }

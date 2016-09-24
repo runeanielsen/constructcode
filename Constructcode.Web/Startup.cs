@@ -1,5 +1,6 @@
 ﻿using Constructcode.Web.Core;
 using Constructcode.Web.Persistence;
+using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +32,8 @@ namespace ConstructCode.Web
             services.AddDbContext<DatabaseContext>();
             services.AddEntityFrameworkSqlServer();
 
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IAccountService, AccountService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

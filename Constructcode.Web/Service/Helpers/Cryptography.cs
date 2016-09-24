@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography;
+using System.Text;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace Constructcode.Web.Service.Helpers
@@ -32,7 +33,12 @@ namespace Constructcode.Web.Service.Helpers
 
         public static string GetSaltAsString(byte[] salt)
         {
-            return Convert.ToBase64String(salt);
+            return Encoding.UTF8.GetString(salt);
+        }
+
+        public static byte[] GetSaltAsByteArray(string salt)
+        {
+            return Encoding.UTF8.GetBytes(salt);
         }
     }
 }
