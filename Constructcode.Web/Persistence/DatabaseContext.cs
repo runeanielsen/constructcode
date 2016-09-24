@@ -8,6 +8,7 @@ namespace Constructcode.Web.Persistence
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
