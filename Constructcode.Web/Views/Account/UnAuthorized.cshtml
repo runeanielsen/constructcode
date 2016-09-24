@@ -3,18 +3,29 @@
 }
 
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <form asp-controller="Account" asp-action="Login">
-            <h3>Login</h3>
-            <div class="form-group">
-                <label>Username</label>
-                <input name="Username" class="form-control" type="text" placeholder="Username" />
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input name="Password" class="form-control" type="password" placeholder="Password" />
-            </div>
-            <button class="btn btn-success" type="submit">Login</button>
-        </form>
+
+    <div class="center-form">
+
+    </div>
+
+    <div class="center-form">
+        <div class="text-center">
+            <img src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" alt="Construct Code logo" />
+        </div>
+        <h3 class="text-center">Sign in to the admin panel</h3>
+
+        <div class="login-form">
+            <form asp-controller="Account" asp-action="Login">
+                <div class="form-group">
+                    <label class="text-center">Username or email address</label>
+                    <input name="Username" class="form-control" type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="text-center">Password</label>
+                    <input name="Password" class="form-control" type="password" />
+                </div>
+                <button class="btn btn-success" type="submit">Login</button>
+            </form>
+        </div>
     </div>
 </div>

@@ -14,6 +14,13 @@ namespace Constructcode.Web.Service
             _unitOfWork = unitOfWork;
         }
 
+        public bool VerifyAccountLogin(Account account, string plainPassword)
+        {
+            var hashedPassword = Cryptography.CreateHashedPassword(plainPassword, Cryptography.GetSaltAsByteArray(account.Salt));
+
+            return hashedPassword == account.Password;
+        }
+
         public Account CreateAccount(Account account)
         {
             var salt = Cryptography.CreateSalt();
@@ -25,13 +32,6 @@ namespace Constructcode.Web.Service
             _unitOfWork.Complete();
 
             return account;
-        }
-
-        public bool VerifyAccountLogin(Account account, string plainPassword)
-        {
-            var hashedPassword = Cryptography.CreateHashedPassword(plainPassword, Cryptography.GetSaltAsByteArray(account.Salt));
-
-            return hashedPassword == account.Password;
         }
 
         public Account GetAccount(string username)

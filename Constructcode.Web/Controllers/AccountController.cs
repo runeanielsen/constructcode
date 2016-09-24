@@ -30,12 +30,6 @@ namespace Constructcode.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel vm)
         {
-            //_accountService.CreateAccount(new Account
-            //{
-            //    Username = vm.Username,
-            //    Password = vm.Password
-            //});
-
             if (!ModelState.IsValid) return View("UnAuthorized", vm);
 
             var account = _accountService.GetAccount(vm.Username);
