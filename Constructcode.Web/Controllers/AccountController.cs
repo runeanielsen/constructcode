@@ -35,7 +35,10 @@ namespace Constructcode.Web.Controllers
             var account = _accountService.GetAccount(vm.Username);
 
             if (account == null || !_accountService.VerifyAccountLogin(account, vm.Password))
+            {
+                ViewBag.ErrorMessage = "Failed to login";
                 return View("UnAuthorized", vm);
+            }
 
             var claims = new[] { new Claim("name", account.Username), new Claim(ClaimTypes.Role, "Admin") };
             var claim = new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));

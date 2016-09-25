@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Constructcode.Web.ViewModels.LoginViewModel
+
+@{
     ViewData["Title"] = "Login";
 }
 
@@ -11,7 +13,7 @@
         
         <div class="login-form">
             <form asp-controller="Account" asp-action="Login">
-                <p class="text-warning text-center">Failed to login</p>
+                <p class="text-warning text-center">@ViewData["ErrorMessage"]</p>
                 <div class="form-group">
                     <label class="text-center">Username or email address</label>
                     <input name="Username" class="form-control" type="text"/>
