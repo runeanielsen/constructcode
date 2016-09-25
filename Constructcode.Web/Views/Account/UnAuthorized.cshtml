@@ -7,20 +7,22 @@
 <div class="row">
     <div class="center-form">
         <div class="text-center">
-            <img src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" alt="Construct Code logo" />
+            <a asp-controller="Home" asp-action="Index">
+                <img src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" alt="Construct Code logo" />
+            </a>
         </div>
         <h3 class="text-center">Sign in to the admin panel</h3>
-        
+
         <div class="login-form">
             <form asp-controller="Account" asp-action="Login">
                 <p class="text-warning text-center">@ViewData["ErrorMessage"]</p>
                 <div class="form-group">
                     <label class="text-center">Username or email address</label>
-                    <input name="Username" class="form-control" type="text"/>
+                    <input name="Username" class="form-control" type="text" />
                 </div>
                 <div class="form-group">
                     <label class="text-center">Password</label>
-                    <input name="Password" class="form-control" type="password"/>
+                    <input name="Password" class="form-control" type="password" />
                 </div>
                 <button class="btn btn-success" type="submit">Login</button>
             </form>
