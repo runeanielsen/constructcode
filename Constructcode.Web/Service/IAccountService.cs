@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using Constructcode.Web.Core.Domain;
-using Constructcode.Web.ViewModels;
+﻿using Constructcode.Web.Core.Domain;
 
 namespace Constructcode.Web.Service
 {
