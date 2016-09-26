@@ -20,7 +20,7 @@ namespace Constructcode.Web.Controllers
         [HttpPost]
         public IActionResult CreatePost(object obj)
         {
-            return View();
+            return View("Index");
         }
     }
 }

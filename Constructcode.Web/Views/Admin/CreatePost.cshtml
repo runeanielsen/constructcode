@@ -1,13 +1,14 @@
 ﻿<div class="row">
     <div class="col-md-12">
 
-        <input type="text" class="title" placeholder="Title" />
+        <input type="text" class="title-createpost" placeholder="Title" />
 
         <form asp-controller="Admin" asp-action="CreatePost">
             <div class="form-group">
                 <textarea id="edit" name="content"></textarea>
             </div>
             <button type="submit" class="btn btn-success">Save Post</button>
+            <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Return to Admin page</a>
         </form>
     </div>
 </div>
