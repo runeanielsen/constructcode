@@ -1,0 +1,28 @@
+﻿<div class="row">
+    <div class="col-md-12">
+
+        <input type="text" class="title" placeholder="Title" />
+
+        <form asp-controller="Admin" asp-action="CreatePost">
+            <div class="form-group">
+                <textarea id="edit" name="content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Save Post</button>
+        </form>
+    </div>
+</div>
+
+
+@section scripts {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/js/froala_editor.min.js"></script>
+
+
+    <script>
+        $(function () {
+            $('#edit').froalaEditor();
+        });
+    </script>
+}

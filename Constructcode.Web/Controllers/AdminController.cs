@@ -10,5 +10,17 @@ namespace Constructcode.Web.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult CreatePost()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreatePost(object obj)
+        {
+            return View();
+        }
     }
 }
