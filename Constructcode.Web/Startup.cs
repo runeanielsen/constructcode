@@ -34,6 +34,7 @@ namespace ConstructCode.Web
 
             services.AddSingleton<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<IBlogPostService, BlogPostService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

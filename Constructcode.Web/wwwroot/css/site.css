@@ -137,6 +137,17 @@ footer {
     }
 
 
+.button-default {
+    min-width: 100%;
+    background-color: #733089;
+    border: none;
+    border-radius: 0;
+}
+
+    .button-default:hover {
+        background-color: rgba(115, 48, 137, 0.9);
+    }
+
 .fr-box.fr-basic .fr-element {
     height: 650px;
 }
