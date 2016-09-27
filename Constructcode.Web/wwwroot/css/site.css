@@ -122,17 +122,17 @@ footer {
     width: 30%;
     background-color: transparent;
     font-size: 36px;
-    padding: 0 20px;
+    padding: 0 0;
     width: 100%;
     border-bottom: 1px solid #d8dee2;
     margin-bottom: 20px;
 }
 
-    .title:focus {
+    .title-createpost:focus {
         outline-color: transparent;
     }
 
-    .title::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    .title-createpost::-webkit-input-placeholder {
         color: rgba(95, 158, 160, 0.6);
     }
 
