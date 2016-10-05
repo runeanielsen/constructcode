@@ -1,6 +1,4 @@
-﻿using Constructcode.Web.Core;
-using Constructcode.Web.Persistence;
-using Constructcode.Web.Service;
+﻿using Constructcode.Web.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -24,17 +22,9 @@ namespace ConstructCode.Web
 
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            services.AddMvc();
-            services.AddDbContext<DatabaseContext>();
-            services.AddEntityFrameworkSqlServer();
-
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IAccountService, AccountService>();
-            services.AddTransient<IBlogPostService, BlogPostService>();
+            ServiceContainer.Setup(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
