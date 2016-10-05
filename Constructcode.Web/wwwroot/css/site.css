@@ -7,6 +7,10 @@
     margin: 15px 15px;
 }
 
+.remove-body-content {
+    margin: -15px -15px;
+}
+
 /*Common*/
 .text-warning {
     color: red;
