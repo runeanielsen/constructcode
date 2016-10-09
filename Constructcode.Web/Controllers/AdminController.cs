@@ -19,7 +19,10 @@ namespace Constructcode.Web.Controllers
 
         public IActionResult Index()
         {
-            return View(_blogPostService.GetAllBlogPosts().OrderBy(a => a.Created));
+            var blogposts = _blogPostService.GetAllBlogPosts().OrderBy(a => a.Created);
+
+
+            return View();
         }
 
         [HttpGet]
