@@ -1,6 +1,6 @@
-﻿using Constructcode.Web.Core;
+﻿using System.Collections.Generic;
+using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
-using System.Linq;
 
 namespace Constructcode.Web.Service
 {
@@ -19,9 +19,9 @@ namespace Constructcode.Web.Service
             _unitOfWork.Complete();
         }
 
-        public void GetAllBlogPosts()
+        public IEnumerable<Post> GetAllBlogPosts()
         {
-            //_unitOfWork.Posts.GetAll().OrderBy(a => a.)
+            return _unitOfWork.Posts.GetAll();
         }
     }
 }

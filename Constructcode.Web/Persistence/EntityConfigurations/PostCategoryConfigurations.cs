@@ -7,6 +7,8 @@ namespace Constructcode.Web.Persistence.EntityConfigurations
     {
         public static void Config(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<PostCategory>().ToTable("PostCategories");
+
             modelBuilder.Entity<PostCategory>()
                 .HasKey(t => new { t.PostId, t.CategoryId });
 

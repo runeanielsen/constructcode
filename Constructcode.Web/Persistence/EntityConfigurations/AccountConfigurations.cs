@@ -7,6 +7,8 @@ namespace Constructcode.Web.Persistence.EntityConfigurations
     {
         public static void Config(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Account>().ToTable("Accounts");
+
             modelBuilder.Entity<Account>()
                 .Property(f => f.Id)
                 .ValueGeneratedOnAdd();

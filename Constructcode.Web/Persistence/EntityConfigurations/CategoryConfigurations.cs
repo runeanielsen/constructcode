@@ -9,6 +9,8 @@ namespace Constructcode.Web.Persistence.EntityConfigurations
     {
         public static void Config(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Category>().ToTable("Categories");
+
             modelBuilder.Entity<Category>()
                 .Property(f => f.Id)
                 .ValueGeneratedOnAdd();

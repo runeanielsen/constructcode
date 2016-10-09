@@ -3,6 +3,7 @@ using Constructcode.Web.Service;
 using Constructcode.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Constructcode.Web.Controllers
 {
@@ -18,7 +19,7 @@ namespace Constructcode.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(_blogPostService.GetAllBlogPosts().OrderBy(a => a.Created));
         }
 
         [HttpGet]

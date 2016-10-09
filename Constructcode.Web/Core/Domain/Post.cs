@@ -13,5 +13,10 @@ namespace Constructcode.Web.Core.Domain
 
         public IEnumerable<Message> Messages { get; set; }
         public IEnumerable<PostCategory> PostCategories { get; set; }
+
+        public Post()
+        {
+            Created = DateTime.Now;
+        }
     }
 }
