@@ -2,7 +2,7 @@
 
 namespace Constructcode.Web.ViewModels
 {
-    public class BlogPostViewModel
+    public class PostViewModel
     {
         public string Url { get; set; }
         public string Title { get; set; }

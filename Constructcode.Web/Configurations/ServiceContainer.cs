@@ -1,4 +1,6 @@
-﻿using Constructcode.Web.Core;
+﻿using AutoMapper;
+using Constructcode.Web.Configurations.MappingConfigurations;
+using Constructcode.Web.Core;
 using Constructcode.Web.Persistence;
 using Constructcode.Web.Service;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +14,12 @@ namespace Constructcode.Web.Configurations
             services.AddMvc();
             services.AddDbContext<DatabaseContext>();
             services.AddEntityFrameworkSqlServer();
+
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<PostProfile>();
+                cfg.AddProfile<AccountProfile>();
+            });
 
             services.AddSingleton<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IAccountService, AccountService>();

@@ -1,9 +1,11 @@
-﻿using Constructcode.Web.Core.Domain;
+﻿using System.Collections.Generic;
+using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
 using Constructcode.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using AutoMapper;
 
 namespace Constructcode.Web.Controllers
 {
@@ -11,18 +13,20 @@ namespace Constructcode.Web.Controllers
     public class AdminController : Controller
     {
         private readonly IBlogPostService _blogPostService;
+        private readonly IMapper _mapper;
 
-        public AdminController(IBlogPostService blogPostService)
+        public AdminController(IBlogPostService blogPostService, IMapper mapper)
         {
             _blogPostService = blogPostService;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            var blogposts = _blogPostService.GetAllBlogPosts().OrderBy(a => a.Created);
-
-
-            return View();
+            var blogposts = _blogPostService.GetAllBlogPosts().First();
+            var mapping = _mapper.Map<PostViewModel>(blogposts);
+            
+            return View(mapping);
         }
 
         [HttpGet]
