@@ -39,7 +39,7 @@ namespace Constructcode.Web.Controllers
         {
             _blogPostService.Save(_mapper.Map<Post>(vm));
 
-            return View("Index");
+            return RedirectToAction("Index");
         }
     }
 }

@@ -44,7 +44,9 @@
                         {
                             <div>
                                 <h3 asp-controller="Admin" asp-action="@post.Url" class="text-center">@post.Title</h3>
-                                <div>@post.Introduction</div>
+                                <div>
+                                    @Html.Raw(post.Introduction)
+                                </div>
                             </div>
                         }
                     </div>

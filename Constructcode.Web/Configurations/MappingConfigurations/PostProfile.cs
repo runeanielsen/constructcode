@@ -12,6 +12,9 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
                 .ForMember(dest => dest.Introduction, opt => opt.MapFrom(src => src.GetIntroduction()));
 
             CreateMap<PostViewModel, Post>();
+
+            CreateMap<CreatePostViewModel, Post>();
+            CreateMap<Post, CreatePostViewModel>();
         }
     }
 }
