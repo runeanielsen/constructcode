@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.ViewModels;
 
@@ -9,7 +8,9 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
     {
         public PostProfile()
         {
-            CreateMap<Post, PostViewModel>();
+            CreateMap<Post, PostViewModel>()
+                .ForMember(dest => dest.Introduction, opt => opt.MapFrom(src => src.GetIntroduction()));
+
             CreateMap<PostViewModel, Post>();
         }
     }

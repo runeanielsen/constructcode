@@ -23,7 +23,7 @@ namespace Constructcode.Web.Controllers
 
         public IActionResult Index()
         {
-            var blogposts = _blogPostService.GetAllBlogPosts().OrderBy(a => a.Created);
+            var blogposts = _blogPostService.GetAllBlogPosts().OrderByDescending(a => a.Created);
 
             return View(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
         }
@@ -37,11 +37,7 @@ namespace Constructcode.Web.Controllers
         [HttpPost]
         public IActionResult CreatePost(CreatePostViewModel vm)
         {
-            _blogPostService.Save(new Post
-            {
-                Title = vm.Title,
-                Content = vm.Content
-            });
+            _blogPostService.Save(_mapper.Map<Post>(vm));
 
             return View("Index");
         }

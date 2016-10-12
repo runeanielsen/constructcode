@@ -18,5 +18,10 @@ namespace Constructcode.Web.Core.Domain
         {
             Created = DateTime.Now;
         }
+
+        public string GetIntroduction()
+        {
+            return Content.Substring(0, Content.Length > 255 ? 255 : Content.Length);
+        }
     }
 }
