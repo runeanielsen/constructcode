@@ -21,7 +21,7 @@ namespace Constructcode.Web.Core.Domain
 
         public string GetIntroduction()
         {
-            const int introductionTextLength = 512;
+            const int introductionTextLength = 700;
 
             return Content.Substring(0, Content.Length > introductionTextLength ? introductionTextLength : Content.Length);
         }
