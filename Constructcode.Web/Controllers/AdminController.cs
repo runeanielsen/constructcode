@@ -23,10 +23,9 @@ namespace Constructcode.Web.Controllers
 
         public IActionResult Index()
         {
-            var blogposts = _blogPostService.GetAllBlogPosts().First();
-            var mapping = _mapper.Map<PostViewModel>(blogposts);
-            
-            return View(mapping);
+            var blogposts = _blogPostService.GetAllBlogPosts().OrderBy(a => a.Created);
+
+            return View(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
         }
 
         [HttpGet]

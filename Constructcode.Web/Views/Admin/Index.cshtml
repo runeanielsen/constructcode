@@ -1,4 +1,4 @@
-﻿@model Constructcode.Web.ViewModels.PostViewModel
+﻿@model IEnumerable<Constructcode.Web.ViewModels.PostViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -40,7 +40,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        Here to place blogpost
+                        @foreach (var post in Model)
+                        {
+                            <div>
+                                <h3 asp-controller="Admin" asp-action="@post.Url" class="text-center">@post.Title</h3>
+                                <div>@post.Introduction</div>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
