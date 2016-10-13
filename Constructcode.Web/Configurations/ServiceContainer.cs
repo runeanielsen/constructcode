@@ -21,9 +21,9 @@ namespace Constructcode.Web.Configurations
                 cfg.AddProfile<AccountProfile>();
             });
 
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IAccountService, AccountService>();
-            services.AddTransient<IBlogPostService, BlogPostService>();
+            services.AddTransient<IPostService, PostService>();
         }
     }
 }

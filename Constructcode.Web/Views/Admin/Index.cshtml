@@ -43,7 +43,9 @@
                         @foreach (var post in Model)
                         {
                             <div>
-                                <h3 asp-controller="Admin" asp-action="@post.Url" class="text-center">@post.Title</h3>
+                                <a asp-controller="Admin" asp-action="EditPost" asp-route-id="@post.Id">
+                                    <h3>@post.Title</h3>
+                                </a>
                                 <div>
                                     @Html.Raw(post.Introduction)
                                 </div>

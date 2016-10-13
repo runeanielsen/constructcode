@@ -3,9 +3,11 @@ using Constructcode.Web.Core.Domain;
 
 namespace Constructcode.Web.Service
 {
-    public interface IBlogPostService
+    public interface IPostService
     {
         void Save(Post post);
-        IEnumerable<Post> GetAllBlogPosts();
+        IEnumerable<Post> GetAllPosts();
+        Post GetBlogPost(int id);
+        void UpdatePost(Post post);
     }
 }

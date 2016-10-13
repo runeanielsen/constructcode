@@ -1,9 +1,16 @@
-﻿@model Constructcode.Web.ViewModels.CreatePostViewModel
+﻿@model Constructcode.Web.ViewModels.EditPostViewModel
+
+@{
+    ViewBag.Title = "Edit Post";
+}
 
 <div class="row">
     <div class="col-md-12">
-        <form asp-controller="Admin" asp-action="CreatePost">
-            <input type="text" name="title" class="title-createpost" placeholder="Title" value="@Model.Title" />
+        <form asp-controller="Admin" asp-action="EditPost">
+            
+            @Html.HiddenFor(a => a.Id)
+
+            <input type="text" name="title" value="@Model.Title" class="title-createpost" placeholder="Title"/>
 
             <div class="form-group">
                 <textarea id="edit" name="content">@Model.Content</textarea>

@@ -4,11 +4,11 @@ using Constructcode.Web.Core.Domain;
 
 namespace Constructcode.Web.Service
 {
-    public class BlogPostService : IBlogPostService
+    public class PostService : IPostService
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public BlogPostService(IUnitOfWork unitOfWork)
+        public PostService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -19,9 +19,20 @@ namespace Constructcode.Web.Service
             _unitOfWork.Complete();
         }
 
-        public IEnumerable<Post> GetAllBlogPosts()
+        public IEnumerable<Post> GetAllPosts()
         {
             return _unitOfWork.Posts.GetAll();
+        }
+
+        public Post GetBlogPost(int id)
+        {
+            return _unitOfWork.Posts.SingleOrDefault(a => a.Id == id);
+        }
+
+        public void UpdatePost(Post post)
+        {
+            _unitOfWork.Posts.Update(post);      
+            _unitOfWork.Complete();
         }
     }
 }

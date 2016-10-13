@@ -14,6 +14,8 @@ namespace Constructcode.Web.Core.Repositories
         void Add(TEntitiy entity);
         void AddRange(IEnumerable<TEntitiy> entities);
 
+        void Update(TEntitiy entity);
+
         void Remove(TEntitiy entity);
         void RemoveRange(IEnumerable<TEntitiy> entities);
     }

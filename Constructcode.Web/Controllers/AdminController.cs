@@ -12,18 +12,18 @@ namespace Constructcode.Web.Controllers
     [Authorize]
     public class AdminController : Controller
     {
-        private readonly IBlogPostService _blogPostService;
+        private readonly IPostService _postService;
         private readonly IMapper _mapper;
 
-        public AdminController(IBlogPostService blogPostService, IMapper mapper)
+        public AdminController(IPostService postService, IMapper mapper)
         {
-            _blogPostService = blogPostService;
+            _postService = postService;
             _mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            var blogposts = _blogPostService.GetAllBlogPosts().OrderByDescending(a => a.Created);
+            var blogposts = _postService.GetAllPosts().OrderByDescending(a => a.Created);
 
             return View(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
         }
@@ -37,7 +37,21 @@ namespace Constructcode.Web.Controllers
         [HttpPost]
         public IActionResult CreatePost(CreatePostViewModel vm)
         {
-            _blogPostService.Save(_mapper.Map<Post>(vm));
+            _postService.Save(_mapper.Map<Post>(vm));
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult EditPost(int id)
+        {
+            return View(_mapper.Map<EditPostViewModel>(_postService.GetBlogPost(id)));
+        }
+
+        [HttpPost]
+        public IActionResult EditPost(EditPostViewModel vm)
+        {
+            _postService.UpdatePost(_mapper.Map<Post>(vm));
 
             return RedirectToAction("Index");
         }

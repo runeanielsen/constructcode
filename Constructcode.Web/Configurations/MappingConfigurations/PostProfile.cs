@@ -10,11 +10,13 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
         {
             CreateMap<Post, PostViewModel>()
                 .ForMember(dest => dest.Introduction, opt => opt.MapFrom(src => src.GetIntroduction()));
-
             CreateMap<PostViewModel, Post>();
 
             CreateMap<CreatePostViewModel, Post>();
             CreateMap<Post, CreatePostViewModel>();
+
+            CreateMap<EditPostViewModel, Post>();
+            CreateMap<Post, EditPostViewModel>();
         }
     }
 }
