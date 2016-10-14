@@ -31,7 +31,7 @@ namespace Constructcode.Web.Controllers
         [HttpGet]
         public IActionResult CreatePost()
         {
-            return View();
+            return View(new CreatePostViewModel());
         }
 
         [HttpPost]
