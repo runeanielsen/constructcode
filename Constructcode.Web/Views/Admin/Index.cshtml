@@ -14,7 +14,7 @@
                     <a href="#">Admin Panel</a>
                 </li>
                 <li>
-                    <a asp-controller="Admin" asp-action="CreatePost">Create Post</a>
+                    <a asp-controller="Post" asp-action="CreatePost">Create Post</a>
                 </li>
                 <li>
                     <a href="#">Create Categories</a>
@@ -43,7 +43,7 @@
                         @foreach (var post in Model)
                         {
                             <div>
-                                <a asp-controller="Admin" asp-action="EditPost" asp-route-id="@post.Id">
+                                <a asp-controller="Post" asp-action="EditPost" asp-route-id="@post.Id">
                                     <h3>@post.Title</h3>
                                 </a>
                                 <div>

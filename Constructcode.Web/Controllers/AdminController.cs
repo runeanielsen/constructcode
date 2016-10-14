@@ -27,33 +27,5 @@ namespace Constructcode.Web.Controllers
 
             return View(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
         }
-
-        [HttpGet]
-        public IActionResult CreatePost()
-        {
-            return View(new CreatePostViewModel());
-        }
-
-        [HttpPost]
-        public IActionResult CreatePost(CreatePostViewModel vm)
-        {
-            _postService.Save(_mapper.Map<Post>(vm));
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public IActionResult EditPost(int id)
-        {
-            return View(_mapper.Map<EditPostViewModel>(_postService.GetBlogPost(id)));
-        }
-
-        [HttpPost]
-        public IActionResult EditPost(EditPostViewModel vm)
-        {
-            _postService.UpdatePost(_mapper.Map<Post>(vm));
-
-            return RedirectToAction("Index");
-        }
     }
 }
