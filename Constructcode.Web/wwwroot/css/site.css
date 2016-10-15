@@ -118,7 +118,6 @@ footer {
 }
 
 /*Create Post*/
-
 .title-createpost {
     border: none;
     font-size: 2em;
@@ -139,7 +138,6 @@ footer {
     .title-createpost::-webkit-input-placeholder {
         color: rgba(95, 158, 160, 0.6);
     }
-
 
 .button-default {
     min-width: 100%;

@@ -1,5 +1,10 @@
 ﻿@model Constructcode.Web.ViewModels.CreatePostViewModel
 
+@{
+    ViewBag.Title = "Create Post";
+    Layout = "_AdminLayout";
+}
+
 <div class="row">
     <div class="col-md-12">
         <form asp-controller="Post" asp-action="CreatePost">
