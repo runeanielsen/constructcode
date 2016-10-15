@@ -34,5 +34,11 @@ namespace Constructcode.Web.Service
             _unitOfWork.Posts.Update(post);      
             _unitOfWork.Complete();
         }
+
+        public void DeletePost(int id)
+        {
+            _unitOfWork.Posts.Remove(_unitOfWork.Posts.SingleOrDefault(a => a.Id == id));
+            _unitOfWork.Complete();
+        }
     }
 }

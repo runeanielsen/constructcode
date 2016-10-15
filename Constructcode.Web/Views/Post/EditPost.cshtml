@@ -18,6 +18,7 @@
             </div>
 
             <button type="submit" class="btn btn-success">Save Post</button>
+            <a asp-controller="Post" asp-action="DeletePost" asp-route-id="@Model.Id" class="btn btn-danger">Delete Post</a>
             <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Return to Admin page</a>
         </form>
     </div>
@@ -29,7 +30,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_style.min.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/js/froala_editor.min.js"></script>
-
 
     <script>
         $(function () {

@@ -44,5 +44,13 @@ namespace Constructcode.Web.Controllers.Admin
 
             return RedirectToAction("Index", "Admin");
         }
+
+        [HttpGet]
+        public IActionResult DeletePost(int id)
+        {
+            _postService.DeletePost(id);
+
+            return RedirectToAction("Index", "Admin");
+        }
     }
 }

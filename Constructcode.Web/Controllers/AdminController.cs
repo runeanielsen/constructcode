@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
 using Constructcode.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
