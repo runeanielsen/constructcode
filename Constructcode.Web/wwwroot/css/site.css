@@ -154,6 +154,13 @@ footer {
     height: 650px;
 }
 
+/*Admin*/
+.admin-post {
+    border-bottom: 1px solid #e6e3df;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 @media (min-width: 1200px) {
     .container {
         width: 1100px;
