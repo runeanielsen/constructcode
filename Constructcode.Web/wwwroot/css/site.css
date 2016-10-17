@@ -117,7 +117,7 @@ footer {
     margin-top: 20px;
 }
 
-/*Create Post*/
+/*Post*/
 .title-createpost {
     border: none;
     font-size: 2em;
@@ -152,6 +152,10 @@ footer {
 
 .fr-box.fr-basic .fr-element {
     height: 650px;
+}
+
+.container.post-container {
+    width:90%;
 }
 
 /*Admin*/
