@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Edit Post";
-    Layout = "_PostLayout";
 }
 
 <div class="row">
@@ -19,7 +18,6 @@
 
             <button type="submit" class="btn btn-success">Save Post</button>
             <a asp-controller="Post" asp-action="DeletePost" asp-route-id="@Model.Id" class="btn btn-danger">Delete Post</a>
-            <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Return to Admin page</a>
         </form>
     </div>
 </div>

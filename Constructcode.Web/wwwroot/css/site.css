@@ -154,7 +154,7 @@ footer {
     height: 650px;
 }
 
-.container.post-container {
+.post-container {
     width:90%;
 }
 
@@ -163,6 +163,9 @@ footer {
     border-bottom: 1px solid #e6e3df;
     text-align: justify;
     text-justify: inter-word;
+    background-color: white;
+    padding: 20px 20px;
+    margin-bottom: 20px;
 }
 
 @media (min-width: 1200px) {

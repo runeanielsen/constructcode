@@ -2,10 +2,12 @@
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
 using Constructcode.Web.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Constructcode.Web.Controllers.Admin
 {
+    [Authorize]
     public class PostController : Controller
     {
         private readonly IMapper _mapper;
