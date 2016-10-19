@@ -8,14 +8,15 @@
     <div id="wrapper post-container">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a asp-controller="Admin" asp-action="Index"><i class="fa fa-home" style="padding-right: 25px;"></i>Admin Panel</a>
+                <li class="sidebar-brand logo-sidemenu border-bottom">
+                    <img class="center-block" src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" style="width:75px; height:75px;" alt="site logo" />
+                    <a asp-controller="Home" asp-action="Index" class="text-center">www.constructcode.com</a>
                 </li>
                 <li class="sidebar-brand">
-                    <a asp-controller="Home" asp-action="Index"><i class="fa fa-arrow-left" style="padding-right: 25px;"></i>To front page</a>
+                    <a asp-controller="Admin" asp-action="Index" class="side-menu-item border-bottom"><i class="fa fa-home" style="padding-right: 25px;"></i>Admin Panel</a>
                 </li>
                 <li class="sidebar-brand">
-                    <a asp-controller="Post" asp-action="CreatePost"><i class="fa fa-pencil"  style="padding-right: 25px;"></i>Create New Post</a>
+                    <a asp-controller="Post" asp-action="CreatePost" class="side-menu-item border-bottom"><i class="fa fa-pencil" style="padding-right: 25px;"></i>Create New Post</a>
                 </li>
             </ul>
         </div>
