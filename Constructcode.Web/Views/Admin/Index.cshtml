@@ -8,18 +8,17 @@
     <div id="wrapper post-container">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand logo-sidemenu border-bottom">
-                    <img class="center-block" src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" style="width:75px; height:75px;" alt="site logo" />
-                    <a asp-controller="Home" asp-action="Index" class="text-center">www.constructcode.com</a>
+                <li class="sidebar-brand">
+                    <a asp-controller="Home" asp-action="Index" class="side-menu-item border-bottom"><i class="fa fa-globe"></i>Front page</a>
                 </li>
                 <li class="sidebar-brand">
-                    <a asp-controller="Admin" asp-action="Index" class="side-menu-item border-bottom"><i class="fa fa-home" style="padding-right: 25px;"></i>Admin Panel</a>
+                    <a asp-controller="Admin" asp-action="Index" class="side-menu-item border-bottom"><i class="fa fa-home"></i>Admin Panel</a>
                 </li>
                 <li class="sidebar-brand">
-                    <a asp-controller="Post" asp-action="CreatePost" class="side-menu-item border-bottom"><i class="fa fa-pencil" style="padding-right: 25px;"></i>Create New Post</a>
+                    <a asp-controller="Post" asp-action="CreatePost" class="side-menu-item border-bottom"><i class="fa fa-pencil"></i>Create New Post</a>
                 </li>
                 <li class="sidebar-brand">
-                    <a asp-controller="Post" asp-action="CreatePost" class="side-menu-item border-bottom"><i class="fa fa-users" style="padding-right: 25px;"></i>Manage Users</a>
+                    <a asp-controller="Post" asp-action="CreatePost" class="side-menu-item border-bottom"><i class="fa fa-user"></i>Manage Users</a>
                 </li>
             </ul>
         </div>
@@ -33,6 +32,7 @@
                                 <a asp-controller="Post" asp-action="EditPost" asp-route-id="@post.Id">
                                     <h3>@post.Title</h3>
                                 </a>
+                                <p>Created: @post.Created</p>
                                 <div>
                                     @Html.Raw(post.Introduction)
                                 </div>
