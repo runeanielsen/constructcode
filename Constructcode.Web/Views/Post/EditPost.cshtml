@@ -4,24 +4,32 @@
     ViewBag.Title = "Edit Post";
 }
 
-<div class="row">
-    <div class="col-md-12">
-        <form asp-controller="Post" asp-action="EditPost">
-            
-            @Html.HiddenFor(a => a.Id)
+<div class="row remove-body-content">
+    <div id="wrapper post-container">
+        @Html.Partial("_Sidemenu")
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-controller="Post" asp-action="EditPost">
 
-            <input type="text" name="title" value="@Model.Title" class="title-createpost" placeholder="Title"/>
+                            @Html.HiddenFor(a => a.Id)
 
-            <div class="form-group">
-                <textarea id="edit" name="content">@Model.Content</textarea>
+                            <input type="text" name="title" value="@Model.Title" class="title-createpost" placeholder="Title" />
+
+                            <div class="form-group">
+                                <textarea id="edit" name="content">@Model.Content</textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Save Post</button>
+                            <a asp-controller="Post" asp-action="DeletePost" asp-route-id="@Model.Id" class="btn btn-danger">Delete Post</a>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <button type="submit" class="btn btn-success">Save Post</button>
-            <a asp-controller="Post" asp-action="DeletePost" asp-route-id="@Model.Id" class="btn btn-danger">Delete Post</a>
-        </form>
+        </div>
     </div>
 </div>
-
 
 @section scripts {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
