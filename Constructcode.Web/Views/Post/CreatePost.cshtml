@@ -4,17 +4,40 @@
     ViewBag.Title = "Create Post";
 }
 
-<div class="row">
-    <div class="col-md-12">
-        <form asp-controller="Post" asp-action="CreatePost">
-            <input type="text" name="title" class="title-createpost" placeholder="Title" value="@Model.Title" />
 
-            <div class="form-group">
-                <textarea id="edit" name="content">@Model.Content</textarea>
+
+<div class="row remove-body-content">
+    <div id="wrapper post-container">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a asp-controller="Admin" asp-action="Index" class="side-menu-item border-bottom"><i class="fa fa-home"></i>Admin Panel</a>
+                </li>
+                <li class="sidebar-brand">
+                    <a asp-controller="Admin" asp-action="Index" class="side-menu-item border-bottom"><i class="fa fa-pencil"></i>Categories<i class="fa fa-chevron-down arrow"></i></a>
+                </li>
+                <li class="sidebar-brand">
+                    <a asp-controller="Post" asp-action="CreatePost" class="side-menu-item border-bottom"><i class="fa fa-tag"></i>Tags<i class="fa fa-chevron-down arrow"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-controller="Post" asp-action="CreatePost">
+                            <input type="text" name="title" class="title-createpost" placeholder="Title" value="@Model.Title" />
+
+                            <div class="form-group">
+                                <textarea id="edit" name="content">@Model.Content</textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Save Post</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <button type="submit" class="btn btn-success">Save Post</button>
-        </form>
+        </div>
     </div>
 </div>
 
