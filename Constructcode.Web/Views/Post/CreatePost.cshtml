@@ -4,7 +4,7 @@
     ViewBag.Title = "Create Post";
 }
 
-<div class="row remove-body-content">
+<div class="row remove-body-content" ng-controller="CreatePostController as vm">
     <div id="wrapper post-container">
         @Html.Partial("_Sidemenu")
         <div id="page-content-wrapper">
@@ -27,13 +27,11 @@
     </div>
 </div>
 
-
 @section scripts {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_style.min.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/js/froala_editor.min.js"></script>
-
 
     <script>
         $(function () {
