@@ -1,6 +1,4 @@
-﻿@model Constructcode.Web.ViewModels.CreatePostViewModel
-
-@{
+﻿@{
     ViewBag.Title = "Create Post";
 }
 
@@ -26,16 +24,3 @@
         </div>
     </div>
 </div>
-
-@section scripts {
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/css/froala_style.min.css" rel="stylesheet" type="text/css" />
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.4/js/froala_editor.min.js"></script>
-
-    <script>
-        $(function () {
-            $('#edit').froalaEditor();
-        });
-    </script>
-}
