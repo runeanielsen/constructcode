@@ -5,7 +5,7 @@ namespace Constructcode.Web.Service
 {
     public interface IPostService
     {
-        void Save(Post post);
+        void CreatePost(Post post);
         IEnumerable<Post> GetAllPosts();
         Post GetBlogPost(int id);
         void UpdatePost(Post post);

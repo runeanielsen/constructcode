@@ -13,7 +13,7 @@ namespace Constructcode.Web.Service
             _unitOfWork = unitOfWork;
         }
 
-        public void Save(Post post)
+        public void CreatePost(Post post)
         {
             _unitOfWork.Posts.Add(post);
             _unitOfWork.Complete();
