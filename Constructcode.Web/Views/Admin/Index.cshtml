@@ -2,7 +2,7 @@
     ViewBag.Title = "Index";
 }
 
-<div class="row remove-body-content">
+<div class="row remove-body-content" ng-controller="AdminController as vm">
     <div id="wrapper post-container">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -23,19 +23,14 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        @*@foreach (var post in Model)
-                        {
-                            <div class="admin-post">
-                                <a asp-controller="Post" asp-action="EditPost" asp-route-id="@post.Id">
-                                    <h3>@post.Title</h3>
-                                </a>
-                                <p>Created: @post.Created</p>
-                                <div>
-                                    @Html.Raw(post.Introduction)
-                                </div>
-                            </div>
-                        }*@
+                    <div class="col-lg-12">                  
+                        <div class="admin-post" ng-repeat="post in vm.posts">
+                            <a href="">
+                                <h3>{{post.title}}</h3>
+                            </a>
+                            <p>Created: {{post.created}}</p>
+                            <div ng-bind-html="post.introduction"></div>
+                        </div>
                     </div>
                 </div>
             </div>
