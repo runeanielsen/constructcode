@@ -2,6 +2,7 @@
 /// <reference path="js/admin/admin.controller.js" />
 /// <reference path="js/api-config.service.js" />
 /// <reference path="js/app.js" />
+/// <reference path="js/core/redirect.service.js" />
 /// <reference path="js/post/create-post.controller.js" />
 /// <reference path="js/post/post.service.js" />
 /// <reference path="lib/angular/angular.js" />
