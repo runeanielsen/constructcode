@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module("app").controller("AdminController", AdminController);
+    angular.module('app').controller('AdminController', AdminController);
 
     function AdminController($sce, postService) {
         var vm = this;

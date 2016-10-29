@@ -1,11 +1,11 @@
 ﻿(function() {
-    angular.module("app")
-        .service("apiConfigService", apiConfigService);
+    angular.module('app')
+        .service('apiConfigService', apiConfigService);
 
     function apiConfigService() {
         var service = this;
 
-        service.getDefaultApiRoute = "/api/";
+        service.getDefaultApiRoute = '/api/';
 
         return service;
     }

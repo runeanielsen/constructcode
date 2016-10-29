@@ -2,15 +2,14 @@
     ViewBag.Title = "Edit Post";
 }
 
-<div class="row remove-body-content">
+<div class="row remove-body-content" ng-controller="EditPostController as vm" ng-init="vm.postId = @ViewBag.PostId" >
     <div id="wrapper post-container">
         @Html.Partial("_Sidemenu")
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <form asp-controller="Post" asp-action="EditPost">
-
+                        <form>
                             <input type="text" name="title" class="title-createpost" placeholder="Title" />
 
                             <div class="form-group">
@@ -18,11 +17,11 @@
                             </div>
 
                             <button type="submit" class="btn btn-success">Save Post</button>
-                            <a asp-controller="Post" asp-action="DeletePost" asp-route-id="" class="btn btn-danger">Delete Post</a>
+                            @*<a asp-controller="Post" asp-action="DeletePost" asp-route-id="" class="btn btn-danger">Delete Post</a>*@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
 </div>

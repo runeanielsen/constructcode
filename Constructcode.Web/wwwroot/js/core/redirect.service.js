@@ -1,12 +1,12 @@
 ﻿(function () {
-    angular.module("app").service("redirectService", redirectService);
+    angular.module('app').service('redirectService', redirectService);
 
 
     function redirectService() {
         var service = this;
 
-        service.homePage = "/";
-        service.adminPage = "/Admin";
+        service.homePage = '/';
+        service.adminPage = '/Admin';
 
         return service;
     }

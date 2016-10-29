@@ -4,6 +4,7 @@
 /// <reference path="js/app.js" />
 /// <reference path="js/core/redirect.service.js" />
 /// <reference path="js/post/create-post.controller.js" />
+/// <reference path="js/post/edit-post.controller.js" />
 /// <reference path="js/post/post.service.js" />
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular-sanitize/angular-sanitize.js" />
