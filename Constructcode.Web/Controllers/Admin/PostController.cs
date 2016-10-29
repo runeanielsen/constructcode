@@ -15,7 +15,6 @@ namespace Constructcode.Web.Controllers.Admin
         [HttpGet]
         public IActionResult EditPost(int id)
         {
-            ViewBag.PostId = id;
             return View();
         }
     }

@@ -4,17 +4,19 @@
     angular.module('app')
         .controller('EditPostController', EditPostController);
 
-    function EditPostController(postService) {
+    function EditPostController(postService, urlService) {
         var vm = this;
 
-        vm.postId = '';
         vm.post = {};
 
-        init();
         function init() {
-            postService.getPostOnId(vm.PostId).then(function(response) {
+            vm.postId = urlService.getLastUrlParameter();
+
+            postService.getPostOnId(vm.postId).then(function (response) {
                 vm.post = response.data;
-            })();
+            });
         }
+
+        init();
     }
 })();
