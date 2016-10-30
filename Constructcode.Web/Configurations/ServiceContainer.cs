@@ -19,11 +19,14 @@ namespace Constructcode.Web.Configurations
             {
                 cfg.AddProfile<PostProfile>();
                 cfg.AddProfile<AccountProfile>();
+                cfg.AddProfile<CategoryProfile>();
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IPostService, PostService>();
+            services.AddTransient<ICategoryService, CategoryService>();
         }
     }
 }
