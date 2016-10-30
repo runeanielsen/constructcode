@@ -4,6 +4,7 @@
 /// <reference path="js/app.js" />
 /// <reference path="js/core/redirect.service.js" />
 /// <reference path="js/core/url.service.js" />
+/// <reference path="js/post/category.service.js" />
 /// <reference path="js/post/create-post.controller.js" />
 /// <reference path="js/post/edit-post.controller.js" />
 /// <reference path="js/post/post.service.js" />

@@ -12,10 +12,11 @@
                 Categories
                 <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
-            <ul ng-show="vm.toggleCategories">
-                <li>Hello 1</li>
-                <li>Hello 2</li>
-                <li>Hello 3</li>
+            <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled ">
+                <li><input type="checkbox"/> Hello 1</li>
+                <li><input type="checkbox"/> Hello 2</li>
+                <li><input type="checkbox"/> Hello 3</li>
+                <li ng-click="vm.createCategory()"><i class="fa fa-folder-open"></i> New category</li>
             </ul>
         </li>
         <li class="sidebar-brand" ng-init="vm.toggleTags = false" ng-click="vm.toggleTags = !vm.toggleTags">
@@ -24,7 +25,7 @@
                 Tags
                 <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
-            <ul ng-show="vm.toggleTags">
+            <ul ng-show="vm.toggleTags" class="list-unstyled toggle-list">
                 <li>Hello 1</li>
                 <li>Hello 2</li>
                 <li>Hello 3</li>
