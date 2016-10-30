@@ -7,18 +7,28 @@
             </a>
         </li>
         <li class="sidebar-brand">
-            <a asp-controller="Admin" asp-action="Index" class="side-menu-item border-bottom">
+            <a class="side-menu-item border-bottom" ng-init="vm.toggleCategories = false" ng-click="vm.toggleCategories = !vm.toggleCategories">
                 <i class="fa fa-pencil"></i>
                 Categories
-                <i class="fa fa-chevron-down arrow"></i>
+                <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
+            <ul ng-show="vm.toggleCategories">
+                <li>Hello 1</li>
+                <li>Hello 2</li>
+                <li>Hello 3</li>
+            </ul>
         </li>
-        <li class="sidebar-brand">
-            <a asp-controller="Post" asp-action="CreatePost" class="side-menu-item border-bottom">
+        <li class="sidebar-brand" ng-init="vm.toggleTags = false" ng-click="vm.toggleTags = !vm.toggleTags">
+            <a class="side-menu-item border-bottom">
                 <i class="fa fa-tag"></i>
                 Tags
-                <i class="fa fa-chevron-down arrow"></i>
+                <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
+            <ul ng-show="vm.toggleTags">
+                <li>Hello 1</li>
+                <li>Hello 2</li>
+                <li>Hello 3</li>
+            </ul>
         </li>
     </ul>
 </div>
