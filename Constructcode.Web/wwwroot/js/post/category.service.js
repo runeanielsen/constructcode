@@ -10,7 +10,11 @@
         var serviceRoute = apiConfigService.getDefaultApiRoute + 'category/';
 
         service.createCategory = function(category) {
-            return $http.post(serviceRoute + 'createCategory', category);
+            return $http.post(serviceRoute + 'create', category);
+        }
+
+        service.getAllCategories = function (category) {
+            return $http.get(serviceRoute + 'getAll');
         }
 
         return service;

@@ -20,10 +20,16 @@ namespace Constructcode.Web.Controllers.Api
         }
 
         [HttpPost]
-        public IActionResult CreateCategory([FromBody]CategoryViewModel vm)
+        public IActionResult Create([FromBody]CategoryViewModel vm)
         {
             _categoryService.CreateCategory(_mapper.Map<Category>(vm));
             return Ok();
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_categoryService.GetAllCategories());
         }
     }
 }

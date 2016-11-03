@@ -1,4 +1,5 @@
-﻿using Constructcode.Web.Core;
+﻿using System.Collections.Generic;
+using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
 
 namespace Constructcode.Web.Service
@@ -16,6 +17,11 @@ namespace Constructcode.Web.Service
         {
             _unitOfWork.Categories.Add(category);
             _unitOfWork.Complete();
+        }
+
+        public IEnumerable<Category> GetAllCategories()
+        {
+            return _unitOfWork.Categories.GetAll();
         }
     }
 }

@@ -5,9 +5,16 @@
     function CreatePostController(postService, categoryService) {
         var vm = this;
 
+        vm.categories = {};
         vm.post = {
             title: '',
             content: ''
+        }
+
+        function init() {
+            categoryService.getAllCategories().then(function (response) {
+                vm.categories = response.data;
+            });
         }
 
         vm.createPost = function () {
@@ -26,5 +33,7 @@
 
             });
         }
+
+        init();
     }
 })();
