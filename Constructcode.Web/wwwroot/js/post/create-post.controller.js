@@ -11,10 +11,9 @@
             content: ''
         }
 
+        init();
         function init() {
-            categoryService.getAllCategories().then(function (response) {
-                vm.categories = response.data;
-            });
+            getAllCategories();
         }
 
         vm.createPost = function () {
@@ -30,10 +29,14 @@
             var category = { title: categoryName };
 
             categoryService.createCategory(category).then(function () {
-
+                getAllCategories();
             });
         }
 
-        init();
+        function getAllCategories() {
+            categoryService.getAllCategories().then(function (response) {
+                vm.categories = response.data;
+            });
+        }
     }
 })();

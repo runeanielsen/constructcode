@@ -16,11 +16,13 @@ namespace Constructcode.Web.Controllers
             _accountService = accountService;
         }
 
+        [HttpGet]
         public IActionResult UnAuthorized()
         {
             return View();
         }
 
+        [HttpGet]
         public IActionResult Forbidden()
         {
             return View();

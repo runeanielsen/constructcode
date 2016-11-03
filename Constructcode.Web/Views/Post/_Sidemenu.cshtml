@@ -12,10 +12,11 @@
                 Categories
                 <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
-            <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled ">
-                <li><input type="checkbox"/> Hello 1</li>
-                <li><input type="checkbox"/> Hello 2</li>
-                <li><input type="checkbox"/> Hello 3</li>
+            <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled">
+                <li ng-repeat="category in vm.categories">
+                    <input type="checkbox"/>
+                    {{category.title}}
+                </li>
                 <li><a ng-click="vm.createCategory()"><i class="fa fa-folder-open"></i> New category </a></li>
             </ul>
         </li>
