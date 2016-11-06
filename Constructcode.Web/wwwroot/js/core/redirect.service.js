@@ -1,6 +1,8 @@
 ﻿(function () {
-    angular.module('app').service('redirectService', redirectService);
+    'use strict';
 
+    angular.module('app')
+        .service('redirectService', redirectService);
 
     function redirectService() {
         var service = this;

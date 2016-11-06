@@ -1,7 +1,8 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app').service('sideMenuService', sideMenuService);
+    angular.module('app')
+        .service('sideMenuService', sideMenuService);
 
     function sideMenuService(categoryService) {
         var service = this;
