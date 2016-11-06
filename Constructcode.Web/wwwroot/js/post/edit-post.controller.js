@@ -4,16 +4,17 @@
     angular.module('app')
         .controller('EditPostController', EditPostController);
 
-    function EditPostController(postService, categoryService, urlService) {
+    function EditPostController(postService, categoryService, urlService, sideMenuService) {
         var vm = this;
 
         vm.post = {};
         vm.categories = {};
+        vm.sideMenu = sideMenuService;
+        vm.categories = vm.sideMenu.categories;
 
         init();
         function init() {
             retrievePost();
-            getAllCategories();
         }
 
         function retrievePost() {
@@ -22,11 +23,5 @@
                 vm.post = response.data;
             });
         }      
-
-        function getAllCategories() {
-            categoryService.getAllCategories().then(function (response) {
-                vm.categories = response.data;
-            });
-        }
     }
 })();

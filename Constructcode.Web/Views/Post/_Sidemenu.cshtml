@@ -14,10 +14,15 @@
             </a>
             <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled">
                 <li ng-repeat="category in vm.categories">
-                    <input type="checkbox"/>
+                    <input type="checkbox" />
                     {{category.title}}
                 </li>
-                <li><a ng-click="vm.createCategory()"><i class="fa fa-folder-open"></i> New category </a></li>
+                <li>
+                    <a class="pointer" ng-click="vm.sideMenu.createCategory()">
+                        <i class="fa fa-folder-open"></i>
+                        New category
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="sidebar-brand" ng-init="vm.toggleTags = false" ng-click="vm.toggleTags = !vm.toggleTags">

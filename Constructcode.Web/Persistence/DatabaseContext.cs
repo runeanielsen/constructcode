@@ -22,8 +22,7 @@ namespace Constructcode.Web.Persistence
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(
-                @"Server=DESKTOP-9FQEU4A\SQLEXPRESS;Database=constructcodedb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=constructcodedb;Trusted_Connection=True;");
         }
     }
 }

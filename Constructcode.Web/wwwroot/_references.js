@@ -8,6 +8,7 @@
 /// <reference path="js/post/create-post.controller.js" />
 /// <reference path="js/post/edit-post.controller.js" />
 /// <reference path="js/post/post.service.js" />
+/// <reference path="js/post/side-menu.service.js" />
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular-sanitize/angular-sanitize.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
