@@ -10,7 +10,6 @@
         vm.post = {};
         vm.categories = {};
         vm.sideMenu = sideMenuService;
-        vm.categories = vm.sideMenu.categories;
 
         init();
         function init() {

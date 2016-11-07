@@ -13,7 +13,6 @@ namespace Constructcode.Web.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            PostCategoryConfigurations.Config(modelBuilder);
             CategoryConfigurations.Config(modelBuilder);
             PostConfigurations.Config(modelBuilder);
             MessageConfigurations.Config(modelBuilder);

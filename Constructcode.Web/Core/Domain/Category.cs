@@ -6,7 +6,5 @@ namespace Constructcode.Web.Core.Domain
     {
         public int Id { get; set; }
         public string Title { get; set; }
-
-        public IEnumerable<PostCategory> PostCategories { get; set; }
     }
 }

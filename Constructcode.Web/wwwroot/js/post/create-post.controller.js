@@ -8,15 +8,17 @@
         var vm = this;
 
         vm.sideMenu = sideMenuService;
-        vm.categories = vm.sideMenu.categories;
 
         vm.post = {
             title: '',
-            content: ''
+            content: '',
+            categories: []
         }
 
         vm.createPost = function () {
-            postService.createPost(vm.post);
+            insertSelectedCategoriesOnPost();
+            console.log(vm.post);
+            //postService.createPost(vm.post);
         }
     }
 })();

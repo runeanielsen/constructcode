@@ -13,8 +13,8 @@
                 <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
             <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled">
-                <li ng-repeat="category in vm.categories">
-                    <input type="checkbox" />
+                <li ng-repeat="category in vm.sideMenu.categories">
+                    <input type="checkbox" ng-model="vm.selectedCategories" />
                     {{category.title}}
                 </li>
                 <li>
