@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
 using Constructcode.Web.ViewModels;
@@ -20,7 +21,7 @@ namespace Constructcode.Web.Controllers.Api
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody]CategoryViewModel vm)
+        public IActionResult Create([FromBody]CreateCategoryViewModel vm)
         {
             _categoryService.CreateCategory(_mapper.Map<Category>(vm));
             return Ok();
@@ -29,7 +30,7 @@ namespace Constructcode.Web.Controllers.Api
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_categoryService.GetAllCategories());
+            return Ok(_mapper.Map<IEnumerable<CategoryViewModel>>(_categoryService.GetAllCategories()));
         }
     }
 }

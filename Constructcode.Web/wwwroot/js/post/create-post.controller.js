@@ -18,7 +18,13 @@
         vm.createPost = function () {
             insertSelectedCategoriesOnPost();
             console.log(vm.post);
-            //postService.createPost(vm.post);
+            postService.createPost(vm.post).then(function() {
+
+            });
+        }
+
+        function insertSelectedCategoriesOnPost() {
+            vm.post.categories = vm.sideMenu.categories.filter(c => c.selected);
         }
     }
 })();

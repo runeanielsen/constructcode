@@ -11,8 +11,8 @@ namespace Constructcode.Web.Core.Domain
         public string Url { get; set; }
         public DateTime Created { get; set; }
 
-        public IEnumerable<Message> Messages { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
+        public List<Message> Messages { get; set; }
+        public List<PostCategory> PostCategories { get; set; }
 
         public Post()
         {

@@ -1,8 +1,7 @@
 ﻿namespace Constructcode.Web.ViewModels
 {
-    public class CategoryViewModel
+    public class CreateCategoryViewModel
     {
-        public int Id { get; set; }
         public string Title { get; set; }
     }
 }

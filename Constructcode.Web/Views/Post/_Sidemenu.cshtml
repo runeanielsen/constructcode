@@ -14,7 +14,7 @@
             </a>
             <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled">
                 <li ng-repeat="category in vm.sideMenu.categories">
-                    <input type="checkbox" ng-model="vm.selectedCategories" />
+                    <input type="checkbox" ng-model="category.selected" />
                     {{category.title}}
                 </li>
                 <li>

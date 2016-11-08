@@ -8,6 +8,9 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
     {
         public CategoryProfile()
         {
+            CreateMap<CreateCategoryViewModel, Category>();
+            CreateMap<Category, CreateCategoryViewModel>();
+
             CreateMap<CategoryViewModel, Category>();
             CreateMap<Category, CategoryViewModel>();
         }
