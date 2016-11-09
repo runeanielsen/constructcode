@@ -20,6 +20,7 @@ namespace Constructcode.Web.Configurations
                 cfg.AddProfile<PostProfile>();
                 cfg.AddProfile<AccountProfile>();
                 cfg.AddProfile<CategoryProfile>();
+                cfg.AddProfile<PostCategoryProfile>();
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();

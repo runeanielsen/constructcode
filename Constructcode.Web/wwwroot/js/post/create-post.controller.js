@@ -12,19 +12,24 @@
         vm.post = {
             title: '',
             content: '',
-            categories: []
+            postCategories: []
         }
 
         vm.createPost = function () {
             insertSelectedCategoriesOnPost();
-            console.log(vm.post);
             postService.createPost(vm.post).then(function() {
 
             });
         }
 
         function insertSelectedCategoriesOnPost() {
-            vm.post.categories = vm.sideMenu.categories.filter(c => c.selected);
+            createPostCategories(vm.sideMenu.categories.filter(c => c.selected));
+        }
+
+        function createPostCategories(selectedCategories) {
+            $.each(selectedCategories, function(index, category) {
+                vm.post.postCategories.push({ categoryId: category.id });
+            });
         }
     }
 })();
