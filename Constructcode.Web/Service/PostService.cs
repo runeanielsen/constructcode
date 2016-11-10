@@ -26,7 +26,7 @@ namespace Constructcode.Web.Service
 
         public Post GetBlogPost(int id)
         {
-            return _unitOfWork.Posts.SingleOrDefault(a => a.Id == id);
+            return _unitOfWork.Posts.Get(id);
         }
 
         public void UpdatePost(Post post)

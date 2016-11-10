@@ -4,6 +4,6 @@ namespace Constructcode.Web.Core.Repositories
 {
     public interface IPostRepository : IRepository<Post>
     {
-        
+        Post Get(int id);
     }
 }

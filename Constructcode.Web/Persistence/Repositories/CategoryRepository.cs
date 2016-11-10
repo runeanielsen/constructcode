@@ -6,11 +6,10 @@ namespace Constructcode.Web.Persistence.Repositories
 {
     public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
-        public CategoryRepository(DbContext context) 
-            : base(context)
+        public DatabaseContext DatabaseContext => Context as DatabaseContext;
+
+        public CategoryRepository(DbContext context) : base(context)
         {
         }
-
-        public DatabaseContext PlutoContext => Context as DatabaseContext;
     }
 }
