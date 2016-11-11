@@ -13,10 +13,11 @@ namespace Constructcode.Web.Service
             _unitOfWork = unitOfWork;
         }
 
-        public void CreateCategory(Category category)
+        public Category CreateCategory(Category category)
         {
             _unitOfWork.Categories.Add(category);
             _unitOfWork.Complete();
+            return category;
         }
 
         public IEnumerable<Category> GetAllCategories()

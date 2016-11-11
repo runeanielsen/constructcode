@@ -23,8 +23,8 @@ namespace Constructcode.Web.Controllers.Api
         [HttpPost]
         public IActionResult Create([FromBody]CreateCategoryViewModel vm)
         {
-            _categoryService.CreateCategory(_mapper.Map<Category>(vm));
-            return Ok();
+            var createdCategory = _categoryService.CreateCategory(_mapper.Map<Category>(vm));
+            return Ok(_mapper.Map<CategoryViewModel>(createdCategory));
         }
 
         [HttpGet]

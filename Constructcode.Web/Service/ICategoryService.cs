@@ -5,7 +5,7 @@ namespace Constructcode.Web.Service
 {
     public interface ICategoryService
     {
-        void CreateCategory(Category category);
+        Category CreateCategory(Category category);
         IEnumerable<Category> GetAllCategories();
     }
 }

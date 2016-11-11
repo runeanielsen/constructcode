@@ -22,8 +22,9 @@
 
             var category = { title: categoryName };
 
-            categoryService.createCategory(category).then(function () {
-                getAllCategories();
+            categoryService.createCategory(category).then(function (response) {
+                console.log(response);
+                insertSideMenuCategory(response.data);
             });
         }
 
@@ -35,11 +36,15 @@
 
         function setupSideMenuCategory(categories) {
             angular.forEach(categories, function(category) {
-                service.categories.push({
-                    title: category.title,
-                    id: category.id,
-                    selected: false
-                });
+                insertSideMenuCategory(category);
+            });
+        }
+
+        function insertSideMenuCategory(category) {
+            service.categories.push({
+                title: category.title,
+                id: category.id,
+                selected: false
             });
         }
     }
