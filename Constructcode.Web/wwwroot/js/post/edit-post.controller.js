@@ -8,7 +8,6 @@
         var vm = this;
 
         vm.post = {};
-        vm.categories = {};
         vm.sideMenu = sideMenuService;
 
         init();
@@ -17,10 +16,18 @@
         }
 
         function retrievePost() {
-            vm.postId = urlService.getLastUrlParameter();
-            postService.getPostOnId(vm.postId).then(function (response) {
+            postService.getPostOnId(urlService.getLastUrlParameter()).then(function (response) {
                 vm.post = response.data;
+                mapSelectedCategories();
             });
         }      
+
+        function mapSelectedCategories() {
+            angular.forEach(vm.sideMenu.categories, function(sideMenuCategory) {
+                if (vm.post.postCategories.filter(pc => pc.categoryId === sideMenuCategory.id).length > 0) {
+                    sideMenuCategory.selected = true;
+                }
+            });
+        }
     }
 })();

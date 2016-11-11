@@ -7,7 +7,7 @@
     function sideMenuService(categoryService) {
         var service = this;
 
-        service.categories = {};
+        service.categories = [];
 
         init();
         function init() {
@@ -29,7 +29,17 @@
 
         function getAllCategories() {
             categoryService.getAllCategories().then(function (response) {
-                service.categories = response.data;
+                setupSideMenuCategory(response.data);
+            });
+        }
+
+        function setupSideMenuCategory(categories) {
+            angular.forEach(categories, function(category) {
+                service.categories.push({
+                    title: category.title,
+                    id: category.id,
+                    selected: false
+                });
             });
         }
     }
