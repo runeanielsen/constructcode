@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
+using System.Linq;
 
 namespace Constructcode.Web.Service
 {
@@ -33,7 +33,11 @@ namespace Constructcode.Web.Service
 
         public void UpdatePost(Post post)
         {
-            
+            var postCategories = _unitOfWork.PostCategories.Find(pc => pc.PostId == post.Id).ToList();
+            _unitOfWork.PostCategories.RemoveRange(postCategories);
+            _unitOfWork.Complete();
+
+            _unitOfWork.PostCategories.AddRange(post.PostCategories);
             _unitOfWork.Posts.Update(post);      
             _unitOfWork.Complete();
         }

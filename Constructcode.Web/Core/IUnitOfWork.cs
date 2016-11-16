@@ -8,6 +8,7 @@ namespace Constructcode.Web.Core
         IPostRepository Posts { get; }
         ICategoryRepository Categories { get; }
         IAccountRepository Accounts { get; }
+        IPostCategoryRepository PostCategories { get; }
 
         void Complete();
     }
