@@ -13,7 +13,7 @@
                             <input type="text" name="title" class="title-createpost" placeholder="Title" ng-model="vm.post.title" />
 
                             <div class="form-group">
-                                <textarea id="edit" name="content" ng-model="vm.post.content" style="width:100%"></textarea>
+                                <div text-angular ng-model="vm.post.content"></div>
                             </div>
 
                             <button ng-click="vm.createPost()" class="btn btn-success">Create post</button>

@@ -13,7 +13,7 @@
             return $http.post(serviceRoute + 'create', category);
         }
 
-        service.getAllCategories = function (category) {
+        service.getAllCategories = function () {
             return $http.get(serviceRoute + 'getAll');
         }
 

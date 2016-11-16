@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').controller('AdminController', AdminController);
 
-    function AdminController($sce, postService) {
+    function AdminController(postService) {
         var vm = this;
 
         vm.posts = [];
