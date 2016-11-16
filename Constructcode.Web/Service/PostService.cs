@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
 
@@ -15,6 +16,7 @@ namespace Constructcode.Web.Service
 
         public void CreatePost(Post post)
         {
+            post.SetCreatedTime();
             _unitOfWork.Posts.Add(post);
             _unitOfWork.Complete();
         }
@@ -31,6 +33,7 @@ namespace Constructcode.Web.Service
 
         public void UpdatePost(Post post)
         {
+            
             _unitOfWork.Posts.Update(post);      
             _unitOfWork.Complete();
         }

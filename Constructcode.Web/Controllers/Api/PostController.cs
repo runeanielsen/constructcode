@@ -34,7 +34,7 @@ namespace Constructcode.Web.Controllers.Api
         {
             var blogPost = _postService.GetBlogPost(id);
 
-            return Ok(_mapper.Map<CreatePostViewModel>(blogPost));
+            return Ok(_mapper.Map<EditPostViewModel>(blogPost));
         }
 
         [HttpPost]
@@ -44,6 +44,17 @@ namespace Constructcode.Web.Controllers.Api
                 return BadRequest();
 
             _postService.CreatePost(_mapper.Map<Post>(vm));
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult UpdatePost([FromBody]EditPostViewModel vm)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            _postService.UpdatePost(_mapper.Map<Post>(vm));
 
             return Ok();
         }

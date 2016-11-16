@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace Constructcode.Web.Persistence.Repositories
 {
-    public class PostRepository : Repository<Post>,  IPostRepository
+    public class PostRepository : Repository<Post>, IPostRepository
     {
-        public DatabaseContext DatabaseContext => Context as DatabaseContext;
+        private DatabaseContext DatabaseContext => Context as DatabaseContext;
 
         public PostRepository(DbContext context) : base(context)
         {

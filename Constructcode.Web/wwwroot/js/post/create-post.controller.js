@@ -4,7 +4,7 @@
     angular.module('app')
         .controller('CreatePostController', CreatePostController);
 
-    function CreatePostController(postService, categoryService, sideMenuService) {
+    function CreatePostController(postService, categoryService, sideMenuService, redirectService) {
         var vm = this;
 
         vm.sideMenu = sideMenuService;
@@ -18,7 +18,7 @@
         vm.createPost = function () {
             insertSelectedCategoriesOnPost();
             postService.createPost(vm.post).then(function() {
-
+                redirectService.adminPage();
             });
         }
 

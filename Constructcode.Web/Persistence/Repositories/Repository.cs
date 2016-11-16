@@ -26,32 +26,32 @@ namespace Constructcode.Web.Persistence.Repositories
             return Context.Set<TEntity>().Where(predicate);
         }
 
-        public virtual TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
+        public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
         {
             return Context.Set<TEntity>().SingleOrDefault(predicate);
         }
 
-        public virtual void Add(TEntity entity)
+        public void Add(TEntity entity)
         {
             Context.Set<TEntity>().Add(entity);
         }
 
-        public virtual void AddRange(IEnumerable<TEntity> entities)
+        public void AddRange(IEnumerable<TEntity> entities)
         {
             Context.Set<TEntity>().AddRange(entities);
         }
 
-        public virtual void Remove(TEntity entity)
+        public void Remove(TEntity entity)
         {
             Context.Set<TEntity>().Remove(entity);
         }
 
-        public virtual void Update(TEntity entity)
+        public void Update(TEntity entity)
         {
-            Context.Entry(entity).State = EntityState.Modified;
+            Context.Set<TEntity>().Update(entity);
         }
 
-        public virtual void RemoveRange(IEnumerable<TEntity> entities)
+        public void RemoveRange(IEnumerable<TEntity> entities)
         {
             Context.Set<TEntity>().RemoveRange(entities);
         }

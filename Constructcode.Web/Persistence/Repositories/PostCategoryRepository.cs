@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Constructcode.Web.Persistence.Repositories
 {
-    public class AccountRepository : Repository<Account>, IAccountRepository
+    public class PostCategoryRepository : Repository<PostCategory>, IPostCategoryRepository
     {
         private DatabaseContext DatabaseContext => Context as DatabaseContext;
 
-        public AccountRepository(DbContext context) : base(context)
+        public PostCategoryRepository(DbContext context) : base(context)
         {
         }
     }

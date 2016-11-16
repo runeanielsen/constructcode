@@ -21,6 +21,10 @@
             return $http.post(serviceRoute + 'createPost', post);
         }
 
+        service.updatePost = function (post) {
+            return $http.post(serviceRoute + 'updatePost', post);
+        }
+
         return service;
     }
 })();

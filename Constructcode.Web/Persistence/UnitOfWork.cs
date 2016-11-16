@@ -11,6 +11,7 @@ namespace Constructcode.Web.Persistence
         public ICategoryRepository Categories { get; }
         public IAccountRepository Accounts { get; }
         public IPostRepository Posts { get; }
+        public IPostCategoryRepository PostCategories { get; set; }
 
         public UnitOfWork()
         {
@@ -18,6 +19,7 @@ namespace Constructcode.Web.Persistence
             Posts = new PostRepository(_context);
             Categories = new CategoryRepository(_context);
             Accounts = new AccountRepository(_context);
+            PostCategories = new PostCategoryRepository(_context);
         }
 
         public void Dispose()

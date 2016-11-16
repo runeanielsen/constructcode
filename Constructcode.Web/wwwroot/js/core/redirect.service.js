@@ -7,8 +7,13 @@
     function redirectService() {
         var service = this;
 
-        service.homePage = '/';
-        service.adminPage = '/Admin';
+        service.homePage = function() {
+            window.location.href = '/';
+        }
+
+        service.adminPage = function() {
+            window.location.href = '/Admin';
+        }
 
         return service;
     }

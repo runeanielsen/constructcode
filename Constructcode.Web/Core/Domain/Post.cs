@@ -14,16 +14,16 @@ namespace Constructcode.Web.Core.Domain
         public List<Message> Messages { get; set; }
         public List<PostCategory> PostCategories { get; set; }
 
-        public Post()
-        {
-            Created = DateTime.Now;
-        }
-
         public string GetIntroduction()
         {
             const int introductionTextLength = 700;
 
             return Content.Substring(0, Content.Length > introductionTextLength ? introductionTextLength : Content.Length);
+        }
+
+        public void SetCreatedTime()
+        {
+            Created = DateTime.Now;
         }
     }
 }
