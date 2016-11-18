@@ -18,7 +18,7 @@
         vm.createPost = function () {
             insertSelectedCategoriesOnPost();
             postService.createPost(vm.post).then(function() {
-                redirectService.adminPage();
+                redirectService.admin(true);
             });
         }
 

@@ -1,10 +1,11 @@
 ﻿(function () {
     angular.module('app').controller('AdminController', AdminController);
 
-    function AdminController(postService) {
+    function AdminController(redirectService, postService) {
         var vm = this;
 
         vm.posts = [];
+        vm.redirect = redirectService;
 
         function init() {
             postService.getAllPosts().then(function(response) {
