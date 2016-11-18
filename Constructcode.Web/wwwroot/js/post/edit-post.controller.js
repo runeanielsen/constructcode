@@ -22,6 +22,12 @@
             });
         }
 
+        vm.deletePost = function() {
+            postService.deletePost(vm.post.id).then(function () {
+                redirectService.admin(true);
+            });
+        }
+
         function retrievePost() {
             postService.getPostOnId(urlService.getLastUrlParameter()).then(function (response) {
                 vm.post = response.data;

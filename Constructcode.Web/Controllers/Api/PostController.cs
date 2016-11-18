@@ -58,5 +58,12 @@ namespace Constructcode.Web.Controllers.Api
 
             return Ok();
         }
+
+        [HttpDelete]
+        public IActionResult DeletePost(int id)
+        {
+            _postService.DeletePost(id);
+            return Ok();
+        }
     }
 }

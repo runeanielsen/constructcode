@@ -17,6 +17,10 @@
             return $http.get(serviceRoute + 'getPost/' + id);
         }
 
+        service.deletePost = function (id) {
+            return $http.delete(serviceRoute + 'deletePost/' + id);
+        }
+
         service.createPost = function (post) {
             return $http.post(serviceRoute + 'createPost', post);
         }
