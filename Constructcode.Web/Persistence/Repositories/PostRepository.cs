@@ -23,5 +23,11 @@ namespace Constructcode.Web.Persistence.Repositories
         {
             return DatabaseContext.Posts.Include(a => a.PostCategories).SingleOrDefault(a => a.Id == id);
         }
+
+        public override void Update(Post entity)
+        {
+            Context.Set<Post>().Update(entity);
+            Context.Entry(entity).Property(a => a.Created).IsModified = false;
+        }
     }
 }
