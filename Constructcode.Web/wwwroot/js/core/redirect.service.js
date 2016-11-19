@@ -17,7 +17,7 @@
         }
 
         service.admin = function (shouldRedirect) {
-            var url = '/Admin';
+            var url = '/admin';
 
             if (!shouldRedirect)
                 return url;
@@ -26,7 +26,7 @@
         }
 
         service.createPost = function (shouldRedirect) {
-            var url = '/Admin/Post/CreatePost';
+            var url = '/admin/post/createPost';
 
             if (!shouldRedirect)
                 return url;
@@ -35,7 +35,7 @@
         }
 
         service.editPost = function (id, shouldRedirect) {
-            var url = '/Admin/Post/EditPost/' + id;
+            var url = '/admin/post/editPost/' + id;
 
             if (!shouldRedirect)
                 return url;
@@ -43,8 +43,17 @@
             return redirect(url);
         }
 
-        service.manageUsers= function (shouldRedirect) {
-            var url = '/Admin/ManageUsers';
+        service.manageUsers = function (shouldRedirect) {
+            var url = '/admin/manageUsers';
+
+            if (!shouldRedirect)
+                return url;
+
+            return redirect(url);
+        }
+
+        service.displayPost = function (urlParameter, shouldRedirect) {
+            var url = '/post/' + urlParameter;
 
             if (!shouldRedirect)
                 return url;

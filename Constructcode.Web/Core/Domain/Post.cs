@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Constructcode.Web.Core.Domain
 {
@@ -17,13 +18,19 @@ namespace Constructcode.Web.Core.Domain
         public string GetIntroduction()
         {
             const int introductionTextLength = 700;
+            var contentWithRemovedHtmlTags = Regex.Replace(Content, "<.*?>", string.Empty);
 
-            return Content.Substring(0, Content.Length > introductionTextLength ? introductionTextLength : Content.Length);
+            return contentWithRemovedHtmlTags.Substring(0, contentWithRemovedHtmlTags.Length > introductionTextLength ? introductionTextLength : contentWithRemovedHtmlTags.Length);
         }
 
         public void SetCreatedTime()
         {
             Created = DateTime.Now;
+        }
+
+        public void UpdateUrl()
+        {
+            Url = Title.ToLower().Replace(" ", "_");
         }
     }
 }
