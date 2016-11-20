@@ -7,6 +7,7 @@
 /// <reference path="js/frontpage/frontpage-controller.js" />
 /// <reference path="js/post/category.service.js" />
 /// <reference path="js/post/create-post.controller.js" />
+/// <reference path="js/post/display-post.controller.js" />
 /// <reference path="js/post/edit-post.controller.js" />
 /// <reference path="js/post/post.service.js" />
 /// <reference path="js/post/side-menu.service.js" />

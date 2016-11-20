@@ -23,7 +23,6 @@
             var category = { title: categoryName };
 
             categoryService.createCategory(category).then(function (response) {
-                console.log(response);
                 insertSideMenuCategory(response.data);
             });
         }

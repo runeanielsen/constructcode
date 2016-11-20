@@ -1,3 +1,5 @@
 ﻿(function() {
-    angular.module('app', ['textAngular']);
+    'use strict';
+
+    angular.module('app', ['textAngular', 'ngSanitize']);
 })();

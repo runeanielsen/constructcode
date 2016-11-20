@@ -17,6 +17,10 @@
             return $http.get(serviceRoute + 'getPost/' + id);
         }
 
+        service.getPostOnUrl = function(url) {
+            return $http.get(serviceRoute + 'getPostOnUrl/' + url);
+        }
+
         service.deletePost = function (id) {
             return $http.delete(serviceRoute + 'deletePost/' + id);
         }

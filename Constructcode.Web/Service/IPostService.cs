@@ -10,5 +10,6 @@ namespace Constructcode.Web.Service
         Post GetBlogPost(int id);
         void UpdatePost(Post post);
         void DeletePost(int id);
+        Post GetPostOnUrl(string url);
     }
 }

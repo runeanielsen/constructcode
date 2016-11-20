@@ -9,7 +9,6 @@ using Constructcode.Web.Core.Domain;
 
 namespace Constructcode.Web.Controllers.Api
 {
-    [Authorize]
     public class PostController : Controller
     {
         private readonly IPostService _postService;
@@ -34,9 +33,16 @@ namespace Constructcode.Web.Controllers.Api
         {
             var blogPost = _postService.GetBlogPost(id);
 
-            return Ok(_mapper.Map<EditPostViewModel>(blogPost));
+            return Ok(_mapper.Map<PostViewModel>(blogPost));
         }
 
+        [HttpGet]
+        public IActionResult GetPostOnUrl(string id)
+        {
+            return Ok(_mapper.Map<PostViewModel>(_postService.GetPostOnUrl(id)));
+        }
+
+        [Authorize]
         [HttpPost]
         public IActionResult CreatePost([FromBody]CreatePostViewModel vm)
         {
@@ -48,6 +54,7 @@ namespace Constructcode.Web.Controllers.Api
             return Ok();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult UpdatePost([FromBody]EditPostViewModel vm)
         {
@@ -59,6 +66,7 @@ namespace Constructcode.Web.Controllers.Api
             return Ok();
         }
 
+        [Authorize]
         [HttpDelete]
         public IActionResult DeletePost(int id)
         {

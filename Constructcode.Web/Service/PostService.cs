@@ -49,5 +49,10 @@ namespace Constructcode.Web.Service
             _unitOfWork.Posts.Remove(_unitOfWork.Posts.SingleOrDefault(a => a.Id == id));
             _unitOfWork.Complete();
         }
+
+        public Post GetPostOnUrl(string url)
+        {
+            return _unitOfWork.Posts.SingleOrDefault(a => a.Url == url);
+        }
     }
 }
