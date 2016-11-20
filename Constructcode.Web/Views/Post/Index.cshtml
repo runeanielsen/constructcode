@@ -6,17 +6,15 @@
     <div class="col-md-12">
         <div class="banner">
             <div class="banner-content">
-                <img class="pointer" ng-click="vm.redirect.home(true)" src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" alt="Construct Code logo" />
-                <h1 class="pointer" ng-click="vm.redirect.home(true)">Construct Code</h1>
+                <img title="Frontpage" class="pointer" ng-click="vm.redirect.home(true)" src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" alt="Construct Code logo" />
+                <h1 title="Frontpage" class="pointer" ng-click="vm.redirect.home(true)">Construct Code</h1>
                 <p>{{vm.post.title}}</p>
             </div>
         </div>
         <div class="frontpage-content">
             <div class="section">
                 <div class="introduction">
-                    <p ng-bind-html="vm.post.content">
-                        <i class="fa fa-long-arrow-right redirect-arrow"></i>
-                    </p>
+                    <p ng-bind-html="vm.post.content"></p>
                 </div>
             </div>
         </div>
