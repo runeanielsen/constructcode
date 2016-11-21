@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using AutoMapper;
 using Constructcode.Web.Service;
 using Constructcode.Web.ViewModels;
@@ -6,6 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Constructcode.Web.Core.Domain;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Net.Http.Headers;
 
 namespace Constructcode.Web.Controllers.Api
 {
@@ -40,6 +43,20 @@ namespace Constructcode.Web.Controllers.Api
         public IActionResult GetPostOnUrl(string id)
         {
             return Ok(_mapper.Map<PostViewModel>(_postService.GetPostOnUrl(id)));
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult UploadPostImage(IFormFile file)
+        {
+            using (var reader = new StreamReader(file.OpenReadStream()))
+            {
+                var fileContent = reader.ReadToEnd();
+                var parsedContentDisposition = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
+                var fileName = parsedContentDisposition.FileName;
+            }
+
+            return Ok();
         }
 
         [Authorize]

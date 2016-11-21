@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Constructcode.Web.ViewModels
 {
@@ -10,5 +11,6 @@ namespace Constructcode.Web.ViewModels
         public string Introduction { get; set; }
         public string Created { get; set; }
         public string Content { get; set; }
+        public IEnumerable<PostCategoryViewModel> PostCategories { get; set; }
     }
 }

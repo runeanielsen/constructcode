@@ -27,6 +27,10 @@
             });
         }
 
+        service.uploadImage = function() {
+            alert("Hello World");
+        }
+
         function getAllCategories() {
             categoryService.getAllCategories().then(function (response) {
                 setupSideMenuCategory(response.data);
