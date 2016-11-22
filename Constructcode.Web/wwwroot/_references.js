@@ -17,6 +17,7 @@
 /// <reference path="lib/jquery/dist/jquery.js" />
 /// <reference path="lib/jquery-validation/dist/jquery.validate.js" />
 /// <reference path="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" />
+/// <reference path="lib/ng-dialog/js/ngDialog.js" />
 /// <reference path="lib/rangy/rangy-classapplier.js" />
 /// <reference path="lib/rangy/rangy-core.js" />
 /// <reference path="lib/rangy/rangy-highlighter.js" />
