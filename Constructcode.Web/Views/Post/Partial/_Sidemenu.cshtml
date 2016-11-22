@@ -6,20 +6,8 @@
                 Admin Panel
             </a>
         </li>
-        <li class="sidebar-brand" ng-init="vm.toggleImages = false" ng-click="vm.toggleImages = !vm.toggleImages">
-            <a class="side-menu-item border-bottom">
-                <i class="fa fa-image"></i>
-                Upload Image
-                <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
-            </a>
-            <ul ng-show="vm.toggleImages" class="list-unstyled toggle-list">
-                <li>
-                    <form method="post" asp-action="UploadPostImage" asp-controller="Post" enctype="multipart/form-data">
-                        <input type="file" name="files" multiple />
-                        <input type="submit" value="Upload" />
-                    </form>
-                </li>
-            </ul>
+        <li class="sidebar-brand">
+            <a class="side-menu-item border-bottom"><i class="fa fa-image"></i>Upload Image</a>
         </li>
         <li class="sidebar-brand">
             <a class="side-menu-item border-bottom" ng-init="vm.toggleCategories = false" ng-click="vm.toggleCategories = !vm.toggleCategories">
