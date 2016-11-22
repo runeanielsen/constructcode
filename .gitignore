@@ -241,5 +241,5 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-/wwwroot/images/
-/wwwroot/lib/
+wwwroot/images/
+wwwroot/lib/
