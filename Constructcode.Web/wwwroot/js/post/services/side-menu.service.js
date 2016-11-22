@@ -28,14 +28,8 @@
         }
 
         service.uploadImage = function() {
-            var x = document.createElement('input');
-            x.setAttribute('type', 'file');
-            x.setAttribute('ng-change', 'vm.service.readUrl(this)');
-            x.click();
+
         }
-
-
-
 
         function getAllCategories() {
             categoryService.getAllCategories().then(function (response) {

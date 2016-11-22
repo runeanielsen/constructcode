@@ -6,7 +6,9 @@ using Constructcode.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Threading.Tasks;
 using Constructcode.Web.Core.Domain;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
 
@@ -16,11 +18,13 @@ namespace Constructcode.Web.Controllers.Api
     {
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
+        private readonly IHostingEnvironment _environment;
 
-        public PostController(IPostService postService, IMapper mapper)
+        public PostController(IPostService postService, IMapper mapper, IHostingEnvironment environment)
         {
             _postService = postService;
             _mapper = mapper;
+            _environment = environment;
         }
 
         [HttpGet]
@@ -47,13 +51,18 @@ namespace Constructcode.Web.Controllers.Api
 
         [Authorize]
         [HttpPost]
-        public IActionResult UploadPostImage(IFormFile file)
+        public async Task<IActionResult> UploadPostImage(IEnumerable<IFormFile> files)
         {
-            using (var reader = new StreamReader(file.OpenReadStream()))
+            var uploads = Path.Combine(_environment.WebRootPath, "images");
+            foreach (var file in files)
             {
-                var fileContent = reader.ReadToEnd();
-                var parsedContentDisposition = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
-                var fileName = parsedContentDisposition.FileName;
+                if (file.Length > 0)
+                {
+                    using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+                }
             }
 
             return Ok();
