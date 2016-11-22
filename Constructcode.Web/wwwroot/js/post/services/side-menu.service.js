@@ -4,7 +4,7 @@
     angular.module('app')
         .service('sideMenuService', sideMenuService);
 
-    function sideMenuService(categoryService) {
+    function sideMenuService(categoryService, ngDialog) {
         var service = this;
 
         service.categories = [];
@@ -14,7 +14,7 @@
             getAllCategories();
         }
 
-        service.createCategory = function() {
+        service.createCategory = function () {
             var categoryName = window.prompt('Insert category name', '');
 
             if ($.trim(categoryName) === '')
@@ -27,8 +27,13 @@
             });
         }
 
-        service.uploadImage = function() {
-
+        service.uploadImage = function () {
+            ngDialog.open(
+                {
+                    template: '/templates/upload-image.template.html',
+                    className: 'ngdialog-theme-default',
+                    controller: 'SomeController'
+                });
         }
 
         function getAllCategories() {
@@ -38,7 +43,7 @@
         }
 
         function setupSideMenuCategory(categories) {
-            angular.forEach(categories, function(category) {
+            angular.forEach(categories, function (category) {
                 insertSideMenuCategory(category);
             });
         }
