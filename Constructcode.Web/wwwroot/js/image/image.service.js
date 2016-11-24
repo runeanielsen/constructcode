@@ -4,12 +4,21 @@
     angular.module('app')
         .service('imageService', imageService);
 
-    function imageService() {
+    function imageService($http, apiConfigService) {
         var service = this;
 
+        var serviceRoute = apiConfigService.getDefaultApiRoute + 'post/';
+
+        service.uploadImage = function (imageFile) {
+            return $http({
+                method: 'POST',
+                url: serviceRoute + 'UploadPostImage',
+                data: imageFile,
+                headers: { 'Content-Type': undefined }
+            });
 
 
-
+        }
 
         return service;
     }

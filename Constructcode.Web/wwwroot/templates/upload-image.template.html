@@ -1,6 +1,6 @@
 ﻿<h3> Upload Image</h3>
 
-<form method="post" asp-action="Index" asp-controller="Home" enctype="multipart/form-data">
-    <input type="file" name="files" multiple />
-    <input type="submit" value="Upload" />
+<form>
+    <input type="file" file-input >
+    <button ng-click="vm.uploadImage()">Upload</button>
 </form>

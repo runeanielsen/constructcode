@@ -32,7 +32,7 @@
                 {
                     template: '/templates/upload-image.template.html',
                     className: 'ngdialog-theme-default',
-                    controller: 'SomeController'
+                    controller: 'UploadImageController as vm'
                 });
         }
 

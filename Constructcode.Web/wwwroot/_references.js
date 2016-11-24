@@ -5,6 +5,7 @@
 /// <reference path="js/core/redirect.service.js" />
 /// <reference path="js/core/url.service.js" />
 /// <reference path="js/frontpage/frontpage.controller.js" />
+/// <reference path="js/image/file-input.directive.js" />
 /// <reference path="js/image/image.service.js" />
 /// <reference path="js/image/upload-image.controller.js" />
 /// <reference path="js/post/controllers/create-post.controller.js" />
