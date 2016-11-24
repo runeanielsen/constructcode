@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using Constructcode.Web.Core.Domain;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Net.Http.Headers;
 
 namespace Constructcode.Web.Controllers.Api
 {
