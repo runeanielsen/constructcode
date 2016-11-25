@@ -59,7 +59,7 @@ namespace Constructcode.Web.Controllers.Api
                 await file.CopyToAsync(fileStream);
             }
 
-            return Ok();
+            return Ok($"/images/{file.FileName}");
         }
 
         [Authorize]

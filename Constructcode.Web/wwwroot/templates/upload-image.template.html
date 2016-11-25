@@ -1,6 +1,7 @@
 ﻿<h3> Upload Image</h3>
 
 <form>
-    <input type="file" file-input >
+    <input type="file" file-input="vm.file">
     <button ng-click="vm.uploadImage()">Upload</button>
+    <p>Imagepath: {{vm.uploadedImagePath}}</p>
 </form>
