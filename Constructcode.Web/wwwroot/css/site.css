@@ -166,6 +166,7 @@ footer {
     width: 90%;
 }
 
+/*Override default angular text editor*/
 .ta-scroll-window.form-control {
     min-height: 790px;
     max-height: 790px;
