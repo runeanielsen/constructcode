@@ -159,11 +159,20 @@ footer {
     }
 
 .fr-box.fr-basic .fr-element {
-    height: 650px;
+    min-height: 650px;
 }
 
 .post-container {
     width: 90%;
+}
+
+.ta-scroll-window.form-control {
+    min-height: 790px;
+    max-height: 790px;
+}
+
+.ta-scroll-window > .ta-bind {
+    min-height: 788px;
 }
 
 /*Admin*/
