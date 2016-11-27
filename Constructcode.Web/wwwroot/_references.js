@@ -27,6 +27,3 @@
 /// <reference path="lib/rangy/rangy-selectionsaverestore.js" />
 /// <reference path="lib/rangy/rangy-serializer.js" />
 /// <reference path="lib/rangy/rangy-textrange.js" />
-/// <reference path="lib/textangular/dist/textAngular.js" />
-/// <reference path="lib/textangular/dist/textAngular-sanitize.js" />
-/// <reference path="lib/textangular/dist/textAngularSetup.js" />

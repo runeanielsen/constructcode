@@ -166,16 +166,6 @@ footer {
     width: 90%;
 }
 
-/*Override default angular text editor*/
-.ta-scroll-window.form-control {
-    min-height: 790px;
-    max-height: 790px;
-}
-
-.ta-scroll-window > .ta-bind {
-    min-height: 788px;
-}
-
 /*Admin*/
 .admin-post {
     border-bottom: 1px solid #e6e3df;

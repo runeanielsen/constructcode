@@ -1,5 +1,5 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('app', ['textAngular', 'ngSanitize', 'ngDialog']);
+    angular.module('app', ['ngSanitize', 'ngDialog']);
 })();

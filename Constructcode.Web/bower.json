@@ -9,7 +9,6 @@
     "font-awesome": "4.6.1",
     "angular": "1.5.8",
     "angular-sanitize": "1.5.8",
-    "textAngular": "1.5.1",
     "ng-dialog": "0.6.0"
   },
   "devDependencies": {
