@@ -16,6 +16,10 @@
     color: red;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .inline {
     display: inline;
 }
@@ -46,6 +50,14 @@
         background-color: #733089;
         border: none;
         border-radius: 0;
+    }
+    .login-form h3 {
+        margin-top: 20px;
+    }
+
+    .login-header {
+        text-align: center;
+        margin-top: 7px;
     }
 
 :hover .login-form .btn:hover {
