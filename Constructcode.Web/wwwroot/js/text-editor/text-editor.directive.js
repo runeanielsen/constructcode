@@ -4,12 +4,16 @@
     angular.module('app')
         .directive('textEditor', textEditor);
 
-    function textEditor() {
+    function textEditor($sce) {
         var link = function (scope) {
             var vm = scope;
 
+            scope.$watch('content', function () {
+                console.log('i was here!');
+            });
+
             vm.insertBoldText = function () {
-                scope.content = "Hello World!";
+                vm.content = '<h3>Hello World!</h3>';
             }
         }
 

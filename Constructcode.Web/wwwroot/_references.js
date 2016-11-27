@@ -14,6 +14,7 @@
 /// <reference path="js/post/services/category.service.js" />
 /// <reference path="js/post/services/post.service.js" />
 /// <reference path="js/post/services/side-menu.service.js" />
+/// <reference path="js/text-editor/contenteditable.directive.js" />
 /// <reference path="js/text-editor/text-editor.directive.js" />
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular-sanitize/angular-sanitize.js" />
