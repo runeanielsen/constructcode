@@ -1,0 +1,12 @@
+﻿.text-editor-content {
+    background-color: white;
+    padding: 7px;
+}
+
+.text-editor-menu {
+    margin-bottom: 5px;
+}
+
+.text-editor-menu button {
+    border: none;
+}
