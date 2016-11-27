@@ -9,7 +9,8 @@
     "font-awesome": "4.6.1",
     "angular": "1.5.8",
     "angular-sanitize": "1.5.8",
-    "ng-dialog": "0.6.0"
+    "ng-dialog": "0.6.0",
+    "angular-ui-tinymce": "0.0.17" 
   },
   "devDependencies": {
     "font-awesome": "^4.6.3"
@@ -19,3 +20,4 @@
     "font-awesome": "^4.6.3"
   }
 }
+
