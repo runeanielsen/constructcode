@@ -14,6 +14,6 @@
             autoresize_max_height: 600
         };
 
-        return this;
+        return service;
     }
 })();
