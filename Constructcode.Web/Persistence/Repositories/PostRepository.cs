@@ -16,7 +16,7 @@ namespace Constructcode.Web.Persistence.Repositories
 
         public override IEnumerable<Post> GetAll()
         {
-            return DatabaseContext.Posts.Include(a => a.PostCategories);
+            return DatabaseContext.Posts.Include(a => a.PostCategories).ThenInclude(b => b.Category);
         }
 
         public Post Get(int id)

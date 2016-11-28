@@ -12,7 +12,7 @@ namespace Constructcode.Web.Persistence.EntityConfigurations
             modelBuilder.Entity<PostCategory>()
                 .HasKey(t => new { t.PostId, t.CategoryId });
 
-            modelBuilder.Entity<PostCategory>()
+           modelBuilder.Entity<PostCategory>()
                 .HasOne(pc => pc.Post)
                 .WithMany(pc => pc.PostCategories)
                 .HasForeignKey(pt => pt.PostId);
