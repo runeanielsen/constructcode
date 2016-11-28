@@ -13,7 +13,7 @@
                             <input type="text" name="title" class="title-createpost" placeholder="Title" ng-model="vm.post.title" />
 
                             <div class="form-group">
-                                <div ng-model="vm.post.content"></div>
+                                <textarea ui-tinymce="vm.tinymceOptions" ng-model="vm.post.content"></textarea>
                             </div>
 
                             <button ng-click="vm.createPost()" class="btn btn-success">Create post</button>

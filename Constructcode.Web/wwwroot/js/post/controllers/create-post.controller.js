@@ -4,10 +4,11 @@
     angular.module('app')
         .controller('CreatePostController', CreatePostController);
 
-    function CreatePostController(postService, categoryService, sideMenuService, redirectService) {
+    function CreatePostController(postService, categoryService, sideMenuService, redirectService, tinymceConfigService) {
         var vm = this;
 
         vm.sideMenu = sideMenuService;
+        vm.tinymceOptions = tinymceConfigService.tinymceOptions;
 
         vm.post = {
             title: '',

@@ -4,11 +4,12 @@
     angular.module('app')
         .controller('EditPostController', EditPostController);
 
-    function EditPostController(postService, categoryService, urlService, sideMenuService, redirectService) {
+    function EditPostController(postService, categoryService, urlService, sideMenuService, redirectService, tinymceConfigService) {
         var vm = this;
 
         vm.post = {};
         vm.sideMenu = sideMenuService;
+        vm.tinymceOptions = tinymceConfigService.tinymceOptions;
 
         init();
         function init() {

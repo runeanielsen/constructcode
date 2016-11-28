@@ -162,7 +162,7 @@ footer {
     }
 
     .title-createpost::-webkit-input-placeholder {
-        color: black;
+        color: rgba(0, 0, 0, 0.4);
     }
 
 .button-default {

@@ -2,6 +2,7 @@
 /// <reference path="js/admin/admin.controller.js" />
 /// <reference path="js/api-config.service.js" />
 /// <reference path="js/app.js" />
+/// <reference path="js/config/tinymce-config.service.js" />
 /// <reference path="js/core/redirect.service.js" />
 /// <reference path="js/core/url.service.js" />
 /// <reference path="js/frontpage/frontpage.controller.js" />
