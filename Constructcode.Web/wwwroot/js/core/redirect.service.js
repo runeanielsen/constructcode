@@ -35,7 +35,7 @@
         }
 
         service.editPost = function (id, shouldRedirect) {
-            var url = '/admin/post/editPost/' + id;
+            var url = '/admin/post/editpost/' + id;
 
             if (!shouldRedirect)
                 return url;
@@ -44,7 +44,7 @@
         }
 
         service.manageUsers = function (shouldRedirect) {
-            var url = '/admin/manageUsers';
+            var url = '/admin/manageusers';
 
             if (!shouldRedirect)
                 return url;
