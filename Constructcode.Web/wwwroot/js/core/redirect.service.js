@@ -61,6 +61,15 @@
             return redirect(url);
         }
 
+        service.displayPostOnCategory = function (urlParameter, shouldRedirect) {
+            var url = '/categories/' + urlParameter.toLowerCase();
+
+            if (!shouldRedirect)
+                return url;
+
+            return redirect(url);
+        }
+
         function redirect(url) {
             window.location.href = url;
         }
