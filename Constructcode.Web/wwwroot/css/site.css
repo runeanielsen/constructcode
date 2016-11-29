@@ -138,9 +138,12 @@ pre {
     height: 40px;
     padding: 4px 8px;
     font-size: 16px;
-    color: #847b79;
     margin-right: 10px;
 }
+
+    .category-container .category-title a {
+        color: #847b79;
+    }
 
 .button-readmore {
     width: 100px;
