@@ -231,6 +231,22 @@ footer {
     border-bottom: 1px solid #d9e3ea;
 }
 
+.edit-container {
+    color: gray;
+    padding-right: 15px;
+    right: 0;
+    position: absolute;
+    display: inline;
+}
+
+    .edit-container i {
+        padding-left: 5px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -ms-user-select: none;
+    }
+
 .side-menu-item {
     text-indent: 10px;
     cursor: pointer;
