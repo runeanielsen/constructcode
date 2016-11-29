@@ -32,5 +32,12 @@ namespace Constructcode.Web.Controllers.Api
         {
             return Ok(_mapper.Map<IEnumerable<CategoryViewModel>>(_categoryService.GetAllCategories()));
         }
+
+        [HttpPost]
+        public IActionResult Edit([FromBody]CategoryViewModel vm)
+        {
+            _categoryService.EditCategory(_mapper.Map<Category>(vm));
+            return Ok();
+        }
     }
 }

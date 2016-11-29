@@ -7,5 +7,6 @@ namespace Constructcode.Web.Service
     {
         Category CreateCategory(Category category);
         IEnumerable<Category> GetAllCategories();
+        void EditCategory(Category category);
     }
 }

@@ -24,5 +24,11 @@ namespace Constructcode.Web.Service
         {
             return _unitOfWork.Categories.GetAll();
         }
+
+        public void EditCategory(Category category)
+        {
+            _unitOfWork.Categories.Update(category);
+            _unitOfWork.Complete();
+        }
     }
 }

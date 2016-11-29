@@ -36,6 +36,17 @@
                 });
         }
 
+        service.editCategory = function(category) {
+            var categoryName = window.prompt('Insert category name', '');
+
+            if ($.trim(categoryName) === '')
+                return;
+
+            categoryService.editCategory({title: categoryName, id: category.id}).then(function() {
+                category.title = categoryName;
+            });
+        }
+
         function getAllCategories() {
             categoryService.getAllCategories().then(function (response) {
                 setupSideMenuCategory(response.data);

@@ -17,6 +17,10 @@
             return $http.get(serviceRoute + 'getAll');
         }
 
+        service.editCategory = function (category) {
+            return $http.post(serviceRoute + 'edit', category);
+        }
+
         return service;
     }
 })();
