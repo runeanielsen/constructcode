@@ -30,5 +30,11 @@ namespace Constructcode.Web.Service
             _unitOfWork.Categories.Update(category);
             _unitOfWork.Complete();
         }
+
+        public void DeleteCategory(int categoryId)
+        {
+            _unitOfWork.Categories.Remove(_unitOfWork.Categories.SingleOrDefault(a => a.Id == categoryId));
+            _unitOfWork.Complete();
+        }
     }
 }

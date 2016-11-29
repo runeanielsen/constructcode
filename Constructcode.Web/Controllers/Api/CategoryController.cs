@@ -39,5 +39,12 @@ namespace Constructcode.Web.Controllers.Api
             _categoryService.EditCategory(_mapper.Map<Category>(vm));
             return Ok();
         }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            _categoryService.DeleteCategory(id);
+            return Ok();
+        }
     }
 }

@@ -47,6 +47,12 @@
             });
         }
 
+        service.deleteCategory = function(category) {          
+            categoryService.deleteCategory(category.id).then(function () {
+                service.categories = service.categories.filter(item => item !== category);
+            });
+        }
+
         function getAllCategories() {
             categoryService.getAllCategories().then(function (response) {
                 setupSideMenuCategory(response.data);

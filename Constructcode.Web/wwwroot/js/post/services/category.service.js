@@ -21,6 +21,10 @@
             return $http.post(serviceRoute + 'edit', category);
         }
 
+        service.deleteCategory = function (categoryId) {
+            return $http.delete(serviceRoute + 'delete/' + categoryId);
+        }
+
         return service;
     }
 })();
