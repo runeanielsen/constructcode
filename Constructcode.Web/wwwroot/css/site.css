@@ -126,6 +126,22 @@ pre {
         padding-bottom: 25px;
     }
 
+    .section .category-container {
+        text-align: center;
+    }
+
+.category-container .category-title {
+    display: inline;
+    background-color: #eeedea;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    padding: 4px 8px;
+    font-size: 16px;
+    color: #847b79;
+    margin-right: 10px;
+}
+
 .button-readmore {
     width: 100px;
     color: white;
