@@ -10,5 +10,12 @@ namespace Constructcode.Web.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        [Route("Post/Category/{categoryName}")]
+        public IActionResult Category(string categoryName)
+        {
+            return View();
+        }
     }
 }

@@ -35,9 +35,17 @@ namespace Constructcode.Web.Controllers.Api
         }
 
         [HttpGet]
+        public IActionResult GetAllPostsOnCategory(string id)
+        {
+            var blogposts = _postService.GetAllPostsOnCategory(id).OrderByDescending(a => a.Created);
+
+            return Ok(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
+        }
+
+        [HttpGet]
         public IActionResult GetPost(int id)
         {
-            var blogPost = _postService.GetBlogPost(id);
+            var blogPost = _postService.GetPost(id);
 
             return Ok(_mapper.Map<PostViewModel>(blogPost));
         }

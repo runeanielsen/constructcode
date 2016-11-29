@@ -62,7 +62,7 @@
         }
 
         service.displayPostOnCategory = function (urlParameter, shouldRedirect) {
-            var url = '/categories/' + urlParameter.toLowerCase();
+            var url = '/post/category/' + urlParameter.toLowerCase();
 
             if (!shouldRedirect)
                 return url;

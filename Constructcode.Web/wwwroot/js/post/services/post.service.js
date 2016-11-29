@@ -13,6 +13,10 @@
             return $http.get(serviceRoute + 'getAllPosts');
         }
 
+        service.getAllPostsOnCategory = function (categoryName) {
+            return $http.get(serviceRoute + 'getAllPostsOnCategory/' + categoryName);
+        }
+
         service.getPostOnId = function (id) {
             return $http.get(serviceRoute + 'getPost/' + id);
         }

@@ -1,27 +1,7 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
 <div class="row" ng-controller="FrontPageController as vm">
-    <div class="col-md-12">
-        <div class="banner">
-            <div class="banner-content">
-                <img src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" alt="Construct Code logo" />
-                <h1>Construct Code</h1>
-                <p>Learn, Build & Improve</p>
-            </div>
-        </div>
-        <div class="frontpage-content" ng-repeat="post in vm.posts">
-            <div class="section">
-                <h2 class="title"><a href="{{vm.redirect.displayPost(post.url)}}">{{post.title}}</a></h2>
-                <p class="datetime"> {{post.created}}</p>
-                <div class="introduction">
-                    <p>{{post.introduction}}...</p>
-                    <div class="category-container">
-                        <div ng-repeat="category in post.categories" class="category-title"><a href="{{vm.redirect.displayPostOnCategory(category.title)}}">{{category.title}}</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("../Shared/_DisplayPost")
 </div>
