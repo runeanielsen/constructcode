@@ -144,6 +144,10 @@ pre {
         color: #847b79;
     }
 
+    .category-container .category-title a {
+        text-decoration: none;
+    }
+
 .button-readmore {
     width: 100px;
     color: white;
