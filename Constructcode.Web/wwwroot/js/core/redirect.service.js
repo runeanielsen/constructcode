@@ -26,7 +26,7 @@
         }
 
         service.createPost = function (shouldRedirect) {
-            var url = '/admin/post/createPost';
+            var url = '/admin/post/createpost';
 
             if (!shouldRedirect)
                 return url;
