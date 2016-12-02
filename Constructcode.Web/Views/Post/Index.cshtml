@@ -1,10 +1,8 @@
-﻿<div class="row" ng-controller="DisplayPostController as vm">'
+﻿<div class="row" ng-controller="DisplayPostController as vm">
     <div class="col-md-12">
         <div class="banner">
             <div class="banner-content">
-                <img title="Frontpage" class="pointer"
-                     ng-click="vm.redirect.home(true)" src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" alt="Construct Code logo" />
-                <h1 title="Frontpage" class="pointer" ng-click="vm.redirect.home(true)">Construct Code</h1>
+                @Html.Partial("_TopBanner")
                 <p>{{vm.post.title}}</p>
             </div>
         </div>

@@ -18,7 +18,7 @@ pre {
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
+    display: none !important;
 }
 
 /*Common*/
@@ -88,13 +88,23 @@ pre {
         padding-top: 30px;
     }
 
-        .banner .banner-content p {
-            font-size: 1.4em;
-        }
-
     .banner h1 {
         margin-top: 12px;
     }
+
+    .banner a:hover {
+        text-decoration: none;
+    }
+
+    .banner .banner-content p {
+        font-size: 1.4em;
+    }
+
+    .banner .banner-content h1 {
+        color: white;
+    }
+
+
 
 /*Frontpage content*/
 .frontpage-content {

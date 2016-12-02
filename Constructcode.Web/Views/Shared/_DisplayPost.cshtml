@@ -1,8 +1,7 @@
 ﻿<div class="col-md-12">
     <div class="banner">
         <div class="banner-content">
-            <img src="http://www.constructcode.com/wp-content/uploads/2016/05/100.png" alt="Construct Code logo" />
-            <h1>Construct Code</h1>
+            @Html.Partial("_TopBanner")
             <p>Learn, Build & Improve</p>
         </div>
     </div>
@@ -13,7 +12,9 @@
             <div class="introduction">
                 <p>{{post.introduction}}...</p>
                 <div class="category-container">
-                    <div ng-repeat="category in post.categories" class="category-title"><a href="{{vm.redirect.displayPostOnCategory(category.url)}}">{{category.title}}</a></div>
+                    <div ng-repeat="category in post.categories" class="category-title">
+                        <a href="{{vm.redirect.displayPostOnCategory(category.url)}}">{{category.title}}</a>
+                    </div>
                 </div>
             </div>
         </div>
