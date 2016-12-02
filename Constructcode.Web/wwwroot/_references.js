@@ -18,6 +18,7 @@
 /// <reference path="js/post/services/side-menu.service.js" />
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular-sanitize/angular-sanitize.js" />
+/// <reference path="lib/angular-toastr/dist/angular-toastr.tpls.js" />
 /// <reference path="lib/angular-ui-tinymce/src/tinymce.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />

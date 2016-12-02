@@ -6,13 +6,17 @@
     <title>@ViewData["Title"] - Construct Code</title>
 
     <environment names="Development">
+        @*Third party*@
         <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/angular-toastr/dist/angular-toastr.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-        <link rel="stylesheet" href="~/css/simple-sidebar.css" />
         <link rel="stylesheet" href="~/lib/ng-dialog/css/ngDialog.css" />
         <link rel="stylesheet" href="~/lib/ng-dialog/css/ngDialog-theme-default.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+
+        @*Site Specific*@
+        <link rel="stylesheet" href="~/css/simple-sidebar.css"/>
+        <link rel="stylesheet" href="~/css/site.css"/>
     </environment>
 
     <environment names="Staging,Production">
@@ -50,6 +54,7 @@
         <script src="~/lib/ng-dialog/js/ngDialog.js"></script>
         <script src="~/lib/tinymce/tinymce.js"></script>
         <script src="~/lib/angular-ui-tinymce/src/tinymce.js"></script>
+        <script src="~/lib/angular-toastr/dist/angular-toastr.js"></script>
 
         @*Application*@
         <script src="~/js/app.js"></script>
