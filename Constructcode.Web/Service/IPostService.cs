@@ -12,5 +12,6 @@ namespace Constructcode.Web.Service
         void DeletePost(int id);
         Post GetPostOnUrl(string url);
         IEnumerable<Post> GetAllPostsOnCategory(string categoryUrl);
+        Validation ValidatePost(Post post);
     }
 }

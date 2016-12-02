@@ -74,10 +74,13 @@ namespace Constructcode.Web.Controllers.Api
         [HttpPost]
         public IActionResult CreatePost([FromBody]CreatePostViewModel vm)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
+            var mappedPost = _mapper.Map<Post>(vm);
 
-            _postService.CreatePost(_mapper.Map<Post>(vm));
+            var validation = _postService.ValidatePost(mappedPost);
+            if (!validation.IsValid)
+                return StatusCode(validation.StatusCodeAsIntegar, validation.Message);
+
+            _postService.CreatePost(mappedPost);
 
             return Ok();
         }
@@ -86,10 +89,13 @@ namespace Constructcode.Web.Controllers.Api
         [HttpPost]
         public IActionResult UpdatePost([FromBody]EditPostViewModel vm)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
+            var mappedPost = _mapper.Map<Post>(vm);
 
-            _postService.UpdatePost(_mapper.Map<Post>(vm));
+            var validation = _postService.ValidatePost(mappedPost);
+            if (!validation.IsValid)
+                return StatusCode(validation.StatusCodeAsIntegar, validation.Message);
+
+            _postService.UpdatePost(mappedPost);
 
             return Ok();
         }

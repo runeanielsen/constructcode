@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
 using System.Linq;
+using System.Net;
 
 namespace Constructcode.Web.Service
 {
@@ -17,9 +18,6 @@ namespace Constructcode.Web.Service
 
         public void CreatePost(Post post)
         {
-            if (_unitOfWork.Posts.Find(a => string.Equals(a.Title, post.Title, StringComparison.CurrentCultureIgnoreCase)).Any())
-                throw new Exception("Another post with that title already exist");
-
             post.UpdateUrl();
             post.SetCreatedTime();
             _unitOfWork.Posts.Add(post);
@@ -43,9 +41,6 @@ namespace Constructcode.Web.Service
 
         public void UpdatePost(Post post)
         {
-            if (_unitOfWork.Posts.Find(a => string.Equals(a.Title, post.Title, StringComparison.CurrentCultureIgnoreCase)).Any())
-                throw new Exception("Another post with that title already exist");
-
             var postCategories = _unitOfWork.PostCategories.Find(pc => pc.PostId == post.Id).ToList();
             _unitOfWork.PostCategories.RemoveRange(postCategories);
             _unitOfWork.Complete();
@@ -65,6 +60,17 @@ namespace Constructcode.Web.Service
         public Post GetPostOnUrl(string url)
         {
             return _unitOfWork.Posts.SingleOrDefault(a => a.Url == url);
+        }
+
+        public Validation ValidatePost(Post post)
+        {
+            if (post.Title == string.Empty)
+                return new Validation(false, "Post title cannot be empty", HttpStatusCode.BadRequest);
+
+            if (_unitOfWork.Posts.Find(a => string.Equals(a.Title, post.Title, StringComparison.CurrentCultureIgnoreCase)).Any())
+                return new Validation(false, "Another post with that title already exist", HttpStatusCode.BadRequest);
+
+            return new Validation(true);
         }
     }
 }

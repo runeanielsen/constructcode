@@ -48,6 +48,9 @@ namespace Constructcode.Web.Service
 
         public Validation ValidateCategory(Category category)
         {
+            if (category.Title == string.Empty)
+                return new Validation(false, "Category name cannot be empty", HttpStatusCode.BadRequest);
+
             if (_unitOfWork.Categories.Find(a => string.Equals(a.Title, category.Title, StringComparison.CurrentCultureIgnoreCase)).Any())
                 return new Validation(false, "A category with that name already exists", HttpStatusCode.BadRequest);
 
