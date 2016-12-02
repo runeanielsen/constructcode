@@ -18,8 +18,11 @@ namespace Constructcode.Web.Core.Domain
         public string GetIntroduction()
         {
             const int introductionTextLength = 700;
+
             var contentWithRemovedHtmlTags = Regex.Replace(Content, "<.*?>", string.Empty);
             contentWithRemovedHtmlTags = Regex.Replace(contentWithRemovedHtmlTags, "&nbsp;", string.Empty);
+            contentWithRemovedHtmlTags = Regex.Replace(contentWithRemovedHtmlTags, "&ldquo;", string.Empty);
+            contentWithRemovedHtmlTags = Regex.Replace(contentWithRemovedHtmlTags, "&rdquo;", string.Empty);
 
             return contentWithRemovedHtmlTags.Substring(0, contentWithRemovedHtmlTags.Length > introductionTextLength ? introductionTextLength : contentWithRemovedHtmlTags.Length);
         }
