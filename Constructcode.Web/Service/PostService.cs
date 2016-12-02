@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace Constructcode.Web.Service
 
         public void CreatePost(Post post)
         {
+            if (_unitOfWork.Posts.Find(a => string.Equals(a.Title, post.Title, StringComparison.CurrentCultureIgnoreCase)).Any())
+                throw new Exception("Another post with that title already exist");
+
             post.UpdateUrl();
             post.SetCreatedTime();
             _unitOfWork.Posts.Add(post);
@@ -39,13 +43,16 @@ namespace Constructcode.Web.Service
 
         public void UpdatePost(Post post)
         {
+            if (_unitOfWork.Posts.Find(a => string.Equals(a.Title, post.Title, StringComparison.CurrentCultureIgnoreCase)).Any())
+                throw new Exception("Another post with that title already exist");
+
             var postCategories = _unitOfWork.PostCategories.Find(pc => pc.PostId == post.Id).ToList();
             _unitOfWork.PostCategories.RemoveRange(postCategories);
             _unitOfWork.Complete();
 
             post.UpdateUrl();
             _unitOfWork.PostCategories.AddRange(post.PostCategories);
-            _unitOfWork.Posts.Update(post);      
+            _unitOfWork.Posts.Update(post);
             _unitOfWork.Complete();
         }
 

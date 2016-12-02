@@ -9,5 +9,6 @@ namespace Constructcode.Web.Service
         IEnumerable<Category> GetAllCategories();
         void EditCategory(Category category);
         void DeleteCategory(int categoryId);
+        Validation ValidateCategory(Category category);
     }
 }

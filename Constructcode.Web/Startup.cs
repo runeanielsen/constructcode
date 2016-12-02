@@ -1,5 +1,7 @@
-﻿using Constructcode.Web.Configurations;
+﻿using System.Net;
+using Constructcode.Web.Configurations;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -35,7 +37,6 @@ namespace ConstructCode.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
             }
             else
             {
@@ -55,14 +56,14 @@ namespace ConstructCode.Web
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
-                    name: "api",
-                    template: "api/{controller}/{action}/{id?}");
+                    "api",
+                    "api/{controller}/{action}/{id?}");
                 routes.MapRoute(
-                    name: "admin",
-                    template: "Admin/{controller=Admin}/{action=Index}/{id?}");
+                    "admin",
+                    "Admin/{controller=Admin}/{action=Index}/{id?}");
             });
         }
     }

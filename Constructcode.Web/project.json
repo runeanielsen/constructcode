@@ -29,7 +29,8 @@
     },
     "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0",
     "AutoMapper": "5.1.1",
-    "AutoMapper.Extensions.Microsoft.DependencyInjection": "1.1.2"
+    "AutoMapper.Extensions.Microsoft.DependencyInjection": "1.1.2",
+    "Microsoft.AspNetCore.Mvc.WebApiCompatShim": "1.0.1"
   },
 
   "tools": {
