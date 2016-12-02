@@ -33,14 +33,17 @@
     <div class="body-content">
         <div class="container">
             @RenderBody()
-
-            <footer>
-                <div class="footer-container row">
-                    <div class="footer-content">
-                        <p class="text-center">&copy; 2016 - Construct Code</p>
+            
+            @if (ViewBag.ShowFooter != null && ViewBag.ShowFooter)
+            {
+                <footer>
+                    <div class="footer-container row">
+                        <div class="footer-content">
+                            <p class="text-center">&copy; 2016 - Construct Code</p>
+                        </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            }
         </div>
     </div>
 

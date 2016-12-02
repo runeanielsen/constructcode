@@ -6,6 +6,7 @@ namespace ConstructCode.Web.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.ShowFooter = true;
             return View();
         }
 

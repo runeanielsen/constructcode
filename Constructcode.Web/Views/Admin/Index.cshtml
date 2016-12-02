@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Admin";
 }
 
 <div class="row remove-body-content" ng-controller="AdminController as vm">
@@ -21,15 +21,13 @@
             </ul>
         </div>
         <div id="page-content-wrapper">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">                  
-                        <div class="admin-post" ng-repeat="post in vm.posts">
-                            <a href="{{vm.redirect.editPost(post.id)}}">
-                                <h3>{{post.title}}</h3>
-                            </a>
-                            <p>Created: {{post.created}}</p>
-                        </div>
+                    <div class="admin-post" ng-repeat="post in vm.posts">
+                        <a href="{{vm.redirect.editPost(post.id)}}">
+                            <h3>{{post.title}}</h3>
+                        </a>
+                        <p>Created: {{post.created}}</p>
                     </div>
                 </div>
             </div>

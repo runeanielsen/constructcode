@@ -18,6 +18,7 @@ namespace Constructcode.Web.Controllers
         [Route("Post/{url}")]
         public IActionResult Index(string url)
         {
+            ViewBag.ShowFooter = true;
             ViewBag.Title = _postService.GetPostOnUrl(url).Title;
             return View();
         }
@@ -26,6 +27,7 @@ namespace Constructcode.Web.Controllers
         [Route("Post/Category/{categoryUrl}")]
         public IActionResult Category(string categoryUrl)
         {
+            ViewBag.ShowFooter = true;
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
             return View();
         }
