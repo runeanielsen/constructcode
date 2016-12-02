@@ -24,6 +24,8 @@
 
             categoryService.createCategory(category).then(function (response) {
                 insertSideMenuCategory(response.data);
+            }, function(response) {
+                alert(response.data);
             });
         }
 
@@ -44,6 +46,8 @@
 
             categoryService.editCategory({title: categoryName, id: category.id}).then(function() {
                 category.title = categoryName;
+            }, function(response) {
+                alert(response.data);
             });
         }
 

@@ -78,7 +78,7 @@ namespace Constructcode.Web.Controllers.Api
 
             var validation = _postService.ValidatePost(mappedPost);
             if (!validation.IsValid)
-                return StatusCode(validation.StatusCodeAsIntegar, validation.Message);
+                return BadRequest(validation.Message);
 
             _postService.CreatePost(mappedPost);
 

@@ -67,7 +67,7 @@ namespace Constructcode.Web.Service
             if (post.Title == string.Empty)
                 return new Validation(false, "Post title cannot be empty", HttpStatusCode.BadRequest);
 
-            if (_unitOfWork.Posts.Find(a => string.Equals(a.Title, post.Title, StringComparison.CurrentCultureIgnoreCase)).Any())
+            if (_unitOfWork.Posts.Find(a => string.Equals(a.Title, post.Title, StringComparison.CurrentCultureIgnoreCase) && a.Id != post.Id).Any())
                 return new Validation(false, "Another post with that title already exist", HttpStatusCode.BadRequest);
 
             return new Validation(true);

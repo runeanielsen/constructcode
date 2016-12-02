@@ -18,8 +18,11 @@
 
         vm.savePost = function() {
             insertSelectedCategoriesOnPost();
+
             postService.updatePost(vm.post).then(function() {
                 redirectService.admin(true);
+            }, function(response) {
+                alert(response.data);
             });
         }
 

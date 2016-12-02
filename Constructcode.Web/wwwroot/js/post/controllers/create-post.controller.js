@@ -20,7 +20,10 @@
             insertSelectedCategoriesOnPost();
             postService.createPost(vm.post).then(function() {
                 redirectService.admin(true);
+            }, function(response) {
+                alert(response.data);
             });
+
         }
 
         function insertSelectedCategoriesOnPost() {
