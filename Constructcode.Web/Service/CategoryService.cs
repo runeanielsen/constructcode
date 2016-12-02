@@ -56,5 +56,10 @@ namespace Constructcode.Web.Service
 
             return new Validation(true);
         }
+
+        public Category GetCategoryOnUrl(string url)
+        {
+            return _unitOfWork.Categories.SingleOrDefault(a => a.Url == url);
+        }
     }
 }

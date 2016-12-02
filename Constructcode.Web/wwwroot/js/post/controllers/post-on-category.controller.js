@@ -12,7 +12,9 @@
 
         init();
         function init() {
-            postService.getAllPostsOnCategory(urlService.getLastUrlParameter()).then(function (response) {
+            var lastUrlParameter = urlService.getLastUrlParameter();
+
+            postService.getAllPostsOnCategory(lastUrlParameter).then(function (response) {
                 vm.posts = response.data;
             });
         }

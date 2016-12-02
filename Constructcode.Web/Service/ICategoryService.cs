@@ -10,5 +10,6 @@ namespace Constructcode.Web.Service
         void EditCategory(Category category);
         void DeleteCategory(int categoryId);
         Validation ValidateCategory(Category category);
+        Category GetCategoryOnUrl(string url);
     }
 }
