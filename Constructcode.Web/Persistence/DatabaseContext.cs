@@ -7,13 +7,13 @@ namespace Constructcode.Web.Persistence
 {
     public class DatabaseContext : DbContext
     {
-        private readonly IHostingEnvironment _env;
-
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<PostCategory> PostCategories { get; set; }
+
+        private readonly IHostingEnvironment _env;
 
         public DatabaseContext(IHostingEnvironment env)
         {
