@@ -27,10 +27,9 @@ namespace Constructcode.Web.Service
             return _unitOfWork.Posts.GetAll();
         }
 
-        public IEnumerable<Post> GetAllPostsOnCategory(string categoryName)
+        public IEnumerable<Post> GetAllPostsOnCategory(string categoryUrl)
         {
-            var posts = _unitOfWork.Posts.GetAll();
-            return posts.Where(a => a.PostCategories.Any(b => b.Category.Title.ToLower() == categoryName));
+            return _unitOfWork.Posts.GetAll().Where(a => a.PostCategories.Any(b => b.Category.Url == categoryUrl));
         }
 
         public Post GetPost(int id)

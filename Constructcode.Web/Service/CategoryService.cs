@@ -15,6 +15,7 @@ namespace Constructcode.Web.Service
 
         public Category CreateCategory(Category category)
         {
+            category.UpdateUrl();
             _unitOfWork.Categories.Add(category);
             _unitOfWork.Complete();
             return category;
@@ -27,6 +28,7 @@ namespace Constructcode.Web.Service
 
         public void EditCategory(Category category)
         {
+            category.UpdateUrl();
             _unitOfWork.Categories.Update(category);
             _unitOfWork.Complete();
         }

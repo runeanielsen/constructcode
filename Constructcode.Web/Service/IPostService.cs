@@ -11,6 +11,6 @@ namespace Constructcode.Web.Service
         void UpdatePost(Post post);
         void DeletePost(int id);
         Post GetPostOnUrl(string url);
-        IEnumerable<Post> GetAllPostsOnCategory(string categoryName);
+        IEnumerable<Post> GetAllPostsOnCategory(string categoryUrl);
     }
 }
