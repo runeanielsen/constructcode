@@ -43,8 +43,8 @@
             return redirect(url);
         }
 
-        service.manageUsers = function (shouldRedirect) {
-            var url = '/admin/manageusers';
+        service.manageAccount = function (shouldRedirect) {
+            var url = '/admin/account/manage';
 
             if (!shouldRedirect)
                 return url;
