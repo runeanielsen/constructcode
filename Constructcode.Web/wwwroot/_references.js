@@ -1,4 +1,5 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="js/account/manage-account.controller.js" />
 /// <reference path="js/admin/admin.controller.js" />
 /// <reference path="js/api-config.service.js" />
 /// <reference path="js/app.js" />
