@@ -1,0 +1,28 @@
+﻿.button-standard {
+    max-width: 200px;
+    background-color: gray;
+    border: none;
+    border-radius: 0;
+    color: white;
+    padding: 5px 20px;
+}
+
+.button-standard:hover {
+    cursor: pointer;
+}
+
+.button-standard.green {
+    background-color: #5cb85c;
+}
+
+.button-standard.green:hover {
+    background-color: #4c994c;
+}
+
+.button-standard.red {
+    background-color: #c9302c;
+}
+
+.button-standard.red:hover {
+    background-color: #b52b28;
+}

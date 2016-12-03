@@ -3,18 +3,17 @@
     Layout = "_Layout";
 }
 
-<div class="row remove-body-content" ng-controller="AdminController as vm">
+<div class="row remove-body-content" ng-controller="ManageAccount as vm">
     <div id="wrapper post-container">
         @Html.Partial("_SideBarAdmin")
         <div id="page-content-wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="admin-post" ng-repeat="post in vm.posts">
-                        <a href="{{vm.redirect.editPost(post.id)}}">
-                            <h3>{{post.title}}</h3>
-                        </a>
-                        <p>Created: {{post.created}}</p>
-                    </div>
+                    <label>New Password</label>
+                    <input type="text"/>
+                    <label>Repeat Password</label>
+                    <input type="text"/>
+                    <button class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
