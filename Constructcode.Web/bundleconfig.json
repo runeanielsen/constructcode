@@ -20,6 +20,16 @@
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
+      // Third Party
+      "wwwroot/lib/tether/dist/js/tether.min.js",
+      "wwwroot/lib/jquery/dist/jquery.min.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "wwwroot/lib/angular/angular.min.js",
+      "wwwroot/lib/angular-sanitize/angular-sanitize.min.js",
+      "wwwroot/lib/ng-dialog/js/ngDialog.min.js",
+      "wwwroot/lib/tinymce/tinymce.min.js",
+      "wwwroot/lib/angular-ui-tinymce/dist/tinymce.min.js",
+
       // Application
       "wwwroot/js/app.js",
 
