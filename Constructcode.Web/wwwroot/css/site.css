@@ -41,6 +41,10 @@ pre {
     cursor: pointer;
 }
 
+.side-menu-medium {
+    font-size: 15px;
+}
+
 /*Login page*/
 .center-form {
     margin: 0 auto;

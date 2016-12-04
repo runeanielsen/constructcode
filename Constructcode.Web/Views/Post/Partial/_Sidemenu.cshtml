@@ -6,9 +6,28 @@
                 Admin Panel
             </a>
         </li>
+
+        <li class="sidebar-brand" ng-init="vm.togglePublished = false">
+            <a class="side-menu-item border-bottom" ng-click="vm.togglePublished = !vm.togglePublished">
+                <i class="fa fa-calendar"></i>
+                Publish
+                <i ng-class="vm.togglePublished ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
+            </a>
+            <ul ng-show="vm.togglePublished" class="list-unstyled toggle-list">
+                <li>
+                    <div class="side-menu-medium">
+                        <i class="fa fa-eye"></i>
+                        <p class="inline">Published: Hidden</p>
+                        <p class="inline btn-link">Edit</p>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
         <li class="sidebar-brand">
             <a ng-click="vm.sideMenu.uploadImage()" class="side-menu-item border-bottom"><i class="fa fa-image"></i>Upload Image</a>
         </li>
+
         <li class="sidebar-brand">
             <a class="side-menu-item border-bottom" ng-init="vm.toggleCategories = false" ng-click="vm.toggleCategories = !vm.toggleCategories">
                 <i class="fa fa-pencil"></i>
@@ -26,6 +45,7 @@
                         <i ng-show="category.showEdit" ng-click="vm.sideMenu.deleteCategory(category)" class="fa fa-trash pointer"></i>
                     </div>
                 </li>
+
                 <li>
                     <a class="pointer" ng-click="vm.sideMenu.createCategory()">
                         <i class="fa fa-folder-open"></i>
@@ -34,14 +54,14 @@
                 </li>
             </ul>
         </li>
+
         <li class="sidebar-brand" ng-init="vm.toggleTags = false" ng-click="vm.toggleTags = !vm.toggleTags">
             <a class="side-menu-item border-bottom">
                 <i class="fa fa-tag"></i>
                 Tags
                 <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
-            <ul ng-show="vm.toggleTags" class="list-unstyled toggle-list">
-            </ul>
+            <ul ng-show="vm.toggleTags" class="list-unstyled toggle-list"></ul>
         </li>
     </ul>
 </div>
