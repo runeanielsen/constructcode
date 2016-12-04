@@ -3,6 +3,14 @@
     background-color: #f1f2f1;
 }
 
+.introduction img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    object-fit: contain;
+    height: 100%;
+}
+
 pre {
     background-color: #f3f3f3;
     border-radius: 4px;
