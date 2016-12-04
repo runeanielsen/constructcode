@@ -8,7 +8,7 @@
         </li>
 
         <li class="sidebar-brand" ng-init="vm.togglePublished = false">
-            <a class="side-menu-item border-bottom" ng-click="vm.togglePublished = !vm.togglePublished">
+            <a class="side-menu-item" ng-click="vm.togglePublished = !vm.togglePublished">
                 <i class="fa fa-calendar"></i>
                 Publish
                 <i ng-class="vm.togglePublished ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
@@ -25,16 +25,16 @@
         </li>
 
         <li class="sidebar-brand">
-            <a ng-click="vm.sideMenu.uploadImage()" class="side-menu-item border-bottom"><i class="fa fa-image"></i>Upload Image</a>
+            <a ng-click="vm.sideMenu.uploadImage()" class="side-menu-item"><i class="fa fa-image"></i>Upload Image</a>
         </li>
 
         <li class="sidebar-brand">
-            <a class="side-menu-item border-bottom" ng-init="vm.toggleCategories = false" ng-click="vm.toggleCategories = !vm.toggleCategories">
+            <a class="side-menu-item" ng-init="vm.toggleCategories = false" ng-click="vm.toggleCategories = !vm.toggleCategories">
                 <i class="fa fa-pencil"></i>
                 Categories
                 <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
-            <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled">
+            <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled border-bottom">
                 <li ng-repeat="category in vm.sideMenu.categories" ng-mouseover="category.showEdit = true" ng-mouseleave="category.showEdit = false">
                     <input type="checkbox" ng-model="category.selected" />
                     <p class="inline" ng-click="category.selected = !category.selected">

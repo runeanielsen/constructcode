@@ -68,6 +68,7 @@
 
     .sidebar-nav > .sidebar-brand {
         font-size: 18px;
+		border-bottom: 1px solid #d9e3ea;
     }
 
         .sidebar-nav > .sidebar-brand a {

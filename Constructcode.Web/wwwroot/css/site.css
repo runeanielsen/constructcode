@@ -278,6 +278,7 @@ footer {
     -moz-user-select: none;
     -khtml-user-select: none;
     -ms-user-select: none;
+    border-bottom: 1px solid #d9e3ea;
 }
 
     .side-menu-item i {
