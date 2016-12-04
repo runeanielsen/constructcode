@@ -21,11 +21,6 @@ pre {
     display: none !important;
 }
 
-/*Common*/
-.text-warning {
-    color: red;
-}
-
 .text-center {
     text-align: center;
 }
@@ -42,6 +37,10 @@ pre {
 .center-form {
     margin: 0 auto;
     width: 30%;
+}
+
+.text-error {
+    color: red;
 }
 
 .login-form {
