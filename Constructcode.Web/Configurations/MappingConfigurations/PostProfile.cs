@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using AutoMapper;
+﻿using AutoMapper;
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.ViewModels;
 using System.Linq;
