@@ -17,7 +17,6 @@
 /// <reference path="js/post/services/category.service.js" />
 /// <reference path="js/post/services/post.service.js" />
 /// <reference path="js/post/services/side-menu.service.js" />
-/// <reference path="js/site.min.js" />
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular-sanitize/angular-sanitize.js" />
 /// <reference path="lib/angular-ui-tinymce/src/tinymce.js" />
