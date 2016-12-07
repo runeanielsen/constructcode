@@ -1,15 +1,11 @@
 ﻿[
   {
-    "outputFile": "wwwroot/styles/site.css",
-    "inputFile": "wwwroot/styles/site.scss"
+    "outputFile": "wwwroot/styles/admin/admin-page.css",
+    "inputFile": "wwwroot/styles/admin/admin-page.scss"
   },
   {
-    "outputFile": "wwwroot/styles/simple-sidebar.css",
-    "inputFile": "wwwroot/styles/simple-sidebar.scss"
-  },
-  {
-    "outputFile": "wwwroot/styles/front-page.css",
-    "inputFile": "wwwroot/styles/front-page.scss"
+    "outputFile": "wwwroot/styles/admin/side-bar.css",
+    "inputFile": "wwwroot/styles/admin/side-bar.scss"
   },
   {
     "outputFile": "wwwroot/styles/common/_reset.css",
@@ -24,7 +20,15 @@
     "inputFile": "wwwroot/styles/common/buttons.scss"
   },
   {
-    "outputFile": "wwwroot/styles/login-page.css",
-    "inputFile": "wwwroot/styles/login-page.scss"
+    "outputFile": "wwwroot/styles/pages/front-page.css",
+    "inputFile": "wwwroot/styles/pages/front-page.scss"
+  },
+  {
+    "outputFile": "wwwroot/styles/pages/login-page.css",
+    "inputFile": "wwwroot/styles/pages/login-page.scss"
+  },
+  {
+    "outputFile": "wwwroot/styles/site.css",
+    "inputFile": "wwwroot/styles/site.scss"
   }
 ]
