@@ -1,26 +1,26 @@
 ﻿[
   {
-    "outputFile": "wwwroot/css/simple-sidebar.css",
-    "inputFile": "wwwroot/css/simple-sidebar.scss"
+    "outputFile": "wwwroot/styles/site.css",
+    "inputFile": "wwwroot/styles/site.scss"
   },
   {
-    "outputFile": "wwwroot/css/site.css",
-    "inputFile": "wwwroot/css/site.scss"
+    "outputFile": "wwwroot/styles/simple-sidebar.css",
+    "inputFile": "wwwroot/styles/simple-sidebar.scss"
   },
   {
-    "outputFile": "wwwroot/css/front-page.css",
-    "inputFile": "wwwroot/css/front-page.scss"
+    "outputFile": "wwwroot/styles/front-page.css",
+    "inputFile": "wwwroot/styles/front-page.scss"
   },
   {
-    "outputFile": "wwwroot/css/common/_reset.css",
-    "inputFile": "wwwroot/css/common/_reset.scss"
+    "outputFile": "wwwroot/styles/common/_reset.css",
+    "inputFile": "wwwroot/styles/common/_reset.scss"
   },
   {
-    "outputFile": "wwwroot/css/common/bootstrap-overrides.css",
-    "inputFile": "wwwroot/css/common/bootstrap-overrides.scss"
+    "outputFile": "wwwroot/styles/common/bootstrap-overrides.css",
+    "inputFile": "wwwroot/styles/common/bootstrap-overrides.scss"
   },
   {
-    "outputFile": "wwwroot/css/common/buttons.css",
-    "inputFile": "wwwroot/css/common/buttons.scss"
+    "outputFile": "wwwroot/styles/common/buttons.css",
+    "inputFile": "wwwroot/styles/common/buttons.scss"
   }
 ]

@@ -1,10 +1,36 @@
 ﻿$font-stack: 'Open Sans', sans-serif;
-
 $primary-color: #333;
-
 $background-color: #f1f2f1;
+
+
 
 body {
     font: 100% $font-stack;
     background-color: $background-color;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+footer {
+    .footer-content {
+        p {
+            text-align: center;
+            background-color: white;
+            padding-bottom: 20px;
+        }
+    }
 }
