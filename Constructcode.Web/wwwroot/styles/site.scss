@@ -4,9 +4,10 @@ $primary-color: #333;
 $background-color: #f1f2f1;
 $error-color: red;
 
-body {
+html, body {
     font: 100% $font-stack;
     background-color: $background-color;
+    height: 100%;
 }
 
 h1 {
@@ -41,4 +42,8 @@ footer {
 
 .text-center {
     text-align: center;
+}
+
+.no-padding {
+    padding: 0;
 }

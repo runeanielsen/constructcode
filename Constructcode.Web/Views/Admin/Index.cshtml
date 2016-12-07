@@ -4,12 +4,17 @@
 
 <div ng-controller="AdminController as vm">
     <div>
-        @Html.Partial("_SideBarAdmin")
-        <div class="admin-post" ng-repeat="post in vm.posts">
-            <a href="{{vm.redirect.editPost(post.id)}}">
-                <h3>{{post.title}}</h3>
-            </a>
-            <p>Created: {{post.created}}</p>
+        <div class="col-md-2 no-padding">
+            @Html.Partial("_SideBarAdmin")
+        </div>
+
+        <div class="col-md-10">
+            <div class="admin-post" ng-repeat="post in vm.posts">
+                <a href="{{vm.redirect.editPost(post.id)}}">
+                    <h3>{{post.title}}</h3>
+                </a>
+                <p>Created: {{post.created}}</p>
+            </div>
         </div>
     </div>
 </div>
