@@ -1,16 +1,20 @@
-﻿<div class="row" ng-controller="DisplayPostController as vm">
-    <div class="col-md-12">
-        <div class="banner">
-            <div class="banner-content">
-                @Html.Partial("_TopBanner")
-                <p>{{vm.post.title}}</p>
-            </div>
-        </div>
-        <div class="frontpage-content">
-            <div class="section">
-                <div class="introduction">
-                    <h3>{{vm.post.title}}</h3>
-                    <p ng-bind-html="vm.post.content"></p>
+﻿<div ng-controller="DisplayPostController as vm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="banner">
+                    <div class="banner-content">
+                        @Html.Partial("_TopBanner")
+                        <p>{{vm.post.title}}</p>
+                    </div>
+                </div>
+                <div class="frontpage-content">
+                    <div class="section">
+                        <div class="introduction">
+                            <h3>{{vm.post.title}}</h3>
+                            <p ng-bind-html="vm.post.content"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
