@@ -2,20 +2,14 @@
     ViewBag.Title = "Admin";
 }
 
-<div class="row remove-body-content" ng-controller="AdminController as vm">
-    <div id="wrapper post-container">
+<div ng-controller="AdminController as vm">
+    <div>
         @Html.Partial("_SideBarAdmin")
-        <div id="page-content-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="admin-post" ng-repeat="post in vm.posts">
-                        <a href="{{vm.redirect.editPost(post.id)}}">
-                            <h3>{{post.title}}</h3>
-                        </a>
-                        <p>Created: {{post.created}}</p>
-                    </div>
-                </div>
-            </div>
+        <div class="admin-post" ng-repeat="post in vm.posts">
+            <a href="{{vm.redirect.editPost(post.id)}}">
+                <h3>{{post.title}}</h3>
+            </a>
+            <p>Created: {{post.created}}</p>
         </div>
     </div>
 </div>

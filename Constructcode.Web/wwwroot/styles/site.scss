@@ -1,8 +1,8 @@
 ﻿$font-stack: 'Open Sans', sans-serif;
+
 $primary-color: #333;
 $background-color: #f1f2f1;
-
-
+$error-color: red;
 
 body {
     font: 100% $font-stack;
@@ -33,4 +33,12 @@ footer {
             padding-bottom: 20px;
         }
     }
+}
+
+.text-error {
+    color: $error-color;
+}
+
+.text-center {
+    text-align: center;
 }
