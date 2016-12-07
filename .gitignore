@@ -246,3 +246,5 @@ wwwroot/lib/
 /Constructcode.Web/wwwroot/images
 /Constructcode.Web/wwwroot/lib
 /Constructcode.Web/Properties/PublishProfiles
+/.idea/.idea.Constructcode/.idea
+/Constructcode.Web/wwwroot/styles/*.css

@@ -14,6 +14,7 @@
 /// <reference path="js/post/controllers/display-post.controller.js" />
 /// <reference path="js/post/controllers/edit-post.controller.js" />
 /// <reference path="js/post/controllers/post-on-category.controller.js" />
+/// <reference path="js/post/directives/side-menu.directive.js" />
 /// <reference path="js/post/services/category.service.js" />
 /// <reference path="js/post/services/post.service.js" />
 /// <reference path="js/post/services/side-menu.service.js" />

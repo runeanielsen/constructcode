@@ -1,0 +1,63 @@
+﻿
+
+
+<!--<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+
+        <li class="sidebar-brand">
+            <a asp-controller="Admin" asp-action="Index" class="side-menu-item border-bottom">
+                <i class="fa fa-home"></i>
+                Admin Panel
+            </a>
+        </li>
+
+        <li class="sidebar-brand" ng-init="vm.togglePublished = false">
+            <a class="side-menu-item" ng-click="vm.togglePublished = !vm.togglePublished">
+                <i class="fa fa-calendar"></i>
+                Publish
+                <i ng-class="vm.togglePublished ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
+            </a>
+            <ul ng-show="vm.togglePublished" class="list-unstyled toggle-list">
+                <li>
+                    <div class="side-menu-medium">
+                        <i class="fa fa-eye"></i>
+                        <p class="inline">Published: Hidden</p>
+                        <p class="inline btn-link">Edit</p>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li class="sidebar-brand">
+            <a ng-click="vm.sideMenu.uploadImage()" class="side-menu-item"><i class="fa fa-image"></i>Upload Image</a>
+        </li>
+
+        <li class="sidebar-brand">
+            <a class="side-menu-item" ng-init="vm.toggleCategories = false" ng-click="vm.toggleCategories = !vm.toggleCategories">
+                <i class="fa fa-pencil"></i>
+                Categories
+                <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
+            </a>
+            <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled border-bottom">
+                <li ng-repeat="category in vm.sideMenu.categories" ng-mouseover="category.showEdit = true" ng-mouseleave="category.showEdit = false">
+                    <input type="checkbox" ng-model="category.selected"/>
+                    <p class="inline" ng-click="category.selected = !category.selected">
+                        {{category.title}}
+                    </p>
+                    <div class="edit-container">
+                        <i ng-show="category.showEdit" ng-click="vm.sideMenu.editCategory(category)" class="fa fa-pencil pointer"></i>
+                        <i ng-show="category.showEdit" ng-click="vm.sideMenu.deleteCategory(category)" class="fa fa-trash pointer"></i>
+                    </div>
+                </li>
+
+                <li>
+                    <a class="pointer" ng-click="vm.sideMenu.createCategory()">
+                        <i class="fa fa-folder-open"></i>
+                        New category
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</div>-->

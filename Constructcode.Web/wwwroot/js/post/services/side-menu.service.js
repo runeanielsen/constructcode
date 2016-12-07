@@ -1,110 +1,80 @@
-﻿(function () {
-    'use strict';
+﻿//(function () {
+//    'use strict';
 
-    angular.module('app')
-        .directive('sideMenu', sideMenuDirective);
+//    //angular.module('app')
+//    //    .service('sideMenuService', sideMenuService);
 
+//    //function sideMenuService(categoryService, ngDialog) {
+//    //    var service = this;
 
-    function sideMenuDirective() {
-        var directive = {
-            link: link,
-            scope: {
-                post: '='
-            },
-            templateUrl: '/template/is/located/here.html',
-            restrict: 'EA',
-            controller: SideMenuController,
-            controllerAs: 'vm',
-            bindToController: true
-        };
-        return directive;
+//    //    service.categories = [];
 
-        function link(scope, element, attrs) {
+//    //    init();
+//    //    function init() {
+//    //        getAllCategories();
+//    //    }
 
-        }
-    }
+//    //    service.createCategory = function () {
+//    //        var categoryName = window.prompt('Insert category name', '');
 
-    SideMenuController.$inject = ['$scope'];
+//    //        if ($.trim(categoryName) === '')
+//    //            return;
 
-    function SideMenuController($scope) {
-        var vm = this;
+//    //        var category = { title: categoryName };
 
-    }
+//    //        categoryService.createCategory(category).then(function (response) {
+//    //            insertSideMenuCategory(response.data);
+//    //        }, function(response) {
+//    //            alert(response.data);
+//    //        });
+//    //    }
 
-    //angular.module('app')
-    //    .service('sideMenuService', sideMenuService);
+//    //    service.uploadImage = function () {
+//    //        ngDialog.open(
+//    //            {
+//    //                template: '/templates/upload-image.template.html',
+//    //                className: 'ngdialog-theme-default',
+//    //                controller: 'UploadImageController as vm'
+//    //            });
+//    //    }
 
-    //function sideMenuService(categoryService, ngDialog) {
-    //    var service = this;
+//    //    service.editCategory = function(category) {
+//    //        var categoryName = window.prompt('Insert category name', '');
 
-    //    service.categories = [];
+//    //        if ($.trim(categoryName) === '')
+//    //            return;
 
-    //    init();
-    //    function init() {
-    //        getAllCategories();
-    //    }
+//    //        categoryService.editCategory({title: categoryName, id: category.id}).then(function() {
+//    //            category.title = categoryName;
+//    //        }, function(response) {
+//    //            alert(response.data);
+//    //        });
+//    //    }
 
-    //    service.createCategory = function () {
-    //        var categoryName = window.prompt('Insert category name', '');
+//    //    service.deleteCategory = function(category) {          
+//    //        categoryService.deleteCategory(category.id).then(function () {
+//    //            service.categories = service.categories.filter(item => item !== category);
+//    //        });
+//    //    }
 
-    //        if ($.trim(categoryName) === '')
-    //            return;
+//    //    function getAllCategories() {
+//    //        categoryService.getAllCategories().then(function (response) {
+//    //            setupSideMenuCategory(response.data);
+//    //        });
+//    //    }
 
-    //        var category = { title: categoryName };
+//    //    function setupSideMenuCategory(categories) {
+//    //        angular.forEach(categories, function (category) {
+//    //            insertSideMenuCategory(category);
+//    //        });
+//    //    }
 
-    //        categoryService.createCategory(category).then(function (response) {
-    //            insertSideMenuCategory(response.data);
-    //        }, function(response) {
-    //            alert(response.data);
-    //        });
-    //    }
-
-    //    service.uploadImage = function () {
-    //        ngDialog.open(
-    //            {
-    //                template: '/templates/upload-image.template.html',
-    //                className: 'ngdialog-theme-default',
-    //                controller: 'UploadImageController as vm'
-    //            });
-    //    }
-
-    //    service.editCategory = function(category) {
-    //        var categoryName = window.prompt('Insert category name', '');
-
-    //        if ($.trim(categoryName) === '')
-    //            return;
-
-    //        categoryService.editCategory({title: categoryName, id: category.id}).then(function() {
-    //            category.title = categoryName;
-    //        }, function(response) {
-    //            alert(response.data);
-    //        });
-    //    }
-
-    //    service.deleteCategory = function(category) {          
-    //        categoryService.deleteCategory(category.id).then(function () {
-    //            service.categories = service.categories.filter(item => item !== category);
-    //        });
-    //    }
-
-    //    function getAllCategories() {
-    //        categoryService.getAllCategories().then(function (response) {
-    //            setupSideMenuCategory(response.data);
-    //        });
-    //    }
-
-    //    function setupSideMenuCategory(categories) {
-    //        angular.forEach(categories, function (category) {
-    //            insertSideMenuCategory(category);
-    //        });
-    //    }
-
-    //    function insertSideMenuCategory(category) {
-    //        service.categories.push({
-    //            title: category.title,
-    //            id: category.id,
-    //            selected: false
-    //        });
-    //    }
-    //}
-})();
+//    //    function insertSideMenuCategory(category) {
+//    //        service.categories.push({
+//    //            title: category.title,
+//    //            id: category.id,
+//    //            selected: false
+//    //        });
+//    //    }
+//    //}
+//})();

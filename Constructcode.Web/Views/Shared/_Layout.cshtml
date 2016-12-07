@@ -14,9 +14,11 @@
         <link rel="stylesheet" href="~/lib/ng-dialog/css/ngDialog-theme-default.css" />
 
         @*Site Specific*@
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/simple-sidebar.css"/>
-        <link rel="stylesheet" href="~/css/buttons.css" />
+        <link href="~/styles/common/_reset.css" rel="stylesheet" />
+        <link href="~/styles/common/bootstrap-overrides.css" rel="stylesheet" />
+        <link href="~/styles/site.css" rel="stylesheet" />
+        <link href="~/styles/common/buttons.css" rel="stylesheet" />
+
     </environment>
 
     <environment names="Staging,Production">
@@ -29,14 +31,13 @@
 
 </head>
 <body ng-app="app" ng-cloak>
-    <div class="body-content">
-        <div class="container">
+        <div>
             @RenderBody()
             
             @if (ViewBag.ShowFooter != null && ViewBag.ShowFooter)
             {
                 <footer>
-                    <div class="footer-container row">
+                    <div class="footer-container">
                         <div class="footer-content">
                             <p class="text-center">&copy; 2016 - Construct Code</p>
                         </div>
@@ -44,7 +45,6 @@
                 </footer>
             }
         </div>
-    </div>
 
     <environment names="Development">
         @*Third party*@
@@ -62,6 +62,7 @@
         
         @*Directives*@
         <script src="~/js/image/file-input.directive.js"></script>
+        <script src="~/js/post/directives/side-menu.directive.js"></script>
 
         @*Services*@
         <script src="~/js/post/services/post.service.js"></script>
