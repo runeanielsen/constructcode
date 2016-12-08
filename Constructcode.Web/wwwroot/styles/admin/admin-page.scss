@@ -1,1 +1,15 @@
-﻿
+﻿.admin-container {
+    margin: 15px 15px;
+
+    .admin-post, .admin-post-header {
+        background-color: white;
+        display:inline-block;
+        font-size: 1em;
+        padding: 5px 0;
+        border-bottom: 1px solid #d9e3ea;
+    }
+
+    .admin-post-header {
+        font-weight:bold;
+    }
+}
