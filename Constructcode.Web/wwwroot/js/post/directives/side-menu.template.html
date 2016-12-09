@@ -1,46 +1,44 @@
-﻿
-
-
-<!--<div id="sidebar-wrapper">
+﻿<div class="side-menu">
     <ul class="sidebar-nav">
-
-        <li class="sidebar-brand">
+        <!--Admin Panel-->
+        <li>
             <a asp-controller="Admin" asp-action="Index" class="side-menu-item border-bottom">
                 <i class="fa fa-home"></i>
                 Admin Panel
             </a>
         </li>
 
-        <li class="sidebar-brand" ng-init="vm.togglePublished = false">
-            <a class="side-menu-item" ng-click="vm.togglePublished = !vm.togglePublished">
+        <!--Publish-->
+        <li class="toggle-menu" ng-init="vm.togglePublished = false" ng-click="vm.togglePublished = !vm.togglePublished">
+            <a class="side-menu-item">
                 <i class="fa fa-calendar"></i>
                 Publish
                 <i ng-class="vm.togglePublished ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
-            <ul ng-show="vm.togglePublished" class="list-unstyled toggle-list">
+            <ul ng-show="vm.togglePublished" class="menu-container medium">
                 <li>
-                    <div class="side-menu-medium">
-                        <i class="fa fa-eye"></i>
-                        <p class="inline">Published: Hidden</p>
-                        <p class="inline btn-link">Edit</p>
-                    </div>
+                    <i class="fa fa-eye"></i>
+                    <p class="inline">Published: Hidden</p>
+                    <p class="inline btn-link">Edit</p>
                 </li>
             </ul>
         </li>
 
-        <li class="sidebar-brand">
-            <a ng-click="vm.sideMenu.uploadImage()" class="side-menu-item"><i class="fa fa-image"></i>Upload Image</a>
+        <!--Upload Image-->
+        <li>
+            <a ng-click="vm.sideMenu.uploadImage()"><i class="fa fa-image"></i>Upload Image</a>
         </li>
 
-        <li class="sidebar-brand">
-            <a class="side-menu-item" ng-init="vm.toggleCategories = false" ng-click="vm.toggleCategories = !vm.toggleCategories">
+        <!--Categories-->
+        <li>
+            <a ng-init="vm.toggleCategories = false" ng-click="vm.toggleCategories = !vm.toggleCategories">
                 <i class="fa fa-pencil"></i>
                 Categories
                 <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
-            <ul ng-show="vm.toggleCategories" class="toggle-list list-unstyled border-bottom">
+            <ul ng-show="vm.toggleCategories" class="menu-container small">
                 <li ng-repeat="category in vm.sideMenu.categories" ng-mouseover="category.showEdit = true" ng-mouseleave="category.showEdit = false">
-                    <input type="checkbox" ng-model="category.selected"/>
+                    <input type="checkbox" ng-model="category.selected" />
                     <p class="inline" ng-click="category.selected = !category.selected">
                         {{category.title}}
                     </p>
@@ -58,6 +56,5 @@
                 </li>
             </ul>
         </li>
-
     </ul>
-</div>-->
+</div>

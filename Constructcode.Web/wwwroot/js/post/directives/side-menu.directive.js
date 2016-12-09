@@ -3,10 +3,10 @@
 
     angular
         .module('app')
-        .directive('myExample', myExample)
+        .directive('sideMenu', sideMenu)
         .controller('ExampleController', ExampleController);
 
-    function myExample() {
+    function sideMenu() {
         var directive = {
             restrict: 'EA',
             templateUrl: '/js/post/directives/side-menu.template.html',

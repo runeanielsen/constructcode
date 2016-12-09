@@ -1,19 +1,31 @@
+$border-color: #d9e3ea;
+$background-color: #e9eff3;
+$arrow-color: #808080;
+$hover-color: #33bbe3;
+
 .side-menu {
     background-color: black;
     height: 100vh;
     width: 100%;
-    border-right: 1px solid #d9e3ea;
-    background: #e9eff3;
+    border-right: 1px solid $border-color;
+    background: $background-color;
 
     ul {
-        font-size: 1.2em;
+        font-size: 1.1em;
 
         li {
             line-height: 40px;
             padding-left: 25px;
             padding-top: 10px;
             padding-bottom: 10px;
-            border-bottom: 1px solid #d9e3ea;
+            border-bottom: 1px solid $border-color;
+
+            .toggle-menu {
+                :hover {
+                    color: $hover-color;
+                    cursor: pointer;
+                }
+            }
 
             a {
                 color: #2e4453;
@@ -24,10 +36,42 @@
             }
 
             :hover {
-                color: #33bbe3;
+                color: $hover-color;
                 background: none;
                 text-decoration: none;
             }
+        }
+    }
+
+    .arrow {
+        color: $arrow-color;
+        padding-right: 5px;
+        right: 0;
+        position: absolute;
+        margin-top: 10px;
+    }
+
+    .menu-container.small {
+        font-size: 0.8em;
+
+        li {
+            padding-left: 0;
+            border-bottom: none;
+            line-height: 40px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .menu-container.medium {
+        font-size: 0.9em;
+
+        li {
+            padding-left: 0;
+            border-bottom: none;
+            line-height: 40px;
+            padding-top: 0;
+            padding-bottom: 0;
         }
     }
 }
