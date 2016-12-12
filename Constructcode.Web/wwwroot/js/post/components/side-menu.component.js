@@ -1,16 +1,21 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app').component('sideMenu', {
-        bindings: {
-            post: '='
-        },
-        templateUrl: '/js/post/components/side-menu.template.html',
-        controllerAs: 'vm',
+    angular.module('app')
+        .component('sideMenu', sideMenuComponent())
 
-        controller: function () {
-            var vm = this;
-
+    function sideMenuComponent() {
+        return {
+            bindings: {
+                post: '='
+            },
+            templateUrl: '/js/post/components/side-menu.template.html',
+            controllerAs: 'vm',
+            controller: sideMenuController
         }
-    });
+
+        function sideMenuController() {
+            var vm = this;
+        }
+    }
 })();
