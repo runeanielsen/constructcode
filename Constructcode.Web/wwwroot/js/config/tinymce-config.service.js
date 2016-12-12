@@ -12,8 +12,6 @@
             toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
             toolbar2: 'link image preview media | forecolor backcolor | codesample',
             image_advtab: true,
-            skin: 'lightgray',
-            theme: 'modern',
             height: 'calc(100vh - 275px)'
         };
 
