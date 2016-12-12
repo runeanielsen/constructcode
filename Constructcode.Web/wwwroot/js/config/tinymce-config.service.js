@@ -14,7 +14,7 @@
             image_advtab: true,
             skin: 'lightgray',
             theme: 'modern',
-            autoresize_max_height: 600
+            height: 'calc(100vh - 275px)'
         };
 
         return service;
