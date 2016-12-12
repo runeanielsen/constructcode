@@ -16,5 +16,9 @@
                 vm.post = response.data;
             });
         }
+
+        vm.trustAsHtml = function () {
+            return $sce.trustAsHtml(vm.post.content);
+        };
     }
 })();

@@ -12,7 +12,7 @@
                     <div class="section">
                         <div class="introduction">
                             <h2>{{vm.post.title}}</h2>
-                            <p ng-bind-html="vm.post.content"></p>
+                            <p ng-bind-html="vm.trustAsHtml()"></p>
                         </div>
                     </div>
                 </div>
