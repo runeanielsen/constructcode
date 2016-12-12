@@ -26,6 +26,16 @@ $hover-color: #33bbe3;
                 cursor: pointer;
             }
 
+            a {
+                color: black;
+
+                &:hover {
+                    color: $hover-color;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+            }
+
             i {
                 margin-right: 10px;
             }
