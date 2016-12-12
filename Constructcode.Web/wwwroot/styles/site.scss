@@ -65,6 +65,12 @@ footer {
     display: inline;
 }
 
+.link-style {
+    color: $hover-color;
+    text-decoration: underline;
+    cursor:pointer;
+}
+
 .hover-pointer:hover {
     cursor: pointer;
     color: $hover-color;

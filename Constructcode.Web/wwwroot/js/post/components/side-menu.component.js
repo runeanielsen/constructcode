@@ -14,10 +14,13 @@
             controller: sideMenuController
         }
 
-        function sideMenuController(categoryService, ngDialog) {
+        function sideMenuController(categoryService, ngDialog, redirectService) {
             var vm = this;
+
             vm.categories = [];
             vm.post = {};
+
+            vm.redirect = redirectService;
 
             init();
             function init() {
@@ -76,7 +79,6 @@
             }
 
             function initSelectedCategories(){
-                console.log(vm.post);
                 angular.forEach(vm.post.postCategories, function (postCategory) {
                     vm.categories.filter(c => c.id === postCategory.categoryId)[0].selected = true;
                 });
