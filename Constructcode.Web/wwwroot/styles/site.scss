@@ -5,6 +5,10 @@ $background-color: #f1f2f1;
 $error-color: red;
 $hover-color: #33bbe3;
 
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
 html, body {
     font: 100% $font-stack;
     background-color: $background-color;
