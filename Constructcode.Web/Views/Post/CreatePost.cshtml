@@ -2,25 +2,22 @@
     ViewBag.Title = "Create Post";
 }
 
-<div class="row remove-body-content" ng-controller="CreatePostController as vm">
-    <div id="wrapper post-container">
-        @Html.Partial("Partial/_Sidemenu")
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form>
-                            <input type="text" name="title" class="title-createpost" placeholder="Title" ng-model="vm.post.title" />
+<div ng-controller="CreatePostController as vm">
+    <div class="col-md-12 no-padding">
+        <div class="col-md-2 no-padding">
+            <side-menu post="vm.post"></side-menu>
+        </div>
 
-                            <div class="form-group">
-                                <textarea ui-tinymce="vm.tinymceOptions" ng-model="vm.post.content"></textarea>
-                            </div>
+        <div class="col-md-10 edit-post">
+            <form>
+                <input type="text" ng-model="vm.post.title" placeholder="Title" />
 
-                            <button ng-click="vm.createPost()" class="button-standard green">Create post</button>
-                        </form>
-                    </div>
+                <div class="form-group">
+                    <textarea ui-tinymce="vm.tinymceOptions" ng-model="vm.post.content"></textarea>
                 </div>
-            </div>
+
+                <button ng-click="vm.createPost()" class="button-standard green">Create Post</button>
+            </form>
         </div>
     </div>
 </div>

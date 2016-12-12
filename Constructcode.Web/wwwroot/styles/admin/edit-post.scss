@@ -11,5 +11,9 @@
         width: 100%;
         border-bottom: 1px solid #d8dee2;
         margin-bottom: 10px;
+
+        &:focus {
+            outline: none;
+        }
     }
 }

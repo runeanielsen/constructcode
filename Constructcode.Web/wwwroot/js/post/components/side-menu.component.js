@@ -72,7 +72,6 @@
 
             vm.updatePostCategories = function () {
                 vm.post.postCategories = [];
-                console.log(vm.post);
                 angular.forEach(vm.categories.filter(c => c.selected), function (selectedCategory) {
                     vm.post.postCategories.push({ postId: vm.post.id, categoryId: selectedCategory.id });
                 });              
