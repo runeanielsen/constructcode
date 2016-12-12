@@ -69,7 +69,7 @@ $title-color: #2e4453;
     }
 
     .menu-container.small {
-        font-size: 0.8em;
+        font-size: 0.85em;
 
         li {
             padding-left: 0;
@@ -77,6 +77,11 @@ $title-color: #2e4453;
             line-height: 30px;
             padding-top: 10px;
             padding-bottom: 0;
+
+            input[type=checkbox] {
+                margin-right: 6px;
+                padding-top: 2px;
+            }
 
             p, a {
                 &:hover {

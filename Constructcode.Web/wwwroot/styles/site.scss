@@ -31,6 +31,12 @@ img {
     max-width: 100%;
 }
 
+input[type=checkbox] {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 footer {
     margin-bottom: 10px;
 

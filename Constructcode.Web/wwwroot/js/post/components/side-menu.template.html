@@ -19,7 +19,7 @@
                 <li>
                     <i class="fa fa-eye"></i>
                     <p class="inline">Published: Hidden</p>
-                    <p class="inline btn-link">Edit</p>
+                    <p class="inline">Edit</p>
                 </li>
             </ul>
         </li>
@@ -38,8 +38,8 @@
             </a>
             <ul ng-show="vm.toggleCategories" class="menu-container small">
                 <li ng-repeat="category in vm.categories" ng-mouseover="category.showEdit = true" ng-mouseleave="category.showEdit = false">
-                    <input type="checkbox" ng-model="category.selected" />
-                    <p class="inline" ng-click="category.selected = !category.selected">
+                    <input type="checkbox" ng-model="category.selected"/>
+                    <p class="inline" ng-click="category.selected = !category.selected; vm.updatePostCategories()">
                         {{category.title}}
                     </p>
                     <div class="edit-container">

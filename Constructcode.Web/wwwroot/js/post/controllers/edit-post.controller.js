@@ -7,7 +7,7 @@
     function EditPostController(postService, urlService, redirectService, tinymceConfigService) {
         var vm = this;
 
-        vm.post = {};
+        vm.post = null;
         vm.tinymceOptions = tinymceConfigService.tinymceOptions;
 
         init();
@@ -16,8 +16,6 @@
         }
 
         vm.savePost = function () {
-            insertSelectedCategoriesOnPost();
-
             postService.updatePost(vm.post).then(function () {
                 redirectService.admin(true);
             }, function (response) {

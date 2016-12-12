@@ -7,18 +7,17 @@
     function sideMenuComponent() {
         return {
             bindings: {
-                post: '=',
-                categories: '='
+                post: '='
             },
             templateUrl: '/js/post/components/side-menu.template.html',
             controllerAs: 'vm',
             controller: sideMenuController
         }
 
-        function sideMenuController(categoryService) {
+        function sideMenuController(categoryService, ngDialog) {
             var vm = this;
-
             vm.categories = [];
+            vm.post = {};
 
             init();
             function init() {
@@ -68,9 +67,25 @@
                 });
             }
 
+            vm.updatePostCategories = function () {
+                vm.post.postCategories = [];
+                console.log(vm.post);
+                angular.forEach(vm.categories.filter(c => c.selected), function (selectedCategory) {
+                    vm.post.postCategories.push({ postId: vm.post.id, categoryId: selectedCategory.id });
+                });              
+            }
+
+            function initSelectedCategories(){
+                console.log(vm.post);
+                angular.forEach(vm.post.postCategories, function (postCategory) {
+                    vm.categories.filter(c => c.id === postCategory.categoryId)[0].selected = true;
+                });
+            }
+
             function getAllCategories() {
                 categoryService.getAllCategories().then(function (response) {
                     vm.categories = response.data;
+                    initSelectedCategories();
                 });
             }
         }
