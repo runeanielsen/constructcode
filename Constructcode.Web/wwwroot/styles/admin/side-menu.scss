@@ -2,9 +2,10 @@ $border-color: #d9e3ea;
 $background-color: #e9eff3;
 $arrow-color: #808080;
 $hover-color: #33bbe3;
+$title-color: #2e4453;
 
 .side-menu {
-    background-color: black;
+    background-color: $title-color;
     height: 100vh;
     width: 100%;
     border-right: 1px solid $border-color;
@@ -14,7 +15,7 @@ $hover-color: #33bbe3;
         font-size: 1.1em;
 
         li {
-            line-height: 40px;
+            line-height: 30px;
             padding-left: 25px;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -59,6 +60,11 @@ $hover-color: #33bbe3;
 
         i {
             margin-right: 5px;
+
+            &:hover {
+                color: $hover-color;
+                cursor: pointer;
+            }
         }
     }
 
@@ -68,9 +74,16 @@ $hover-color: #33bbe3;
         li {
             padding-left: 0;
             border-bottom: none;
-            line-height: 40px;
-            padding-top: 0;
+            line-height: 30px;
+            padding-top: 10px;
             padding-bottom: 0;
+
+            p, a {
+                &:hover {
+                    cursor: pointer;
+                    color: $hover-color;
+                }
+            }
         }
     }
 

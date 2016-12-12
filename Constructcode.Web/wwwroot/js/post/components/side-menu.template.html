@@ -26,7 +26,7 @@
 
         <!--Upload Image-->
         <li class="submenu-title">
-            <a ng-click="vm.sideMenu.uploadImage()"><i class="fa fa-image"></i>Upload Image</a>
+            <a ng-click="vm.uploadImage()"><i class="fa fa-image"></i>Upload Image</a>
         </li>
 
         <!--Categories-->
@@ -43,13 +43,13 @@
                         {{category.title}}
                     </p>
                     <div class="edit-container">
-                        <i ng-show="category.showEdit" ng-click="vm.sideMenu.editCategory(category)" class="fa fa-pencil pointer"></i>
-                        <i ng-show="category.showEdit" ng-click="vm.sideMenu.deleteCategory(category)" class="fa fa-trash pointer"></i>
+                        <i ng-show="category.showEdit" ng-click="vm.editCategory(category)" class="fa fa-pencil pointer"></i>
+                        <i ng-show="category.showEdit" ng-click="vm.deleteCategory(category)" class="fa fa-trash pointer"></i>
                     </div>
                 </li>
 
                 <li>
-                    <a ng-click="vm.sideMenu.createCategory()">
+                    <a class="hover-pointer" ng-click="vm.createCategory()">
                         <i class="fa fa-folder-open"></i>
                         New category
                     </a>
