@@ -4,7 +4,7 @@
     angular.module('app')
         .controller('EditPostController', EditPostController);
 
-    function EditPostController(postService, categoryService, urlService, redirectService, tinymceConfigService) {
+    function EditPostController(postService, urlService, redirectService, tinymceConfigService) {
         var vm = this;
 
         vm.post = {};
@@ -15,17 +15,17 @@
             retrievePost();
         }
 
-        vm.savePost = function() {
+        vm.savePost = function () {
             insertSelectedCategoriesOnPost();
 
-            postService.updatePost(vm.post).then(function() {
+            postService.updatePost(vm.post).then(function () {
                 redirectService.admin(true);
-            }, function(response) {
+            }, function (response) {
                 alert(response.data);
             });
         }
 
-        vm.deletePost = function() {
+        vm.deletePost = function () {
             postService.deletePost(vm.post.id).then(function () {
                 redirectService.admin(true);
             });
@@ -35,6 +35,6 @@
             postService.getPostOnId(urlService.getLastUrlParameter()).then(function (response) {
                 vm.post = response.data;
             });
-        }      
+        }
     }
 })();

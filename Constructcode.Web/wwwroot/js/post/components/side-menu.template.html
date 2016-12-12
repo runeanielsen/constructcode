@@ -37,7 +37,7 @@
                 <i ng-class="vm.toggleCategories ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
             </a>
             <ul ng-show="vm.toggleCategories" class="menu-container small">
-                <li ng-repeat="category in vm.sideMenu.categories" ng-mouseover="category.showEdit = true" ng-mouseleave="category.showEdit = false">
+                <li ng-repeat="category in vm.categories" ng-mouseover="category.showEdit = true" ng-mouseleave="category.showEdit = false">
                     <input type="checkbox" ng-model="category.selected" />
                     <p class="inline" ng-click="category.selected = !category.selected">
                         {{category.title}}

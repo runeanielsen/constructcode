@@ -19,7 +19,7 @@ $hover-color: #33bbe3;
             padding-top: 10px;
             padding-bottom: 10px;
             border-bottom: 1px solid $border-color;
-            -webkit-user-select: none;
+            user-select: none;
 
             &.submenu-title > a:hover {
                 color: $hover-color;
@@ -48,6 +48,18 @@ $hover-color: #33bbe3;
         right: 0;
         position: absolute;
         margin-top: 10px;
+    }
+
+    .edit-container {
+        color: #808080;
+        padding-right: 10px;
+        right: 0;
+        position: absolute;
+        display: inline;
+
+        i {
+            margin-right: 5px;
+        }
     }
 
     .menu-container.small {
