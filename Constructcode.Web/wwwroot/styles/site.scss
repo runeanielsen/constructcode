@@ -3,6 +3,7 @@
 $primary-color: #333;
 $background-color: #f1f2f1;
 $error-color: red;
+$hover-color: #33bbe3;
 
 html, body {
     font: 100% $font-stack;
@@ -52,4 +53,9 @@ footer {
 
 .inline {
     display: inline;
+}
+
+.hover-pointer:hover {
+    cursor: pointer;
+    color: $hover-color;
 }

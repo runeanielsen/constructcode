@@ -19,26 +19,15 @@ $hover-color: #33bbe3;
             padding-top: 10px;
             padding-bottom: 10px;
             border-bottom: 1px solid $border-color;
+            -webkit-user-select: none;
 
-            .toggle-menu {
-                :hover {
-                    color: $hover-color;
-                    cursor: pointer;
-                }
-            }
-
-            a {
-                color: #2e4453;
-
-                i {
-                    margin-right: 20px;
-                }
-            }
-
-            :hover {
+            &.submenu-title > a:hover {
                 color: $hover-color;
-                background: none;
-                text-decoration: none;
+                cursor: pointer;
+            }
+
+            i {
+                margin-right: 10px;
             }
         }
     }

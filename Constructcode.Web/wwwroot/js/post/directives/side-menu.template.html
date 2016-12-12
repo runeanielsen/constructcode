@@ -1,7 +1,7 @@
 ﻿<div class="side-menu">
     <ul class="sidebar-nav">
         <!--Admin Panel-->
-        <li>
+        <li class="submenu-title">
             <a asp-controller="Admin" asp-action="Index" class="side-menu-item border-bottom">
                 <i class="fa fa-home"></i>
                 Admin Panel
@@ -9,8 +9,8 @@
         </li>
 
         <!--Publish-->
-        <li class="toggle-menu" ng-init="vm.togglePublished = false" ng-click="vm.togglePublished = !vm.togglePublished">
-            <a class="side-menu-item">
+        <li class="submenu-title">
+            <a ng-init="vm.togglePublished = false" ng-click="vm.togglePublished = !vm.togglePublished">
                 <i class="fa fa-calendar"></i>
                 Publish
                 <i ng-class="vm.togglePublished ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
@@ -25,12 +25,12 @@
         </li>
 
         <!--Upload Image-->
-        <li>
+        <li class="submenu-title">
             <a ng-click="vm.sideMenu.uploadImage()"><i class="fa fa-image"></i>Upload Image</a>
         </li>
 
         <!--Categories-->
-        <li>
+        <li class="submenu-title">
             <a ng-init="vm.toggleCategories = false" ng-click="vm.toggleCategories = !vm.toggleCategories">
                 <i class="fa fa-pencil"></i>
                 Categories
@@ -49,7 +49,7 @@
                 </li>
 
                 <li>
-                    <a class="pointer" ng-click="vm.sideMenu.createCategory()">
+                    <a ng-click="vm.sideMenu.createCategory()">
                         <i class="fa fa-folder-open"></i>
                         New category
                     </a>
