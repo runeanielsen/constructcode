@@ -32,7 +32,7 @@
     "inputFile": "wwwroot/styles/admin/side-menu.scss"
   },
   {
-    "outputFile": "wwwroot/styles/admin/edit-post.css",
-    "inputFile": "wwwroot/styles/admin/edit-post.scss"
+    "outputFile": "wwwroot/styles/admin/manage-post.css",
+    "inputFile": "wwwroot/styles/admin/manage-post.scss"
   }
 ]
