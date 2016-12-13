@@ -11,6 +11,13 @@ $title-color: #2e4453;
     border-right: 1px solid $border-color;
     background: $background-color;
 
+    .toggle-button {
+        display:inline;
+        position:absolute;
+        margin-top:4px;
+        margin-left: 10px;
+    }
+
     ul {
         font-size: 1.1em;
 
