@@ -12,9 +12,7 @@
       "wwwroot/lib/ng-dialog/css/ngDialog-theme-default.css",
 
       // Site Specific
-      "wwwroot/css/simple-sidebar.css",
-      "wwwroot/css/site.css",
-      "wwwroot/css/buttons.css"
+      "wwwroot/styles/**/*.css"
     ]
   },
   {
@@ -30,37 +28,12 @@
       "wwwroot/lib/tinymce/tinymce.min.js",
       "wwwroot/lib/angular-ui-tinymce/dist/tinymce.min.js",
 
-      // Application
-      "wwwroot/js/app.js",
-
-      // Directives
-      "wwwroot/js/image/file-input.directive.js",
-
-      // Services
-      "wwwroot/js/post/services/post.service.js",
-      "wwwroot/js/post/services/category.service.js",
-      "wwwroot/js/api-config.service.js",
-      "wwwroot/js/core/redirect.service.js",
-      "wwwroot/js/core/url.service.js",
-      "wwwroot/js/post/services/side-menu.service.js",
-      "wwwroot/js/image/image.service.js",
-      "wwwroot/js/config/tinymce-config.service.js",
-
       // Controllers
-      "wwwroot/js/admin/admin.controller.js",
-      "wwwroot/js/post/controllers/create-post.controller.js",
-      "wwwroot/js/post/controllers/edit-post.controller.js",
-      "wwwroot/js/frontpage/frontpage.controller.js",
-      "wwwroot/js/post/controllers/display-post.controller.js",
-      "wwwroot/js/image/upload-image.controller.js",
-      "wwwroot/js/post/controllers/post-on-category.controller.js"
+      "wwwroot/js/*.js"
     ],
-    // Optionally specify minification options
     "minify": {
-      "enabled": true,
-      "renameLocals": false
+      "enabled": true
     },
-    // Optinally generate .map file
     "sourceMap": false
   }
 ]
