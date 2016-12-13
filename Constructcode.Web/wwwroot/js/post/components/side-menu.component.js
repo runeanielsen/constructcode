@@ -11,11 +11,10 @@
             },
             templateUrl: '/js/post/components/side-menu.template.html',
             controllerAs: 'vm',
-            controller: sideMenuController
+            controller: ['categoryService', 'ngDialog', 'redirectService', SideMenuController]
         }
 
-        sideMenuController.$inject = ['categoryService', 'ngDialog', 'redirectService'];
-        function sideMenuController(categoryService, ngDialog, redirectService) {
+        function SideMenuController(categoryService, ngDialog, redirectService) {
             var vm = this;
 
             vm.categories = [];
