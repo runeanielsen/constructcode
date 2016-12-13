@@ -4,6 +4,7 @@
     angular.module('app')
         .service('imageService', imageService);
 
+    imageService.$inject = ['$http', 'apiConfigService'];
     function imageService($http, apiConfigService) {
         var service = this;
 

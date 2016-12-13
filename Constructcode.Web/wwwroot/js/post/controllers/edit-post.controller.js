@@ -4,6 +4,7 @@
     angular.module('app')
         .controller('EditPostController', EditPostController);
 
+    EditPostController.$inject = ['postService', 'urlService', 'redirectService', 'tinymceConfigService'];
     function EditPostController(postService, urlService, redirectService, tinymceConfigService) {
         var vm = this;
 

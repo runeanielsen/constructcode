@@ -4,6 +4,7 @@
     angular.module('app')
         .service('categoryService', categoryService);
 
+    categoryService.$inject = ['$http', 'apiConfigService'];
     function categoryService($http, apiConfigService) {
         var service = this;
 

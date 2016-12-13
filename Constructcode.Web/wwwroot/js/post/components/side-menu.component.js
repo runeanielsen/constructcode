@@ -14,6 +14,7 @@
             controller: sideMenuController
         }
 
+        sideMenuController.$inject = ['categoryService', 'ngDialog', 'redirectService'];
         function sideMenuController(categoryService, ngDialog, redirectService) {
             var vm = this;
 

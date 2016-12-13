@@ -4,6 +4,7 @@
     angular.module('app')
         .controller('DisplayPostController', DisplayPostController);
 
+    DisplayPostController.$inject = ['$sce', 'urlService', 'redirectService', 'postService'];
     function DisplayPostController($sce, urlService, redirectService , postService) {
         var vm = this;
 

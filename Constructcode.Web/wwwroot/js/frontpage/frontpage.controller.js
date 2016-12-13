@@ -4,6 +4,7 @@
     angular.module('app')
         .controller('FrontPageController', FrontPageController);
 
+    FrontPageController.$inject = ['postService', 'redirectService'];
     function FrontPageController(postService, redirectService) {
         var vm = this;
 

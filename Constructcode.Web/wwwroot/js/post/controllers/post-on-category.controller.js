@@ -4,6 +4,7 @@
     angular.module('app')
         .controller('PostOnCategoryController', PostOnCategoryController);
 
+    PostOnCategoryController.$inject = ['postService', 'redirectService', 'urlService'];
     function PostOnCategoryController(postService, redirectService, urlService) {
         var vm = this;
 

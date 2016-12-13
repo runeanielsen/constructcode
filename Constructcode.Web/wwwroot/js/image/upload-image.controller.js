@@ -4,6 +4,7 @@
     angular.module('app')
         .controller('UploadImageController', UploadImageController);
 
+    UploadImageController.$inject = ['imageService'];
     function UploadImageController(imageService) {
         var vm = this;
 

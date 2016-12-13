@@ -3,6 +3,7 @@
 
     angular.module('app').controller('AdminController', AdminController);
 
+    AdminController.$inject = ['redirectService', 'postService'];
     function AdminController(redirectService, postService) {
         var vm = this;
 

@@ -4,6 +4,7 @@
     angular.module('app')
         .service('postService', postService);
 
+    postService.$inject = ['$http', 'apiConfigService'];
     function postService($http, apiConfigService) {
         var service = this;
 

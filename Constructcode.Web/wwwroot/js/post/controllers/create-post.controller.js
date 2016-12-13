@@ -4,6 +4,7 @@
     angular.module('app')
         .controller('CreatePostController', CreatePostController);
 
+    CreatePostController.$inject = ['postService', 'redirectService', 'tinymceConfigService'];
     function CreatePostController(postService, redirectService, tinymceConfigService) {
         var vm = this;
 
