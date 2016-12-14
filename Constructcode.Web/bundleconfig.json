@@ -1,6 +1,4 @@
-﻿// Configure bundling and minification for the project.
-// More info at https://go.microsoft.com/fwlink/?LinkId=808241
-[
+﻿[
   {
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
@@ -28,16 +26,14 @@
       "wwwroot/lib/angular/angular.js",
       "wwwroot/lib/angular-sanitize/angular-sanitize.js",
       "wwwroot/lib/ng-dialog/js/ngDialog.js",
-      "wwwroot/lib/tinymce/tinymce.js",
-      "wwwroot/lib/angular-ui-tinymce/dist/tinymce.min.js",
 
       // app
       "wwwroot/js/*js",
-
+      // components
+      "wwwroot/js/core/**/*.js",
       "wwwroot/js/account/**/*.js",
       "wwwroot/js/admin/**/*.js",
       "wwwroot/js/config/**/*.js",
-      "wwwroot/js/core/**/*.js",
       "wwwroot/js/frontpage/**/*.js",
       "wwwroot/js/image/**/*.js",
       "wwwroot/js/post/**/*.js"

@@ -8,34 +8,8 @@
     <environment names="Development">
         @*Third party*@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-
         @*Site Specific*@
         <link rel="stylesheet" href="~/css/site.min.css" />
-
-        @*Third party*@
-        @*<link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet"/>
-        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        <link href="~/lib/ng-dialog/css/ngDialog.css" rel="stylesheet" />
-        <link href="~/lib/ng-dialog/css/ngDialog-theme-default.css" rel="stylesheet"/>
-        <link href="~/lib/tinymce/plugins/codesample/css/prism.css" rel="stylesheet" />*@
-
-        @*Common*@
-        @*<link href="~/styles/common/_reset.css" rel="stylesheet" />
-        <link href="~/styles/common/bootstrap-overrides.css" rel="stylesheet" />
-        <link href="~/styles/common/buttons.css" rel="stylesheet" />*@
-
-        @*Site*@
-        @*<link href="~/styles/site.css" rel="stylesheet" />*@
-
-        @*Pages*@
-        @*<link href="~/styles/pages/front-page.css" rel="stylesheet" />
-        <link href="~/styles/pages/login-page.css" rel="stylesheet" />*@
-
-        @*Admin*@
-        @*<link href="~/styles/admin/side-menu.css" rel="stylesheet" />
-        <link href="~/styles/admin/admin-page.css" rel="stylesheet" />
-        <link href="~/styles/admin/manage-post.css" rel="stylesheet" />*@
     </environment>
 
     <environment names="Staging,Production">
@@ -67,47 +41,19 @@
 
     <environment names="Development">
         <script src="~/js/site.min.js"></script>
-        @*Third party*@
-        @*<script src="~/lib/tether/dist/js/tether.js"></script>
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/lib/angular/angular.js"></script>
-        <script src="~/lib/angular-sanitize/angular-sanitize.js"></script>
-        <script src="~/lib/ng-dialog/js/ngDialog.js"></script>
-        <script src="~/lib/tinymce/tinymce.js"></script>
-        <script src="~/lib/angular-ui-tinymce/src/tinymce.js"></script>*@
 
-        @*Application*@
-        @*<script src="~/js/app.js"></script>*@
-
-        @*Directives*@
-        @*<script src="~/js/image/file-input.directive.js"></script>*@
-
-        @*Components*@
-        @*<script src="~/js/post/components/side-menu.component.js"></script>*@
-
-        @*Services*@
-        @*<script src="~/js/post/services/post.service.js"></script>
-        <script src="~/js/post/services/category.service.js"></script>
-        <script src="~/js/core/api-config.service.js"></script>
-        <script src="~/js/core/redirect.service.js"></script>
-        <script src="~/js/core/url.service.js"></script>
-        <script src="~/js/image/image.service.js"></script>
-        <script src="~/js/config/tinymce-config.service.js"></script>*@
-
-        @*Controllers*@
-        @*<script src="~/js/admin/admin.controller.js"></script>
-        <script src="~/js/post/controllers/create-post.controller.js"></script>
-        <script src="~/js/post/controllers/edit-post.controller.js"></script>
-        <script src="~/js/frontpage/frontpage.controller.js"></script>
-        <script src="~/js/post/controllers/display-post.controller.js"></script>
-        <script src="~/js/image/upload-image.controller.js"></script>
-        <script src="~/js/post/controllers/post-on-category.controller.js"></script>*@
+        @*Third Party*@
+        <script src="~/lib/tinymce/tinymce.min.js"></script>
+        <script src="~/lib/angular-ui-tinymce/dist/tinymce.min.js"></script>
     </environment>
 
     <environment names="Staging,Production">
         @*Application*@
         <script src="~/js/site.min.js"></script>
+
+        @*Third Party*@
+        <script src="~/lib/tinymce/tinymce.min.js"></script>
+        <script src="~/lib/angular-ui-tinymce/dist/tinymce.min.js"></script>
     </environment>
 
     @RenderSection("scripts", required: false)
