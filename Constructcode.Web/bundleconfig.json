@@ -2,13 +2,13 @@
   {
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
-      // Third party
+
       "wwwroot/lib/font-awesome/css/font-awesome.css",
       "wwwroot/lib/bootstrap/dist/css/bootstrap.css",
       "wwwroot/lib/ng-dialog/css/ngDialog.css",
       "wwwroot/lib/ng-dialog/css/ngDialog-theme-default.css",
+      "wwwroot/lib/tinymce/plugins/codesample/css/prism.css",
 
-      // Site Specific
       "wwwroot/styles/_reset.css",
       "wwwroot/styles/site.css",
       "wwwroot/styles/common/**/*.css",
@@ -19,7 +19,6 @@
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
-      // Third Party
       "wwwroot/lib/tether/dist/js/tether.js",
       "wwwroot/lib/jquery/dist/jquery.js",
       "wwwroot/lib/bootstrap/dist/js/bootstrap.js",
@@ -27,9 +26,7 @@
       "wwwroot/lib/angular-sanitize/angular-sanitize.js",
       "wwwroot/lib/ng-dialog/js/ngDialog.js",
 
-      // app
       "wwwroot/js/*js",
-      // components
       "wwwroot/js/core/**/*.js",
       "wwwroot/js/account/**/*.js",
       "wwwroot/js/admin/**/*.js",
@@ -37,10 +34,6 @@
       "wwwroot/js/frontpage/**/*.js",
       "wwwroot/js/image/**/*.js",
       "wwwroot/js/post/**/*.js"
-    ],
-    "minify": {
-      "enabled": true
-    },
-    "sourceMap": false
+    ]
   }
 ]
