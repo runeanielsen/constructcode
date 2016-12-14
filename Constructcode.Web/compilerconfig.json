@@ -4,10 +4,6 @@
     "inputFile": "wwwroot/styles/admin/admin-page.scss"
   },
   {
-    "outputFile": "wwwroot/styles/common/_reset.css",
-    "inputFile": "wwwroot/styles/common/_reset.scss"
-  },
-  {
     "outputFile": "wwwroot/styles/common/bootstrap-overrides.css",
     "inputFile": "wwwroot/styles/common/bootstrap-overrides.scss"
   },
@@ -34,5 +30,9 @@
   {
     "outputFile": "wwwroot/styles/admin/manage-post.css",
     "inputFile": "wwwroot/styles/admin/manage-post.scss"
+  },
+  {
+    "outputFile": "wwwroot/styles/_reset.css",
+    "inputFile": "wwwroot/styles/_reset.scss"
   }
 ]

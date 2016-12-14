@@ -11,7 +11,11 @@
       "wwwroot/lib/ng-dialog/css/ngDialog-theme-default.css",
 
       // Site Specific
-      "wwwroot/styles/**/*.css"
+      "wwwroot/styles/_reset.css",
+      "wwwroot/styles/site.css",
+      "wwwroot/styles/common/**/*.css",
+      "wwwroot/styles/admin/**/*.css",
+      "wwwroot/styles/pages/**/*.css"
     ]
   },
   {
