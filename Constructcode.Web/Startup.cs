@@ -40,8 +40,7 @@ namespace ConstructCode.Web
             }
             else
             {
-                app.UseDeveloperExceptionPage();
-                //app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/Error");
             }
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
