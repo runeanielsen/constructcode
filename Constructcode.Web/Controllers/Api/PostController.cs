@@ -26,10 +26,11 @@ namespace Constructcode.Web.Controllers.Api
             _environment = environment;
         }
 
+
         [HttpGet]
-        public IActionResult GetAllPosts()
+        public IActionResult GetAllPublishedPosts()
         {
-            var blogposts = _postService.GetAllPosts().OrderByDescending(a => a.Created);
+            var blogposts = _postService.GetAllPosts().Where(a => a.Published).OrderByDescending(a => a.Created);
 
             return Ok(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
         }
@@ -37,7 +38,7 @@ namespace Constructcode.Web.Controllers.Api
         [HttpGet]
         public IActionResult GetAllPostsOnCategory(string id)
         {
-            var blogposts = _postService.GetAllPostsOnCategory(id).OrderByDescending(a => a.Created);
+            var blogposts = _postService.GetAllPostsOnCategory(id).Where(a => a.Published).OrderByDescending(a => a.Created);
 
             return Ok(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
         }
@@ -54,6 +55,15 @@ namespace Constructcode.Web.Controllers.Api
         public IActionResult GetPostOnUrl(string id)
         {
             return Ok(_mapper.Map<PostViewModel>(_postService.GetPostOnUrl(id)));
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult GetAllPosts()
+        {
+            var blogposts = _postService.GetAllPosts().OrderByDescending(a => a.Created);
+
+            return Ok(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
         }
 
         [Authorize]

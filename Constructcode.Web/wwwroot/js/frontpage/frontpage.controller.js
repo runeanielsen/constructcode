@@ -13,7 +13,7 @@
 
         init();
         function init() {
-            postService.getAllPosts().then(function (response) {
+            postService.getAllPublishedPosts().then(function (response) {
                 vm.posts = response.data;
             });
         }
