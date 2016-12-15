@@ -25,6 +25,3 @@
 /// <reference path="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" />
 /// <reference path="lib/ng-dialog/js/ngDialog.js" />
 /// <reference path="lib/tether/dist/js/tether.js" />
-/// <reference path="minified/plugins.min.js" />
-/// <reference path="minified/site.min.js" />
-/// <reference path="minified/tinymce.min.js" />
