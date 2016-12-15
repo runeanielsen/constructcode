@@ -1,5 +1,6 @@
 ﻿$banner-color: #232c35;
 $banner-text-color: white;
+$primary-color: #733089;
 
 .banner {
     margin-top: 10px;
@@ -36,7 +37,7 @@ $banner-text-color: white;
         font-size: 0.9em;
 
         h2 a {
-            color: #733089;
+            color: $primary-color;
         }
 
         p.datetime {
@@ -53,18 +54,20 @@ $banner-text-color: white;
             border-bottom: 1px solid #e6e3df;
             line-height: 35px;
             padding-bottom: 25px;
+            max-width: 100%;
 
             .category-container {
-                margin-top: 10px;
+                margin-top: 15px;
                 text-align: center;
 
                 .category-title {
                     display: inline;
                     background-color: #eeedea;
                     border-radius: 4px;
-                    padding: 4px 8px;
+                    padding: 0 16px;
                     font-size: 16px;
                     margin-right: 10px;
+                    display: inline-block;
 
                     a {
                         text-decoration: none;
