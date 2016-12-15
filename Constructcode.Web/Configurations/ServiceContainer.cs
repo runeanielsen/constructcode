@@ -3,6 +3,8 @@ using Constructcode.Web.Configurations.MappingConfigurations;
 using Constructcode.Web.Core;
 using Constructcode.Web.Persistence;
 using Constructcode.Web.Service;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Constructcode.Web.Configurations
@@ -14,6 +16,9 @@ namespace Constructcode.Web.Configurations
             services.AddMvc();
             services.AddDbContext<DatabaseContext>();
             services.AddEntityFrameworkSqlServer();
+
+            services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Fastest);
+            services.AddResponseCompression();
 
             services.AddAutoMapper(cfg =>
             {

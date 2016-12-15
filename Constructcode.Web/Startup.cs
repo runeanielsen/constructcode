@@ -33,6 +33,7 @@ namespace ConstructCode.Web
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            app.UseResponseCompression();
 
             if (env.IsDevelopment())
             {
