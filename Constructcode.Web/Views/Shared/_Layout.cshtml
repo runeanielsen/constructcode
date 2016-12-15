@@ -8,8 +8,9 @@
     <environment names="Development">
         @*Third party*@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
         @*Site Specific*@
-        <link rel="stylesheet" href="~/css/site.min.css" />
+        <link href="~/minified/site.min.css" rel="stylesheet" />
     </environment>
 
     <environment names="Staging,Production">
@@ -17,7 +18,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 
         @*Site Specific*@
-        <link rel="stylesheet" href="~/css/site.min.css" />
+        <link href="~/minified/site.min.css" rel="stylesheet" />
     </environment>
 
 </head>
@@ -40,20 +41,15 @@
     </div>
 
     <environment names="Development">
-        <script src="~/js/site.min.js"></script>
-
-        @*Third Party*@
-        <script src="~/lib/tinymce/tinymce.min.js"></script>
-        <script src="~/lib/angular-ui-tinymce/dist/tinymce.min.js"></script>
+        <script src="~/minified/site.min.js"></script>
+        <script src="~/lib/tinymce/tinymce.js"></script>
+        <script src="~/minified/plugins.min.js"></script>
     </environment>
 
     <environment names="Staging,Production">
-        @*Application*@
-        <script src="~/js/site.min.js"></script>
-
-        @*Third Party*@
-        <script src="~/lib/tinymce/tinymce.min.js"></script>
-        <script src="~/lib/angular-ui-tinymce/dist/tinymce.min.js"></script>
+        <script src="~/minified/site.min.js"></script>
+        <script src="~/lib/tinymce/tinymce.js"></script>
+        <script src="~/minified/plugins.min.js"></script>
     </environment>
 
     @RenderSection("scripts", required: false)
