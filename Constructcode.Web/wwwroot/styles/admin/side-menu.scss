@@ -1,9 +1,10 @@
-$border-color: #454749;
+$border-color: #22252e;
 $background-color: #282c37;
 $arrow-color: #808080;
 $hover-color: white;
 $title-color: #2e4453;
 $menu-text-color: #7e8ea0;
+$hover-list-color: #22252e;
 
 .side-menu {
     background-color: $title-color;
@@ -45,14 +46,12 @@ $menu-text-color: #7e8ea0;
 
     .top {
         border-bottom: 1px solid $border-color;
-        float:left;
-        width:100%;
         margin-bottom: 10px;
         padding: 5px 0;
 
         a:hover {
             color: $hover-color;
-            cursor:pointer;
+            cursor: pointer;
         }
     }
 
