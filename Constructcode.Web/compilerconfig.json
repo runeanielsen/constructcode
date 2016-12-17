@@ -34,5 +34,17 @@
   {
     "outputFile": "wwwroot/styles/_reset.css",
     "inputFile": "wwwroot/styles/_reset.scss"
+  },
+  {
+    "outputFile": "wwwroot/styles/pages/page-banner.css",
+    "inputFile": "wwwroot/styles/pages/page-banner.scss"
+  },
+  {
+    "outputFile": "wwwroot/styles/pages/display-post.css",
+    "inputFile": "Views/Post/Index.cshtml"
+  },
+  {
+    "outputFile": "wwwroot/styles/pages/display-post.css",
+    "inputFile": "wwwroot/styles/pages/display-post.scss"
   }
 ]
