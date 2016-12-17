@@ -1,4 +1,4 @@
-$border-color: #d9e3ea;
+$border-color: #454749;
 $background-color: #282c37;
 $arrow-color: #808080;
 $hover-color: white;
@@ -40,6 +40,19 @@ $menu-text-color: #7e8ea0;
             i {
                 margin-right: 15px;
             }
+        }
+    }
+
+    .top-menu {
+        border-bottom: 1px solid $border-color;
+        float:left;
+        width:100%;
+        margin-bottom: 10px;
+        padding: 5px 0;
+
+        a:hover {
+            color: $hover-color;
+            cursor:pointer;
         }
     }
 
