@@ -1,22 +1,16 @@
 $border-color: #d9e3ea;
-$background-color: #ebedee;
+$background-color: #282c37;
 $arrow-color: #808080;
-$hover-color: #33bbe3;
+$hover-color: white;
 $title-color: #2e4453;
+$menu-text-color: #7e8ea0;
 
 .side-menu {
     background-color: $title-color;
     height: 100vh;
     width: 100%;
-    border-right: 1px solid $border-color;
     background: $background-color;
-
-    .toggle-button {
-        display:inline;
-        position:absolute;
-        margin-top:4px;
-        margin-left: 10px;
-    }
+    color: $menu-text-color;
 
     ul {
         font-size: 1.1em;
@@ -26,7 +20,6 @@ $title-color: #2e4453;
             padding-left: 25px;
             padding-top: 10px;
             padding-bottom: 10px;
-            border-bottom: 1px solid $border-color;
             user-select: none;
 
             &.submenu-title > a:hover {
@@ -35,7 +28,7 @@ $title-color: #2e4453;
             }
 
             a {
-                color: black;
+                color: $menu-text-color;
 
                 &:hover {
                     color: $hover-color;
@@ -48,6 +41,13 @@ $title-color: #2e4453;
                 margin-right: 10px;
             }
         }
+    }
+
+    .toggle-button {
+        display: inline;
+        position: absolute;
+        margin-top: 4px;
+        margin-left: 10px;
     }
 
     .arrow {
