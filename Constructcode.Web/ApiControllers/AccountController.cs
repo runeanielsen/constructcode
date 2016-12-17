@@ -1,5 +1,4 @@
-﻿
-using Constructcode.Web.ApiControllers.DataTransferObjects;
+﻿using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -18,15 +17,13 @@ namespace Constructcode.Web.ApiControllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginDto vm)
+        public async Task<IActionResult> Login([FromBody]LoginDto vm)
         {
-            if (!ModelState.IsValid) return View("UnAuthorized", vm);
-
             var account = _accountService.GetAccount(vm.Username);
 
             if (account == null || !_accountService.VerifyAccountLogin(account, vm.Password))
             {
-                return Unauthorized();
+                return BadRequest("Bad Password or Login");
             }
 
             var claims = new[] { new Claim("name", account.Username), new Claim(ClaimTypes.Role, "Admin") };

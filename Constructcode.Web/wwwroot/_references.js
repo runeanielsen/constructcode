@@ -1,5 +1,7 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="js/account/components/login.component.js" />
 /// <reference path="js/account/manage-account.controller.js" />
+/// <reference path="js/account/services/account.service.js" />
 /// <reference path="js/admin/admin.controller.js" />
 /// <reference path="js/app.js" />
 /// <reference path="js/config/tinymce-config.service.js" />
