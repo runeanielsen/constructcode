@@ -1,4 +1,9 @@
-﻿.center-form {
+﻿$login-button-background-color: #733089;
+$login-button-text-color: #fff;
+$login-border-color: #d8dee2;
+$login-background-color: #fff;
+
+.center-form {
     margin: 0 auto;
     margin-top: 20px;
     max-width: 400px;
@@ -12,22 +17,31 @@
         text-align: center;
     }
 
+    label {
+        margin-bottom: 5px;
+    }
+
     p.text-error {
         margin-bottom: 15px;
         text-align: center;
     }
 
     .login-form {
-        background-color: #fff;
-        border: 1px solid #d8dee2;
+        background-color: $login-background-color;
+        border: 1px solid $login-border-color;
         padding: 20px;
         margin-top: 20px;
 
-        .btn {
+        input {
+            border-radius:0;
+        }
+
+        button {
             min-width: 100%;
-            background-color: #733089;
+            background-color: $login-button-background-color;
             border: none;
             border-radius: 0;
+            color: $login-button-text-color;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Constructcode.Web.Core.Domain;
+using System.Security.Claims;
 
 namespace Constructcode.Web.Service
 {
@@ -7,5 +8,7 @@ namespace Constructcode.Web.Service
         Account CreateAccount(Account account);
         bool VerifyAccountLogin(Account account, string plainPasword);
         Account GetAccount(string username);
+
+        ClaimsPrincipal CreateClaim(string userName);
     }
 }

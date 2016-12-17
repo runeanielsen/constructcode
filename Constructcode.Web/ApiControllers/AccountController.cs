@@ -1,8 +1,6 @@
 ﻿using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Service;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Constructcode.Web.ApiControllers
@@ -23,13 +21,10 @@ namespace Constructcode.Web.ApiControllers
 
             if (account == null || !_accountService.VerifyAccountLogin(account, vm.Password))
             {
-                return BadRequest("Bad Password or Login");
+                return BadRequest("Bad Username or Password");
             }
 
-            var claims = new[] { new Claim("name", account.Username), new Claim(ClaimTypes.Role, "Admin") };
-            var claim = new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
-
-            await HttpContext.Authentication.SignInAsync("CookieMiddlewareInstance", claim);
+            await HttpContext.Authentication.SignInAsync("CookieMiddlewareInstance", _accountService.CreateClaim(account.Username));
             return Ok();
         }
 
