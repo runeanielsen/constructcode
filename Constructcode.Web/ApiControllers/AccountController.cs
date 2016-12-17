@@ -1,5 +1,6 @@
 ﻿using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -28,6 +29,7 @@ namespace Constructcode.Web.ApiControllers
             return Ok();
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Logout()
         {

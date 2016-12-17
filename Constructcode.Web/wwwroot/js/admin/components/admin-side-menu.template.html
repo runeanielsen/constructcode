@@ -1,22 +1,22 @@
 ﻿<div class="side-menu">
     <ul>
         <li>
-            <a href="{{vm.redirect.home()}}" class="side-menu-item border-bottom"><i class="fa fa-globe"></i>Front Page</a>
+            <a href="{{vm.redirect.home()}}"><i class="fa fa-globe"></i>Front Page</a>
         </li>
         <li>
-            <a href="{{vm.redirect.admin()}}" class="side-menu-item border-bottom"><i class="fa fa-bars"></i>Dashboard</a>
+            <a href="{{vm.redirect.admin()}}"><i class="fa fa-bars"></i>Dashboard</a>
         </li>
         <li>
-            <a href="{{vm.redirect.createPost()}}" class="side-menu-item border-bottom"><i class="fa fa-pencil"></i>Create New Post</a>
+            <a href="{{vm.redirect.createPost()}}"><i class="fa fa-pencil"></i>Create New Post</a>
         </li>
         <li>
-            <a href="{{vm.redirect.manageAccount()}}" class="side-menu-item border-bottom"><i class="fa fa-user"></i>Manage Users</a>
+            <a href="{{vm.redirect.manageAccount()}}"><i class="fa fa-user"></i>Manage Users</a>
         </li>
         <li>
-            <a href="{{vm.redirect.changePassword()}}" class="side-menu-item border-bottom"><i class="fa fa-key"></i>Change Password</a>
+            <a href="{{vm.redirect.changePassword()}}"><i class="fa fa-lock"></i>Change Password</a>
         </li>
         <li>
-            <a ng-click="vm.submitLogin()" class="side-menu-item border-bottom"><i class="fa fa-sign-out"></i>Log out</a>
+            <a href="#" ng-click="vm.submitLogin()"><i class="fa fa-unlock-alt"></i>Log out</a>
         </li>
     </ul>
 </div>
