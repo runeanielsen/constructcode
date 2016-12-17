@@ -11,7 +11,7 @@ using Constructcode.Web.Core.Domain;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
-namespace Constructcode.Web.Controllers.Api
+namespace Constructcode.Web.ApiControllers.Api
 {
     public class PostController : Controller
     {
@@ -25,7 +25,6 @@ namespace Constructcode.Web.Controllers.Api
             _mapper = mapper;
             _environment = environment;
         }
-
 
         [HttpGet]
         public IActionResult GetAllPublishedPosts()

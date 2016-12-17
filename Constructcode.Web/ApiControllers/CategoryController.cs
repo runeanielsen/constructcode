@@ -6,7 +6,7 @@ using Constructcode.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Constructcode.Web.Controllers.Api
+namespace Constructcode.Web.ApiControllers.Api
 {
     [Authorize]
     public class CategoryController : Controller
