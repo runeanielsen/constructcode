@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Constructcode.Web.ViewModels
+namespace Constructcode.Web.ApiControllers.DataTransferObjects
 {
-    public class PostViewModel
+    public class PostDto
     {
         public int Id { get; set; }
         public string Url { get; set; }
@@ -11,7 +11,7 @@ namespace Constructcode.Web.ViewModels
         public string Created { get; set; }
         public string Content { get; set; }
         public bool Published { get; set; }
-        public IEnumerable<PostCategoryViewModel> PostCategories { get; set; }
-        public IEnumerable<CategoryViewModel> Categories { get; set; }
+        public IEnumerable<PostCategoryDto> PostCategories { get; set; }
+        public IEnumerable<CategoryDto> Categories { get; set; }
     }
 }

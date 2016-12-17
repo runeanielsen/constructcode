@@ -2,7 +2,7 @@
 using System.IO;
 using AutoMapper;
 using Constructcode.Web.Service;
-using Constructcode.Web.ViewModels;
+using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -31,7 +31,7 @@ namespace Constructcode.Web.ApiControllers.Api
         {
             var blogposts = _postService.GetAllPosts().Where(a => a.Published).OrderByDescending(a => a.Created);
 
-            return Ok(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
+            return Ok(_mapper.Map<IEnumerable<PostDto>>(blogposts));
         }
 
         [HttpGet]
@@ -39,7 +39,7 @@ namespace Constructcode.Web.ApiControllers.Api
         {
             var blogposts = _postService.GetAllPostsOnCategory(id).Where(a => a.Published).OrderByDescending(a => a.Created);
 
-            return Ok(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
+            return Ok(_mapper.Map<IEnumerable<PostDto>>(blogposts));
         }
 
         [HttpGet]
@@ -47,13 +47,13 @@ namespace Constructcode.Web.ApiControllers.Api
         {
             var blogPost = _postService.GetPost(id);
 
-            return Ok(_mapper.Map<PostViewModel>(blogPost));
+            return Ok(_mapper.Map<PostDto>(blogPost));
         }
 
         [HttpGet]
         public IActionResult GetPostOnUrl(string id)
         {
-            return Ok(_mapper.Map<PostViewModel>(_postService.GetPostOnUrl(id)));
+            return Ok(_mapper.Map<PostDto>(_postService.GetPostOnUrl(id)));
         }
 
         [Authorize]
@@ -62,7 +62,7 @@ namespace Constructcode.Web.ApiControllers.Api
         {
             var blogposts = _postService.GetAllPosts().OrderByDescending(a => a.Created);
 
-            return Ok(_mapper.Map<IEnumerable<PostViewModel>>(blogposts));
+            return Ok(_mapper.Map<IEnumerable<PostDto>>(blogposts));
         }
 
         [Authorize]
@@ -81,7 +81,7 @@ namespace Constructcode.Web.ApiControllers.Api
 
         [Authorize]
         [HttpPost]
-        public IActionResult CreatePost([FromBody]CreatePostViewModel vm)
+        public IActionResult CreatePost([FromBody]CreatePostDto vm)
         {
             var mappedPost = _mapper.Map<Post>(vm);
 
@@ -96,7 +96,7 @@ namespace Constructcode.Web.ApiControllers.Api
 
         [Authorize]
         [HttpPost]
-        public IActionResult UpdatePost([FromBody]EditPostViewModel vm)
+        public IActionResult UpdatePost([FromBody]EditPostDto vm)
         {
             var mappedPost = _mapper.Map<Post>(vm);
 

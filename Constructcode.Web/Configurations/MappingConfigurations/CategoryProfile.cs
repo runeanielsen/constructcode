@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Constructcode.Web.Core.Domain;
-using Constructcode.Web.ViewModels;
+using Constructcode.Web.ApiControllers.DataTransferObjects;
 
 namespace Constructcode.Web.Configurations.MappingConfigurations
 {
@@ -8,11 +8,11 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
     {
         public CategoryProfile()
         {
-            CreateMap<CreateCategoryViewModel, Category>();
-            CreateMap<Category, CreateCategoryViewModel>();
+            CreateMap<CreateCategoryDto, Category>();
+            CreateMap<Category, CreateCategoryDto>();
 
-            CreateMap<CategoryViewModel, Category>();
-            CreateMap<Category, CategoryViewModel>();
+            CreateMap<CategoryDto, Category>();
+            CreateMap<Category, CategoryDto>();
         }
     }
 }

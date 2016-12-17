@@ -1,8 +1,7 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
-using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
-using Constructcode.Web.ViewModels;
+using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,7 +29,7 @@ namespace Constructcode.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel vm)
+        public async Task<IActionResult> Login(LoginDto vm)
         {
             if (!ModelState.IsValid) return View("UnAuthorized", vm);
 

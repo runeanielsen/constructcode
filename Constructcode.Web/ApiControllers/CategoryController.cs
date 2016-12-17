@@ -2,7 +2,7 @@
 using AutoMapper;
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
-using Constructcode.Web.ViewModels;
+using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +21,7 @@ namespace Constructcode.Web.ApiControllers.Api
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody]CreateCategoryViewModel vm)
+        public IActionResult Create([FromBody]CreateCategoryDto vm)
         {
             var mappedCategory = _mapper.Map<Category>(vm);
 
@@ -31,17 +31,17 @@ namespace Constructcode.Web.ApiControllers.Api
                 return StatusCode(validation.StatusCodeAsIntegar, validation.Message);
 
             _categoryService.CreateCategory(mappedCategory);
-            return Ok(_mapper.Map<CategoryViewModel>(mappedCategory));
+            return Ok(_mapper.Map<CategoryDto>(mappedCategory));
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_mapper.Map<IEnumerable<CategoryViewModel>>(_categoryService.GetAllCategories()));
+            return Ok(_mapper.Map<IEnumerable<CategoryDto>>(_categoryService.GetAllCategories()));
         }
 
         [HttpPost]
-        public IActionResult Edit([FromBody]CategoryViewModel vm)
+        public IActionResult Edit([FromBody]CategoryDto vm)
         {
             var mappedCategory = _mapper.Map<Category>(vm);
 

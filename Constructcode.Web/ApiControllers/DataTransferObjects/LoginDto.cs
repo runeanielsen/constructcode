@@ -1,6 +1,6 @@
-﻿namespace Constructcode.Web.ViewModels
+﻿namespace Constructcode.Web.ApiControllers.DataTransferObjects
 {
-    public class LoginViewModel
+    public class LoginDto
     {
         public string Username { get; set; }
         public string Password { get; set; }

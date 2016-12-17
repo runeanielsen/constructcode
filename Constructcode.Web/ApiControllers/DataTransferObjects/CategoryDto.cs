@@ -1,6 +1,6 @@
-﻿namespace Constructcode.Web.ViewModels
+﻿namespace Constructcode.Web.ApiControllers.DataTransferObjects
 {
-    public class CategoryViewModel
+    public class CategoryDto
     {
         public int Id { get; set; }
         public string Title { get; set; }
