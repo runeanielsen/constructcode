@@ -44,17 +44,6 @@ $hover-list-color: #22252e;
         }
     }
 
-    .top {
-        border-bottom: 1px solid $border-color;
-        margin-bottom: 10px;
-        padding: 5px 0;
-
-        a:hover {
-            color: $hover-color;
-            cursor: pointer;
-        }
-    }
-
     .toggle-button {
         display: inline;
         position: absolute;
