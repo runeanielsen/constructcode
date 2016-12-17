@@ -1,21 +1,9 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
-using Constructcode.Web.Service;
-using Constructcode.Web.ApiControllers.DataTransferObjects;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Constructcode.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IAccountService _accountService;
-
-        public AccountController(IAccountService accountService)
-        {
-            _accountService = accountService;
-        }
-
         [HttpGet]
         public IActionResult UnAuthorized()
         {
@@ -26,27 +14,6 @@ namespace Constructcode.Web.Controllers
         public IActionResult Forbidden()
         {
             return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginDto vm)
-        {
-            if (!ModelState.IsValid) return View("UnAuthorized", vm);
-
-            var account = _accountService.GetAccount(vm.Username);
-
-            if (account == null || !_accountService.VerifyAccountLogin(account, vm.Password))
-            {
-                ViewBag.ErrorMessage = "Failed to login";
-                return View("UnAuthorized", vm);
-            }
-
-            var claims = new[] { new Claim("name", account.Username), new Claim(ClaimTypes.Role, "Admin") };
-            var claim = new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
-
-            await HttpContext.Authentication.SignInAsync("CookieMiddlewareInstance", claim);
-
-            return RedirectToAction("Index", "Admin");
         }
     }
 }
