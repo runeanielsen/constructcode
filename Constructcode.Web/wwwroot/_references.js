@@ -3,6 +3,7 @@
 /// <reference path="js/account/manage-account.controller.js" />
 /// <reference path="js/account/services/account.service.js" />
 /// <reference path="js/admin/admin.controller.js" />
+/// <reference path="js/admin/components/admin-sidemenu.component.js" />
 /// <reference path="js/app.js" />
 /// <reference path="js/config/tinymce-config.service.js" />
 /// <reference path="js/core/api-config.service.js" />

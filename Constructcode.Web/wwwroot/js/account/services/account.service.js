@@ -13,5 +13,9 @@
         service.submitLogin = function (loginInformation) {
             return $http.post(serviceRoute + 'login', loginInformation);
         }
+
+        service.logout = function (loginInformation) {
+            return $http.get(serviceRoute + 'logout');
+        }
     }
 })();

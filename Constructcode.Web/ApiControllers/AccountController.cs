@@ -30,7 +30,13 @@ namespace Constructcode.Web.ApiControllers
             var claim = new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
 
             await HttpContext.Authentication.SignInAsync("CookieMiddlewareInstance", claim);
+            return Ok();
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.Authentication.SignOutAsync("CookieMiddlewareInstance");
             return Ok();
         }
     }

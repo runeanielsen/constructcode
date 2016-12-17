@@ -29,6 +29,10 @@ $hover-list-color: #22252e;
                 cursor: pointer;
             }
 
+            &:hover {
+                color: $hover-color;
+            }
+
             a {
                 color: $menu-text-color;
 
