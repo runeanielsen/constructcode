@@ -1,4 +1,5 @@
 ﻿$primary-color: #733089;
+$date-color: #847b79;
 
 .frontpage-content {
     background-color: white;
@@ -45,7 +46,7 @@
 
                     a {
                         text-decoration: none;
-                        color: #847b79;
+                        color: $date-color;
                     }
                 }
             }
