@@ -33,6 +33,7 @@ namespace ConstructCode.Web
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
             app.UseResponseCompression();
 
             if (env.IsDevelopment())
@@ -46,11 +47,11 @@ namespace ConstructCode.Web
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                AuthenticationScheme = "CookieMiddlewareInstance",
+                AuthenticationScheme = "Authentication",
                 LoginPath = new PathString("/Account/UnAuthorized/"),
                 AccessDeniedPath = new PathString("/Account/Forbidden/"),
                 AutomaticAuthenticate = true,
-                AutomaticChallenge = true
+                AutomaticChallenge = true,
             });
 
             app.UseStaticFiles();
