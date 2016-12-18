@@ -18,8 +18,8 @@
             return $http.get(serviceRoute + 'logout');
         }
 
-        service.getUsername = function () {
-            return $http.get(serviceRoute + 'getUsername')
+        service.getAccountName = function () {
+            return $http.get(serviceRoute + 'getAccountName')
         }
     }
 })();

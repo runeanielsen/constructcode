@@ -3,6 +3,7 @@ using Constructcode.Web.Configurations;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Constructcode.Web.ApiControllers
@@ -44,12 +45,9 @@ namespace Constructcode.Web.ApiControllers
 
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> GetUsername()
-        {
-            var authenticationInfo = await HttpContext
-                .Authentication.GetAuthenticateInfoAsync(AuthenticationMiddlewareConfig.AuthenticationCookieName);
-
-            return Ok();
+        public IActionResult GetAccountName()
+        {          
+            return Ok(User.FindFirst("name").Value);
         }
     }
 }

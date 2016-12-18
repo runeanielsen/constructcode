@@ -22,7 +22,7 @@
 
             init();
             function init() {
-                accountService.getUsername().then(function (response) {
+                accountService.getAccountName().then(function (response) {
                     vm.settings.username = response.data;
                 });
             }
