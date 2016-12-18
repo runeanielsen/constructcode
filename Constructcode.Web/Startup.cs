@@ -45,16 +45,9 @@ namespace ConstructCode.Web
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationScheme = "Authentication",
-                LoginPath = new PathString("/Account/UnAuthorized/"),
-                AccessDeniedPath = new PathString("/Account/Forbidden/"),
-                AutomaticAuthenticate = true,
-                AutomaticChallenge = true,
-            });
-
+            app.SetupAuthenticationMiddlewareConfig();
             app.UseStaticFiles();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
