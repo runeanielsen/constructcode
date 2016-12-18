@@ -2,6 +2,7 @@
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service.Helpers;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System;
 using System.Security.Claims;
 
 namespace Constructcode.Web.Service
@@ -40,10 +41,14 @@ namespace Constructcode.Web.Service
             return _unitOfWork.Accounts.SingleOrDefault(a => a.Username == username);
         }
 
-        public ClaimsPrincipal CreateClaim(string userName)
+        public ClaimsPrincipal CreateAuthenticationClaim(Account account)
         {
-            var claims = new[] { new Claim("name", userName), new Claim(ClaimTypes.Role, "Admin") };
-            var claim = new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
+            var claims = new[] {
+                new Claim("name", account.Username),
+                new Claim(ClaimTypes.Role, "Admin")
+            };
+            var claim = new ClaimsPrincipal(
+                new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
 
             return claim;
         }

@@ -1,5 +1,6 @@
 ﻿using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Service;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Constructcode.Web.ApiControllers
                 return BadRequest("Bad Username or Password");
             }
 
-            await HttpContext.Authentication.SignInAsync("CookieMiddlewareInstance", _accountService.CreateClaim(account.Username));
+            await HttpContext.Authentication.SignInAsync("CookieMiddlewareInstance", _accountService.CreateAuthenticationClaim(account));
             return Ok();
         }
 
@@ -34,6 +35,14 @@ namespace Constructcode.Web.ApiControllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.Authentication.SignOutAsync("CookieMiddlewareInstance");
+            return Ok();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult GetUsername()
+        {
+            var authenticationInfo = HttpContext;
             return Ok();
         }
     }

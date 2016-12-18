@@ -41,10 +41,10 @@
   },
   {
     "outputFile": "wwwroot/styles/pages/display-post.css",
-    "inputFile": "Views/Post/Index.cshtml"
+    "inputFile": "wwwroot/styles/pages/display-post.scss"
   },
   {
-    "outputFile": "wwwroot/styles/pages/display-post.css",
-    "inputFile": "wwwroot/styles/pages/display-post.scss"
+    "outputFile": "wwwroot/styles/admin/account-settings.css",
+    "inputFile": "wwwroot/styles/admin/account-settings.scss"
   }
 ]

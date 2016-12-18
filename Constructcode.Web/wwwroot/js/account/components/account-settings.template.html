@@ -1,0 +1,21 @@
+﻿<div class="settings-form">
+    <div class="group">
+        <h3>Account Settings</h3>
+    </div>
+    <form>
+        <div class="group">
+            <label>Username</label>
+            <input ng-model="vm.settings.username" type="text" />
+        </div>
+        <div class="group">
+            <label>Password</label>
+            <input ng-model="vm.settings.password" type="password" />
+        </div>
+        <div class="group">
+            <label>Repeat Password</label>
+            <input ng-model="vm.settings.repeatedPassword" ng-match="vm.settings.password" type="password" />
+        </div>
+
+        <button ng-disabled="vm.settings.repeatedPassword !== vm.settings.password" class="button-standard green">Save</button>
+    </form>
+</div>

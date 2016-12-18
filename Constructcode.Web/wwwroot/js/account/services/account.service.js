@@ -17,5 +17,9 @@
         service.logout = function (loginInformation) {
             return $http.get(serviceRoute + 'logout');
         }
+
+        service.getUsername = function () {
+            return $http.get(serviceRoute + 'getUsername')
+        }
     }
 })();

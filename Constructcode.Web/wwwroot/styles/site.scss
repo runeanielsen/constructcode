@@ -41,6 +41,11 @@ input[type=checkbox] {
     }
 }
 
+input[type=text] {
+    border-radius: 0;
+    max-width: 300px;
+}
+
 footer {
     margin-bottom: 10px;
 

@@ -4,6 +4,8 @@ $green-dark: #4c994c;
 $red-light: #c9302c;
 $red-dark: #b52b28;
 
+$disabled-color: gray;
+
 .button-standard {
     max-width: 200px;
     background-color: gray;
@@ -16,11 +18,19 @@ $red-dark: #b52b28;
         cursor: pointer;
     }
 
+    &:disabled {
+        cursor:not-allowed;
+    }
+
     &.green {
         background-color: $green-light;
 
         &:hover {
             background-color: $green-dark;
+        }
+
+        &:disabled {
+            background-color: $disabled-color;
         }
     }
 
@@ -30,12 +40,15 @@ $red-dark: #b52b28;
         &:hover {
             background-color: $red-dark;
         }
+
+        &:disabled {
+            background-color: $disabled-color;
+        }
     }
 }
 
 
 // Toggle button
-
 .switch {
     position: relative;
     display: inline-block;

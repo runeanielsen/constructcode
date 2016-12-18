@@ -13,9 +13,9 @@ namespace Constructcode.Web.Controllers.Admin
             return View($"{_viewPath}/Manage.cshtml");
         }
 
-        public IActionResult ChangePassword()
+        public IActionResult Settings()
         {
-            return View($"{_viewPath}/ChangePassword.cshtml");
+            return View($"{_viewPath}/Settings.cshtml");
         }
     }
 }

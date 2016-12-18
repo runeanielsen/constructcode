@@ -70,6 +70,15 @@
             return redirect(url);
         }
 
+        service.accountSettings = function (shouldRedirect) {
+            var url = '/admin/account/settings/';
+
+            if (!shouldRedirect)
+                return url;
+
+            return redirect(url);
+        }
+
         function redirect(url) {
             window.location.href = url;
         }
