@@ -26,7 +26,7 @@ namespace ConstructCode.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            ServiceContainer.Setup(services);
+            services.Setup();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

@@ -9,9 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Constructcode.Web.Configurations
 {
-    public class ServiceContainer
+    public static class ServiceContainer
     {
-        public static void Setup(IServiceCollection services)
+        public static void Setup(this IServiceCollection services)
         {
             services.AddMvc();
             services.AddDbContext<DatabaseContext>();
