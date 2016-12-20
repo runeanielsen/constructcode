@@ -84,3 +84,14 @@ footer {
     cursor: pointer;
     color: $hover-color;
 }
+
+.icon-text {
+    i {
+        margin-left: 7px;
+    }
+}
+
+.no-hover:hover {
+    color: inherit !important;
+    cursor: default !important;
+}

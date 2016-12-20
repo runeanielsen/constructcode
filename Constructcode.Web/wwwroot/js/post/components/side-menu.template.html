@@ -22,6 +22,21 @@
             </div>
         </li>
 
+        <li class="submenu-title">
+            <a ng-init="vm.toggleCategories = false" ng-click="vm.toggleCreated = !vm.toggleCreated">
+                <i class="fa fa-pencil"></i>
+                Created Date
+                <i ng-class="vm.toggleCreated ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa arrow"></i>
+            </a>
+            <ul ng-show="vm.toggleCreated" class="menu-container small">
+                <li>
+                    <p class="no-hover inline icon-text">{{vm.post.created}}<i class="fa fa-calendar"></i></p>
+                    <p class="inline link-style">Edit</p>
+                </li>
+            </ul>
+        </li>
+
+
         <!--Upload Image-->
         <li class="submenu-title">
             <a ng-click="vm.uploadImage()"><i class="fa fa-image"></i>Upload Image</a>

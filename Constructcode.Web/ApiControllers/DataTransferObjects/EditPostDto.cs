@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Constructcode.Web.ApiControllers.DataTransferObjects
 {
@@ -8,6 +9,7 @@ namespace Constructcode.Web.ApiControllers.DataTransferObjects
         public string Title { get; set; }
         public string Content { get; set; }
         public bool Published { get; set; }
+        public DateTime Created { get; set; }
         public IEnumerable<PostCategoryDto> PostCategories { get; set; }
     }
 }
