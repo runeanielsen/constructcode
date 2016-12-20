@@ -18,8 +18,8 @@
             return $http.get(serviceRoute + 'logout');
         }
 
-        service.getAccountName = function () {
-            return $http.get(serviceRoute + 'getAccountName')
+        service.updateAccount = function (account) {
+            return $http.put(serviceRoute + 'updateAccount', account);
         }
     }
 })();

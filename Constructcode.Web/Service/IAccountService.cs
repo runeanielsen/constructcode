@@ -9,5 +9,6 @@ namespace Constructcode.Web.Service
         bool VerifyAccountLogin(Account account, string plainPasword);
         Account GetAccount(string username);
         ClaimsPrincipal CreateAuthenticationClaim(Account account);
+        void UpdateAccount(Account account);
     }
 }

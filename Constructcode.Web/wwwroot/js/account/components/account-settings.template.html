@@ -4,10 +4,6 @@
     </div>
     <form>
         <div class="group">
-            <label>Username</label>
-            <input ng-model="vm.settings.username" type="text" />
-        </div>
-        <div class="group">
             <label>Password</label>
             <input ng-model="vm.settings.password" type="password" />
         </div>
@@ -16,6 +12,10 @@
             <input ng-model="vm.settings.repeatedPassword" ng-match="vm.settings.password" type="password" />
         </div>
 
-        <button ng-disabled="vm.settings.repeatedPassword !== vm.settings.password" class="button-standard green">Save</button>
+        <button ng-disabled="vm.settings.repeatedPassword !== vm.settings.password"
+                ng-click="vm.save()"
+                class="button-standard green">
+            Save
+        </button>
     </form>
 </div>

@@ -24,10 +24,7 @@ namespace Constructcode.Web.Service
 
         public Account CreateAccount(Account account)
         {
-            var salt = Cryptography.CreateSalt();
-
-            account.Password = Cryptography.CreateHashedPassword(account.Password, salt);
-            account.Salt = Cryptography.GetSaltAsString(salt);
+            account.UpdatePassword();
 
             _unitOfWork.Accounts.Add(account);
             _unitOfWork.Complete();
@@ -50,6 +47,14 @@ namespace Constructcode.Web.Service
                 new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
 
             return claim;
+        }
+
+        public void UpdateAccount(Account account)
+        {
+            account.UpdatePassword();
+
+            _unitOfWork.Accounts.Update(account);
+            _unitOfWork.Complete();
         }
     }
 }

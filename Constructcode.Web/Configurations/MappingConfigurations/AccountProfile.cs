@@ -10,6 +10,9 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
         {
             CreateMap<Account, LoginDto>();
             CreateMap<LoginDto, Account>();
+
+            CreateMap<Account, UpdateAccountDto>();
+            CreateMap<UpdateAccountDto, Account>();
         }
     }
 }

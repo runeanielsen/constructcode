@@ -15,20 +15,22 @@
             var vm = this;
 
             vm.settings = {
-                username: '',
                 password: '',
                 repeatedPassword: '',
             }
 
-            init();
-            function init() {
-                accountService.getAccountName().then(function (response) {
-                    vm.settings.username = response.data;
+            vm.save = function () {
+                accountService.updateAccount(vm.settings).then(function (response) {
+                    alert(response.data);
+                    resetFields();
+                }, function (response) {
+                    alert(response.data);
                 });
             }
 
-            vm.save = function() {
-            
+            function resetFields() {
+                vm.settings.password = '';
+                vm.settings.repeatedPassword = '';
             }
         }
     }
