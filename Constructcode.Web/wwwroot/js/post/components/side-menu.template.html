@@ -22,6 +22,7 @@
             </div>
         </li>
 
+        <!--Created Date-->
         <li class="submenu-title">
             <a ng-init="vm.toggleCategories = false" ng-click="vm.toggleCreated = !vm.toggleCreated">
                 <i class="fa fa-pencil"></i>
@@ -30,12 +31,10 @@
             </a>
             <ul ng-show="vm.toggleCreated" class="menu-container small">
                 <li>
-                    <p class="no-hover inline icon-text">{{vm.post.created}}<i class="fa fa-calendar"></i></p>
-                    <p class="inline link-style">Edit</p>
+                    <input type="text" ng-model="vm.post.created" pikaday format="DD MMMM YYYY"/>
                 </li>
             </ul>
         </li>
-
 
         <!--Upload Image-->
         <li class="submenu-title">

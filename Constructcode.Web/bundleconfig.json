@@ -7,7 +7,7 @@
       "wwwroot/lib/bootstrap/dist/css/bootstrap.css",
       "wwwroot/lib/ng-dialog/css/ngDialog.css",
       "wwwroot/lib/ng-dialog/css/ngDialog-theme-default.css",
-      "wwwroot/lib/tinymce/plugins/codesample/css/prism.css",
+      "wwwroot/lib/pikaday/css/pikaday.css",
 
       "wwwroot/styles/_reset.css",
       "wwwroot/styles/site.css",
@@ -21,10 +21,13 @@
     "inputFiles": [
       "wwwroot/lib/tether/dist/js/tether.js",
       "wwwroot/lib/jquery/dist/jquery.js",
+      "wwwroot/lib/moment/moment.js",
       "wwwroot/lib/bootstrap/dist/js/bootstrap.js",
       "wwwroot/lib/angular/angular.js",
       "wwwroot/lib/angular-sanitize/angular-sanitize.js",
       "wwwroot/lib/ng-dialog/js/ngDialog.js",
+      "wwwroot/lib/pikaday/pikaday.js",
+      "wwwroot/lib/pikaday-angular/pikaday-angular.js",
 
       "wwwroot/js/*js",
       "wwwroot/js/core/**/*.js",

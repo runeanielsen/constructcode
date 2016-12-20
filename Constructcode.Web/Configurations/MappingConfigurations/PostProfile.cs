@@ -2,6 +2,7 @@
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.ApiControllers.DataTransferObjects;
 using System.Linq;
+using System;
 
 namespace Constructcode.Web.Configurations.MappingConfigurations
 {
@@ -18,7 +19,8 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
             CreateMap<CreatePostDto, Post>();
             CreateMap<Post, CreatePostDto>();
 
-            CreateMap<EditPostDto, Post>();
+            CreateMap<EditPostDto, Post>()
+                .ForMember(dest => dest.Created, opt => opt.MapFrom(src => DateTime.ParseExact(src.Created, "dd MMMM yyyy", System.Globalization.CultureInfo.InvariantCulture)));
             CreateMap<Post, EditPostDto>();
         }
     }
