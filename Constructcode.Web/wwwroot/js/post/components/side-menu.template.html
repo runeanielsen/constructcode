@@ -31,7 +31,7 @@
             </a>
             <ul ng-show="vm.toggleCreated" class="menu-container small">
                 <li>
-                    <input type="text" ng-model="vm.post.created" pikaday format="DD MMMM YYYY"/>
+                    <input type="text" ng-model="vm.post.created" pikaday="vm.post.created" format="DD MMMM YYYY"/>
                 </li>
             </ul>
         </li>

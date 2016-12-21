@@ -69,14 +69,14 @@ namespace Constructcode.Web.ApiControllers.Api
         [HttpPost]
         public async Task<IActionResult> UploadPostImage(IFormFile file)
         {
-            var uploads = Path.Combine(_environment.WebRootPath, "images");
+            var uploads = Path.Combine(_environment.WebRootPath, "images/blogpost");
 
             using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
             {
                 await file.CopyToAsync(fileStream);
             }
 
-            return Ok($"/images/{file.FileName}");
+            return Ok($"/images/blogpost/{file.FileName}");
         }
 
         [Authorize]

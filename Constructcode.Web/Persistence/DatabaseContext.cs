@@ -37,7 +37,7 @@ namespace Constructcode.Web.Persistence
             }
             else if(_env.IsProduction())
             {
-                optionsBuilder.UseSqlServer(@"Data Source=constructcode.database.windows.net;Initial Catalog=constructcodedb;Integrated Security=False;User ID=runeanielsen;Password=RzqpvyPUfOGNwhse7yAu;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                optionsBuilder.UseSqlServer(@"Server=constructcode.database.windows.net;Database=constructcode;Integrated Security=False;User ID=runeanielsen;Password=RzqpvyPUfOGNwhse7yAu;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }         
         }
     }
