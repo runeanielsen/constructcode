@@ -2,14 +2,14 @@
     'use strict';
 
     angular.module('app')
-        .component('login', loginComponent())
+        .component('login', loginComponent());
 
     function loginComponent() {
         return {
             templateUrl: '/js/account/components/login.template.html',
             controllerAs: 'vm',
             controller: ['redirectService', 'accountService', loginController]
-        }
+        };
 
         function loginController(redirectService, accountService) {
             var vm = this;
@@ -20,7 +20,7 @@
             vm.loginInformation = {
                 username: '',
                 password: ''
-            }
+            };
 
             vm.submitLogin = function () {
                 accountService.submitLogin(vm.loginInformation).then(function () {
@@ -28,7 +28,7 @@
                 }, function (response) {
                     vm.errorText = response.data;
                 });
-            }
+            };
         }
     }
 })();
