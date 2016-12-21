@@ -25,3 +25,9 @@ $banner-text-color: white;
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .banner {
+        margin-top: 0;
+    }
+}

@@ -8,6 +8,7 @@
       "wwwroot/lib/ng-dialog/css/ngDialog.css",
       "wwwroot/lib/ng-dialog/css/ngDialog-theme-default.css",
       "wwwroot/lib/pikaday/css/pikaday.css",
+      "wwwroot/lib/tinymce/plugins/codesample/css/prism.css",
 
       "wwwroot/styles/_reset.css",
       "wwwroot/styles/site.css",
