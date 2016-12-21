@@ -1,5 +1,6 @@
 ﻿$primary-color: #733089;
-$date-color: #847b79;
+$date-color: #e6e3df;
+$category-color: #847b79;
 
 .frontpage-content {
     background-color: white;
@@ -22,10 +23,9 @@ $date-color: #847b79;
         .introduction {
             font-size: 1em;
             text-align: justify;
-            text-justify: inter-word;
             margin-left: 30px;
             margin-right: 30px;
-            border-bottom: 1px solid #e6e3df;
+            border-bottom: 1px solid $date-color;
             line-height: 35px;
             padding-bottom: 25px;
             max-width: 100%;
@@ -46,9 +46,25 @@ $date-color: #847b79;
 
                     a {
                         text-decoration: none;
-                        color: $date-color;
+                        color: $category-color;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .frontpage-content {
+        .section {
+            font-size: 0.9em;
+
+            h2  {
+                font-size: 1.6em;
+            }
+
+            .introduction {
+                line-height: 30px;
             }
         }
     }
