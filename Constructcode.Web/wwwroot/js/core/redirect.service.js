@@ -14,7 +14,7 @@
                 return url;
 
             return redirect(url);
-        }
+        };
 
         service.admin = function (shouldRedirect) {
             var url = '/admin';
@@ -23,7 +23,7 @@
                 return url;
 
             return redirect(url);
-        }
+        };
 
         service.createPost = function (shouldRedirect) {
             var url = '/admin/post/createpost';
@@ -32,7 +32,7 @@
                 return url;
 
             return redirect(url);
-        }
+        };
 
         service.editPost = function (id, shouldRedirect) {
             var url = '/admin/post/editpost/' + id;
@@ -41,7 +41,7 @@
                 return url;
 
             return redirect(url);
-        }
+        };
 
         service.manageAccount = function (shouldRedirect) {
             var url = '/admin/account/manage';
@@ -50,7 +50,7 @@
                 return url;
 
             return redirect(url);
-        }
+        };
 
         service.displayPost = function (urlParameter, shouldRedirect) {
             var url = '/post/' + urlParameter;
@@ -59,7 +59,7 @@
                 return url;
 
             return redirect(url);
-        }
+        };
 
         service.displayPostOnCategory = function (urlParameter, shouldRedirect) {
             var url = '/post/category/' + urlParameter.toLowerCase();
@@ -68,7 +68,7 @@
                 return url;
 
             return redirect(url);
-        }
+        };
 
         service.accountSettings = function (shouldRedirect) {
             var url = '/admin/account/settings/';
@@ -77,7 +77,7 @@
                 return url;
 
             return redirect(url);
-        }
+        };
 
         function redirect(url) {
             window.location.href = url;

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app')
-        .component('sideMenu', sideMenuComponent())
+        .component('sideMenu', sideMenuComponent());
 
     function sideMenuComponent() {
         return {
@@ -12,7 +12,7 @@
             templateUrl: '/js/post/components/side-menu.template.html',
             controllerAs: 'vm',
             controller: ['categoryService', 'ngDialog', 'redirectService', SideMenuController]
-        }
+        };
 
         function SideMenuController(categoryService, ngDialog, redirectService) {
             var vm = this;
@@ -25,7 +25,7 @@
             init();
             function init() {
                 getAllCategories();
-            };
+            }
 
             vm.createCategory = function () {
                 var categoryName = window.prompt('Insert category name', '');
@@ -40,7 +40,7 @@
                 }, function (response) {
                     alert(response.data);
                 });
-            }
+            };
 
             vm.uploadImage = function () {
                 ngDialog.open(
@@ -49,7 +49,7 @@
                         className: 'ngdialog-theme-default',
                         controller: 'UploadImageController as vm'
                     });
-            }
+            };
 
             vm.editCategory = function (category) {
                 var categoryName = window.prompt('Insert category name', '');
@@ -62,20 +62,20 @@
                 }, function (response) {
                     alert(response.data);
                 });
-            }
+            };
 
             vm.deleteCategory = function (category) {
                 categoryService.deleteCategory(category.id).then(function () {
                     vm.categories = vm.categories.filter(item => item !== category);
                 });
-            }
+            };
 
             vm.updatePostCategories = function () {
                 vm.post.postCategories = [];
                 angular.forEach(vm.categories.filter(c => c.selected), function (selectedCategory) {
                     vm.post.postCategories.push({ postId: vm.post.id, categoryId: selectedCategory.id });
                 });              
-            }
+            };
 
             function initSelectedCategories(){
                 angular.forEach(vm.post.postCategories, function (postCategory) {
