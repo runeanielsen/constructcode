@@ -6,7 +6,7 @@
         font-size: 0.9em;
 
         .content {
-            text-align:justify;
+            text-align: justify;
             font-size: 1.2em;
             margin-left: 30px;
             margin-right: 30px;
@@ -24,6 +24,18 @@
             code {
                 font-size: 0.8em;
             }
+        }
+
+        ol, ul {
+            padding-left: 20px;
+        }
+
+        ol {
+            list-style: decimal;
+        }
+
+        ul {
+            list-style: circle;
         }
 
         strong {
