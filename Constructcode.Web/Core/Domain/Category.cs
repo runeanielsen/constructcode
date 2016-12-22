@@ -14,6 +14,7 @@ namespace Constructcode.Web.Core.Domain
         {
             Url = Title.ToLower().Replace(" ", "-");
             Url = Url.ToLower().Replace(".", "-");
+            Url = Url.ToLower().Replace("#", "-sharp");
         }
     }
 }

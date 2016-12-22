@@ -26,13 +26,9 @@ namespace Constructcode.Web.Core.Domain
             contentWithRemovedHtmlTags = Regex.Replace(contentWithRemovedHtmlTags, "&rdquo;", string.Empty);
             contentWithRemovedHtmlTags = Regex.Replace(contentWithRemovedHtmlTags, "&acute;", "´");
             contentWithRemovedHtmlTags = Regex.Replace(contentWithRemovedHtmlTags, "&rsquo;", "'");
+            contentWithRemovedHtmlTags = Regex.Replace(contentWithRemovedHtmlTags, "&lsquo;", "'");
 
             return contentWithRemovedHtmlTags.Substring(0, contentWithRemovedHtmlTags.Length > introductionTextLength ? introductionTextLength : contentWithRemovedHtmlTags.Length);
-        }
-
-        public void SetCreatedTime()
-        {
-            Created = DateTime.Now;
         }
 
         public void UpdateUrl()

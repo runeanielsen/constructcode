@@ -19,7 +19,6 @@ namespace Constructcode.Web.Service
         public void CreatePost(Post post)
         {
             post.UpdateUrl();
-            post.SetCreatedTime();
             _unitOfWork.Posts.Add(post);
             _unitOfWork.Complete();
         }

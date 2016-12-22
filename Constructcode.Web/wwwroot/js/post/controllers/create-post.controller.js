@@ -13,7 +13,12 @@
         vm.post = {
             title: '',
             content: '',
-            postCategories: []
+            postCategories: [],
+            
+        }
+
+        vm.setDefaultDate = function() {
+            vm.post.created = "17 September 2016"
         }
 
         vm.createPost = function () {
