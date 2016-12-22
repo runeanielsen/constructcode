@@ -14,11 +14,7 @@
             title: '',
             content: '',
             postCategories: [],
-            
-        }
-
-        vm.setDefaultDate = function() {
-            vm.post.created = "17 September 2016"
+            created: moment(new Date()).format('DD MMMM YYYY')
         }
 
         vm.createPost = function () {
