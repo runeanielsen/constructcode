@@ -8,7 +8,7 @@
       "wwwroot/lib/ng-dialog/css/ngDialog.css",
       "wwwroot/lib/ng-dialog/css/ngDialog-theme-default.css",
       "wwwroot/lib/pikaday/css/pikaday.css",
-      "wwwroot/lib/tinymce/plugins/codesample/css/prism.css",
+      "wwwroot/lib/prism/themes/prism.css",
 
       "wwwroot/styles/_reset.css",
       "wwwroot/styles/site.css",
@@ -29,6 +29,11 @@
       "wwwroot/lib/ng-dialog/js/ngDialog.js",
       "wwwroot/lib/pikaday/pikaday.js",
       "wwwroot/lib/pikaday-angular/pikaday-angular.js",
+
+      "wwwroot/lib/prism/prism.js",
+      "wwwroot/lib/prism/components/prism-csharp.js",
+      "wwwroot/lib/prism/components/prism-javascript.js",
+      "wwwroot/lib/prism/components/prism-markup.js",
 
       "wwwroot/js/*js",
       "wwwroot/js/core/**/*.js",

@@ -14,11 +14,12 @@
         init();
         function init() {
             postService.getPostOnUrl(urlService.getLastUrlParameter()).then(function (response) {
-                vm.post = response.data;
+                vm.post = response.data;            
             });
         }
 
         vm.trustAsHtml = function () {
+            Prism.highlightAll();
             return $sce.trustAsHtml(vm.post.content);
         };
     }

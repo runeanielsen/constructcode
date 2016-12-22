@@ -30,6 +30,7 @@
 /// <reference path="lib/ng-dialog/js/ngDialog.js" />
 /// <reference path="lib/pikaday/pikaday.js" />
 /// <reference path="lib/pikaday-angular/pikaday-angular.js" />
+/// <reference path="lib/prism/prism.js" />
 /// <reference path="lib/tether/dist/js/tether.js" />
 /// <reference path="minified/site.min.js" />
 /// <reference path="minified/tinymce-angular.min.js" />
