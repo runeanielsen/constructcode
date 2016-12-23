@@ -4,28 +4,31 @@ using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
 using System.Linq;
 using System.Net;
+using Constructcode.Web.Service.Helpers;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Constructcode.Web.Service
 {
     public class PostService : IPostService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IHostingEnvironment _environment;
 
-        public PostService(IUnitOfWork unitOfWork)
+        public PostService(IUnitOfWork unitOfWork, IHostingEnvironment environment)
         {
             _unitOfWork = unitOfWork;
-        }
-
-        public void CreatePost(Post post)
-        {
-            post.UpdateUrl();
-            _unitOfWork.Posts.Add(post);
-            _unitOfWork.Complete();
+            _environment = environment;
         }
 
         public IEnumerable<Post> GetAllPosts()
         {
             return _unitOfWork.Posts.GetAll();
+        }
+
+        public IEnumerable<Post> GetAllPublishedPosts()
+        {
+            return _unitOfWork.Posts.GetAll().Where(a => a.Published).OrderByDescending(a => a.Created);
         }
 
         public IEnumerable<Post> GetAllPostsOnCategory(string categoryUrl)
@@ -38,6 +41,14 @@ namespace Constructcode.Web.Service
             return _unitOfWork.Posts.Get(id);
         }
 
+        public void CreatePost(Post post)
+        {
+            post.UpdateUrl();
+            _unitOfWork.Posts.Add(post);
+            _unitOfWork.Complete();
+            UpdateSiteMap();
+        }
+
         public void UpdatePost(Post post)
         {
             var postCategories = _unitOfWork.PostCategories.Find(pc => pc.PostId == post.Id).ToList();
@@ -48,6 +59,7 @@ namespace Constructcode.Web.Service
             _unitOfWork.PostCategories.AddRange(post.PostCategories);
             _unitOfWork.Posts.Update(post);
             _unitOfWork.Complete();
+            UpdateSiteMap();
         }
 
         public void DeletePost(int id)
@@ -70,6 +82,23 @@ namespace Constructcode.Web.Service
                 return new Validation(false, "Another post with that title already exist", HttpStatusCode.BadRequest);
 
             return new Validation(true);
+        }
+
+        private void UpdateSiteMap()
+        {
+            var logFile = File.Create(Path.Combine(_environment.WebRootPath, "sitemap.xml"));
+            var sitemap = new Sitemap(new StreamWriter(logFile));
+            sitemap.WriteStartDocument();
+
+            sitemap.WriteItem("www.constructcode.com", DateTime.Now, "daily", "1");
+
+            foreach (var post in GetAllPublishedPosts())
+            {
+                sitemap.WriteItem("www.constructcode.com/" + post.Url, post.Created, "monthly", "0.9");
+            }
+
+            sitemap.WriteEndDocument();
+            sitemap.Close();
         }
     }
 }

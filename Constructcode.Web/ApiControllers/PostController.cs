@@ -29,7 +29,7 @@ namespace Constructcode.Web.ApiControllers.Api
         [HttpGet]
         public IActionResult GetAllPublishedPosts()
         {
-            var blogposts = _postService.GetAllPosts().Where(a => a.Published).OrderByDescending(a => a.Created);
+            var blogposts = _postService.GetAllPublishedPosts();
 
             return Ok(_mapper.Map<IEnumerable<PostDto>>(blogposts));
         }

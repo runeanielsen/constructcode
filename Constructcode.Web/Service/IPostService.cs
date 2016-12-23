@@ -7,6 +7,7 @@ namespace Constructcode.Web.Service
     {
         void CreatePost(Post post);
         IEnumerable<Post> GetAllPosts();
+        IEnumerable<Post> GetAllPublishedPosts();
         Post GetPost(int id);
         void UpdatePost(Post post);
         void DeletePost(int id);
