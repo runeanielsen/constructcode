@@ -18,7 +18,8 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
                 .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.PostCategories.Select(a => a.Category)));
             CreateMap<PostDto, Post>();
 
-            CreateMap<CreatePostDto, Post>();
+            CreateMap<CreatePostDto, Post>()
+                .ForMember(dest => dest.Created, opt => opt.MapFrom(src => DateTime.ParseExact(src.Created, "dd MMMM yyyy", new CultureInfo("en-GB"))));
             CreateMap<Post, CreatePostDto>();
 
             CreateMap<EditPostDto, Post>()
