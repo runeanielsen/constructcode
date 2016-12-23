@@ -7,6 +7,7 @@ using System.Net;
 using Constructcode.Web.Service.Helpers;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace Constructcode.Web.Service
 {
@@ -94,6 +95,7 @@ namespace Constructcode.Web.Service
 
             foreach (var post in GetAllPublishedPosts())
             {
+                
                 sitemap.WriteItem("www.constructcode.com/" + post.Url, post.Created, "monthly", "0.9");
             }
 
