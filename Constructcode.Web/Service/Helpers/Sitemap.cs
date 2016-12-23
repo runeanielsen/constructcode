@@ -36,7 +36,7 @@ namespace Constructcode.Web.Service.Helpers
         public void Close()
         {
             writer.Flush();
-            writer.Dispose();
+            writer.Dispose();            
         }
 
         public void WriteItem(string link, DateTime lastModified, string changefreq, string priority)

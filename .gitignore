@@ -250,3 +250,4 @@ wwwroot/lib/
 
 /Constructcode.Web/wwwroot/styles/**.css
 /Constructcode.Web/wwwroot/minified
+/Constructcode.Web/wwwroot/sitemap.xml

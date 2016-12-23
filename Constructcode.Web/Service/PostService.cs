@@ -7,7 +7,6 @@ using System.Net;
 using Constructcode.Web.Service.Helpers;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 
 namespace Constructcode.Web.Service
 {
@@ -88,19 +87,22 @@ namespace Constructcode.Web.Service
         private void UpdateSiteMap()
         {
             var logFile = File.Create(Path.Combine(_environment.WebRootPath, "sitemap.xml"));
-            var sitemap = new Sitemap(new StreamWriter(logFile));
-            sitemap.WriteStartDocument();
 
-            sitemap.WriteItem("www.constructcode.com", DateTime.Now, "daily", "1");
-
-            foreach (var post in GetAllPublishedPosts())
+            using(var stream = new StreamWriter(logFile))
             {
-                
-                sitemap.WriteItem("www.constructcode.com/" + post.Url, post.Created, "monthly", "0.9");
-            }
+                var sitemap = new Sitemap(stream);
+                sitemap.WriteStartDocument();
 
-            sitemap.WriteEndDocument();
-            sitemap.Close();
+                sitemap.WriteItem("http://www.constructcode.com", DateTime.Now, "daily", "1");
+
+                foreach (var post in GetAllPublishedPosts())
+                {
+                    sitemap.WriteItem("http://www.constructcode.com/post/" + post.Url, post.Created, "monthly", "0.9");
+                }
+
+                sitemap.WriteEndDocument();
+                sitemap.Close();
+            }
         }
     }
 }
