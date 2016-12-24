@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Construct Code</title>
 
-    <environment names="Development">
-        <link href="~/minified/site.min.css" rel="stylesheet" />
-    </environment>
+    <link href="~/minified/site.min.css" rel="stylesheet" />
 
-    <environment names="Staging,Production">
-        <link href="~/minified/site.min.css" rel="stylesheet" />
-    </environment>
+    <!-- Google Analytics -->
+    <script>
+        window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+        ga('create', 'UA-83257241-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
 </head>
 <body ng-app="app" ng-cloak>
     <div>
@@ -31,17 +34,9 @@
         }
     </div>
 
-    <environment names="Development">
-        <script src="~/minified/site.min.js"></script>
-        <script src="~/lib/tinymce/tinymce.min.js"></script>
-        <script src="~/minified/tinymce-angular.min.js"></script>
-    </environment>
-
-    <environment names="Staging,Production">
-        <script src="~/minified/site.min.js"></script>
-        <script src="~/lib/tinymce/tinymce.min.js"></script>
-        <script src="~/minified/tinymce-angular.min.js"></script>
-    </environment>
+    <script src="~/minified/site.min.js"></script>
+    <script src="~/lib/tinymce/tinymce.min.js"></script>
+    <script src="~/minified/tinymce-angular.min.js"></script>
 
     @RenderSection("scripts", required: false)
 </body>
