@@ -38,7 +38,8 @@ namespace Constructcode.Web.Service
             if (!_memoryCache.TryGetValue(publishedPostsMemoryCacheKey, out publishedPosts))
             {
                 publishedPosts = _unitOfWork.Posts.GetAll().Where(a => a.Published).OrderByDescending(a => a.Created).ToList();
-                _memoryCache.Set(publishedPostsMemoryCacheKey, publishedPosts, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(20)));
+                _memoryCache.Set(publishedPostsMemoryCacheKey, publishedPosts, 
+                    new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(10)));
             }
 
             return publishedPosts;
