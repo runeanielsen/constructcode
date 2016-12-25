@@ -29,25 +29,19 @@ namespace Constructcode.Web.ApiControllers.Api
         [HttpGet]
         public IActionResult GetAllPublishedPosts()
         {
-            var blogposts = _postService.GetAllPublishedPosts();
-
-            return Ok(_mapper.Map<IEnumerable<PostDto>>(blogposts));
+            return Ok(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPublishedPosts()));
         }
 
         [HttpGet]
         public IActionResult GetAllPostsOnCategory(string id)
         {
-            var blogposts = _postService.GetAllPostsOnCategory(id).Where(a => a.Published).OrderByDescending(a => a.Created);
-
-            return Ok(_mapper.Map<IEnumerable<PostDto>>(blogposts));
+            return Ok(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPostsOnCategory(id)));
         }
 
         [HttpGet]
         public IActionResult GetPost(int id)
         {
-            var blogPost = _postService.GetPost(id);
-
-            return Ok(_mapper.Map<PostDto>(blogPost));
+            return Ok(_mapper.Map<PostDto>(_postService.GetPost(id)));
         }
 
         [HttpGet]
@@ -60,9 +54,7 @@ namespace Constructcode.Web.ApiControllers.Api
         [HttpGet]
         public IActionResult GetAllPosts()
         {
-            var blogposts = _postService.GetAllPosts().OrderByDescending(a => a.Created);
-
-            return Ok(_mapper.Map<IEnumerable<PostDto>>(blogposts));
+            return Ok(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPosts().OrderByDescending(a => a.Created)));
         }
 
         [Authorize]

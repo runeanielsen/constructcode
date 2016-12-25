@@ -7,6 +7,7 @@ using System.Net;
 using Constructcode.Web.Service.Helpers;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Constructcode.Web.Service
 {
@@ -14,11 +15,13 @@ namespace Constructcode.Web.Service
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IHostingEnvironment _environment;
+        private readonly IMemoryCache _memoryCache;
 
-        public PostService(IUnitOfWork unitOfWork, IHostingEnvironment environment)
+        public PostService(IUnitOfWork unitOfWork, IHostingEnvironment environment, IMemoryCache memoryCache)
         {
             _unitOfWork = unitOfWork;
             _environment = environment;
+            _memoryCache = memoryCache;
         }
 
         public IEnumerable<Post> GetAllPosts()
@@ -28,12 +31,22 @@ namespace Constructcode.Web.Service
 
         public IEnumerable<Post> GetAllPublishedPosts()
         {
-            return _unitOfWork.Posts.GetAll().Where(a => a.Published).OrderByDescending(a => a.Created);
+            var publishedPostsMemoryCacheKey = "published-posts";
+
+            IEnumerable<Post> publishedPosts;
+
+            if (!_memoryCache.TryGetValue(publishedPostsMemoryCacheKey, out publishedPosts))
+            {
+                publishedPosts = _unitOfWork.Posts.GetAll().Where(a => a.Published).OrderByDescending(a => a.Created).ToList();
+                _memoryCache.Set(publishedPostsMemoryCacheKey, publishedPosts, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(20)));
+            }
+
+            return publishedPosts;
         }
 
         public IEnumerable<Post> GetAllPostsOnCategory(string categoryUrl)
         {
-            return _unitOfWork.Posts.GetAll().Where(a => a.PostCategories.Any(b => b.Category.Url == categoryUrl));
+            return GetAllPublishedPosts().Where(a => a.PostCategories.Any(b => b.Category.Url == categoryUrl));
         }
 
         public Post GetPost(int id)
@@ -88,7 +101,7 @@ namespace Constructcode.Web.Service
         {
             var logFile = File.Create(Path.Combine(_environment.WebRootPath, "sitemap.xml"));
 
-            using(var stream = new StreamWriter(logFile))
+            using (var stream = new StreamWriter(logFile))
             {
                 var sitemap = new Sitemap(stream);
                 sitemap.WriteStartDocument();
