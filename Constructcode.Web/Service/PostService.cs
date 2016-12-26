@@ -17,6 +17,8 @@ namespace Constructcode.Web.Service
         private readonly IHostingEnvironment _environment;
         private readonly IMemoryCache _memoryCache;
 
+        private const string CachePostKey = "posts";
+
         public PostService(IUnitOfWork unitOfWork, IHostingEnvironment environment, IMemoryCache memoryCache)
         {
             _unitOfWork = unitOfWork;
@@ -26,33 +28,22 @@ namespace Constructcode.Web.Service
 
         public IEnumerable<Post> GetAllPosts()
         {
-            return _unitOfWork.Posts.GetAll();
+            return Posts();
         }
 
         public IEnumerable<Post> GetAllPublishedPosts()
         {
-            var publishedPostsMemoryCacheKey = "published-posts";
-
-            IEnumerable<Post> publishedPosts;
-
-            if (!_memoryCache.TryGetValue(publishedPostsMemoryCacheKey, out publishedPosts))
-            {
-                publishedPosts = _unitOfWork.Posts.GetAll().Where(a => a.Published).OrderByDescending(a => a.Created).ToList();
-                _memoryCache.Set(publishedPostsMemoryCacheKey, publishedPosts, 
-                    new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(10)));
-            }
-
-            return publishedPosts;
+            return Posts().Where(a => a.Published).OrderByDescending(a => a.Created).ToList();
         }
 
         public IEnumerable<Post> GetAllPostsOnCategory(string categoryUrl)
         {
-            return GetAllPublishedPosts().Where(a => a.PostCategories.Any(b => b.Category.Url == categoryUrl));
+            return Posts().Where(a => a.PostCategories.Any(b => b.Category.Url == categoryUrl) && a.Published);
         }
 
         public Post GetPost(int id)
         {
-            return _unitOfWork.Posts.Get(id);
+            return Posts().FirstOrDefault(a => a.Id == id);
         }
 
         public void CreatePost(Post post)
@@ -61,6 +52,7 @@ namespace Constructcode.Web.Service
             _unitOfWork.Posts.Add(post);
             _unitOfWork.Complete();
             UpdateSiteMap();
+            UpdateCachedPosts();
         }
 
         public void UpdatePost(Post post)
@@ -74,17 +66,19 @@ namespace Constructcode.Web.Service
             _unitOfWork.Posts.Update(post);
             _unitOfWork.Complete();
             UpdateSiteMap();
+            UpdateCachedPosts();
         }
 
         public void DeletePost(int id)
         {
             _unitOfWork.Posts.Remove(_unitOfWork.Posts.SingleOrDefault(a => a.Id == id));
             _unitOfWork.Complete();
+            UpdateCachedPosts();
         }
 
         public Post GetPostOnUrl(string url)
         {
-            return _unitOfWork.Posts.SingleOrDefault(a => a.Url == url);
+            return Posts().SingleOrDefault(a => a.Url == url);
         }
 
         public Validation ValidatePost(Post post)
@@ -97,6 +91,27 @@ namespace Constructcode.Web.Service
 
             return new Validation(true);
         }
+
+        private IEnumerable<Post> Posts()
+        {
+            IEnumerable<Post> posts;
+
+            if (!_memoryCache.TryGetValue(CachePostKey, out posts))
+            {
+                posts = UpdateCachedPosts();
+            }
+
+            return posts;
+        }
+         
+        
+        private IEnumerable<Post> UpdateCachedPosts()
+        {
+            IEnumerable<Post> posts = _unitOfWork.Posts.GetAll().ToList();
+            _memoryCache.Set(CachePostKey, posts, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(120)));
+
+            return posts;
+        }   
 
         private void UpdateSiteMap()
         {
