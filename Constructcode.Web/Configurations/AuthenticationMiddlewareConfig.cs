@@ -16,6 +16,7 @@ namespace Constructcode.Web.Configurations
                 AccessDeniedPath = new PathString("/Account/Forbidden/"),
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true,
+                SlidingExpiration = true
             });
         }
     }

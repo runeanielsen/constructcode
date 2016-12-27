@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Configurations;
-using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Constructcode.Web.ApiControllers

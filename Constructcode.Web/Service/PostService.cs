@@ -103,8 +103,7 @@ namespace Constructcode.Web.Service
 
             return posts;
         }
-         
-        
+               
         private IEnumerable<Post> UpdateCachedPosts()
         {
             IEnumerable<Post> posts = _unitOfWork.Posts.GetAll().ToList();
