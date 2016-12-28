@@ -8,13 +8,16 @@
     <link async href="~/minified/site.min.css" rel="stylesheet" />
 
     <!-- Google Analytics -->
-    <script>
-        window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
-        ga('create', 'UA-83257241-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <environment names="Staging,Production">
+        <script>
+            window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+            ga('create', 'UA-83257241-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
+    </environment>
     <!-- End Google Analytics -->
+
 </head>
 <body ng-app="app" ng-cloak>
     <div>
