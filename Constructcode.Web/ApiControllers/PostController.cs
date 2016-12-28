@@ -18,12 +18,14 @@ namespace Constructcode.Web.ApiControllers.Api
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
         private readonly IHostingEnvironment _environment;
+        private readonly ISitemapService _sitemapService;
 
-        public PostController(IPostService postService, IMapper mapper, IHostingEnvironment environment)
+        public PostController(IPostService postService, IMapper mapper, IHostingEnvironment environment, ISitemapService sitemapService)
         {
             _postService = postService;
             _mapper = mapper;
             _environment = environment;
+            _sitemapService = sitemapService;
         }
 
         [HttpGet]
@@ -82,6 +84,7 @@ namespace Constructcode.Web.ApiControllers.Api
                 return BadRequest(validation.Message);
 
             _postService.CreatePost(mappedPost);
+            _sitemapService.UpdatePosts(_postService.GetAllPublishedPosts());
 
             return Ok();
         }
@@ -97,6 +100,7 @@ namespace Constructcode.Web.ApiControllers.Api
                 return StatusCode(validation.StatusCodeAsIntegar, validation.Message);
 
             _postService.UpdatePost(mappedPost);
+            _sitemapService.UpdatePosts(_postService.GetAllPublishedPosts());
 
             return Ok();
         }
@@ -106,6 +110,8 @@ namespace Constructcode.Web.ApiControllers.Api
         public IActionResult DeletePost(int id)
         {
             _postService.DeletePost(id);
+            _sitemapService.UpdatePosts(_postService.GetAllPublishedPosts());
+
             return Ok();
         }
     }

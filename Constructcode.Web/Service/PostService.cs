@@ -14,15 +14,13 @@ namespace Constructcode.Web.Service
     public class PostService : IPostService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IHostingEnvironment _environment;
         private readonly IMemoryCache _memoryCache;
 
         private const string CachePostKey = "posts";
 
-        public PostService(IUnitOfWork unitOfWork, IHostingEnvironment environment, IMemoryCache memoryCache)
+        public PostService(IUnitOfWork unitOfWork, IMemoryCache memoryCache)
         {
             _unitOfWork = unitOfWork;
-            _environment = environment;
             _memoryCache = memoryCache;
         }
 
@@ -51,7 +49,6 @@ namespace Constructcode.Web.Service
             post.UpdateUrl();
             _unitOfWork.Posts.Add(post);
             _unitOfWork.Complete();
-            UpdateSiteMap();
             UpdateCachedPosts();
         }
 
@@ -65,7 +62,6 @@ namespace Constructcode.Web.Service
             _unitOfWork.PostCategories.AddRange(post.PostCategories);
             _unitOfWork.Posts.Update(post);
             _unitOfWork.Complete();
-            UpdateSiteMap();
             UpdateCachedPosts();
         }
 
@@ -107,30 +103,9 @@ namespace Constructcode.Web.Service
         private IEnumerable<Post> UpdateCachedPosts()
         {
             IEnumerable<Post> posts = _unitOfWork.Posts.GetAll().ToList();
-            _memoryCache.Set(CachePostKey, posts, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(120)));
+            _memoryCache.Set(CachePostKey, posts, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(30)));
 
             return posts;
         }   
-
-        private void UpdateSiteMap()
-        {
-            var logFile = File.Create(Path.Combine(_environment.WebRootPath, "sitemap.xml"));
-
-            using (var stream = new StreamWriter(logFile))
-            {
-                var sitemap = new Sitemap(stream);
-                sitemap.WriteStartDocument();
-
-                sitemap.WriteItem("http://www.constructcode.com", DateTime.Now, "daily", "1");
-
-                foreach (var post in GetAllPublishedPosts())
-                {
-                    sitemap.WriteItem("http://www.constructcode.com/post/" + post.Url, post.Created, "monthly", "0.9");
-                }
-
-                sitemap.WriteEndDocument();
-                sitemap.Close();
-            }
-        }
     }
 }
