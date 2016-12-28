@@ -25,7 +25,6 @@
 /// <reference path="lib/angular-ui-tinymce/src/tinymce.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />
-/// <reference path="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" />
 /// <reference path="lib/moment/moment.js" />
 /// <reference path="lib/ng-dialog/js/ngDialog.js" />
 /// <reference path="lib/pikaday/pikaday.js" />

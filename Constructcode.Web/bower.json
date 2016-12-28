@@ -15,7 +15,6 @@
     "prism": "1.4.1"
   },
   "devDependencies": {
-    "font-awesome": "^4.6.3"
   },
   "resolutions": {
     "jquery": ">= 1.7.2",
