@@ -84,7 +84,6 @@ namespace Constructcode.Web.ApiControllers.Api
                 return BadRequest(validation.Message);
 
             _postService.CreatePost(mappedPost);
-            _sitemapService.UpdatePosts(_postService.GetAllPublishedPosts());
 
             return Ok();
         }
@@ -100,7 +99,6 @@ namespace Constructcode.Web.ApiControllers.Api
                 return StatusCode(validation.StatusCodeAsIntegar, validation.Message);
 
             _postService.UpdatePost(mappedPost);
-            _sitemapService.UpdatePosts(_postService.GetAllPublishedPosts());
 
             return Ok();
         }
@@ -110,7 +108,6 @@ namespace Constructcode.Web.ApiControllers.Api
         public IActionResult DeletePost(int id)
         {
             _postService.DeletePost(id);
-            _sitemapService.UpdatePosts(_postService.GetAllPublishedPosts());
 
             return Ok();
         }

@@ -5,6 +5,6 @@ namespace Constructcode.Web.Service
 {
     public interface ISitemapService
     {
-        void UpdatePosts(IEnumerable<Post> posts);
+        void UpdateSitemap(List<Post> posts, List<Category> categories);
     }
 }

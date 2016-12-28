@@ -13,11 +13,13 @@ namespace Constructcode.Web.ApiControllers.Api
     {
         private readonly IMapper _mapper;
         private readonly ICategoryService _categoryService;
+        private readonly ISitemapService _sitemapService;
 
-        public CategoryController(IMapper mapper, ICategoryService categoryService)
+        public CategoryController(IMapper mapper, ICategoryService categoryService, ISitemapService sitemapService)
         {
             _mapper = mapper;
             _categoryService = categoryService;
+            _sitemapService = sitemapService;
         }
 
         [HttpPost]
@@ -50,6 +52,7 @@ namespace Constructcode.Web.ApiControllers.Api
                 return StatusCode(validation.StatusCodeAsIntegar, validation.Message);
 
             _categoryService.EditCategory(_mapper.Map<Category>(vm));
+
             return Ok();
         }
 
