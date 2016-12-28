@@ -11,6 +11,7 @@ namespace Constructcode.Web.Core.Domain
         public string Content { get; set; }
         public string Url { get; set; }
         public DateTime Created { get; set; }
+        public DateTime LastModified { get; set; }
         public bool Published { get; set; }
 
         public List<Message> Messages { get; set; }
@@ -31,7 +32,13 @@ namespace Constructcode.Web.Core.Domain
             return contentWithRemovedHtmlTags.Substring(0, contentWithRemovedHtmlTags.Length > introductionTextLength ? introductionTextLength : contentWithRemovedHtmlTags.Length);
         }
 
-        public void UpdateUrl()
+        public void ManageUpdate()
+        {
+            UpdateUrl();
+            LastModified = DateTime.Now;
+        }
+
+        private void UpdateUrl()
         {
             Url = Title.ToLower().Replace(" ", "-");
             Url = Url.ToLower().Replace(".", "-");

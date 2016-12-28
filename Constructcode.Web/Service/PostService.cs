@@ -46,7 +46,7 @@ namespace Constructcode.Web.Service
 
         public void CreatePost(Post post)
         {
-            post.UpdateUrl();
+            post.ManageUpdate();
             _unitOfWork.Posts.Add(post);
             _unitOfWork.Complete();
             UpdateCachedPosts();
@@ -58,7 +58,7 @@ namespace Constructcode.Web.Service
             _unitOfWork.PostCategories.RemoveRange(postCategories);
             _unitOfWork.Complete();
 
-            post.UpdateUrl();
+            post.ManageUpdate();
             _unitOfWork.PostCategories.AddRange(post.PostCategories);
             _unitOfWork.Posts.Update(post);
             _unitOfWork.Complete();

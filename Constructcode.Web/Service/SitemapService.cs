@@ -26,18 +26,16 @@ namespace Constructcode.Web.Service
                 var sitemap = new Sitemap(stream);
                 sitemap.WriteStartDocument();
 
-                sitemap.WriteItem(websiteDomainName, DateTime.Now, "daily", "1");
-
                 foreach (var post in posts)
                 {
-                    sitemap.WriteItem($"{websiteDomainName}/post/{post.Url}", post.Created, "weekly", "0.8");
+                    sitemap.WriteItem($"{websiteDomainName}/post/{post.Url}", post.LastModified, "weekly", "0.8");
                 }
 
                 sitemap.WriteEndDocument();
                 sitemap.Close();
-
-                UpdateAllSitemaps();
             }
+
+            UpdateAllSitemaps();
         }
 
         private void UpdateAllSitemaps()
