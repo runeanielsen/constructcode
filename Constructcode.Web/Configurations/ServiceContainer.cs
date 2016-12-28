@@ -18,7 +18,8 @@ namespace Constructcode.Web.Configurations
             services.AddEntityFrameworkSqlServer();
             services.AddMemoryCache();
 
-            services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Fastest);
+            services.Configure<GzipCompressionProviderOptions>(options 
+                => options.Level = System.IO.Compression.CompressionLevel.Fastest);
             services.AddResponseCompression();
 
             services.AddAutoMapper(cfg =>
