@@ -99,13 +99,13 @@ namespace Constructcode.Web.Service
 
             return posts;
         }
-               
+
         private IEnumerable<Post> UpdateCachedPosts()
         {
             IEnumerable<Post> posts = _unitOfWork.Posts.GetAll().ToList();
-            _memoryCache.Set(CachePostKey, posts, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(30)));
+            _memoryCache.Set(CachePostKey, posts);
 
             return posts;
-        }   
+        }
     }
 }

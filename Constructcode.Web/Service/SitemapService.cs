@@ -58,7 +58,7 @@ namespace Constructcode.Web.Service
 
                 foreach (var category in categories)
                 {
-                    var lastModifiedPostOnCategory = posts.FirstOrDefault(a => a.PostCategories.Select(b => b.CategoryId == category.Id).FirstOrDefault());
+                    var lastModifiedPostOnCategory = posts.FirstOrDefault(a => a.PostCategories.Any(b => b.CategoryId == category.Id));
 
                     if (lastModifiedPostOnCategory != null)
                     {
