@@ -62,7 +62,7 @@ namespace Constructcode.Web.Service
 
                     if (lastModifiedPostOnCategory != null)
                     {
-                        sitemap.WriteItem($"{websiteDomainName}/category/{category.Url}",
+                        sitemap.WriteItem($"{websiteDomainName}/post/category/{category.Url}",
                             lastModifiedPostOnCategory.LastModified, "weekly", "0.8");
                     }
                 }
