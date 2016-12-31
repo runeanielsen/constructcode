@@ -7,6 +7,7 @@
 /// <reference path="js/app.js" />
 /// <reference path="js/config/tinymce-config.service.js" />
 /// <reference path="js/core/api-config.service.js" />
+/// <reference path="js/core/directives/loading.directive.js" />
 /// <reference path="js/core/redirect.service.js" />
 /// <reference path="js/core/url.service.js" />
 /// <reference path="js/frontpage/frontpage.controller.js" />

@@ -9,6 +9,7 @@
         var vm = this;
 
         vm.post = null;
+        vm.isLoading = false;
         vm.tinymceOptions = tinymceConfigService.tinymceOptions;
 
         init();
@@ -17,8 +18,9 @@
         }
 
         vm.savePost = function () {
+            toggleLoading();
             postService.updatePost(vm.post).then(function () {
-                redirectService.admin(true);
+                toggleLoading();
             }, function (response) {
                 alert(response.data);
             });
@@ -34,6 +36,10 @@
             postService.getPostOnId(urlService.getLastUrlParameter()).then(function (response) {
                 vm.post = response.data;
             });
+        }
+
+        function toggleLoading() {
+            vm.isLoading = !vm.isLoading;
         }
     }
 })();

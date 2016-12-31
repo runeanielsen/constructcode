@@ -46,5 +46,13 @@
   {
     "outputFile": "wwwroot/styles/admin/account-settings.css",
     "inputFile": "wwwroot/styles/admin/account-settings.scss"
+  },
+  {
+    "outputFile": "wwwroot/styles/common/loader.css",
+    "inputFile": "wwwroot/styles/common/loader.scss"
+  },
+  {
+    "outputFile": "wwwroot/styles/common/loading.css",
+    "inputFile": "wwwroot/styles/common/loading.scss"
   }
 ]

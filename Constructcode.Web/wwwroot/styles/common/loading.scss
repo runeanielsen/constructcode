@@ -1,0 +1,21 @@
+﻿.loading {
+    pointer-events: all;
+    z-index: 1;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+
+    i {
+        left: calc(50%-25px);
+        top: calc(50%-50px);
+        position: fixed;
+        font-size: 50px;
+        z-index: 2;
+        color: black;
+    }
+}

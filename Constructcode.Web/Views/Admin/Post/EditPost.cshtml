@@ -8,10 +8,11 @@
             <side-menu post="vm.post"></side-menu>
         </div>
 
+        <div loading="vm.isLoading"></div>
+
         <div class="col-md-10 edit-post">
             <form>
                 <input type="text" ng-model="vm.post.title" placeholder="Title" />
-
                 <div class="form-group">
                     <textarea ui-tinymce="vm.tinymceOptions" ng-model="vm.post.content"></textarea>
                 </div>
