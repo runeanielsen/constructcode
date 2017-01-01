@@ -56,11 +56,21 @@ $category-color: #847b79;
         padding: 0 30px;
         background-color: white;
         text-align: center;
+        font-size: 1.05em;
 
         p, a {
             padding: 20px 0;
             border-bottom: 1px solid $date-color;
             display: block;
+        }
+
+        a {
+            color: $primary-color;
+
+            &:hover {
+                color: $primary-color;
+                cursor:pointer;
+            }
         }
     }
 }
