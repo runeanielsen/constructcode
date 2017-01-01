@@ -8,7 +8,6 @@ $category-color: #847b79;
     .section {
         text-align: center;
         padding-top: 25px;
-        /*padding-bottom: 25px;*/
 
         h2 a {
             color: $primary-color;
@@ -50,6 +49,18 @@ $category-color: #847b79;
                     }
                 }
             }
+        }
+    }
+
+    .page-switch {
+        padding: 0 30px;
+        background-color: white;
+        text-align: center;
+
+        p, a {
+            padding: 20px 0;
+            border-bottom: 1px solid $date-color;
+            display: block;
         }
     }
 }

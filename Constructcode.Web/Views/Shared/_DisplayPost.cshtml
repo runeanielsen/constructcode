@@ -7,8 +7,8 @@
                     <p>Learn, Build & Improve</p>
                 </div>
             </div>
-            <div class="frontpage-content" ng-repeat="post in vm.posts">
-                <div class="section">
+            <div class="frontpage-content">
+                <div class="section" ng-repeat="post in vm.posts">
                     <h2>
                         <a href="{{vm.redirect.displayPost(post.url)}}">{{post.title}}</a>
                     </h2>
@@ -21,6 +21,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="page-switch col-md-12 col-sm-12">
+                    <a class="col-md-4"><i class="fa fa-arrow-circle-left"></i> Newer Posts</a>
+                    <p class="col-md-4">Page 1 of 120</p>
+                    <a class="col-md-4">Older Posts <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
