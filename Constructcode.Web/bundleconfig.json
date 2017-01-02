@@ -15,7 +15,13 @@
       "wwwroot/styles/common/**/*.css",
       "wwwroot/styles/admin/**/*.css",
       "wwwroot/styles/pages/**/*.css"
-    ]
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true,
+      "commentMode": "none",
+      "preserveImportantComments": false
+    }
   },
   {
     "outputFileName": "wwwroot/minified/site.min.js",
@@ -42,13 +48,23 @@
       "wwwroot/js/config/**/*.js",
       "wwwroot/js/image/**/*.js",
       "wwwroot/js/post/**/*.js"
-    ]
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true,
+      "commentMode": "none",
+      "preserveImportantComments": false
+    }
   },
   {
     "outputFileName": "wwwroot/minified/tinymce-angular.min.js",
     "inputFiles": [
       "wwwroot/lib/tinymce/plugins/**/*plugin.js",
       "wwwroot/lib/angular-ui-tinymce/src/tinymce.js"
-    ]
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
   }
 ]
