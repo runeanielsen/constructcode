@@ -1,4 +1,6 @@
-﻿using Constructcode.Web.Service;
+﻿using AutoMapper;
+using Constructcode.Web.ApiControllers.DataTransferObjects;
+using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Constructcode.Web.Controllers
@@ -7,11 +9,13 @@ namespace Constructcode.Web.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly IPostService _postService;
+        private readonly IMapper _mapper;
 
-        public PostController(ICategoryService categoryService, IPostService postService)
+        public PostController(ICategoryService categoryService, IPostService postService, IMapper mapper)
         {
             _categoryService = categoryService;
             _postService = postService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -21,8 +25,7 @@ namespace Constructcode.Web.Controllers
         {
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
-            ViewBag.Title = _postService.GetPostOnUrl(url).Title;
-            return View();
+            return View(_mapper.Map<PostDto>(_postService.GetPostOnUrl(url)));
         }
 
         [HttpGet]
