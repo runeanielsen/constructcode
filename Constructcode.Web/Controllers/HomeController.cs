@@ -3,6 +3,7 @@ using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConstructCode.Web.Controllers
 {
@@ -18,13 +19,13 @@ namespace ConstructCode.Web.Controllers
         }
 
         [HttpGet]
-        [ResponseCache(Duration = 60)]
+        [ResponseCache(Duration = 120)]
         public IActionResult Index()
         {
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
             
-            return View(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPublishedPosts()));
+            return View(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPublishedPosts().Take(5)));
         }
 
         public IActionResult Error()
