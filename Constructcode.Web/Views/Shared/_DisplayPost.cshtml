@@ -1,33 +1,36 @@
-﻿<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="banner">
-                <div class="banner-content">
-                    @Html.Partial("_TopBanner")
-                    <p>Learn, Build & Improve</p>
-                </div>
-            </div>
-            <div class="frontpage-content">
-                <div class="section" ng-repeat="post in vm.posts">
-                    <h2>
-                        <a href="{{vm.redirect.displayPost(post.url)}}">{{post.title}}</a>
-                    </h2>
-                    <p class="datetime"> {{post.created}}</p>
-                    <div class="introduction">
-                        <p>{{post.introduction}}...</p>
-                        <div class="category-container">
-                            <div ng-repeat="category in post.categories" class="category-title">
-                                <a href="{{vm.redirect.displayPostOnCategory(category.url)}}">{{category.title}}</a>
+﻿<div class="col-md-12">
+    <div class="banner">
+        <div class="banner-content">
+            @Html.Partial("_TopBanner")
+            <p>Learn, Build & Improve</p>
+        </div>
+    </div>
+    <div class="frontpage-content">
+        @foreach (var post in Model)
+        {
+            <div class="section">
+                <h2>
+                    <a href="/post/@post.Url">@post.Title</a>
+                </h2>
+                <p class="datetime"> @post.Created</p>
+                <div class="introduction">
+                    <p>@post.Introduction...</p>
+                    <div class="category-container">
+                        @foreach (var category in post.Categories)
+                        {
+                            <div class="category-title">
+                                <a href="/post/category/@category.Url">@category.Title</a>
                             </div>
-                        </div>
+                        }
                     </div>
                 </div>
-                <div class="page-switch col-md-12 col-sm-12">
-                    <a class="col-md-4"><i class="fa fa-arrow-left"></i> Previous Page</a>
-                    <p class="col-md-4">Page 1 of 120</p>
-                    <a class="col-md-4">Next Page <i class="fa fa-arrow-right"></i></a>
-                </div>
             </div>
+        }
+
+        <div class="page-switch col-md-12 col-sm-12">
+            <a class="col-md-4"><i class="fa fa-arrow-left"></i> Previous Page</a>
+            <p class="col-md-4">Page 1 of 120</p>
+            <a class="col-md-4">Next Page <i class="fa fa-arrow-right"></i></a>
         </div>
     </div>
 </div>

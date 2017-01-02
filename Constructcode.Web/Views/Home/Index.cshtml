@@ -1,7 +1,11 @@
-﻿@{
-    ViewData["Title"] = "Home";
+﻿@model List<Constructcode.Web.ApiControllers.DataTransferObjects.PostDto>
+
+@{
+    ViewBag.Title = "Frontpage Blog";
 }
 
-<div ng-controller="FrontPageController as vm">
-    @Html.Partial("../Shared/_DisplayPost")
+<div class="container">
+    <div class="row">
+        @Html.Partial("_DisplayPost")
+    </div>
 </div>

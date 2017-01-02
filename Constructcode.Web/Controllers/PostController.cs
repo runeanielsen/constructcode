@@ -2,6 +2,7 @@
 using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Constructcode.Web.Controllers
 {
@@ -36,7 +37,8 @@ namespace Constructcode.Web.Controllers
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
-            return View();
+
+            return View(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPostsOnCategory(categoryUrl)));
         }
     }
 }

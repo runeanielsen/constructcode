@@ -40,7 +40,6 @@
       "wwwroot/js/account/**/*.js",
       "wwwroot/js/admin/**/*.js",
       "wwwroot/js/config/**/*.js",
-      "wwwroot/js/frontpage/**/*.js",
       "wwwroot/js/image/**/*.js",
       "wwwroot/js/post/**/*.js"
     ]
