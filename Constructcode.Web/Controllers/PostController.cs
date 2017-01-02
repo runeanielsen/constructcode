@@ -16,6 +16,7 @@ namespace Constructcode.Web.Controllers
 
         [HttpGet]
         [Route("Post/{url}")]
+        [ResponseCache(Duration = 60)]
         public IActionResult Index(string url)
         {
             ViewBag.ShowFooter = true;
@@ -25,6 +26,7 @@ namespace Constructcode.Web.Controllers
 
         [HttpGet]
         [Route("Post/Category/{categoryUrl}")]
+        [ResponseCache(Duration = 60)]
         public IActionResult Category(string categoryUrl)
         {
             ViewBag.ShowFooter = true;

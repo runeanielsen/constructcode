@@ -4,18 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="content-language" content="en">
+    <meta http-equiv="Cache-control" content="public">
     <title>@ViewData["Title"] - Construct Code</title>
 
     <link async href="~/minified/site.min.css" rel="stylesheet" />
 
-    <environment names="Staging,Production">
+    @*<environment names="Staging,Production">
         <script>
             window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
             ga('create', 'UA-83257241-1', 'auto');
             ga('send', 'pageview');
         </script>
         <script async src='https://www.google-analytics.com/analytics.js'></script>
-    </environment>
+    </environment>*@
 
 </head>
 <body ng-app="app" ng-cloak>

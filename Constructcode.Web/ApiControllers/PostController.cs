@@ -29,27 +29,30 @@ namespace Constructcode.Web.ApiControllers.Api
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 60)]
         public IActionResult GetAllPublishedPosts()
         {
             return Ok(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPublishedPosts()));
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 60)]
         public IActionResult GetAllPostsOnCategory(string id)
         {
             return Ok(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPostsOnCategory(id)));
         }
 
         [HttpGet]
-        public IActionResult GetPost(int id)
-        {
-            return Ok(_mapper.Map<PostDto>(_postService.GetPost(id)));
-        }
-
-        [HttpGet]
+        [ResponseCache(Duration = 60)]
         public IActionResult GetPostOnUrl(string id)
         {
             return Ok(_mapper.Map<PostDto>(_postService.GetPostOnUrl(id)));
+        }
+
+        [HttpGet]
+        public IActionResult GetPost(int id)
+        {
+            return Ok(_mapper.Map<PostDto>(_postService.GetPost(id)));
         }
 
         [Authorize]
