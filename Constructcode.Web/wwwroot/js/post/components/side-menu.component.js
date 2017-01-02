@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app')
+    angular.module('managePosts')
         .component('sideMenu', sideMenuComponent());
 
     function sideMenuComponent() {

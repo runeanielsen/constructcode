@@ -7,6 +7,7 @@ namespace Constructcode.Web.Controllers
         [HttpGet]
         public IActionResult UnAuthorized()
         {
+            ViewBag.AngularModule = "app";
             return View();
         }
 

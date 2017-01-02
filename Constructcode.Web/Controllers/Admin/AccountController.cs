@@ -10,11 +10,13 @@ namespace Constructcode.Web.Controllers.Admin
 
         public IActionResult Manage()
         {
+            ViewBag.AngularModule = "app";
             return View($"{_viewPath}/Manage.cshtml");
         }
 
         public IActionResult Settings()
         {
+            ViewBag.AngularModule = "app";
             return View($"{_viewPath}/Settings.cshtml");
         }
     }

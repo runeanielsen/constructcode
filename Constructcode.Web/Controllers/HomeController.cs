@@ -8,6 +8,7 @@ namespace ConstructCode.Web.Controllers
         [ResponseCache(Duration = 60)]
         public IActionResult Index()
         {
+            ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
             return View();
         }

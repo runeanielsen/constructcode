@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app')
+    angular.module('managePosts')
         .controller('EditPostController', EditPostController);
 
     EditPostController.$inject = ['postService', 'urlService', 'redirectService', 'tinymceConfigService'];

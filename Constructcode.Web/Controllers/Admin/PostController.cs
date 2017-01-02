@@ -11,12 +11,14 @@ namespace Constructcode.Web.Controllers.Admin
         [HttpGet]
         public IActionResult CreatePost()
         {
+            ViewBag.AngularModule = "managePosts";
             return View($"{_viewPath}/CreatePost.cshtml");
         }
 
         [HttpGet]
         public IActionResult EditPost(int id)
         {
+            ViewBag.AngularModule = "managePosts";
             return View($"{_viewPath}/EditPost.cshtml");
         }
     }

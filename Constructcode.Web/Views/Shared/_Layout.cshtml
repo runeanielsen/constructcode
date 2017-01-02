@@ -19,7 +19,7 @@
     </environment>*@
 
 </head>
-<body ng-app="app" ng-cloak>
+<body ng-app="@ViewData["AngularModule"]" ng-cloak>
     <div>
         @RenderBody()
 
@@ -38,8 +38,6 @@
     </div>
 
     <script src="~/minified/site.min.js"></script>
-    <script src="~/lib/tinymce/tinymce.min.js"></script>
-    <script src="~/minified/tinymce-angular.min.js"></script>
 
     @RenderSection("scripts", required: false)
 </body>

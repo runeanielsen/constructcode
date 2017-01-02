@@ -19,6 +19,7 @@ namespace Constructcode.Web.Controllers
         [ResponseCache(Duration = 60)]
         public IActionResult Index(string url)
         {
+            ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
             ViewBag.Title = _postService.GetPostOnUrl(url).Title;
             return View();
@@ -29,6 +30,7 @@ namespace Constructcode.Web.Controllers
         [ResponseCache(Duration = 60)]
         public IActionResult Category(string categoryUrl)
         {
+            ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
             return View();
