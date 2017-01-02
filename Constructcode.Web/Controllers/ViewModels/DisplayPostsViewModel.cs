@@ -9,6 +9,7 @@ namespace Constructcode.Web.Controllers.ViewModels
         public int MaxPageNumber { get; set; }
         public int NextPageNumber { get; set; }
         public int PreviousPageNumber { get; set; }
+        public string CategoryName { get; set; }
 
         public DisplayPostsViewModel(int maxPageNumber, int currentPageNumber)
         {

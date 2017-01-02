@@ -14,8 +14,11 @@ namespace Constructcode.Web.Service
         Post GetPostOnUrl(string url);
         IEnumerable<Post> GetAllPostsOnCategory(string categoryUrl);
         IEnumerable<Post> GetPostsOnPageNumber(int pageNumber);
+        IEnumerable<Post> GetPostsOnPageNumber(int pageNumber, string categoryUrl);
         int GetMaxPostCount();
+        int GetMaxPostCount(string categoryUrl);
         int GetMaxPageCount();
+        int GetMaxPageCount(string categoryUrl);
         Validation ValidatePost(Post post);
     }
 }

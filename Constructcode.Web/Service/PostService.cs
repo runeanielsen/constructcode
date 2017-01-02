@@ -83,6 +83,11 @@ namespace Constructcode.Web.Service
             return GetAllPublishedPosts().Skip(PostPerPage * (pageNumber - 1)).Take(PostPerPage);
         }
 
+        public IEnumerable<Post> GetPostsOnPageNumber(int pageNumber, string categoryUrl)
+        {
+            return GetAllPostsOnCategory(categoryUrl).Skip(PostPerPage * (pageNumber - 1)).Take(PostPerPage);
+        }
+
         public Validation ValidatePost(Post post)
         {
             if (post.Title == string.Empty)
@@ -99,9 +104,19 @@ namespace Constructcode.Web.Service
             return Posts().Count();
         }
 
+        public int GetMaxPostCount(string categoryUrl)
+        {
+            return GetAllPostsOnCategory(categoryUrl).Count();
+        }
+
         public int GetMaxPageCount()
         {
             return Convert.ToInt32(Math.Ceiling(Convert.ToDouble(GetMaxPostCount()) / PostPerPage));
+        }
+
+        public int GetMaxPageCount(string categoryUrl)
+        {
+            return Convert.ToInt32(Math.Ceiling(Convert.ToDouble(GetMaxPostCount(categoryUrl)) / PostPerPage));
         }
 
         private IEnumerable<Post> Posts()

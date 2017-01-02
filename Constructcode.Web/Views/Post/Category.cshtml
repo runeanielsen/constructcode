@@ -1,7 +1,41 @@
-﻿@model List<Constructcode.Web.Controllers.ViewModels.PostViewModel>
+﻿@model Constructcode.Web.Controllers.ViewModels.DisplayPostsViewModel
 
 <div class="container">
     <div class="row">
-        @Html.Partial("_DisplayPost")
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-content">
+                    @Html.Partial("_TopBanner")
+                    <p>Learn, Build & Improve</p>
+                </div>
+            </div>
+            <div class="frontpage-content">
+                @Html.Partial("_DisplayPost")
+                <div class="page-switch col-md-12 col-sm-12">
+                    <div class="col-md-4">
+                        @if (Model.CurrentPageNumber != Model.MaxPageNumber)
+                        {
+                            <a href="/post/category/@Model.CategoryName/page/@Model.NextPageNumber">
+                                <i class="fa fa-arrow-left"></i> Older Posts
+                            </a>
+                        }
+                    </div>
+
+                    <div class="col-md-4">
+                        <p>Page @Model.CurrentPageNumber of @Model.MaxPageNumber</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        @if (Model.PreviousPageNumber != 0)
+                        {
+                            <a href="/post/category/@Model.CategoryName/page/@Model.PreviousPageNumber">
+                                Newer Posts
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

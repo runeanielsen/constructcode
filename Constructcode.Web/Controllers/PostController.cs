@@ -38,7 +38,28 @@ namespace Constructcode.Web.Controllers
             ViewBag.ShowFooter = true;
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
 
-            return View(_mapper.Map<IEnumerable<PostViewModel>>(_postService.GetAllPostsOnCategory(categoryUrl)));
+            var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(categoryUrl), 1);
+            displayPostsViewModel.CategoryName = categoryUrl;
+            displayPostsViewModel.Posts = _mapper.Map<IEnumerable<PostViewModel>>(_postService.GetPostsOnPageNumber(displayPostsViewModel.CurrentPageNumber, categoryUrl));
+
+            return View(displayPostsViewModel);
+        }
+
+        [HttpGet]
+        [Route("Post/Category/{categoryUrl}/page/{pageNumber}")]
+        [ResponseCache(Duration = 120)]
+        public IActionResult Category(string categoryUrl, int pageNumber)
+        {
+            ViewBag.AngularModule = "app";
+            ViewBag.ShowFooter = true;
+            ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
+
+            var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(categoryUrl), pageNumber);
+            displayPostsViewModel.CategoryName = categoryUrl;
+            displayPostsViewModel.Posts =
+                _mapper.Map<IEnumerable<PostViewModel>>(_postService.GetPostsOnPageNumber(displayPostsViewModel.CurrentPageNumber, categoryUrl));
+
+            return View(displayPostsViewModel);
         }
 
         [HttpGet]
