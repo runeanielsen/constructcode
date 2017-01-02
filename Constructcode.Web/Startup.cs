@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace ConstructCode.Web
 {
@@ -46,7 +47,19 @@ namespace ConstructCode.Web
             }
 
             app.SetupAuthenticationMiddlewareConfig();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                OnPrepareResponse =
+                    r =>
+                    {
+                        string path = r.File.PhysicalPath;
+                        if (path.EndsWith(".css") || path.EndsWith(".js") || path.EndsWith(".gif") || path.EndsWith(".jpg") || path.EndsWith(".png") || path.EndsWith(".svg"))
+                        {
+                            var maxAge = new TimeSpan(7, 0, 0, 0);
+                            r.Context.Response.Headers.Append("Cache-Control", "max-age=" + maxAge.TotalSeconds.ToString("0"));
+                        }
+                    }
+            });
 
             app.UseMvc(routes =>
             {
