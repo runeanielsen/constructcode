@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Constructcode.Web.ApiControllers.DataTransferObjects;
+using Constructcode.Web.Controllers.ViewModels;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ namespace ConstructCode.Web.Controllers
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
             
-            return View(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPublishedPosts().Take(5)));
+            return View(_mapper.Map<IEnumerable<PostViewModel>>(_postService.GetAllPublishedPosts().Take(5)));
         }
 
         public IActionResult Error()

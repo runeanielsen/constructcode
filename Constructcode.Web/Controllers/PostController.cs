@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Constructcode.Web.ApiControllers.DataTransferObjects;
+using Constructcode.Web.Controllers.ViewModels;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Constructcode.Web.Controllers
         {
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
-            return View(_mapper.Map<PostDto>(_postService.GetPostOnUrl(url)));
+            return View(_mapper.Map<PostViewModel>(_postService.GetPostOnUrl(url)));
         }
 
         [HttpGet]
@@ -38,7 +39,7 @@ namespace Constructcode.Web.Controllers
             ViewBag.ShowFooter = true;
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
 
-            return View(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPostsOnCategory(categoryUrl)));
+            return View(_mapper.Map<IEnumerable<PostViewModel>>(_postService.GetAllPostsOnCategory(categoryUrl)));
         }
     }
 }
