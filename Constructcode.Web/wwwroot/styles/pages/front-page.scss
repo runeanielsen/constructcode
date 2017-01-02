@@ -53,14 +53,12 @@ $category-color: #847b79;
     }
 
     .page-switch {
-        padding: 0 30px;
         background-color: white;
         text-align: center;
         font-size: 1.05em;
 
         p, a {
-            padding: 20px 0;
-            border-bottom: 1px solid $date-color;
+            padding: 25px 0;
             display: block;
         }
 
@@ -69,7 +67,7 @@ $category-color: #847b79;
 
             &:hover {
                 color: $primary-color;
-                cursor:pointer;
+                cursor: pointer;
             }
         }
     }
