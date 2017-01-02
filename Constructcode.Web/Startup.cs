@@ -47,6 +47,7 @@ namespace ConstructCode.Web
             }
 
             app.SetupAuthenticationMiddlewareConfig();
+
             app.UseStaticFiles(new StaticFileOptions()
             {
                 OnPrepareResponse =
