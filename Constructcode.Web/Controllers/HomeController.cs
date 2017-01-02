@@ -19,13 +19,17 @@ namespace ConstructCode.Web.Controllers
         }
 
         [HttpGet]
-        [ResponseCache(Duration = 120)]
+        //[ResponseCache(Duration = 120)]
         public IActionResult Index()
         {
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
-            
-            return View(_mapper.Map<IEnumerable<PostViewModel>>(_postService.GetAllPublishedPosts().Take(5)));
+
+            var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(), 1);
+            displayPostsViewModel.Posts = 
+                _mapper.Map<IEnumerable<PostViewModel>>(_postService.GetPostsOnPageNumber(displayPostsViewModel.CurrentPageNumber));
+
+            return View(displayPostsViewModel);
         }
 
         public IActionResult Error()

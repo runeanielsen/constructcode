@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Controllers.ViewModels;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +39,22 @@ namespace Constructcode.Web.Controllers
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
 
             return View(_mapper.Map<IEnumerable<PostViewModel>>(_postService.GetAllPostsOnCategory(categoryUrl)));
+        }
+
+        [HttpGet]
+        [Route("Post/Page/{pageNumber}")]
+        //[ResponseCache(Duration = 60)]
+        public IActionResult Page(int pageNumber)
+        {
+            ViewBag.AngularModule = "app";
+            ViewBag.ShowFooter = true;
+            ViewBag.Title = $"Page {pageNumber}";
+
+            var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(), pageNumber);
+            displayPostsViewModel.Posts =
+                _mapper.Map<IEnumerable<PostViewModel>>(_postService.GetPostsOnPageNumber(displayPostsViewModel.CurrentPageNumber));
+
+            return View(displayPostsViewModel);
         }
     }
 }

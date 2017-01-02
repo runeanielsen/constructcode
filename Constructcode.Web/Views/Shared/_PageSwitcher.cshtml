@@ -1,0 +1,24 @@
+﻿<div class="page-switch col-md-12 col-sm-12">
+    <div class="col-md-4">
+        @if (Model.CurrentPageNumber != Model.MaxPageNumber)
+        {
+            <a href="/post/page/@Model.NextPageNumber">
+                <i class="fa fa-arrow-left"></i> Older Posts
+            </a>
+        }
+    </div>
+
+    <div class="col-md-4">
+        <p>Page @Model.CurrentPageNumber of @Model.MaxPageNumber</p>
+    </div>
+
+    <div class="col-md-4">
+        @if (Model.PreviousPageNumber != 0)
+        {
+            <a href="/post/page/@Model.PreviousPageNumber">
+                Newer Posts
+                <i class="fa fa-arrow-right"></i>
+            </a>
+        }
+    </div>
+</div>

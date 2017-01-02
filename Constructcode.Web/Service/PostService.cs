@@ -17,6 +17,7 @@ namespace Constructcode.Web.Service
         private readonly IMemoryCache _memoryCache;
 
         private const string CachePostKey = "posts";
+        private const int PostPerPage = 5;
 
         public PostService(IUnitOfWork unitOfWork, IMemoryCache memoryCache)
         {
@@ -77,6 +78,11 @@ namespace Constructcode.Web.Service
             return Posts().SingleOrDefault(a => a.Url == url);
         }
 
+        public IEnumerable<Post> GetPostsOnPageNumber(int pageNumber)
+        {
+            return GetAllPublishedPosts().Skip(PostPerPage * (pageNumber - 1)).Take(PostPerPage);
+        }
+
         public Validation ValidatePost(Post post)
         {
             if (post.Title == string.Empty)
@@ -86,6 +92,16 @@ namespace Constructcode.Web.Service
                 return new Validation(false, "Another post with that title already exist", HttpStatusCode.BadRequest);
 
             return new Validation(true);
+        }
+
+        public int GetMaxPostCount()
+        {
+            return Posts().Count();
+        }
+
+        public int GetMaxPageCount()
+        {
+            return Convert.ToInt32(Math.Ceiling(Convert.ToDouble(GetMaxPostCount()) / PostPerPage));
         }
 
         private IEnumerable<Post> Posts()
