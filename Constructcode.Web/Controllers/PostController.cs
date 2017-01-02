@@ -21,7 +21,7 @@ namespace Constructcode.Web.Controllers
 
         [HttpGet]
         [Route("Post/{url}")]
-        [ResponseCache(Duration = 60)]
+        [ResponseCache(Duration = 120)]
         public IActionResult Index(string url)
         {
             ViewBag.AngularModule = "app";
@@ -31,7 +31,7 @@ namespace Constructcode.Web.Controllers
 
         [HttpGet]
         [Route("Post/Category/{categoryUrl}")]
-        [ResponseCache(Duration = 60)]
+        [ResponseCache(Duration = 120)]
         public IActionResult Category(string categoryUrl)
         {
             ViewBag.AngularModule = "app";
@@ -43,7 +43,7 @@ namespace Constructcode.Web.Controllers
 
         [HttpGet]
         [Route("Post/Page/{pageNumber}")]
-        //[ResponseCache(Duration = 60)]
+        [ResponseCache(Duration = 120)]
         public IActionResult Page(int pageNumber)
         {
             ViewBag.AngularModule = "app";
