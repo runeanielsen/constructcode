@@ -32,7 +32,8 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
             CreateMap<Post, PostViewModel>()
                 .ForMember(dest => dest.Introduction, opt => opt.MapFrom(src => src.GetIntroduction()))
                 .ForMember(dest => dest.Created, opt => opt.MapFrom(src => src.Created.ToString("dd MMMM yyyy", new CultureInfo("en-GB"))))
-                .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.PostCategories.Select(a => a.Category)));
+                .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.PostCategories.Select(a => a.Category)))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.GetDescription()));
             CreateMap<PostViewModel, Post>();
             #endregion
         }

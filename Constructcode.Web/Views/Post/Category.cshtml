@@ -1,5 +1,9 @@
 ﻿@model Constructcode.Web.Controllers.ViewModels.DisplayPostsViewModel
 
+@{
+    ViewBag.Description = $"Page contains posts on the topic of {Model.CategoryName} - page {Model.CurrentPageNumber}";
+}
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
