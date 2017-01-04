@@ -20,7 +20,7 @@ namespace Constructcode.Web.Service
 
         public void UpdateSitemap(List<Post> posts, List<Category> categories)
         {
-            var mostRecentlyModifiedPost = posts.First().LastModified;
+            var mostRecentlyModifiedPost = posts.OrderByDescending(a => a.LastModified).First().LastModified;
 
             UpdatePosts(posts);
             UpdateCategories(categories, posts);
