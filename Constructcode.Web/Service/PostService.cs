@@ -101,7 +101,7 @@ namespace Constructcode.Web.Service
 
         public int GetMaxPostCount()
         {
-            return Posts().Count();
+            return GetAllPublishedPosts().Count();
         }
 
         public int GetMaxPostCount(string categoryUrl)
