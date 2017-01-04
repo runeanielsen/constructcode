@@ -1,7 +1,5 @@
-﻿using System.Net;
-using Constructcode.Web.Configurations;
+﻿using Constructcode.Web.Configurations;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
