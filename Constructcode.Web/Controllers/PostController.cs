@@ -26,6 +26,8 @@ namespace Constructcode.Web.Controllers
         {
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
+            ViewBag.Analytics = true;
+
             return View(_mapper.Map<PostViewModel>(_postService.GetPostOnUrl(url)));
         }
 
@@ -36,6 +38,7 @@ namespace Constructcode.Web.Controllers
         {
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
+            ViewBag.Analytics = true;
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
 
             var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(categoryUrl), 1);
@@ -52,6 +55,7 @@ namespace Constructcode.Web.Controllers
         {
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
+            ViewBag.Analytics = true;
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
 
             var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(categoryUrl), pageNumber);
@@ -69,6 +73,7 @@ namespace Constructcode.Web.Controllers
         {
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
+            ViewBag.Analytics = true;
             ViewBag.Title = $"Page {pageNumber}";
 
             var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(), pageNumber);

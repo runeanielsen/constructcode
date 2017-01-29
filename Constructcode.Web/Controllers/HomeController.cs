@@ -23,6 +23,7 @@ namespace ConstructCode.Web.Controllers
         {
             ViewBag.AngularModule = "app";
             ViewBag.ShowFooter = true;
+            ViewBag.Analytics = true;
 
             var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(), 1);
             displayPostsViewModel.Posts = 
