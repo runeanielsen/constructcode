@@ -4,8 +4,7 @@
   "description": "Blog site for construct code",
   "main": "index.js",
   "scripts": {
-    "predeploy": "npm install",
-    "deploy": "npm, run bower install"
+    "deploy": "run bower install"
   },
   "keywords": [
     "blog"
