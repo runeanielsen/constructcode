@@ -55,6 +55,9 @@
       "Areas/**/Views",
       "appsettings.json",
       "web.config"
+    ],
+    "exclude": [
+      "wwwroot/images/blogpost"
     ]
   },
   "runtimeOptions": {
