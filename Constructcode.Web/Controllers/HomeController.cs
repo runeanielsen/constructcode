@@ -18,7 +18,7 @@ namespace ConstructCode.Web.Controllers
         }
 
         [HttpGet]
-        [ResponseCache(Duration = 240)]
+        [ResponseCache(Duration = 320)]
         public IActionResult Index()
         {
             ViewBag.AngularModule = "app";
