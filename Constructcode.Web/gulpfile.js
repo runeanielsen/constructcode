@@ -1,8 +1,11 @@
 ﻿"use strict";
 
+var destinationFolder = 'wwwroot/'
+
 var gulp = require("gulp"),
     concat = require("gulp-concat"),
-    cssmin = require("gulp-cssmin"),
+    sass = require('gulp-sass'),
+    cssmin = require("gulp-clean-css"),
     htmlmin = require("gulp-htmlmin"),
     uglify = require("gulp-uglify"),
     merge = require("merge-stream"),
@@ -10,10 +13,12 @@ var gulp = require("gulp"),
     bundleconfig = require("./bundleconfig.json");
 
 var regex = {
+    scss: /\.scss$/,
     css: /\.css$/,
     html: /\.(html|htm)$/,
     js: /\.js$/
 };
+
 
 gulp.task("min", ["min:js", "min:css", "min:html"]);
 
@@ -27,13 +32,22 @@ gulp.task("min:js", function () {
 });
 
 gulp.task("min:css", function () {
-    var tasks = getBundles(regex.css).map(function (bundle) {
+    var cssTask = getBundles(regex.css).map(function (bundle) {
         return gulp.src(bundle.inputFiles, { base: "." })
             .pipe(concat(bundle.outputFileName))
-            .pipe(cssmin())
-            .pipe(gulp.dest("."));
     });
-    return merge(tasks);
+
+    var scssTask = getBundles(regex.css).map(function (bundle) {
+        return gulp.src(bundle.inputFiles, { base: "." })
+            .pipe(sass())
+            .pipe(concat(bundle.outputFileName))
+    });
+
+    var merged = merge(cssTask, scssTask)
+        .pipe(cssmin(), { showLog: true })
+        .pipe(gulp.dest("."));
+
+    return merged;
 });
 
 gulp.task("min:html", function () {
@@ -41,17 +55,9 @@ gulp.task("min:html", function () {
         return gulp.src(bundle.inputFiles, { base: "." })
             .pipe(concat(bundle.outputFileName))
             .pipe(htmlmin({ collapseWhitespace: true, minifyCSS: true, minifyJS: true }))
-            .pipe(gulp.dest("."));
+            .pipe(gulp.dest(destinationFolder));
     });
     return merge(tasks);
-});
-
-gulp.task("clean", function () {
-    var files = bundleconfig.map(function (bundle) {
-        return bundle.outputFileName;
-    });
-
-    return del(files);
 });
 
 gulp.task("watch", function () {

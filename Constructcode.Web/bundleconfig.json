@@ -10,18 +10,12 @@
       "node_modules/pikaday/css/pikaday.css",
       "node_modules/prism/themes/prism.css",
 
-      "App/styles/_reset.css",
-      "App/styles/site.css",
-      "App/styles/common/**/*.css",
-      "App/styles/admin/**/*.css",
-      "App/styles/pages/**/*.css"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true,
-      "commentMode": "none",
-      "preserveImportantComments": false
-    }
+      "App/styles/_reset.scss",
+      "App/styles/site.scss",
+      "App/styles/common/**/*.scss",
+      "App/styles/admin/**/*.scss",
+      "App/styles/pages/**/*.scss"
+    ]
   },
   {
     "outputFileName": "wwwroot/site.min.js",
@@ -47,23 +41,13 @@
       "App/js/config/**/*.js",
       "App/js/image/**/*.js",
       "App/js/post/**/*.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true,
-      "commentMode": "none",
-      "preserveImportantComments": false
-    }
+    ]
   },
   {
     "outputFileName": "wwwroot/tinymce-angular.min.js",
     "inputFiles": [
       "node_modules/tinymce/plugins/**/*plugin.js",
       "node_modules/angular-ui-tinymce/src/tinymce.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true
-    }
+    ]
   }
 ]
