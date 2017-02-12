@@ -241,8 +241,7 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-wwwroot/images/
-wwwroot/lib/
+wwwroot/
 /Constructcode.Web/wwwroot/images/blogpost
 /Constructcode.Web/wwwroot/lib
 /Constructcode.Web/Properties/PublishProfiles
@@ -255,4 +254,3 @@ wwwroot/lib/
 /Constructcode.Web/wwwroot/sitemap-pages.xml
 /Constructcode.Web/wwwroot/sitemap-categories.xml
 
-/wwwroot
