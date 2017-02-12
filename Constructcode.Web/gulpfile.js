@@ -10,24 +10,34 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     merge = require("merge-stream"),
     del = require("del"),
+    babel = require('gulp-babel'),
+    autoprefixer = require('gulp-autoprefixer'),
     bundleconfig = require("./bundleconfig.json");
 
 var regex = {
     scss: /\.scss$/,
     css: /\.css$/,
     html: /\.(html|htm)$/,
-    js: /\.js$/
+    js: /\.js$/,
 };
-
 
 gulp.task("min", ["min:js", "min:css", "min:html"]);
 
 gulp.task("min:js", function () {
     var tasks = getBundles(regex.js).map(function (bundle) {
         return gulp.src(bundle.inputFiles, { base: "." })
+            .pipe(babel({
+                presets: ['es2015'],
+                compact: true,
+                ignore: [
+                    'node_modules/**/*.js'
+                ]
+            }))
             .pipe(concat(bundle.outputFileName))
-            .pipe(gulp.dest("."));
+            .pipe(uglify())
+            .pipe(gulp.dest('.'));
     });
+
     return merge(tasks);
 });
 
@@ -43,7 +53,11 @@ gulp.task("min:css", function () {
             .pipe(concat(bundle.outputFileName))
     });
 
-    var merged = merge(cssTask, scssTask)
+    var merged = merge(scssTask, cssTask)
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(cssmin(), { showLog: true })
         .pipe(gulp.dest("."));
 
@@ -66,6 +80,10 @@ gulp.task("watch", function () {
     });
 
     getBundles(regex.css).forEach(function (bundle) {
+        gulp.watch(bundle.inputFiles, ["min:css"]);
+    });
+
+    getBundles(regex.scss).forEach(function (bundle) {
         gulp.watch(bundle.inputFiles, ["min:css"]);
     });
 
