@@ -69,7 +69,6 @@
     "win10-x64": {}
   },
   "scripts": {
-    "prepublish": [ "dotnet bundle" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   },
   "tools": {
