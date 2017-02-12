@@ -6,7 +6,7 @@
 
     function loginComponent() {
         return {
-            templateUrl: '/js/account/components/login.template.html',
+            templateUrl: '/templates/login.template.html',
             controllerAs: 'vm',
             controller: ['redirectService', 'accountService', loginController]
         };

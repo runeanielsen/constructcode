@@ -6,7 +6,7 @@
 
     function accountSettingsComponent() {
         return {
-            templateUrl: '/js/account/components/account-settings.template.html',
+            templateUrl: '/templates/account-settings.template.html',
             controllerAs: 'vm',
             controller: ['redirectService', 'accountService', accountSettingsController]
         }

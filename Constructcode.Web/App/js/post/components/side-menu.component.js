@@ -9,7 +9,7 @@
             bindings: {
                 post: '='
             },
-            templateUrl: '/js/post/components/side-menu.template.html',
+            templateUrl: '/templates/side-menu.template.html',
             controllerAs: 'vm',
             controller: ['categoryService', 'ngDialog', 'redirectService', SideMenuController]
         };

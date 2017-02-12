@@ -6,7 +6,7 @@
 
     function adminSideMenu() {
         return {
-            templateUrl: '/js/admin/components/admin-side-menu.template.html',
+            templateUrl: '/templates/admin-side-menu.template.html',
             controllerAs: 'vm',
             controller: ['redirectService', 'accountService', adminSideMenuController]
         };

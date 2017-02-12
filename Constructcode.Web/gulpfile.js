@@ -12,16 +12,32 @@ var gulp = require("gulp"),
     del = require("del"),
     babel = require('gulp-babel'),
     autoprefixer = require('gulp-autoprefixer'),
+    rimraf = require('rimraf'),
     bundleconfig = require("./bundleconfig.json");
 
 var regex = {
     scss: /\.scss$/,
     css: /\.css$/,
     html: /\.(html|htm)$/,
-    js: /\.js$/,
+    js: /\.js$/
 };
 
-gulp.task("min", ["min:js", "min:css", "min:html"]);
+var filesToMove = [
+    {
+        source: "App/resources/**/*",
+        destination: "wwwroot/"
+    },
+    {
+        source: "node_modules/font-awesome/fonts/**/*",
+        destination: "wwwroot/fonts/"
+    }
+]
+
+gulp.task("clean", function (cb) {
+    return rimraf('./wwwroot', cb);
+});
+
+gulp.task("min", ["min:js", "min:css", "min:html", "move:files"]);
 
 gulp.task("min:js", function () {
     var tasks = getBundles(regex.js).map(function (bundle) {
@@ -53,7 +69,7 @@ gulp.task("min:css", function () {
             .pipe(concat(bundle.outputFileName))
     });
 
-    var merged = merge(scssTask, cssTask)
+    var merged = merge(cssTask, scssTask)
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
@@ -72,6 +88,13 @@ gulp.task("min:html", function () {
             .pipe(gulp.dest(destinationFolder));
     });
     return merge(tasks);
+});
+
+gulp.task("move:files", function () {
+    filesToMove.filter(function (fileToMove) {
+        gulp.src(fileToMove.source)
+            .pipe(gulp.dest(fileToMove.destination));
+    });
 });
 
 gulp.task("watch", function () {
