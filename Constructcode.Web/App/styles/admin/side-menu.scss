@@ -18,10 +18,12 @@ $hover-list-color: #22252e;
     ul {
         padding-top: 7px;
         font-size: 1.1em;
+        list-style: none;
+        padding-left: 0px;
 
         li {
             line-height: 30px;
-            padding-left: 25px;
+            padding-left: 20px;
             padding-top: 10px;
             padding-bottom: 10px;
             user-select: none;

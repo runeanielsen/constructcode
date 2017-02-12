@@ -30,7 +30,28 @@ var filesToMove = [
     {
         source: "node_modules/font-awesome/fonts/**/*",
         destination: "wwwroot/fonts/"
-    }
+    },
+    {
+        source: "node_modules/tinymce/themes/modern/theme.min.js",
+        destination: "wwwroot/themes/modern/"
+    },
+    {
+        source: "node_modules/tinymce/skins/lightgray/skin.min.css",
+        destination: "wwwroot/skins/lightgray/"
+    },
+    {
+        source: "node_modules/tinymce/skins/lightgray/content.min.css",
+        destination: "wwwroot/skins/lightgray/"
+    },
+    {
+        source: "node_modules/tinymce/plugins/codesample/css/prism.css",
+        destination: "wwwroot/plugins/codesample/css/"
+    },
+    {
+        source: "node_modules/tinymce/skins/lightgray/fonts/**/*",
+        destination: "wwwroot/skins/lightgray/fonts/"
+    },
+
 ]
 
 gulp.task("clean", function (cb) {
