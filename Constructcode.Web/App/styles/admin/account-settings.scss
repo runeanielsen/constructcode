@@ -2,17 +2,15 @@
     padding: 20px;
     margin: 10px;
     max-width: 400px;
-
     .group {
         margin-bottom: 20px;
-
         label {
             display: block;
             font-size: 1.1em;
             margin-bottom: 5px;
         }
-
-        input[type=text], input[type=password] {
+        input[type=text],
+        input[type=password] {
             display: block;
             height: 30px;
             width: 100%;
