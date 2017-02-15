@@ -1,22 +1,16 @@
-﻿// Admin page
-
-.admin-container {
+﻿.admin-container {
     margin: 15px 15px;
-
-    .admin-post, .admin-post-header {
+    .admin-post,
+    .admin-post-header {
         background-color: white;
-        display:inline-block;
+        display: inline-block;
         font-size: 1em;
-        padding: 5px 0;
         border-bottom: 1px solid #d9e3ea;
-        padding: 5px 10px;
-
         a {
             color: #0073aa;
         }
     }
-
     .admin-post-header {
-        font-weight:bold;
+        font-weight: bold;
     }
 }

@@ -1,13 +1,8 @@
-﻿// Buttons
-
-$green-light: #5cb85c;
+﻿$green-light: #5cb85c;
 $green-dark: #4c994c;
-
 $red-light: #c9302c;
 $red-dark: #b52b28;
-
 $disabled-color: gray;
-
 .button-standard {
     max-width: 200px;
     background-color: gray;
@@ -15,40 +10,31 @@ $disabled-color: gray;
     border-radius: 0;
     color: white;
     padding: 5px 20px;
-
     &:hover {
         cursor: pointer;
     }
-
     &:disabled {
-        cursor:not-allowed;
+        cursor: not-allowed;
     }
-
     &.green {
         background-color: $green-light;
-
         &:hover {
             background-color: $green-dark;
         }
-
         &:disabled {
             background-color: $disabled-color;
         }
     }
-
     &.red {
         background-color: $red-light;
-
         &:hover {
             background-color: $red-dark;
         }
-
         &:disabled {
             background-color: $disabled-color;
         }
     }
 }
-
 
 // Toggle button
 .switch {
@@ -72,7 +58,6 @@ $disabled-color: gray;
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-
     &:before {
         position: absolute;
         content: "";
@@ -86,21 +71,23 @@ $disabled-color: gray;
     }
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: $green-light;
 }
 
-input:focus + .slider {
+input:focus+.slider {
     box-shadow: 0 0 1px $green-light;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
 }
 
+
 /* Rounded sliders */
+
 .slider.round {
     border-radius: 34px;
 }

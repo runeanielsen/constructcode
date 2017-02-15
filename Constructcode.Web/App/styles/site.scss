@@ -1,15 +1,17 @@
-﻿$font-stack: 'Open Sans', sans-serif;
-
+﻿$font-stack: 'Open Sans',
+sans-serif;
 $primary-color: #333;
 $background-color: #f1f2f1;
 $error-color: red;
 $hover-color: #33bbe3;
-
-[ng\:cloak], [ng-cloak], .ng-cloak {
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
     display: none !important;
 }
 
-html, body {
+html,
+body {
     font: 100% $font-stack;
     background-color: $background-color;
 }
@@ -48,14 +50,13 @@ input[type=text] {
 
 footer {
     margin-bottom: 5px;
-
     .footer-content {
         p {
             text-align: center;
             background-color: #232c35;
             padding-top: 20px;
             padding-bottom: 20px;
-            color:white;
+            color: white;
         }
     }
 }

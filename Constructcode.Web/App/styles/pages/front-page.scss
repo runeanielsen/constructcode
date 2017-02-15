@@ -1,26 +1,19 @@
-﻿// Front page
-
-$primary-color: #733089;
+﻿$primary-color: #733089;
 $date-color: #e6e3df;
 $category-color: #847b79;
-
 .frontpage-content {
     background-color: white;
-
     .section {
         text-align: center;
         padding-top: 15px;
-
         h2 a {
             color: $primary-color;
         }
-
         p.datetime {
             padding: 15px 0;
             color: #c7c7c7;
             font-size: 0.9em;
         }
-
         .introduction {
             font-size: 1em;
             text-align: justify;
@@ -30,11 +23,9 @@ $category-color: #847b79;
             line-height: 35px;
             padding-bottom: 25px;
             max-width: 100%;
-
             .category-container {
                 margin-top: 15px;
                 text-align: center;
-
                 .category-title {
                     display: inline;
                     background-color: #eeedea;
@@ -43,7 +34,6 @@ $category-color: #847b79;
                     font-size: 14px;
                     display: inline-block;
                     margin-right: 10px;
-
                     a {
                         text-decoration: none;
                         color: $category-color;
@@ -52,20 +42,17 @@ $category-color: #847b79;
             }
         }
     }
-
     .page-switch {
         background-color: white;
         text-align: center;
         font-size: 1.05em;
-
-        p, a {
+        p,
+        a {
             padding: 25px 0;
             display: block;
         }
-
         a {
             color: $primary-color;
-
             &:hover {
                 color: $primary-color;
                 cursor: pointer;
@@ -78,11 +65,9 @@ $category-color: #847b79;
     .frontpage-content {
         .section {
             font-size: 0.9em;
-
             h2 {
                 font-size: 1.6em;
             }
-
             .introduction {
                 line-height: 30px;
                 margin-left: 25px;

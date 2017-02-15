@@ -1,12 +1,8 @@
-﻿// Display Post
-
-.display-post-content {
+﻿.display-post-content {
     background-color: white;
-
     .section {
         padding-top: 25px;
         font-size: 0.9em;
-
         .content {
             text-align: justify;
             font-size: 1.2em;
@@ -16,12 +12,10 @@
             line-height: 35px;
             padding-bottom: 25px;
             max-width: 100%;
-
             p {
                 margin: 0;
             }
         }
-
         pre {
             background-color: #f2f1f0;
             padding: 3px 10px;
@@ -30,19 +24,16 @@
                 font-size: 1.1em;
             }
         }
-
-        ol, ul {
+        ol,
+        ul {
             padding-left: 40px;
         }
-
         ol {
             list-style: decimal;
         }
-
         ul {
             list-style: circle;
         }
-
         strong {
             font-weight: bolder;
         }
@@ -51,20 +42,16 @@
 
 @media screen and (max-width: 768px) {
     .display-post-content {
-
         .section {
             padding-top: 10px;
             padding-bottom: 10px;
-
             .content {
                 h2 {
                     font-size: 1.4em;
                 }
-
                 h3 {
                     font-size: 1.2em;
                 }
-
                 font-size: 1em;
                 margin-left: 20px;
                 margin-right: 20px;
