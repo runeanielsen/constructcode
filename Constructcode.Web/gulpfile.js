@@ -123,10 +123,6 @@ gulp.task("watch", function () {
         gulp.watch(bundle.inputFiles, ["min:js"]);
     });
 
-    getBundles(regex.css).forEach(function (bundle) {
-        gulp.watch(bundle.inputFiles, ["min:css"]);
-    });
-
     getBundles(regex.scss).forEach(function (bundle) {
         gulp.watch(bundle.inputFiles, ["min:css"]);
     });
