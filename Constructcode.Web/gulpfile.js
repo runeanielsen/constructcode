@@ -50,8 +50,7 @@ var filesToMove = [
     {
         source: "node_modules/tinymce/skins/lightgray/fonts/**/*",
         destination: "wwwroot/skins/lightgray/fonts/"
-    },
-
+    }
 ]
 
 gulp.task("clean", function (cb) {
@@ -122,10 +121,6 @@ gulp.task("move:files", function () {
 gulp.task("watch", function () {
     getBundles(regex.js).forEach(function (bundle) {
         gulp.watch(bundle.inputFiles, ["min:js"]);
-    });
-
-    getBundles(regex.css).forEach(function (bundle) {
-        gulp.watch(bundle.inputFiles, ["min:css"]);
     });
 
     getBundles(regex.scss).forEach(function (bundle) {
