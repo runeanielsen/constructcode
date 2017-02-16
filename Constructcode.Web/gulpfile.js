@@ -11,6 +11,7 @@ var gulp = require("gulp"),
     merge = require("merge-stream"),
     del = require("del"),
     babel = require('gulp-babel'),
+    plumber = require('gulp-plumber'),
     autoprefixer = require('gulp-autoprefixer'),
     rimraf = require('rimraf'),
     bundleconfig = require("./bundleconfig.json");
@@ -22,8 +23,7 @@ var regex = {
     js: /\.js$/
 };
 
-var filesToMove = [
-    {
+var filesToMove = [{
         source: "App/resources/**/*",
         destination: "wwwroot/"
     },
@@ -61,7 +61,12 @@ gulp.task("min", ["min:js", "min:css", "min:html", "move:files"]);
 
 gulp.task("min:js", function () {
     var tasks = getBundles(regex.js).map(function (bundle) {
-        return gulp.src(bundle.inputFiles, { base: "." })
+        return gulp.src(bundle.inputFiles, {
+                base: "."
+            })
+            .pipe(plumber(function (error) {
+                console.log(error);
+            }))
             .pipe(babel({
                 presets: ['es2015'],
                 compact: true,
@@ -79,22 +84,37 @@ gulp.task("min:js", function () {
 
 gulp.task("min:css", function () {
     var cssTask = getBundles(regex.css).map(function (bundle) {
-        return gulp.src(bundle.inputFiles, { base: "." })
+        return gulp.src(bundle.inputFiles, {
+                base: "."
+            })
+            .pipe(plumber(function (error) {
+                console.log(error);
+            }))
             .pipe(concat(bundle.outputFileName))
     });
 
     var scssTask = getBundles(regex.css).map(function (bundle) {
-        return gulp.src(bundle.inputFiles, { base: "." })
+        return gulp.src(bundle.inputFiles, {
+                base: "."
+            })
+            .pipe(plumber(function (error) {
+                console.log(error);
+            }))
             .pipe(sass())
             .pipe(concat(bundle.outputFileName))
     });
 
     var merged = merge(cssTask, scssTask)
+        .pipe(plumber(function (error) {
+            console.log(error);
+        }))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(cssmin(), { showLog: true })
+        .pipe(cssmin(), {
+            showLog: true
+        })
         .pipe(gulp.dest("."));
 
     return merged;
@@ -102,12 +122,21 @@ gulp.task("min:css", function () {
 
 gulp.task("min:html", function () {
     var tasks = getBundles(regex.html).map(function (bundle) {
-        return gulp.src(bundle.inputFiles, { base: "." })
+        return gulp.src(bundle.inputFiles, {
+                base: "."
+            })
+            .pipe(plumber(function (error) {
+                console.log(error);
+            }))
             .pipe(concat(bundle.outputFileName))
-            .pipe(htmlmin({ collapseWhitespace: true, minifyCSS: true, minifyJS: true }))
+            .pipe(htmlmin({
+                collapseWhitespace: true,
+                minifyCSS: true,
+                minifyJS: true
+            }))
             .pipe(gulp.dest(destinationFolder));
     });
-    
+
     return merge(tasks);
 });
 
