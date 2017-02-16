@@ -108,6 +108,7 @@ gulp.task("min:html", function () {
             .pipe(htmlmin({ collapseWhitespace: true, minifyCSS: true, minifyJS: true }))
             .pipe(gulp.dest(destinationFolder));
     });
+    
     return merge(tasks);
 });
 
@@ -121,6 +122,10 @@ gulp.task("move:files", function () {
 gulp.task("watch", function () {
     getBundles(regex.js).forEach(function (bundle) {
         gulp.watch(bundle.inputFiles, ["min:js"]);
+    });
+
+    getBundles(regex.css).forEach(function (bundle) {
+        gulp.watch(bundle.inputFiles, ["min:css"]);
     });
 
     getBundles(regex.scss).forEach(function (bundle) {
