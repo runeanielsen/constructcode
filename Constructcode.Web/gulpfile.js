@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-var destinationFolder = 'wwwroot/'
+var destinationFolder = 'wwwroot/';
 
 var gulp = require("gulp"),
     concat = require("gulp-concat"),
@@ -64,9 +64,7 @@ gulp.task("min:js", function () {
         return gulp.src(bundle.inputFiles, {
                 base: "."
             })
-            .pipe(plumber(function (error) {
-                console.log(error);
-            }))
+            .pipe(plumber())
             .pipe(babel({
                 presets: ['es2015'],
                 compact: true,
@@ -87,9 +85,7 @@ gulp.task("min:css", function () {
         return gulp.src(bundle.inputFiles, {
                 base: "."
             })
-            .pipe(plumber(function (error) {
-                console.log(error);
-            }))
+            .pipe(plumber())
             .pipe(concat(bundle.outputFileName))
     });
 
@@ -97,17 +93,13 @@ gulp.task("min:css", function () {
         return gulp.src(bundle.inputFiles, {
                 base: "."
             })
-            .pipe(plumber(function (error) {
-                console.log(error);
-            }))
+            .pipe(plumber())
             .pipe(sass())
             .pipe(concat(bundle.outputFileName))
     });
 
     var merged = merge(cssTask, scssTask)
-        .pipe(plumber(function (error) {
-            console.log(error);
-        }))
+        .pipe(plumber())
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
@@ -125,9 +117,7 @@ gulp.task("min:html", function () {
         return gulp.src(bundle.inputFiles, {
                 base: "."
             })
-            .pipe(plumber(function (error) {
-                console.log(error);
-            }))
+            .pipe(plumber())
             .pipe(concat(bundle.outputFileName))
             .pipe(htmlmin({
                 collapseWhitespace: true,
@@ -149,14 +139,17 @@ gulp.task("move:files", function () {
 
 gulp.task("watch", function () {
     getBundles(regex.js).forEach(function (bundle) {
+        console.log("was here");
         gulp.watch(bundle.inputFiles, ["min:js"]);
     });
 
     getBundles(regex.scss).forEach(function (bundle) {
+        console.log("was here");
         gulp.watch(bundle.inputFiles, ["min:css"]);
     });
 
     getBundles(regex.html).forEach(function (bundle) {
+        console.log("was here");
         gulp.watch(bundle.inputFiles, ["min:html"]);
     });
 });
