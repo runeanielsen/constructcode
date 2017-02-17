@@ -138,19 +138,14 @@ gulp.task("move:files", function () {
 });
 
 gulp.task("watch", function () {
-    getBundles(regex.js).forEach(function (bundle) {
-        console.log("was here");
-        gulp.watch(bundle.inputFiles, ["min:js"]);
-    });
-
-    getBundles(regex.scss).forEach(function (bundle) {
-        console.log("was here");
+    getBundles(regex.css).forEach(function (bundle) {
+        console.log(bundle.inputFiles);
         gulp.watch(bundle.inputFiles, ["min:css"]);
     });
 
-    getBundles(regex.html).forEach(function (bundle) {
-        console.log("was here");
-        gulp.watch(bundle.inputFiles, ["min:html"]);
+    getBundles(regex.js).forEach(function (bundle) {
+        console.log(bundle.inputFiles);
+        gulp.watch(bundle.inputFiles, ["min:js"]);
     });
 });
 
