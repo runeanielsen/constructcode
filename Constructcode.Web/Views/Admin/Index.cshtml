@@ -1,4 +1,6 @@
-﻿@{ ViewBag.Title = "Admin"; }
+﻿@{
+    ViewBag.Title = "Admin";
+}
 
 <div ng-controller="AdminController as vm">
     <div>
@@ -8,13 +10,6 @@
 
         <div class="col-md-10">
             <div class="admin-container">
-                <div class="col-md-12">
-                    <div class="search-fields">
-                        <label>Search</label>
-                        <input type="text">
-                    </div>
-                </div>
-
                 <div class="admin-post-header col-md-12">
                     <div class="col-md-3">
                         <p>Title</p>
@@ -30,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="admin-post col-md-12" ng-repeat="post in vm.posts">
+                <div class="admin-content col-md-12" ng-repeat="post in vm.posts">
                     <div class="col-md-3">
                         <a href="{{vm.redirect.editPost(post.id)}}">
                             <p>{{post.title}}</p>

@@ -139,12 +139,10 @@ gulp.task("move:files", function () {
 
 gulp.task("watch", function () {
     getBundles(regex.css).forEach(function (bundle) {
-        console.log(bundle.inputFiles);
         gulp.watch(bundle.inputFiles, ["min:css"]);
     });
 
     getBundles(regex.js).forEach(function (bundle) {
-        console.log(bundle.inputFiles);
         gulp.watch(bundle.inputFiles, ["min:js"]);
     });
 });
