@@ -1,9 +1,9 @@
-﻿$font-stack: 'Open Sans',
-sans-serif;
+﻿$font-stack: 'Open Sans', sans-serif;
 $primary-color: #333;
 $background-color: #f1f2f1;
 $error-color: red;
 $hover-color: #33bbe3;
+
 [ng\:cloak],
 [ng-cloak],
 .ng-cloak {
@@ -50,6 +50,7 @@ input[type=text] {
 
 footer {
     margin-bottom: 5px;
+
     .footer-content {
         p {
             text-align: center;
@@ -102,5 +103,9 @@ footer {
 @media screen and (max-width: 768px) {
     footer {
         margin-bottom: 0;
+
+        p {
+            margin: 0;
+        }
     }
 }

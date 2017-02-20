@@ -10,6 +10,7 @@
       "node_modules/ng-dialog/css/ngDialog-theme-default.css",
       "node_modules/pikaday/css/pikaday.css",
       "node_modules/prismjs/themes/prism.css",
+      "App/styles/_reset.scss",
       "App/styles/site.scss",
       "App/styles/common/**/*.scss",
       "App/styles/admin/**/*.scss",
