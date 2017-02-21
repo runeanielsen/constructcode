@@ -17,8 +17,6 @@
                 data: imageFile,
                 headers: { 'Content-Type': undefined }
             });
-
-
         }
 
         return service;

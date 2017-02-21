@@ -14,7 +14,7 @@ var gulp = require("gulp"),
     plumber = require('gulp-plumber'),
     autoprefixer = require('gulp-autoprefixer'),
     rimraf = require('rimraf'),
-    bundleconfig = require("./bundleconfig.json");
+    bundleconfig = require("./bundle-files.json");
 
 var regex = {
     scss: /\.scss$/,
@@ -23,7 +23,8 @@ var regex = {
     js: /\.js$/
 };
 
-var filesToMove = [{
+var filesToMove = [
+    {
         source: "App/resources/**/*",
         destination: "wwwroot/"
     },
@@ -62,8 +63,8 @@ gulp.task("min", ["min:js", "min:css", "min:html", "move:files"]);
 gulp.task("min:js", function () {
     var tasks = getBundles(regex.js).map(function (bundle) {
         return gulp.src(bundle.inputFiles, {
-                base: "."
-            })
+            base: "."
+        })
             .pipe(plumber())
             .pipe(babel({
                 presets: ['es2015'],
@@ -83,16 +84,16 @@ gulp.task("min:js", function () {
 gulp.task("min:css", function () {
     var cssTask = getBundles(regex.css).map(function (bundle) {
         return gulp.src(bundle.inputFiles, {
-                base: "."
-            })
+            base: "."
+        })
             .pipe(plumber())
             .pipe(concat(bundle.outputFileName))
     });
 
     var scssTask = getBundles(regex.css).map(function (bundle) {
         return gulp.src(bundle.inputFiles, {
-                base: "."
-            })
+            base: "."
+        })
             .pipe(plumber())
             .pipe(sass())
             .pipe(concat(bundle.outputFileName))
@@ -115,8 +116,8 @@ gulp.task("min:css", function () {
 gulp.task("min:html", function () {
     var tasks = getBundles(regex.html).map(function (bundle) {
         return gulp.src(bundle.inputFiles, {
-                base: "."
-            })
+            base: "."
+        })
             .pipe(plumber())
             .pipe(concat(bundle.outputFileName))
             .pipe(htmlmin({
@@ -144,6 +145,10 @@ gulp.task("watch", function () {
 
     getBundles(regex.js).forEach(function (bundle) {
         gulp.watch(bundle.inputFiles, ["min:js"]);
+    });
+
+    filesToMove.filter(function (fileToMove) {
+        gulp.watch(fileToMove.source, ["move:files"]);
     });
 });
 

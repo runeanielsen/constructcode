@@ -51,6 +51,17 @@
                     });
             };
 
+            vm.writeIntroduction = function() {
+                vm.uploadImage = function () {
+                    ngDialog.open(
+                        {
+                            template: '/templates/upload-image.template.html',
+                            className: 'ngdialog-theme-default',
+                            controller: 'UploadImageController as vm'
+                        });
+                };
+            }
+
             vm.editCategory = function (category) {
                 var categoryName = window.prompt('Insert category name', '');
 
