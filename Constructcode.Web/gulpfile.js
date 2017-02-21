@@ -119,7 +119,6 @@ gulp.task("min:html", function () {
 });
 
 gulp.task("move:files", function () {
-    console.log(filesToMove);
     filesToMove.filter(function (fileToMove) {
         gulp.src(fileToMove.source)
             .pipe(gulp.dest(fileToMove.destination));
