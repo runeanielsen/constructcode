@@ -13,6 +13,7 @@ var gulp = require("gulp"),
     babel = require('gulp-babel'),
     plumber = require('gulp-plumber'),
     autoprefixer = require('gulp-autoprefixer'),
+    flatten = require('gulp-flatten'),
     rimraf = require('rimraf');
 
 var bundleconfig = require('./Gulp/bundle-files.json'),
@@ -21,7 +22,7 @@ var bundleconfig = require('./Gulp/bundle-files.json'),
 var regex = {
     scss: /\.scss$/,
     css: /\.css$/,
-    html: /\.(html|htm)$/,
+    html: /\.html$/,
     js: /\.js$/
 };
 
@@ -34,6 +35,10 @@ gulp.task("watch", function () {
 
     getBundles(regex.js).forEach(function (bundle) {
         gulp.watch(bundle.inputFiles, ["min:js"]);
+    });
+
+    getBundles(regex.js).forEach(function (bundle) {
+        gulp.watch(bundle.inputFiles, ["min:html"]);
     });
 
     filesToMove.filter(function (fileToMove) {
@@ -101,21 +106,9 @@ gulp.task("min:css", function () {
 });
 
 gulp.task("min:html", function () {
-    var tasks = getBundles(regex.html).map(function (bundle) {
-        return gulp.src(bundle.inputFiles, {
-            base: "."
-        })
-            .pipe(plumber())
-            .pipe(concat(bundle.outputFileName))
-            .pipe(htmlmin({
-                collapseWhitespace: true,
-                minifyCSS: true,
-                minifyJS: true
-            }))
-            .pipe(gulp.dest(destinationFolder));
-    });
-
-    return merge(tasks);
+    gulp.src("App/js/**/*.html")
+        .pipe(flatten())
+        .pipe(gulp.dest(destinationFolder + "templates/"));
 });
 
 gulp.task("move:files", function () {
