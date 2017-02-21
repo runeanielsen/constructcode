@@ -13,8 +13,10 @@ var gulp = require("gulp"),
     babel = require('gulp-babel'),
     plumber = require('gulp-plumber'),
     autoprefixer = require('gulp-autoprefixer'),
-    rimraf = require('rimraf'),
-    bundleconfig = require("./bundle-files.json");
+    rimraf = require('rimraf');
+
+var bundleconfig = require('./Gulp/bundle-files.json'),
+    filesToMove = require('./Gulp/move-files.json');
 
 var regex = {
     scss: /\.scss$/,
@@ -23,42 +25,25 @@ var regex = {
     js: /\.js$/
 };
 
-var filesToMove = [
-    {
-        source: "App/resources/**/*",
-        destination: "wwwroot/"
-    },
-    {
-        source: "node_modules/font-awesome/fonts/**/*",
-        destination: "wwwroot/fonts/"
-    },
-    {
-        source: "node_modules/tinymce/themes/modern/theme.min.js",
-        destination: "wwwroot/themes/modern/"
-    },
-    {
-        source: "node_modules/tinymce/skins/lightgray/skin.min.css",
-        destination: "wwwroot/skins/lightgray/"
-    },
-    {
-        source: "node_modules/tinymce/skins/lightgray/content.min.css",
-        destination: "wwwroot/skins/lightgray/"
-    },
-    {
-        source: "node_modules/tinymce/plugins/codesample/css/prism.css",
-        destination: "wwwroot/plugins/codesample/css/"
-    },
-    {
-        source: "node_modules/tinymce/skins/lightgray/fonts/**/*",
-        destination: "wwwroot/skins/lightgray/fonts/"
-    }
-]
+gulp.task("min", ["min:js", "min:css", "min:html", "move:files"]);
+
+gulp.task("watch", function () {
+    getBundles(regex.css).forEach(function (bundle) {
+        gulp.watch(bundle.inputFiles, ["min:css"]);
+    });
+
+    getBundles(regex.js).forEach(function (bundle) {
+        gulp.watch(bundle.inputFiles, ["min:js"]);
+    });
+
+    filesToMove.filter(function (fileToMove) {
+        gulp.watch(fileToMove.source, ["move:files"]);
+    });
+});
 
 gulp.task("clean", function (cb) {
     return rimraf('./wwwroot', cb);
 });
-
-gulp.task("min", ["min:js", "min:css", "min:html", "move:files"]);
 
 gulp.task("min:js", function () {
     var tasks = getBundles(regex.js).map(function (bundle) {
@@ -132,23 +117,10 @@ gulp.task("min:html", function () {
 });
 
 gulp.task("move:files", function () {
+    console.log(filesToMove);
     filesToMove.filter(function (fileToMove) {
         gulp.src(fileToMove.source)
             .pipe(gulp.dest(fileToMove.destination));
-    });
-});
-
-gulp.task("watch", function () {
-    getBundles(regex.css).forEach(function (bundle) {
-        gulp.watch(bundle.inputFiles, ["min:css"]);
-    });
-
-    getBundles(regex.js).forEach(function (bundle) {
-        gulp.watch(bundle.inputFiles, ["min:js"]);
-    });
-
-    filesToMove.filter(function (fileToMove) {
-        gulp.watch(fileToMove.source, ["move:files"]);
     });
 });
 

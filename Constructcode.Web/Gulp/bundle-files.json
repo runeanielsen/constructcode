@@ -18,7 +18,7 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/site.min.js",
+    "outputFileName": "wwwroot/lib.min.js",
     "inputFiles": [
       "node_modules/jquery/dist/jquery.js",
       "node_modules/bootstrap/dist/js/bootstrap.js",
@@ -35,7 +35,12 @@
       "node_modules/prismjs/prism.js",
       "node_modules/prismjs/components/prism-csharp.js",
       "node_modules/prismjs/components/prism-javascript.js",
-      "node_modules/prismjs/components/prism-markup.js",
+      "node_modules/prismjs/components/prism-markup.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/site.min.js",
+    "inputFiles": [
       "App/js/*.js",
       "App/js/core/**/*.js",
       "App/js/account/**/*.js",

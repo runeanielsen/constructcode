@@ -15,9 +15,9 @@
     {
         <environment names="Staging, Production">
             <script>
-            window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
-            ga('create', 'UA-83257241-1', 'auto');
-            ga('send', 'pageview');
+                window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+                ga('create', 'UA-83257241-1', 'auto');
+                ga('send', 'pageview');
             </script>
             <script async src='https://www.google-analytics.com/analytics.js'></script>
         </environment>
@@ -42,8 +42,9 @@
         }
     </div>
 
+    <script src="~/lib.min.js"></script>
     <script src="~/site.min.js"></script>
 
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", false)
 </body>
 </html>
