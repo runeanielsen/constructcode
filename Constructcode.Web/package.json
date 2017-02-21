@@ -7,8 +7,7 @@
     "predeploy-gulp": "gulp clean",
     "deploy-gulp": "gulp min",
     "deploy": "npm run deploy-gulp",
-    "start": "npm-run-all --parallel server:start watch:gulp",
-    "server:start": "dotnet run",
+    "start": "npm-run-all --parallel watch:gulp",
     "watch:gulp": "gulp watch"
   },
   "keywords": [

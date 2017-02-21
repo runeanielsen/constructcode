@@ -68,20 +68,22 @@ gulp.task("min:js", function () {
 
 gulp.task("min:css", function () {
     var cssTask = getBundles(regex.css).map(function (bundle) {
-        return gulp.src(bundle.inputFiles, {
-            base: "."
-        })
+        return gulp.src(bundle.inputFiles,
+            {
+                base: "."
+            })
             .pipe(plumber())
-            .pipe(concat(bundle.outputFileName))
+            .pipe(concat(bundle.outputFileName));
     });
 
     var scssTask = getBundles(regex.css).map(function (bundle) {
-        return gulp.src(bundle.inputFiles, {
-            base: "."
-        })
+        return gulp.src(bundle.inputFiles,
+            {
+                base: "."
+            })
             .pipe(plumber())
             .pipe(sass())
-            .pipe(concat(bundle.outputFileName))
+            .pipe(concat(bundle.outputFileName));
     });
 
     var merged = merge(cssTask, scssTask)
