@@ -37,9 +37,7 @@ gulp.task("watch", function () {
         gulp.watch(bundle.inputFiles, ["min:js"]);
     });
 
-    getBundles(regex.js).forEach(function (bundle) {
-        gulp.watch(bundle.inputFiles, ["min:html"]);
-    });
+    gulp.watch("App/js/**/*.html", ["min:html"]);
 
     filesToMove.filter(function (fileToMove) {
         gulp.watch(fileToMove.source, ["move:files"]);

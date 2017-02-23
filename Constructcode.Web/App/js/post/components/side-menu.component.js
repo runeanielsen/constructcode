@@ -51,7 +51,7 @@
                     });
             };
 
-            vm.writeIntroduction = function() {
+            vm.writeIntroduction = function () {
                 vm.uploadImage = function () {
                     ngDialog.open(
                         {
@@ -85,10 +85,27 @@
                 vm.post.postCategories = [];
                 angular.forEach(vm.categories.filter(c => c.selected), function (selectedCategory) {
                     vm.post.postCategories.push({ postId: vm.post.id, categoryId: selectedCategory.id });
-                });              
+                });
             };
 
-            function initSelectedCategories(){
+            vm.showIntroduction = function () {
+                var dialog = ngDialog.open(
+                {
+                    template: '/templates/introduction-dialog.template.html',
+                    className: 'ngdialog-theme-default',
+                    controller: 'IntroductionDialogController as vm',
+                    closeByDocument: false,
+                    closeByEscape: false,
+                    showClose: false,
+                    data: { introduction: vm.post.introduction }
+                });
+
+                dialog.closePromise.then(function (data) {
+                    vm.post.introduction = data.value;
+                });
+            }
+
+            function initSelectedCategories() {
                 angular.forEach(vm.post.postCategories, function (postCategory) {
                     vm.categories.filter(c => c.id === postCategory.categoryId)[0].selected = true;
                 });

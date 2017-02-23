@@ -11,7 +11,6 @@ namespace Constructcode.Web.Controllers.ViewModels
         public string Created { get; set; }
         public string Content { get; set; }
         public bool Published { get; set; }
-        public string Description { get; set; }
         public IEnumerable<PostCategoryViewModel> PostCategories { get; set; }
         public IEnumerable<CategoryViewModel> Categories { get; set; }
     }
