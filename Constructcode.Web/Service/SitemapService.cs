@@ -11,7 +11,7 @@ namespace Constructcode.Web.Service
     public class SitemapService : ISitemapService
     {
         private readonly IHostingEnvironment _environment;
-        private const string websiteDomainName = "http://www.constructcode.com";
+        private const string WebsiteDomainName = "http://www.constructcode.com";
 
         public SitemapService(IHostingEnvironment environment)
         {
@@ -39,7 +39,7 @@ namespace Constructcode.Web.Service
 
                 foreach (var post in posts)
                 {
-                    sitemap.WriteItem($"{websiteDomainName}/post/{post.Url}", post.LastModified, "weekly", "0.8");
+                    sitemap.WriteItem($"{WebsiteDomainName}/post/{post.Url}", post.LastModified, "weekly", "0.8");
                 }
 
                 sitemap.WriteEndDocument();
@@ -62,7 +62,7 @@ namespace Constructcode.Web.Service
 
                     if (lastModifiedPostOnCategory != null)
                     {
-                        sitemap.WriteItem($"{websiteDomainName}/post/category/{category.Url}",
+                        sitemap.WriteItem($"{WebsiteDomainName}/post/category/{category.Url}",
                             lastModifiedPostOnCategory.LastModified, "weekly", "0.8");
                     }
                 }
@@ -81,7 +81,7 @@ namespace Constructcode.Web.Service
                 var sitemap = new Sitemap(stream);
                 sitemap.WriteStartDocument();
 
-                sitemap.WriteItem(websiteDomainName, lastModified, "daily", "1");
+                sitemap.WriteItem(WebsiteDomainName, lastModified, "daily", "1");
 
                 sitemap.WriteEndDocument();
                 sitemap.Close();
@@ -97,9 +97,9 @@ namespace Constructcode.Web.Service
                 var sitemap = new SitemapIndex(stream);
                 sitemap.WriteStartDocument();
 
-                sitemap.WriteItem($"{websiteDomainName}/sitemap-pages.xml", lastModified);
-                sitemap.WriteItem($"{websiteDomainName}/sitemap-posts.xml", lastModified);
-                sitemap.WriteItem($"{websiteDomainName}/sitemap-categories.xml", lastModified);
+                sitemap.WriteItem($"{WebsiteDomainName}/sitemap-pages.xml", lastModified);
+                sitemap.WriteItem($"{WebsiteDomainName}/sitemap-posts.xml", lastModified);
+                sitemap.WriteItem($"{WebsiteDomainName}/sitemap-categories.xml", lastModified);
 
                 sitemap.WriteEndDocument();
                 sitemap.Close();
