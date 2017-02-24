@@ -17,11 +17,25 @@ namespace Constructcode.Web.Core.Domain
         public List<Message> Messages { get; set; }
         public List<PostCategory> PostCategories { get; set; }
 
-
         public void ManageUpdate()
         {
             UpdateUrl();
             LastModified = DateTime.Now;
+        }
+
+        public string GetSeoDescription()
+        {
+            const int maxDescriptionLength = 120;
+
+            var textSize = Introduction.Length > maxDescriptionLength ? maxDescriptionLength : Introduction.Length;
+            var correctlyLengthedSeoDescription = Introduction.Substring(0, textSize);
+
+            if (textSize == maxDescriptionLength)
+            {
+                correctlyLengthedSeoDescription += "...";
+            }
+
+            return correctlyLengthedSeoDescription;
         }
 
         private void UpdateUrl()

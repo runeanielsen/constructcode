@@ -12,7 +12,7 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
     {
         private const string DateTimeFormat = "dd MMMM yyyy";
         private const string Culture = "en-GB";
-        
+
         public PostProfile()
         {
             #region Data Transfer Objects
@@ -35,7 +35,8 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
             CreateMap<Post, PostViewModel>()
                 .ForMember(dest => dest.Introduction, opt => opt.MapFrom(src => src.Introduction))
                 .ForMember(dest => dest.Created, opt => opt.MapFrom(src => src.Created.ToString(DateTimeFormat, new CultureInfo(Culture))))
-                .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.PostCategories.Select(a => a.Category)));
+                .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.PostCategories.Select(a => a.Category)))
+                .ForMember(dest => dest.SeoMetaDescription, opt => opt.MapFrom(src => src.GetSeoDescription()));
             CreateMap<PostViewModel, Post>();
             #endregion
         }
