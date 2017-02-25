@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
+using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
-using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Constructcode.Web.ApiControllers.Api
+namespace Constructcode.Web.ApiControllers
 {
     [Authorize]
     public class CategoryController : Controller

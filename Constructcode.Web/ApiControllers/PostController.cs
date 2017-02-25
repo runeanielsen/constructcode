@@ -1,4 +1,8 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
@@ -6,44 +10,41 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Constructcode.Web.ApiControllers.Api
+namespace Constructcode.Web.ApiControllers
 {
+    [Authorize]
     public class PostController : Controller
     {
+        private const int ApiResponseCacheDuration = 120;
+
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
         private readonly IHostingEnvironment _environment;
-        private readonly ISitemapService _sitemapService;
 
-        public PostController(IPostService postService, IMapper mapper, IHostingEnvironment environment, ISitemapService sitemapService)
+        public PostController(IPostService postService, IMapper mapper, IHostingEnvironment environment)
         {
             _postService = postService;
             _mapper = mapper;
             _environment = environment;
-            _sitemapService = sitemapService;
         }
 
         [HttpGet]
-        [ResponseCache(Duration = 60)]
+        [ResponseCache(Duration = ApiResponseCacheDuration)]
         public IActionResult GetAllPublishedPosts()
         {
             return Ok(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPublishedPosts()));
         }
 
         [HttpGet]
-        [ResponseCache(Duration = 60)]
+        [ResponseCache(Duration = ApiResponseCacheDuration)]
         public IActionResult GetAllPostsOnCategory(string id)
         {
             return Ok(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPostsOnCategory(id)));
         }
 
         [HttpGet]
-        [ResponseCache(Duration = 60)]
+        [ResponseCache(Duration = ApiResponseCacheDuration)]
         public IActionResult GetPostOnUrl(string id)
         {
             return Ok(_mapper.Map<PostDto>(_postService.GetPostOnUrl(id)));
@@ -55,14 +56,12 @@ namespace Constructcode.Web.ApiControllers.Api
             return Ok(_mapper.Map<PostDto>(_postService.GetPost(id)));
         }
 
-        [Authorize]
         [HttpGet]
         public IActionResult GetAllPosts()
         {
             return Ok(_mapper.Map<IEnumerable<PostDto>>(_postService.GetAllPosts().OrderByDescending(a => a.Created)));
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> UploadPostImage(IFormFile file)
         {
@@ -76,7 +75,6 @@ namespace Constructcode.Web.ApiControllers.Api
             return Ok($"/images/blogpost/{file.FileName}");
         }
 
-        [Authorize]
         [HttpPost]
         public IActionResult CreatePost([FromBody]CreatePostDto vm)
         {
@@ -91,7 +89,6 @@ namespace Constructcode.Web.ApiControllers.Api
             return Ok();
         }
 
-        [Authorize]
         [HttpPost]
         public IActionResult UpdatePost([FromBody]EditPostDto vm)
         {
@@ -106,7 +103,6 @@ namespace Constructcode.Web.ApiControllers.Api
             return Ok();
         }
 
-        [Authorize]
         [HttpDelete]
         public IActionResult DeletePost(int id)
         {
