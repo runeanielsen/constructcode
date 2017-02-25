@@ -14,6 +14,7 @@ var gulp = require("gulp"),
     plumber = require('gulp-plumber'),
     autoprefixer = require('gulp-autoprefixer'),
     flatten = require('gulp-flatten'),
+    changed = require('gulp-changed'),
     rimraf = require('rimraf');
 
 var bundleconfig = require('./Gulp/bundle-files.json'),
@@ -54,6 +55,7 @@ gulp.task("min:js", function () {
             base: "."
         })
             .pipe(plumber())
+            .pipe(changed('.'))
             .pipe(babel({
                 presets: ['es2015'],
                 compact: true,
@@ -76,6 +78,7 @@ gulp.task("min:css", function () {
                 base: "."
             })
             .pipe(plumber())
+            .pipe(changed('.'))
             .pipe(concat(bundle.outputFileName));
     });
 
@@ -85,6 +88,7 @@ gulp.task("min:css", function () {
                 base: "."
             })
             .pipe(plumber())
+            .pipe(changed('.'))
             .pipe(sass())
             .pipe(concat(bundle.outputFileName));
     });
