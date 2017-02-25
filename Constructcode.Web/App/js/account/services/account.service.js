@@ -14,7 +14,7 @@
             return $http.post(serviceRoute + 'login', loginInformation);
         }
 
-        service.logout = function (loginInformation) {
+        service.logout = function () {
             return $http.get(serviceRoute + 'logout');
         }
 
