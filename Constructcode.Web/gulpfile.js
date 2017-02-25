@@ -72,7 +72,6 @@ gulp.task('deploy:js', function () {
             base: "."
         })
             .pipe(plumber())
-            .pipe(cached())
             .pipe(babel({
                 presets: ['es2015'],
                 compact: true,

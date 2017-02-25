@@ -36,6 +36,7 @@ namespace Constructcode.Web.Configurations
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ISitemapService, SitemapService>();
+            services.AddTransient<IFileService, FileService>();
         }
     }
 }

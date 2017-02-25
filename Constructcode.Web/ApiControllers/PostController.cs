@@ -20,13 +20,13 @@ namespace Constructcode.Web.ApiControllers
 
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
-        private readonly IHostingEnvironment _environment;
+        private readonly IFileService _fileService;
 
-        public PostController(IPostService postService, IMapper mapper, IHostingEnvironment environment)
+        public PostController(IPostService postService, IMapper mapper, IFileService fileService)
         {
             _postService = postService;
             _mapper = mapper;
-            _environment = environment;
+            _fileService = fileService;
         }
 
         [HttpGet]
@@ -65,14 +65,9 @@ namespace Constructcode.Web.ApiControllers
         [HttpPost]
         public async Task<IActionResult> UploadPostImage(IFormFile file)
         {
-            var uploads = Path.Combine(_environment.WebRootPath, "images/blogpost");
+            var savedFileName = await _fileService.SaveBlogPostImage(file);
 
-            using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
-            {
-                await file.CopyToAsync(fileStream);
-            }
-
-            return Ok($"/images/blogpost/{file.FileName}");
+            return Ok(savedFileName);
         }
 
         [HttpPost]
