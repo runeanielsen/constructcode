@@ -31,7 +31,7 @@
             </a>
             <ul ng-show="vm.toggleCreated" class="menu-container small">
                 <li>
-                    <input type="text" ng-model="vm.post.created" pikaday="vm.datepicker" format="DD MMMM YYYY" readonly/>
+                    <input type="text" ng-model="vm.post.created" pikaday="vm.datepicker" format="DD MMMM YYYY" readonly />
                 </li>
             </ul>
         </li>
@@ -40,7 +40,7 @@
         <li class="submenu-title">
             <a ng-click="vm.uploadImage()"><i class="fa fa-image"></i>Upload Image</a>
         </li>
-        
+
         <!--Introduction-->
         <li class="submenu-title">
             <a ng-click="vm.showIntroduction()"><i class="fa fa-comment"></i>Introduction</a>
@@ -64,7 +64,6 @@
                         <i ng-show="category.showEdit" ng-click="vm.deleteCategory(category)" class="fa fa-trash pointer"></i>
                     </div>
                 </li>
-
                 <li>
                     <a class="hover-pointer" ng-click="vm.createCategory()">
                         <i class="fa fa-folder-open"></i>

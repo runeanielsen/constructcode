@@ -18,8 +18,6 @@
             var vm = this;
 
             vm.categories = [];
-            vm.post = {};
-
             vm.redirect = redirectService;
 
             init();
