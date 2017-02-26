@@ -31,7 +31,6 @@ namespace ConstructCode.Web.Controllers
 
         public IActionResult Error()
         {
-            ViewBag.AngularModule = "app";
             return View();
         }
     }
