@@ -5,17 +5,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Microsoft.Extensions.Configuration;
 
 namespace Constructcode.Web.Service
 {
     public class SitemapService : ISitemapService
     {
         private readonly IHostingEnvironment _environment;
-        private const string WebsiteDomainName = "http://www.constructcode.com";
+        private readonly string _websiteDomainName;
 
-        public SitemapService(IHostingEnvironment environment)
+        public SitemapService(IHostingEnvironment environment, IConfigurationRoot configuration)
         {
             _environment = environment;
+            _websiteDomainName = configuration["Domain:Url"];
         }
 
         public void UpdateSitemap(List<Post> posts, List<Category> categories)
@@ -39,7 +41,7 @@ namespace Constructcode.Web.Service
 
                 foreach (var post in posts)
                 {
-                    sitemap.WriteItem($"{WebsiteDomainName}/post/{post.Url}", post.LastModified, "weekly", "0.8");
+                    sitemap.WriteItem($"{_websiteDomainName}/post/{post.Url}", post.LastModified, "weekly", "0.8");
                 }
 
                 sitemap.WriteEndDocument();
@@ -62,7 +64,7 @@ namespace Constructcode.Web.Service
 
                     if (lastModifiedPostOnCategory != null)
                     {
-                        sitemap.WriteItem($"{WebsiteDomainName}/post/category/{category.Url}",
+                        sitemap.WriteItem($"{_websiteDomainName}/post/category/{category.Url}",
                             lastModifiedPostOnCategory.LastModified, "weekly", "0.8");
                     }
                 }
@@ -81,7 +83,7 @@ namespace Constructcode.Web.Service
                 var sitemap = new Sitemap(stream);
                 sitemap.WriteStartDocument();
 
-                sitemap.WriteItem(WebsiteDomainName, lastModified, "daily", "1");
+                sitemap.WriteItem(_websiteDomainName, lastModified, "daily", "1");
 
                 sitemap.WriteEndDocument();
                 sitemap.Close();
@@ -97,9 +99,9 @@ namespace Constructcode.Web.Service
                 var sitemap = new SitemapIndex(stream);
                 sitemap.WriteStartDocument();
 
-                sitemap.WriteItem($"{WebsiteDomainName}/sitemap-pages.xml", lastModified);
-                sitemap.WriteItem($"{WebsiteDomainName}/sitemap-posts.xml", lastModified);
-                sitemap.WriteItem($"{WebsiteDomainName}/sitemap-categories.xml", lastModified);
+                sitemap.WriteItem($"{_websiteDomainName}/sitemap-pages.xml", lastModified);
+                sitemap.WriteItem($"{_websiteDomainName}/sitemap-posts.xml", lastModified);
+                sitemap.WriteItem($"{_websiteDomainName}/sitemap-categories.xml", lastModified);
 
                 sitemap.WriteEndDocument();
                 sitemap.Close();

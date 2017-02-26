@@ -6,20 +6,18 @@ namespace Constructcode.Web.Controllers.Admin
     [Authorize]
     public class PostController : Controller
     {
-        private const string _viewPath = "/Views/Admin/Post";
+        private const string ViewPath = "/Views/Admin/Post";
 
         [HttpGet]
         public IActionResult CreatePost()
         {
-            ViewBag.AngularModule = "managePosts";
-            return View($"{_viewPath}/CreatePost.cshtml");
+            return View($"{ViewPath}/CreatePost.cshtml");
         }
 
         [HttpGet]
         public IActionResult EditPost(int id)
         {
-            ViewBag.AngularModule = "managePosts";
-            return View($"{_viewPath}/EditPost.cshtml");
+            return View($"{ViewPath}/EditPost.cshtml");
         }
     }
 }

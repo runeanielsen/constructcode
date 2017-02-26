@@ -24,10 +24,6 @@ namespace Constructcode.Web.Controllers
         [ResponseCache(Duration = 120)]
         public IActionResult Index(string url)
         {
-            ViewBag.AngularModule = "app";
-            ViewBag.ShowFooter = true;
-            ViewBag.Analytics = true;
-
             return View(_mapper.Map<PostViewModel>(_postService.GetPostOnUrl(url)));
         }
 
@@ -36,13 +32,13 @@ namespace Constructcode.Web.Controllers
         [ResponseCache(Duration = 120)]
         public IActionResult Category(string categoryUrl)
         {
-            ViewBag.AngularModule = "app";
-            ViewBag.ShowFooter = true;
-            ViewBag.Analytics = true;
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
 
-            var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(categoryUrl), 1);
-            displayPostsViewModel.CategoryName = categoryUrl;
+            var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(categoryUrl), 1)
+            {
+                CategoryName = categoryUrl
+            };
+
             displayPostsViewModel.Posts = _mapper.Map<IEnumerable<PostViewModel>>(_postService.GetPostsOnPageNumber(displayPostsViewModel.CurrentPageNumber, categoryUrl));
 
             return View(displayPostsViewModel);
@@ -53,13 +49,13 @@ namespace Constructcode.Web.Controllers
         [ResponseCache(Duration = 120)]
         public IActionResult Category(string categoryUrl, int pageNumber)
         {
-            ViewBag.AngularModule = "app";
-            ViewBag.ShowFooter = true;
-            ViewBag.Analytics = true;
             ViewBag.Title = _categoryService.GetCategoryOnUrl(categoryUrl).Title;
 
-            var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(categoryUrl), pageNumber);
-            displayPostsViewModel.CategoryName = categoryUrl;
+            var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(categoryUrl), pageNumber)
+            {
+                CategoryName = categoryUrl
+            };
+
             displayPostsViewModel.Posts =
                 _mapper.Map<IEnumerable<PostViewModel>>(_postService.GetPostsOnPageNumber(displayPostsViewModel.CurrentPageNumber, categoryUrl));
 

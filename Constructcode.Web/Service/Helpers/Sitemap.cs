@@ -7,9 +7,9 @@ namespace Constructcode.Web.Service.Helpers
 {
     public class Sitemap
     {
-        XmlWriter writer;
+        private readonly XmlWriter _writer;
 
-        public Sitemap(StreamWriter stream)
+        public Sitemap(TextWriter stream)
         {
             var encoding = new XmlWriterSettings
             {
@@ -18,35 +18,35 @@ namespace Constructcode.Web.Service.Helpers
                 IndentChars = "\t"
             };
 
-            writer = XmlWriter.Create(stream, encoding);
+            _writer = XmlWriter.Create(stream, encoding);
         }
 
         public void WriteStartDocument()
         {
-            writer.WriteStartDocument();
-            writer.WriteStartElement("urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
+            _writer.WriteStartDocument();
+            _writer.WriteStartElement("urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
         }
 
         public void WriteEndDocument()
         {
-            writer.WriteEndElement();
-            writer.WriteEndDocument();
+            _writer.WriteEndElement();
+            _writer.WriteEndDocument();
         }
 
         public void Close()
         {
-            writer.Flush();
-            writer.Dispose();            
+            _writer.Flush();
+            _writer.Dispose();            
         }
 
         public void WriteItem(string link, DateTime lastModified, string changefreq, string priority)
         {
-            writer.WriteStartElement("url");
-            writer.WriteElementString("loc", link);
-            writer.WriteElementString("lastmod", lastModified.ToString("yyyy-MM-dd"));
-            writer.WriteElementString("changefreq", changefreq);
-            writer.WriteElementString("priority", priority);
-            writer.WriteEndElement();
+            _writer.WriteStartElement("url");
+            _writer.WriteElementString("loc", link);
+            _writer.WriteElementString("lastmod", lastModified.ToString("yyyy-MM-dd"));
+            _writer.WriteElementString("changefreq", changefreq);
+            _writer.WriteElementString("priority", priority);
+            _writer.WriteEndElement();
         }
     }
 }

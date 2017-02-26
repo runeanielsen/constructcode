@@ -43,6 +43,7 @@ namespace Constructcode.Web.Service
                 new Claim("name", account.Username),
                 new Claim(ClaimTypes.Role, "Admin")
             };
+
             var claim = new ClaimsPrincipal(
                 new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
 

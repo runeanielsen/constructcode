@@ -74,5 +74,6 @@
     "Microsoft.AspNetCore.Razor.Tools": "1.1.0-preview4-final",
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.1.0-preview4-final",
     "Microsoft.EntityFrameworkCore.Tools.DotNet": "1.1.0-preview4"
-  }
+  },
+  "userSecretsId": "aspnet-Constructcode.Web-20170226033634"
 }

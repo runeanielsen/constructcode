@@ -8,7 +8,6 @@ namespace Constructcode.Web.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.AngularModule = "app";
             return View();
         }
     }

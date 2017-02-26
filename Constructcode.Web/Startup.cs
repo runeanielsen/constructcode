@@ -11,6 +11,8 @@ namespace ConstructCode.Web
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; }
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -21,14 +23,13 @@ namespace ConstructCode.Web
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.Setup();
+            services.AddSingleton(Configuration);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) 
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -51,7 +52,7 @@ namespace ConstructCode.Web
                 OnPrepareResponse =
                     r =>
                     {
-                        string path = r.File.PhysicalPath;
+                        var path = r.File.PhysicalPath;
                         if (path.EndsWith(".css") || path.EndsWith(".js") || path.EndsWith(".gif") || path.EndsWith(".jpg") || path.EndsWith(".png") || path.EndsWith(".svg"))
                         {
                             var maxAge = new TimeSpan(7, 0, 0, 0);

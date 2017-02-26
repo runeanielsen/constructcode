@@ -21,11 +21,8 @@ namespace ConstructCode.Web.Controllers
         [ResponseCache(Duration = 120)]
         public IActionResult Index()
         {
-            ViewBag.AngularModule = "app";
-            ViewBag.ShowFooter = true;
-            ViewBag.Analytics = true;
-
             var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(), 1);
+
             displayPostsViewModel.Posts = 
                 _mapper.Map<IEnumerable<PostViewModel>>(_postService.GetPostsOnPageNumber(displayPostsViewModel.CurrentPageNumber));
 

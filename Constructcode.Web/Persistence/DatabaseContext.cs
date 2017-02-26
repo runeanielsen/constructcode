@@ -2,6 +2,7 @@
 using Constructcode.Web.Persistence.EntityConfigurations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Constructcode.Web.Persistence
 {
@@ -14,10 +15,12 @@ namespace Constructcode.Web.Persistence
         public virtual DbSet<PostCategory> PostCategories { get; set; }
 
         private readonly IHostingEnvironment _env;
+        private readonly IConfigurationRoot _configuration;
 
-        public DatabaseContext(IHostingEnvironment env)
+        public DatabaseContext(IHostingEnvironment env, IConfigurationRoot configuration)
         {
             _env = env;
+            _configuration = configuration;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,11 +36,11 @@ namespace Constructcode.Web.Persistence
         {
             if (_env.IsDevelopment())
             {
-                optionsBuilder.UseSqlServer( @"Server=(localdb)\MSSQLLocalDB;Database=constructcodedb;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(_configuration["ConnectionStrings:Development"]);
             }
             else if(_env.IsProduction())
             {
-                optionsBuilder.UseSqlServer(@"Server=constructcode.database.windows.net;Database=constructcode;Integrated Security=False;User ID=runeanielsen;Password=RzqpvyPUfOGNwhse7yAu;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                optionsBuilder.UseSqlServer(_configuration["ConnectionStrings:Production"]);
             }         
         }
     }

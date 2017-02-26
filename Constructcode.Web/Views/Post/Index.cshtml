@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = Model.Title;
     ViewBag.Description = Model.SeoMetaDescription;
+    ViewBag.AngularModule = "app";
+    ViewBag.ShowFooter = true;
+    ViewBag.Analytics = true;
 }
 
 <div ng-controller="DisplayPostController as vm">

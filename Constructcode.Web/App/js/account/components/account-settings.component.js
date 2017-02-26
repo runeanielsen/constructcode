@@ -16,7 +16,7 @@
 
             vm.settings = {
                 password: '',
-                repeatedPassword: '',
+                repeatedPassword: ''
             }
 
             vm.save = function () {

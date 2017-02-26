@@ -7,9 +7,9 @@ namespace Constructcode.Web.Service.Helpers
 {
     public class SitemapIndex
     {
-        XmlWriter writer;
+        private readonly XmlWriter _writer;
 
-        public SitemapIndex(StreamWriter stream)
+        public SitemapIndex(TextWriter stream)
         {
             var encoding = new XmlWriterSettings
             {
@@ -18,33 +18,33 @@ namespace Constructcode.Web.Service.Helpers
                 IndentChars = "\t"
             };
 
-            writer = XmlWriter.Create(stream, encoding);
+            _writer = XmlWriter.Create(stream, encoding);
         }
 
         public void WriteStartDocument()
         {
-            writer.WriteStartDocument();
-            writer.WriteStartElement("sitemapindex", "http://www.sitemaps.org/schemas/sitemap/0.9");
+            _writer.WriteStartDocument();
+            _writer.WriteStartElement("sitemapindex", "http://www.sitemaps.org/schemas/sitemap/0.9");
         }
 
         public void WriteEndDocument()
         {
-            writer.WriteEndElement();
-            writer.WriteEndDocument();
+            _writer.WriteEndElement();
+            _writer.WriteEndDocument();
         }
 
         public void Close()
         {
-            writer.Flush();
-            writer.Dispose();
+            _writer.Flush();
+            _writer.Dispose();
         }
 
         public void WriteItem(string link, DateTime lastModified)
         {
-            writer.WriteStartElement("sitemap");
-            writer.WriteElementString("loc", link);
-            writer.WriteElementString("lastmod", lastModified.ToString("yyyy-MM-dd"));
-            writer.WriteEndElement();
+            _writer.WriteStartElement("sitemap");
+            _writer.WriteElementString("loc", link);
+            _writer.WriteElementString("lastmod", lastModified.ToString("yyyy-MM-dd"));
+            _writer.WriteEndElement();
         }
     }
 }

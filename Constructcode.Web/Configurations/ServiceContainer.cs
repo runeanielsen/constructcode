@@ -22,14 +22,13 @@ namespace Constructcode.Web.Configurations
                 => options.Level = System.IO.Compression.CompressionLevel.Fastest);
             services.AddResponseCompression();
 
-            services.AddAutoMapper(cfg =>
-            {
-                cfg.AddProfile<PostProfile>();
-                cfg.AddProfile<AccountProfile>();
-                cfg.AddProfile<CategoryProfile>();
-                cfg.AddProfile<PostCategoryProfile>();
-            });
+            ConfigureAutoMapper(services);
 
+            ConfigureApplication(services);
+        }
+
+        private static void ConfigureApplication(IServiceCollection services)
+        {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<IAccountService, AccountService>();
@@ -37,6 +36,17 @@ namespace Constructcode.Web.Configurations
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ISitemapService, SitemapService>();
             services.AddTransient<IFileService, FileService>();
+        }
+
+        private static void ConfigureAutoMapper(IServiceCollection services)
+        {
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<PostProfile>();
+                cfg.AddProfile<AccountProfile>();
+                cfg.AddProfile<CategoryProfile>();
+                cfg.AddProfile<PostCategoryProfile>();
+            });
         }
     }
 }

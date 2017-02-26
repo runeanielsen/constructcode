@@ -15,7 +15,7 @@
         }
 
         service.getAllPublishedPosts = function () {
-            return $http.get(serviceRoute + 'getAllPublishedPosts')
+            return $http.get(serviceRoute + 'getAllPublishedPosts');
         }
 
         service.getAllPostsOnCategory = function (categoryName) {

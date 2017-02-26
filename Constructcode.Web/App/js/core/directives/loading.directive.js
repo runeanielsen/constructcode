@@ -9,7 +9,7 @@
             scope: {
                 loading: '='
             },
-            template: '<div ng-show="loading" class="loading"><i class="fa fa-circle-o-notch fa-spin spin-normal"></i></div>',
+            template: '<div ng-show="loading" class="loading"><i class="fa fa-circle-o-notch fa-spin spin-normal"></i></div>'
         }
     }
 })();

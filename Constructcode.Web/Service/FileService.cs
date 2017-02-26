@@ -23,9 +23,9 @@ namespace Constructcode.Web.Service
 
             var generatedImageFileName = GenerateImageFileName();
 
-            var imageFilePath = Path.Combine(destinationFolder, generatedImageFileName);
+            var filePath = Path.Combine(destinationFolder, generatedImageFileName);
 
-            using (var fileStream = new FileStream(imageFilePath, FileMode.Create))
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
                 await imageFile.CopyToAsync(fileStream);
             }
