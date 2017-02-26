@@ -67,9 +67,6 @@ namespace Constructcode.Web.Controllers
         [ResponseCache(Duration = 120)]
         public IActionResult Page(int pageNumber)
         {
-            ViewBag.AngularModule = "app";
-            ViewBag.ShowFooter = true;
-            ViewBag.Analytics = true;
             ViewBag.Title = $"Page {pageNumber}";
 
             var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(), pageNumber);
