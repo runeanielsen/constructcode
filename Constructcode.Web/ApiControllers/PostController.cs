@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,7 +6,6 @@ using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

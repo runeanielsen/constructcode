@@ -30,7 +30,7 @@ namespace Constructcode.Web.Service
                 await imageFile.CopyToAsync(fileStream);
             }
 
-            return blogPostImageFolder + generatedImageFileName;
+            return $"/{blogPostImageFolder}/{generatedImageFileName}";
         }
 
         private static string GenerateImageFileName()
