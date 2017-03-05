@@ -85,7 +85,7 @@ namespace Constructcode.Web.Service
 
         public IEnumerable<Post> GetPostsOnPageNumber(int pageNumber, string categoryUrl)
         {
-            return GetAllPostsOnCategory(categoryUrl).Skip(PostPerPage * (pageNumber - 1)).Take(PostPerPage);
+            return GetAllPostsOnCategory(categoryUrl).Skip(PostPerPage * (pageNumber - 1)).Take(PostPerPage).OrderByDescending(a => a.Created);
         }
 
         public Validation ValidatePost(Post post)
@@ -121,9 +121,7 @@ namespace Constructcode.Web.Service
 
         private IEnumerable<Post> Posts()
         {
-            IEnumerable<Post> posts;
-
-            if (!_memoryCache.TryGetValue(CachePostKey, out posts))
+            if (!_memoryCache.TryGetValue(CachePostKey, out IEnumerable<Post> posts))
             {
                 posts = UpdateCachedPosts();
             }
