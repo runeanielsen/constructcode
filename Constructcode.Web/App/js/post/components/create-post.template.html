@@ -1,0 +1,17 @@
+﻿<div class="col-md-12 no-padding">
+    <div class="col-md-2 no-padding">
+        <side-menu post="vm.post"></side-menu>
+    </div>
+
+    <div class="col-md-10 edit-post">
+        <form>
+            <input type="text" ng-model="vm.post.title" placeholder="Title" />
+
+            <div class="form-group">
+                <textarea ui-tinymce="vm.tinymceOptions" ng-model="vm.post.content"></textarea>
+            </div>
+
+            <button ng-click="vm.createPost()" class="button-standard green">Create Post</button>
+        </form>
+    </div>
+</div>
