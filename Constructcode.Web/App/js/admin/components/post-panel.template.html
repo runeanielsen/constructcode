@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="admin-content col-md-12" ng-repeat="post in vm.posts">
+    <div class="admin-content col-md-12" ng-repeat="post in vm.posts | orderBy: 'published'">
         <div class="col-md-3">
             <a href="{{vm.redirect.editPost(post.id)}}">
                 <p>{{post.title}}</p>
