@@ -1,0 +1,35 @@
+﻿<div class="admin-container">
+    <div class="admin-post-header col-md-12">
+        <div class="col-md-3">
+            <p>Title</p>
+        </div>
+        <div class="col-md-3">
+            <p>Categories</p>
+        </div>
+        <div class="col-md-3">
+            <p>Published</p>
+        </div>
+        <div class="col-md-3">
+            <p>Date</p>
+        </div>
+    </div>
+
+    <div class="admin-content col-md-12" ng-repeat="post in vm.posts">
+        <div class="col-md-3">
+            <a href="{{vm.redirect.editPost(post.id)}}">
+                <p>{{post.title}}</p>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <p class="inline" ng-repeat="category in post.categories">
+                {{category.title}}{{$last ? '' : ', '}}
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p>{{post.published ? 'Yes' : 'No'}}</p>
+        </div>
+        <div class="col-md-3">
+            <p>{{post.created}}</p>
+        </div>
+    </div>
+</div>
