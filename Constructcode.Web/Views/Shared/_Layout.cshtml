@@ -9,7 +9,7 @@
     <meta name="msvalidate.01" content="3FCFD8C5E38D6B7A2B5A89C58A48F61F" />
     <title>@ViewData["Title"] - Construct Code</title>
 
-    <link async href="~/site.min.css" rel="stylesheet" />
+    <link async href="~/site.min.css" asp-append-version="true" rel="stylesheet" />
 
     @if (ViewBag.Analytics != null && ViewBag.Analytics)
     {
@@ -42,8 +42,8 @@
         }
     </div>
 
-    <script src="~/lib.min.js"></script>
-    <script src="~/site.min.js"></script>
+    <script src="~/lib.min.js" asp-append-version="true"></script>
+    <script src="~/site.min.js" asp-append-version="true"></script>
 
     @RenderSection("scripts", false)
 </body>
