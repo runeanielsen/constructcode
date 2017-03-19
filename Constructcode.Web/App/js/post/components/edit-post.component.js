@@ -33,9 +33,11 @@
             }
 
             vm.deletePost = function () {
-                postService.deletePost(vm.post.id).then(function () {
-                    redirectService.admin(true);
-                });
+                if (confirm("Are you sure you want to delete this post?")) {
+                    postService.deletePost(vm.post.id).then(function () {
+                        redirectService.admin(true);
+                    });
+                }
             }
 
             function retrievePost() {
