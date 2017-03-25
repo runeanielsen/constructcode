@@ -75,5 +75,12 @@ namespace Constructcode.Web.Controllers
 
             return View(displayPostsViewModel);
         }
+
+        [HttpGet]
+        [Route("Post/Preview/{id}")]
+        public IActionResult Preview(int id)
+        {
+            return View(_mapper.Map<PostViewModel>(_postService.GetPost(id)));
+        }
     }
 }

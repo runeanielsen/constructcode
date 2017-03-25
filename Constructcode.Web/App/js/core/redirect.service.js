@@ -43,6 +43,15 @@
             return redirect(url);
         };
 
+        service.previewPost = function (id, shouldRedirect) {
+            var url = '/post/preview/' + id;
+
+            if (!shouldRedirect)
+                return url;
+
+            return redirect(url);
+        };
+
         service.manageAccount = function (shouldRedirect) {
             var url = '/admin/account/manage';
 

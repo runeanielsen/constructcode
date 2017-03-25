@@ -1,20 +1,22 @@
-﻿@foreach (var post in Model.Posts)
-{
-    <div class="section">
-        <h2>
-            <a href="/post/@post.Url">@post.Title</a>
-        </h2>
-        <p class="datetime"> @post.Created</p>
-        <div class="introduction">
-            <p>@post.Introduction</p>
-            <div class="category-container">
-                @foreach (var category in post.Categories)
-                {
-                    <div class="category-title">
-                        <a href="/post/category/@category.Url">@category.Title</a>
+﻿<div ng-controller="DisplayPostController as vm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="banner">
+                    <div class="banner-content">
+                        @Html.Partial("_TopBanner")
+                        <p>@Model.Title</p>
                     </div>
-                }
+                </div>
+                <div class="display-post-content">
+                    <div class="section">
+                        <div class="content">
+                            <h2>@Model.Title</h2>
+                            <p>@Html.Raw(Model.Content)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-}
+</div>

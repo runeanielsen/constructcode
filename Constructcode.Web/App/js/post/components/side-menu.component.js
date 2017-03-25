@@ -88,19 +88,23 @@
 
             vm.showIntroduction = function () {
                 var dialog = ngDialog.open(
-                {
-                    template: '/templates/introduction-dialog.template.html',
-                    className: 'ngdialog-theme-default',
-                    controller: 'IntroductionDialogController as vm',
-                    closeByDocument: false,
-                    closeByEscape: false,
-                    showClose: false,
-                    data: { introduction: vm.post.introduction }
-                });
+                    {
+                        template: '/templates/introduction-dialog.template.html',
+                        className: 'ngdialog-theme-default',
+                        controller: 'IntroductionDialogController as vm',
+                        closeByDocument: false,
+                        closeByEscape: false,
+                        showClose: false,
+                        data: { introduction: vm.post.introduction }
+                    });
 
                 dialog.closePromise.then(function (data) {
                     vm.post.introduction = data.value;
                 });
+            }
+
+            vm.redirectToPreview = function () {
+                window.open(redirectService.previewPost(vm.post.id), '_blank');         
             }
 
             function initSelectedCategories() {

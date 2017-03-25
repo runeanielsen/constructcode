@@ -22,6 +22,11 @@
             </div>
         </li>
 
+        <!--Preview-->
+        <li class="submenu-title" ng-show="vm.post.id">
+            <a ng-click="vm.redirectToPreview()"><i class="fa fa-eye"></i>Preview</a>
+        </li>
+
         <!--Created Date-->
         <li class="submenu-title">
             <a ng-init="vm.toggleCategories = false" ng-click="vm.toggleCreated = !vm.toggleCreated">
@@ -36,7 +41,7 @@
             </ul>
         </li>
 
-        <!--Upload Image-->
+        <!--Upload Image--> 
         <li class="submenu-title">
             <a ng-click="vm.uploadImage()"><i class="fa fa-image"></i>Upload Image</a>
         </li>

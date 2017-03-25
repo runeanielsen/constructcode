@@ -1,0 +1,20 @@
+﻿@foreach (var post in Model.Posts)
+{
+    <div class="section">
+        <h2>
+            <a href="/post/@post.Url">@post.Title</a>
+        </h2>
+        <p class="datetime"> @post.Created</p>
+        <div class="introduction">
+            <p>@post.Introduction</p>
+            <div class="category-container">
+                @foreach (var category in post.Categories)
+                {
+                    <div class="category-title">
+                        <a href="/post/category/@category.Url">@category.Title</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
