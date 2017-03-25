@@ -41,7 +41,9 @@ namespace Constructcode.Web.Core.Domain
         private void UpdateUrl()
         {
             Url = Title.ToLower().Replace(" ", "-");
-            Url = Url.ToLower().Replace(".", "-");
+            Url = Url.Replace(".", "-");
+            Url = Url.Replace(".", "-");
+            Url = Url.Replace("'", "");
         }
     }
 }

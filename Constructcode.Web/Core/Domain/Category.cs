@@ -13,8 +13,8 @@ namespace Constructcode.Web.Core.Domain
         public void UpdateUrl()
         {
             Url = Title.ToLower().Replace(" ", "-");
-            Url = Url.ToLower().Replace(".", "-");
-            Url = Url.ToLower().Replace("#", "-sharp");
+            Url = Url.Replace(".", "-");
+            Url = Url.Replace("#", "-sharp");
         }
     }
 }
