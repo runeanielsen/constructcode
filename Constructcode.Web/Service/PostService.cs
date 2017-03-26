@@ -32,12 +32,12 @@ namespace Constructcode.Web.Service
 
         public IEnumerable<Post> GetAllPublishedPosts()
         {
-            return Posts().Where(a => a.Published).OrderByDescending(a => a.Created).ToList();
+            return Posts().Where(a => a.Published && a.Created <= DateTime.Today).OrderByDescending(a => a.Created).ToList();
         }
 
         public IEnumerable<Post> GetAllPostsOnCategory(string categoryUrl)
         {
-            return Posts().Where(a => a.PostCategories.Any(b => b.Category.Url == categoryUrl) && a.Published);
+            return GetAllPublishedPosts().Where(a => a.PostCategories.Any(b => b.Category.Url == categoryUrl));
         }
 
         public Post GetPost(int id)
