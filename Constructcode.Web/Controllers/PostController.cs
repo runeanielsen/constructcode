@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Constructcode.Web.Controllers.ViewModels;
 using Constructcode.Web.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -77,6 +78,7 @@ namespace Constructcode.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("Post/Preview/{id}")]
         public IActionResult Preview(int id)
         {

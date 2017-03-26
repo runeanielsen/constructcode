@@ -13,10 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="Views\**\*;Areas\**\Views;appsettings.json;web.config">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -51,10 +47,6 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.1.0-preview4-final" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
 </Project>
