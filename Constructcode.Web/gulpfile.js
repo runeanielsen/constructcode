@@ -54,7 +54,7 @@ gulp.task('watch', function () {
 
 // Common
 gulp.task('clean', function (cb) {
-    return rimraf(destinationFolder, cb);
+    return rimraf(destinationFolder + '**/*', cb);
 });
 
 gulp.task('move:files', function () {
