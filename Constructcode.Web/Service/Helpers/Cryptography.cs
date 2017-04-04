@@ -11,16 +11,16 @@ namespace Constructcode.Web.Service.Helpers
             var hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                 password,
                 salt,
-                KeyDerivationPrf.HMACSHA1,
-                10000,
-                256/8));
+                KeyDerivationPrf.HMACSHA256, 
+                1000000,
+                32));
 
             return hashed;
         }
 
         public static byte[] CreateSalt()
         {
-            var salt = new byte[128/8];
+            var salt = new byte[16];
 
             using (var rng = RandomNumberGenerator.Create())
             {
