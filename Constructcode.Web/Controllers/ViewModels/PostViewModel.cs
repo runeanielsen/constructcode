@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Constructcode.Web.Controllers.ViewModels
 {
@@ -9,6 +10,7 @@ namespace Constructcode.Web.Controllers.ViewModels
         public string Title { get; set; }
         public string Introduction { get; set; }
         public string Created { get; set; }
+        public DateTime PublishedTime { get; set; }
         public string Content { get; set; }
         public string SeoMetaDescription { get; set; }
         public bool Published { get; set; }
