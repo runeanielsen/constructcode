@@ -6,7 +6,7 @@
                     <div class="banner-content">
                         @Html.Partial("_TopBanner")
                         <p>@Model.Title</p>
-                        <time datetime="@Model.PublishedTime" class="published-time">@Model.PublishedTime.ToString("MM/dd/yyyy")</time>
+                        <time datetime="@Model.PublishedTime">@Model.Created</time>
                     </div>
                 </div>
                 <div class="display-post-content">

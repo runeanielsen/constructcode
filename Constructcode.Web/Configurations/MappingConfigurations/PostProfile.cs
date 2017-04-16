@@ -34,7 +34,7 @@ namespace Constructcode.Web.Configurations.MappingConfigurations
             #region View Models
             CreateMap<Post, PostViewModel>()
                 .ForMember(dest => dest.Introduction, opt => opt.MapFrom(src => src.Introduction))
-                .ForMember(dest => dest.PublishedTime, opt => opt.MapFrom(src => src.Created.ToUniversalTime()))
+                .ForMember(dest => dest.PublishedTime, opt => opt.MapFrom(src => src.Created))
                 .ForMember(dest => dest.Created, opt => opt.MapFrom(src => src.Created.ToString(DateTimeFormat, new CultureInfo(Culture))))
                 .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.PostCategories.Select(a => a.Category)))
                 .ForMember(dest => dest.SeoMetaDescription, opt => opt.MapFrom(src => src.GetSeoDescription()));
