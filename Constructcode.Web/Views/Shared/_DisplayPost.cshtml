@@ -4,8 +4,10 @@
             <div class="col-md-12">
                 <div class="banner">
                     <div class="banner-content">
-                        @Html.Partial("_TopBanner")
-                        <p>@Model.Title</p>
+                        <a href="/">
+                            <img title="Go to frontpage" src="~/images/content/logo.png" alt="Construct Code logo" />
+                        </a>
+                        <h1>@Model.Title</h1>
                         <time datetime="@Model.PublishedTime">@Model.Created</time>
                     </div>
                 </div>
