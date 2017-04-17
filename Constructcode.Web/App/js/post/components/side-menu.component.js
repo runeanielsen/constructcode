@@ -104,7 +104,7 @@
             }
 
             vm.redirectToPreview = function () {
-                window.open(redirectService.previewPost(vm.post.id), '_blank');         
+                window.open(redirectService.previewPost(vm.post.id), 'preview');         
             }
 
             function initSelectedCategories() {
