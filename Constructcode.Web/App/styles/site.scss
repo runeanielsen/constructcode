@@ -1,4 +1,4 @@
-﻿$font-stack: 'Open Sans', sans-serif;
+﻿$font-stack: Aperçu, 'Open Sans', sans-serif;
 $primary-color: #333;
 $background-color: #f1f2f1;
 $error-color: red;
@@ -14,6 +14,11 @@ html,
 body {
     font: 100% $font-stack;
     background-color: $background-color;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+    font-family: $font-stack;
+    font-size: 0.9rem;
 }
 
 h1 {
@@ -53,6 +58,7 @@ footer {
 
     .footer-content {
         p {
+            font-size: 1.1em;
             text-align: center;
             background-color: #232c35;
             padding-top: 20px;
@@ -103,7 +109,7 @@ footer {
 @media screen and (max-width: 768px) {
     footer {
         margin-bottom: 0;
-
+            font-size: 0.9em;
         p {
             margin: 0;
         }

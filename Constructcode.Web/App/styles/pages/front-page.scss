@@ -12,10 +12,10 @@ $category-color: #847b79;
         p.datetime {
             padding: 15px 0;
             color: #c7c7c7;
-            font-size: 0.9em;
+            font-size: 1em;
         }
         .introduction {
-            font-size: 1em;
+            font-size: 1.1em;
             text-align: justify;
             margin-left: 30px;
             margin-right: 30px;
@@ -27,6 +27,7 @@ $category-color: #847b79;
                 margin-top: 15px;
                 text-align: center;
                 .category-title {
+                    font-size: 1.2em;
                     display: inline;
                     background-color: #eeedea;
                     border-radius: 4px;
