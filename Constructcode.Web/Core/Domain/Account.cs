@@ -15,5 +15,10 @@ namespace Constructcode.Web.Core.Domain
             Password = Cryptography.CreateHashedPassword(Password, salt);
             Salt = Cryptography.GetSaltAsString(salt);
         }
+
+        public bool VerifyAuthentication(string plainTextPassword)
+        {
+            return Cryptography.CreateHashedPassword(plainTextPassword, Cryptography.GetSaltAsByteArray(Salt)) == Password;
+        }
     }
 }

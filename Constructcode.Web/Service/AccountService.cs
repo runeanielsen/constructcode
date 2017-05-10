@@ -17,9 +17,7 @@ namespace Constructcode.Web.Service
 
         public bool VerifyAccountLogin(Account account, string plainPassword)
         {
-            var hashedPassword = Cryptography.CreateHashedPassword(plainPassword, Cryptography.GetSaltAsByteArray(account.Salt));
-
-            return hashedPassword == account.Password;
+            return account.VerifyAuthentication(plainPassword);
         }
 
         public Account CreateAccount(Account account)
