@@ -32,7 +32,11 @@ namespace Constructcode.Web.Service
 
         public void EditCategory(Category category)
         {
-            if (_unitOfWork.Categories.Find(a => string.Equals(a.Title, category.Title, StringComparison.CurrentCultureIgnoreCase)).Any())
+            var categoryAlreadyExist = _unitOfWork.Categories
+                    .Find(a => string.Equals(a.Title, category.Title, StringComparison.CurrentCultureIgnoreCase))
+                    .Any();
+
+            if (!categoryAlreadyExist)
                 return;
 
             category.UpdateUrl();

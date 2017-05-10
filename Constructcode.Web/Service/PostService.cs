@@ -32,12 +32,16 @@ namespace Constructcode.Web.Service
 
         public IEnumerable<Post> GetAllPublishedPosts()
         {
-            return Posts().Where(a => a.Published && a.Created <= DateTime.Today).OrderByDescending(a => a.Created).ToList();
+            return Posts()
+                    .Where(a => a.Published && a.Created <= DateTime.Today)
+                    .OrderByDescending(a => a.Created).ToList();
         }
 
         public IEnumerable<Post> GetAllPostsOnCategory(string categoryUrl)
         {
-            return GetAllPublishedPosts().Where(a => a.PostCategories.Any(b => b.Category.Url == categoryUrl));
+            return GetAllPublishedPosts()
+                    .Where(a => a.PostCategories
+                    .Any(b => b.Category.Url == categoryUrl));
         }
 
         public Post GetPost(int id)
@@ -80,12 +84,16 @@ namespace Constructcode.Web.Service
 
         public IEnumerable<Post> GetPostsOnPageNumber(int pageNumber)
         {
-            return GetAllPublishedPosts().Skip(PostPerPage * (pageNumber - 1)).Take(PostPerPage);
+            return GetAllPublishedPosts()
+                    .Skip(PostPerPage * (pageNumber - 1))
+                    .Take(PostPerPage);
         }
 
         public IEnumerable<Post> GetPostsOnPageNumber(int pageNumber, string categoryUrl)
         {
-            return GetAllPostsOnCategory(categoryUrl).Skip(PostPerPage * (pageNumber - 1)).Take(PostPerPage).OrderByDescending(a => a.Created);
+            return GetAllPostsOnCategory(categoryUrl)
+                    .Skip(PostPerPage * (pageNumber - 1))
+                    .Take(PostPerPage).OrderByDescending(a => a.Created);
         }
 
         public Validation ValidatePost(Post post)
