@@ -1,9 +1,9 @@
 ﻿$font-stack: 'Aperçu';
 $primary-color: #333;
+$primary-purple: #733089;
 $background-color: #f1f2f1;
 $error-color: red;
 $hover-color: #33bbe3;
-
 [ng\:cloak],
 [ng-cloak],
 .ng-cloak {
@@ -16,7 +16,8 @@ body {
     background-color: $background-color;
 }
 
-code[class*="language-"], pre[class*="language-"] {
+code[class*="language-"],
+pre[class*="language-"] {
     font-family: $font-stack;
     font-size: 0.9rem;
 }
@@ -54,16 +55,26 @@ input[type=text] {
 }
 
 footer {
-    margin-bottom: 5px;
-
-    .footer-content {
-        p {
-            font-size: 1.1em;
-            text-align: center;
-            background-color: #232c35;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            color: white;
+    .footer-container {
+        margin-bottom: 5px;
+        background-color: #232c35;
+        padding-top: 15px;
+        padding-bottom: 5px;
+        color: white;
+        text-align: center;
+        .footer-content {
+            .icon-container {
+                a {
+                    color: white;
+                    
+                }
+                font-size: 2em;
+                display: block;
+                margin-bottom: 10px;
+            }
+            p {
+                font-size: 1.2em;
+            }
         }
     }
 }
@@ -109,7 +120,7 @@ footer {
 @media screen and (max-width: 768px) {
     footer {
         margin-bottom: 0;
-            font-size: 0.9em;
+        font-size: 0.9em;
         p {
             margin: 0;
         }
