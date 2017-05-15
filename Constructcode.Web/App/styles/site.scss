@@ -56,17 +56,16 @@ input[type=text] {
 
 footer {
     .footer-container {
-        margin-bottom: 5px;
         background-color: #232c35;
         padding-top: 15px;
         padding-bottom: 5px;
         color: white;
         text-align: center;
+        margin-bottom: 5px;
         .footer-content {
             .icon-container {
                 a {
                     color: white;
-                    
                 }
                 font-size: 2em;
                 display: block;
@@ -121,8 +120,12 @@ footer {
     footer {
         margin-bottom: 0;
         font-size: 0.9em;
-        p {
-            margin: 0;
+        .footer-container {
+            margin-bottom: 0px;
+            p {
+                margin: 0;
+                padding-bottom: 5px;
+            }
         }
     }
 }
