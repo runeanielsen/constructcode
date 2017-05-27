@@ -9,6 +9,7 @@ namespace Constructcode.Web.Service
     public class FileService : IFileService
     {
         private readonly IHostingEnvironment _environment;
+        private const string blogPostImageFolder = "images/blogpost";
 
         public FileService(IHostingEnvironment environment)
         {
@@ -17,8 +18,6 @@ namespace Constructcode.Web.Service
 
         public async Task<string> SaveBlogPostImage(IFormFile imageFile)
         {
-            const string blogPostImageFolder = "images/blogpost";
-
             var destinationFolder = Path.Combine(_environment.WebRootPath, blogPostImageFolder);
 
             var generatedImageFileName = GenerateImageFileName();
