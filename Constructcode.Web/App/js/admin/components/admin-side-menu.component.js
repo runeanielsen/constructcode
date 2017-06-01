@@ -16,8 +16,8 @@
 
             vm.redirect = redirectService;
 
-            vm.submitLogin = function () {
-                accountService.logout().then(function () {
+            vm.logout = function () {
+                accountService.logout().then(() => {
                     redirectService.home(true);
                 });
             };

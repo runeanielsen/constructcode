@@ -1,6 +1,5 @@
 ﻿using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
-using Constructcode.Web.Service.Helpers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 
