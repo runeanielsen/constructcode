@@ -11,7 +11,7 @@ namespace Constructcode.Web.Configurations
         {
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                AuthenticationScheme = "Authentication",
+                AuthenticationScheme = AuthenticationCookieName,
                 LoginPath = new PathString("/Account/UnAuthorized/"),
                 AccessDeniedPath = new PathString("/Account/Forbidden/"),
                 AutomaticAuthenticate = true,

@@ -20,7 +20,10 @@ namespace Constructcode.Web.ApiControllers
         [HttpGet]
         public IActionResult GenerateSitemap()
         {
-            _sitemapService.UpdateSitemap(_postService.GetAllPublishedPosts().ToList(), _categoryService.GetAllCategories().ToList());
+            _sitemapService.UpdateSitemap(_postService.GetAllPublishedPosts()
+                .ToList(), _categoryService.GetAllCategories()
+                .ToList());
+            
             return Ok();
         }
     }

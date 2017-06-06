@@ -3,6 +3,7 @@ using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Configurations;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -32,7 +33,8 @@ namespace Constructcode.Web.ApiControllers
             var authenticationClaim = _accountService.CreateAuthenticationClaim(account);
 
             await HttpContext.Authentication
-                .SignInAsync(AuthenticationMiddlewareConfig.AuthenticationCookieName, authenticationClaim);
+                .SignInAsync(AuthenticationMiddlewareConfig.AuthenticationCookieName, authenticationClaim,
+                new AuthenticationProperties { IsPersistent = dto.Remember });
 
             return Ok();
         }
