@@ -26,7 +26,7 @@ $login-background-color: #fff;
         border: 1px solid $login-border-color;
         padding: 20px;
         margin-top: 20px;
-        input {
+        input[type=text] {
             border-radius: 0;
             min-width: 100%;
         }

@@ -19,7 +19,8 @@
             vm.errorText = '';
             vm.loginInformation = {
                 username: '',
-                password: ''
+                password: '',
+                remember: false
             };
 
             vm.submitLogin = function () {
