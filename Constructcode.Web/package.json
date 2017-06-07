@@ -7,14 +7,11 @@
     "predeploy:gulp": "gulp clean",
     "deploy:gulp": "gulp deploy",
     "deploy": "npm run deploy:gulp",
-
     "preserve:gulp": "gulp clean",
     "serve:gulp": "gulp serve",
     "watch:gulp": "gulp watch",
-
     "prestart": "npm run serve:gulp",
     "start": "npm run watch:gulp"
-
   },
   "keywords": [
     "blog"
