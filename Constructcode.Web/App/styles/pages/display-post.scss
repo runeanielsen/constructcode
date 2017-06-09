@@ -1,8 +1,10 @@
 ﻿.display-post-content {
     background-color: white;
+
     .section {
         padding-top: 25px;
         font-size: 0.9em;
+
         .content {
             text-align: justify;
             font-size: 1.3em;
@@ -12,28 +14,39 @@
             line-height: 35px;
             padding-bottom: 25px;
             max-width: 100%;
+
             p {
                 margin: 0;
             }
+
+            .content-title {
+                text-align: initial;
+            }
         }
+
         pre {
             background-color: #f2f1f0;
             padding: 3px 10px;
             max-width: 100%;
+
             code {
                 font-size: 1.1em;
             }
         }
+
         ol,
         ul {
             padding-left: 40px;
         }
+
         ol {
             list-style: decimal;
         }
+
         ul {
             list-style: circle;
         }
+
         strong {
             font-weight: bolder;
         }
