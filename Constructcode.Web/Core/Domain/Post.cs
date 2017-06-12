@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Constructcode.Web.Core.Domain
 {
@@ -40,9 +41,9 @@ namespace Constructcode.Web.Core.Domain
 
         private void UpdateUrl()
         {
-            Url = Title.ToLower().Replace(" ", "-");
-            Url = Url.Replace(".", "-");
-            Url = Url.Replace(".", "-");
+            Url = Regex.Replace(Title.ToLower(), @"^[./\s]{1}", "");
+            Url = Regex.Replace(Url, @"[\./\s]", "-");
+            Url = Regex.Replace(Url, @"--", "-");
             Url = Url.Replace("'", "");
         }
     }
