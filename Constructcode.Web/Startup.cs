@@ -1,11 +1,10 @@
 ﻿using Constructcode.Web.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
 
 namespace ConstructCode.Web
 {
@@ -29,10 +28,13 @@ namespace ConstructCode.Web
             services.AddSingleton(Configuration);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) 
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            var options = new RewriteOptions().AddRedirectToHttps();
+            app.UseRewriter(options);
 
             app.UseResponseCompression();
 
@@ -47,19 +49,7 @@ namespace ConstructCode.Web
 
             app.SetupAuthenticationMiddlewareConfig();
 
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                OnPrepareResponse =
-                    r =>
-                    {
-                        var path = r.File.PhysicalPath;
-                        if (path.EndsWith(".css") || path.EndsWith(".js") || path.EndsWith(".gif") || path.EndsWith(".jpg") || path.EndsWith(".png") || path.EndsWith(".svg"))
-                        {
-                            var maxAge = new TimeSpan(7, 0, 0, 0);
-                            r.Context.Response.Headers.Append("Cache-Control", "max-age=" + maxAge.TotalSeconds.ToString("0"));
-                        }
-                    }
-            });
+            app.UseStaticResources(env);
 
             app.UseMvc(routes =>
             {

@@ -23,7 +23,7 @@ namespace ConstructCode.Web.Controllers
         {
             var displayPostsViewModel = new DisplayPostsViewModel(_postService.GetMaxPageCount(), 1);
 
-            displayPostsViewModel.Posts = 
+            displayPostsViewModel.Posts =
                 _mapper.Map<IEnumerable<PostViewModel>>(_postService.GetPostsOnPageNumber(displayPostsViewModel.CurrentPageNumber));
 
             return View(displayPostsViewModel);

@@ -4,6 +4,7 @@ using Constructcode.Web.Core;
 using Constructcode.Web.Persistence;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,13 +19,25 @@ namespace Constructcode.Web.Configurations
             services.AddEntityFrameworkSqlServer();
             services.AddMemoryCache();
 
-            services.Configure<GzipCompressionProviderOptions>(options 
+            ConfigureGzipComperession(services);
+            ConfigureAutoMapper(services);
+            ConfigureApplication(services);
+            ConfigureHttps(services);
+        }
+
+        private static void ConfigureHttps(IServiceCollection services)
+        {
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new RequireHttpsAttribute());
+            });
+        }
+
+        private static void ConfigureGzipComperession(IServiceCollection services)
+        {
+            services.Configure<GzipCompressionProviderOptions>(options
                 => options.Level = System.IO.Compression.CompressionLevel.Fastest);
             services.AddResponseCompression();
-
-            ConfigureAutoMapper(services);
-
-            ConfigureApplication(services);
         }
 
         private static void ConfigureApplication(IServiceCollection services)
