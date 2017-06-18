@@ -10,6 +10,8 @@
     <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
     <RuntimeFrameworkVersion>1.1.0</RuntimeFrameworkVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
+    <ApplicationInsightsResourceId>/subscriptions/62598d88-d075-4bca-adc0-40f40f5cae85/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/Constructcode.Web</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/62598d88-d075-4bca-adc0-40f40f5cae85/resourceGroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/Constructcode.Web</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Rewrite" Version="1.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Https" Version="1.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.Dotnet" Version="1.1.0-preview4-final">
@@ -54,6 +57,10 @@
 
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>
