@@ -14,44 +14,38 @@
 
     <link async href="~/site.min.css" asp-append-version="true" rel="stylesheet" />
 
-    @if (ViewBag.Analytics != null && ViewBag.Analytics)
-    {
-        <environment names="Staging, Production">
-            <script>
-                window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
-                ga('create', 'UA-83257241-1', 'auto');
-                ga('send', 'pageview');
-            </script>
-            <script async src='https://www.google-analytics.com/analytics.js'></script>
-            @Html.Raw(JavaScriptSnippet.FullScript)
-        </environment>
-    }
+    <environment names="Staging, Production">
+        <script>
+            window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+            ga('create', 'UA-83257241-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
+        @Html.Raw(JavaScriptSnippet.FullScript)
+    </environment>
+
 </head>
-<body ng-app="@ViewData["AngularModule"]" ng-cloak>
+<body>
     <div>
         @RenderBody()
 
-        @if (ViewBag.ShowFooter != null && ViewBag.ShowFooter)
-            {
-            <footer>
-                <div class="container">
-                    <div class="footer-container">
-                        <div class="footer-content">
-                            <div class="icon-container">
-                                <a href="https://github.com/runeanielsen" target="_blank"><span><i class="fa fa-github-square"></i></span></a>
-                                <a href="https://www.linkedin.com/in/runeanielsen" target="_blank"><span><i class="fa fa-linkedin-square"></i></span></a>
-                                <a href="https://twitter.com/runeanielsen" target="_blank"><span><i class="fa fa-twitter-square"></i></span></a>
-                            </div>
-                            <p>&copy; 2017 - Construct Code</p>
+        <footer>
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="icon-container">
+                            <a href="https://github.com/runeanielsen" target="_blank"><span><i class="fa fa-github-square"></i></span></a>
+                            <a href="https://www.linkedin.com/in/runeanielsen" target="_blank"><span><i class="fa fa-linkedin-square"></i></span></a>
+                            <a href="https://twitter.com/runeanielsen" target="_blank"><span><i class="fa fa-twitter-square"></i></span></a>
                         </div>
+                        <p>&copy; 2017 - Construct Code</p>
                     </div>
                 </div>
-            </footer>
-        }
+            </div>
+        </footer>
     </div>
 
     <script src="~/lib.min.js" asp-append-version="true"></script>
-    <script src="~/site.min.js" asp-append-version="true"></script>
 
     @RenderSection("scripts", false)
 </body>
