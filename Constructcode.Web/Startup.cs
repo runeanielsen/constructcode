@@ -33,7 +33,9 @@ namespace ConstructCode.Web
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            var options = new RewriteOptions().AddRedirectToHttps();
+            var options = new RewriteOptions()
+                .AddRedirectToHttpsPermanent();
+
             app.UseRewriter(options);
 
             app.UseResponseCompression();
