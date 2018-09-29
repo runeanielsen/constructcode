@@ -3,10 +3,11 @@ using Constructcode.Web.ApiControllers.DataTransferObjects;
 using Constructcode.Web.Configurations;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using AuthenticationProperties = Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties;
 
 namespace Constructcode.Web.ApiControllers
 {
@@ -33,8 +34,8 @@ namespace Constructcode.Web.ApiControllers
 
             var authenticationClaim = _accountService.CreateAuthenticationClaim(account);
 
-            await HttpContext.Authentication.SignInAsync(AuthenticationMiddlewareConfig.AuthenticationCookieName, authenticationClaim,
-                new AuthenticationProperties { IsPersistent = dto.Remember, ExpiresUtc = new DateTimeOffset(DateTime.Now).AddDays(30)});
+            await HttpContext.SignInAsync(authenticationClaim, new Microsoft.AspNetCore.Authentication.AuthenticationProperties
+                    { IsPersistent = dto.Remember, ExpiresUtc = new DateTimeOffset(DateTime.Now).AddDays(30) });
 
             return Ok();
         }
@@ -43,7 +44,7 @@ namespace Constructcode.Web.ApiControllers
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            await HttpContext.Authentication.SignOutAsync(AuthenticationMiddlewareConfig.AuthenticationCookieName);
+            await HttpContext.SignOutAsync();
             return Ok();
         }
 

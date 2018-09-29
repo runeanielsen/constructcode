@@ -1,23 +1,20 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Constructcode.Web.Configurations
 {
     public static class AuthenticationMiddlewareConfig
     {
-        public const string AuthenticationCookieName = "Authentication";
-
-        public static void SetupAuthenticationMiddlewareConfig(this IApplicationBuilder app)
+        public static void SetupAuthenticationMiddlewareConfig(this IServiceCollection service)
         {
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationScheme = AuthenticationCookieName,
-                LoginPath = new PathString("/Account/UnAuthorized/"),
-                AccessDeniedPath = new PathString("/Account/Forbidden/"),
-                AutomaticAuthenticate = true,
-                AutomaticChallenge = true,
-                SlidingExpiration = true
-            });
+            service.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(o =>
+                {
+                    o.LoginPath = new PathString("/Account/UnAuthorized/");
+                    o.AccessDeniedPath = new PathString("/Account/Forbidden/");
+                    o.SlidingExpiration = true;
+                });
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Constructcode.Web.Migrations
 {
@@ -10,12 +9,28 @@ namespace Constructcode.Web.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Accounts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Username = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    Salt = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Accounts", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(nullable: true)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: true),
+                    Url = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,10 +42,14 @@ namespace Constructcode.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Content = table.Column<string>(nullable: true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Title = table.Column<string>(nullable: true),
-                    Url = table.Column<string>(nullable: true)
+                    Content = table.Column<string>(nullable: true),
+                    Url = table.Column<string>(nullable: true),
+                    Created = table.Column<DateTime>(nullable: false),
+                    LastModified = table.Column<DateTime>(nullable: false),
+                    Published = table.Column<bool>(nullable: false),
+                    Introduction = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -42,9 +61,9 @@ namespace Constructcode.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Content = table.Column<string>(nullable: true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
                     PostId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -59,23 +78,23 @@ namespace Constructcode.Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PostCategory",
+                name: "PostCategories",
                 columns: table => new
                 {
-                    PostId = table.Column<int>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<int>(nullable: false),
+                    PostId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PostCategory", x => new { x.PostId, x.CategoryId });
+                    table.PrimaryKey("PK_PostCategories", x => new { x.PostId, x.CategoryId });
                     table.ForeignKey(
-                        name: "FK_PostCategory_Categories_CategoryId",
+                        name: "FK_PostCategories_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PostCategory_Posts_PostId",
+                        name: "FK_PostCategories_Posts_PostId",
                         column: x => x.PostId,
                         principalTable: "Posts",
                         principalColumn: "Id",
@@ -88,23 +107,21 @@ namespace Constructcode.Web.Migrations
                 column: "PostId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PostCategory_CategoryId",
-                table: "PostCategory",
+                name: "IX_PostCategories_CategoryId",
+                table: "PostCategories",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PostCategory_PostId",
-                table: "PostCategory",
-                column: "PostId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Accounts");
+
+            migrationBuilder.DropTable(
                 name: "Messages");
 
             migrationBuilder.DropTable(
-                name: "PostCategory");
+                name: "PostCategories");
 
             migrationBuilder.DropTable(
                 name: "Categories");

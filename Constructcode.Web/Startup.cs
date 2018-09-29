@@ -26,6 +26,7 @@ namespace ConstructCode.Web
         {
             services.Setup();
             services.AddSingleton(Configuration);
+            services.SetupAuthenticationMiddlewareConfig();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -49,9 +50,9 @@ namespace ConstructCode.Web
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.SetupAuthenticationMiddlewareConfig();
-
             app.UseStaticResources(env);
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

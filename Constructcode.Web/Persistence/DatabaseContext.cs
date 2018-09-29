@@ -1,8 +1,6 @@
 ﻿using Constructcode.Web.Core.Domain;
 using Constructcode.Web.Persistence.EntityConfigurations;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace Constructcode.Web.Persistence
 {
@@ -14,14 +12,9 @@ namespace Constructcode.Web.Persistence
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<PostCategory> PostCategories { get; set; }
 
-        private readonly IHostingEnvironment _env;
-        private readonly IConfigurationRoot _configuration;
-
-        public DatabaseContext(IHostingEnvironment env, IConfigurationRoot configuration)
-        {
-            _env = env;
-            _configuration = configuration;
-        }
+        public DatabaseContext(DbContextOptions options)
+            : base(options)
+        { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,18 +23,6 @@ namespace Constructcode.Web.Persistence
             PostConfigurations.Config(modelBuilder);
             MessageConfigurations.Config(modelBuilder);
             AccountConfigurations.Config(modelBuilder);
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (_env.IsDevelopment())
-            {
-                optionsBuilder.UseSqlServer(_configuration["ConnectionStrings:Development"]);
-            }
-            else if(_env.IsProduction())
-            {
-                optionsBuilder.UseSqlServer(_configuration["ConnectionStrings:Production"]);
-            }         
         }
     }
 }

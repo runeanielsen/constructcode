@@ -6,6 +6,7 @@ using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Constructcode.Web.Configurations
@@ -49,6 +50,7 @@ namespace Constructcode.Web.Configurations
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ISitemapService, SitemapService>();
             services.AddTransient<IFileService, FileService>();
+            services.AddTransient<IDesignTimeDbContextFactory<DatabaseContext>, DatabaseContextFactory>();
         }
 
         private static void ConfigureAutoMapper(IServiceCollection services)

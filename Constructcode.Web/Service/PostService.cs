@@ -4,9 +4,6 @@ using Constructcode.Web.Core;
 using Constructcode.Web.Core.Domain;
 using System.Linq;
 using System.Net;
-using Constructcode.Web.Service.Helpers;
-using System.IO;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Constructcode.Web.Service

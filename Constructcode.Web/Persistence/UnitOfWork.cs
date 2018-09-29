@@ -1,8 +1,7 @@
 ﻿using Constructcode.Web.Core;
 using Constructcode.Web.Core.Repositories;
 using Constructcode.Web.Persistence.Repositories;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace Constructcode.Web.Persistence
 {
@@ -15,9 +14,9 @@ namespace Constructcode.Web.Persistence
         public IPostRepository Posts { get; }
         public IPostCategoryRepository PostCategories { get; set; }
 
-        public UnitOfWork(IHostingEnvironment env, IConfigurationRoot configuration)
+        public UnitOfWork(IDesignTimeDbContextFactory<DatabaseContext> databaseContext)
         {
-            _context = new DatabaseContext(env, configuration);
+            _context = databaseContext.CreateDbContext(args: null);
             Posts = new PostRepository(_context);
             Categories = new CategoryRepository(_context);
             Accounts = new AccountRepository(_context);
