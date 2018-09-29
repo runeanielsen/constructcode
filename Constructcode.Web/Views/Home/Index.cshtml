@@ -12,13 +12,13 @@
         <div class="col-md-12">
             <div class="banner">
                 <div class="banner-content">
-                    @Html.Partial("_TopBanner")
+                    @await Html.PartialAsync("_TopBanner")
                     <p>Learn, Build & Improve</p>
                 </div>
             </div>
             <div class="frontpage-content">
-                @Html.Partial("_DisplayPostList")
-                @Html.Partial("_PageSwitcher")
+                @await Html.PartialAsync("_DisplayPostList")
+                @await Html.PartialAsync("_PageSwitcher")
             </div>
         </div>
     </div>

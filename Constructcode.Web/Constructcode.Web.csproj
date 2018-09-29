@@ -12,6 +12,11 @@
     <ApplicationInsightsResourceId>/subscriptions/62598d88-d075-4bca-adc0-40f40f5cae85/resourcegroups/constructcode/providers/microsoft.insights/components/Constructcode.Web West Europa</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/62598d88-d075-4bca-adc0-40f40f5cae85/resourceGroups/constructcode/providers/microsoft.insights/components/Constructcode.Web</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
+  
+  <PropertyGroup>
+    <!-- see https://github.com/aspnet/Razor/issues/2406 -->
+    <_RazorBuildServerPipeName>razor-issues-2406</_RazorBuildServerPipeName>
+  </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Migrations\20160923210454_Initial.cs" />

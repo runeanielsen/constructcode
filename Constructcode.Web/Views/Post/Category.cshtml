@@ -9,12 +9,12 @@
         <div class="col-md-12">
             <div class="banner">
                 <div class="banner-content">
-                    @Html.Partial("_TopBanner")
+                    @await Html.PartialAsync("_TopBanner")
                     <p>Learn, Build & Improve</p>
                 </div>
             </div>
             <div class="frontpage-content">
-                @Html.Partial("_DisplayPostList")
+                @await Html.PartialAsync("_DisplayPostList")
                 <div class="page-switch col-md-12 col-sm-12">
                     <div class="col-md-4">
                         @if (Model.CurrentPageNumber != Model.MaxPageNumber)
