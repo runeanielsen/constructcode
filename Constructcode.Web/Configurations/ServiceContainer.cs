@@ -16,7 +16,6 @@ namespace Constructcode.Web.Configurations
         public static void Setup(this IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<DatabaseContext>();
             services.AddEntityFrameworkSqlServer();
             services.AddMemoryCache();
 
