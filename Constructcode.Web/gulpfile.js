@@ -1,6 +1,4 @@
-﻿"use strict";
-
-var destinationFolder = 'wwwroot/';
+﻿var destinationFolder = 'wwwroot/';
 var htmlFilePath = 'App/js/**/*.html';
 var htmlFileDestination = 'templates/';
 
