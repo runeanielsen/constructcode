@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace Constructcode.Web.Service.Helpers
 {
-    public class Cryptography
+    public static class Cryptography
     {
         public static string CreateHashedPassword(string password, byte[] salt)
         {

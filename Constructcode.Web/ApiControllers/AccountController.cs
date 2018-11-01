@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
 using Constructcode.Web.ApiControllers.DataTransferObjects;
-using Constructcode.Web.Configurations;
 using Constructcode.Web.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
-using AuthenticationProperties = Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties;
 
 namespace Constructcode.Web.ApiControllers
 {
@@ -27,15 +25,16 @@ namespace Constructcode.Web.ApiControllers
         {
             var account = _accountService.GetAccount(dto.Username);
 
-            if (account == null || !_accountService.VerifyAccountLogin(account, dto.Password))
-            {
+            if (account is null || !_accountService.VerifyAccountLogin(account, dto.Password))
                 return BadRequest("Bad Username or Password");
-            }
 
             var authenticationClaim = _accountService.CreateAuthenticationClaim(account);
 
-            await HttpContext.SignInAsync(authenticationClaim, new Microsoft.AspNetCore.Authentication.AuthenticationProperties
-                    { IsPersistent = dto.Remember, ExpiresUtc = new DateTimeOffset(DateTime.Now).AddDays(30) });
+            await HttpContext.SignInAsync(authenticationClaim, new AuthenticationProperties
+            {
+                IsPersistent = dto.Remember,
+                ExpiresUtc = new DateTimeOffset(DateTime.Now).AddDays(30)
+            });
 
             return Ok();
         }

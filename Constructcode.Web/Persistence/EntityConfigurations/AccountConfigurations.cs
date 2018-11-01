@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Constructcode.Web.Persistence.EntityConfigurations
 {
-    public class AccountConfigurations
+    public static class AccountConfigurations
     {
         public static void Config(ModelBuilder modelBuilder)
         {
