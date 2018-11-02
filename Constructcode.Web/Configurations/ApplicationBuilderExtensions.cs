@@ -9,24 +9,23 @@ namespace Constructcode.Web.Configurations
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder UseStaticResources(this IApplicationBuilder app, IHostingEnvironment env)
+        public static void UseStaticResources(this IApplicationBuilder app, IHostingEnvironment env)
         {
             ConfigureCacheControl(app);
             ConfigureAvailableDirectories(app, env);
 
-            return app;
+            return;
         }
 
         private static void ConfigureAvailableDirectories(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsProduction())
             {
-                const string acmeChallengeDirectory = @".well-known/acme-challenge";
-                var staticContentPath = Path.Combine(env.ContentRootPath, acmeChallengeDirectory);
                 app.UseStaticFiles(new StaticFileOptions
                 {
-                    RequestPath = $"/{acmeChallengeDirectory}",
-                    FileProvider = new PhysicalFileProvider(staticContentPath)
+                    FileProvider = new PhysicalFileProvider(
+                        Path.Combine(Directory.GetCurrentDirectory(), ".well-known/acme-challenge")),
+                    RequestPath = "/.well-known/acme-challenge"
                 });
             }
         }
