@@ -3,7 +3,6 @@ using Constructcode.Web.Configurations.MappingConfigurations;
 using Constructcode.Web.Core;
 using Constructcode.Web.Persistence;
 using Constructcode.Web.Service;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore.Design;
