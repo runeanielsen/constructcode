@@ -36,8 +36,7 @@ namespace Constructcode.Web.Configurations
         private static void ConfigureGzipComperession(IServiceCollection services)
         {
             services.Configure<GzipCompressionProviderOptions>(options
-                => options.Level = System.IO.Compression.CompressionLevel.Fastest);
-            services.AddResponseCompression();
+                => options.Level = System.IO.Compression.CompressionLevel.Optimal);
         }
 
         private static void ConfigureApplication(IServiceCollection services)

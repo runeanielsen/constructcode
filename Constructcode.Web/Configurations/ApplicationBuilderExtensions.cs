@@ -13,8 +13,6 @@ namespace Constructcode.Web.Configurations
         {
             ConfigureCacheControl(app);
             ConfigureAvailableDirectories(app, env);
-
-            return;
         }
 
         private static void ConfigureAvailableDirectories(IApplicationBuilder app, IHostingEnvironment env)
@@ -24,8 +22,8 @@ namespace Constructcode.Web.Configurations
                 app.UseStaticFiles(new StaticFileOptions
                 {
                     FileProvider = new PhysicalFileProvider(
-                        Path.Combine(Directory.GetCurrentDirectory(), ".well-known/acme-challenge")),
-                    RequestPath = "/.well-known/acme-challenge"
+                        Path.Combine(Directory.GetCurrentDirectory(), ".well-known", "acme-challenge")),
+                    RequestPath = "/.well-known/acme-challenge"                 
                 });
             }
         }
