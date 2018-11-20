@@ -21,15 +21,6 @@ namespace Constructcode.Web.Configurations
             ConfigureGzipComperession(services);
             ConfigureAutoMapper(services);
             ConfigureApplication(services);
-            ConfigureHttps(services);
-        }
-
-        private static void ConfigureHttps(IServiceCollection services)
-        {
-            services.Configure<MvcOptions>(options =>
-            {
-                options.Filters.Add(new RequireHttpsAttribute());
-            });
         }
 
         private static void ConfigureGzipComperession(IServiceCollection services)

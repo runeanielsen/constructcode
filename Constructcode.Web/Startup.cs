@@ -40,7 +40,6 @@ namespace ConstructCode.Web
                 .AddRedirectToHttpsPermanent();
 
             app.UseRewriter(options);
-            app.UseResponseCompression();
 
             if (env.IsDevelopment())
             {
