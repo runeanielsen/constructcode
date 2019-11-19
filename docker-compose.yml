@@ -1,0 +1,6 @@
+version: "3"
+services:
+    marketing:
+        build: .
+        ports:
+           - "5000:80"

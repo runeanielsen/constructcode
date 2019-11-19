@@ -8,7 +8,6 @@ namespace ConstructCode.Web
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .UseApplicationInsights()
                 .UseKestrel(opt => opt.AddServerHeader = false)
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()

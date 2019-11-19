@@ -1,5 +1,4 @@
-﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,17 +12,6 @@
     <title>@ViewData["Title"] - Construct Code</title>
 
     <link async href="~/site.min.css" asp-append-version="true" rel="stylesheet" />
-
-    <environment names="Staging, Production">
-        <script>
-            window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
-            ga('create', 'UA-83257241-1', 'auto');
-            ga('send', 'pageview');
-        </script>
-        <script async src='https://www.google-analytics.com/analytics.js'></script>
-        @Html.Raw(JavaScriptSnippet.FullScript)
-    </environment>
-
 </head>
 <body>
     <div>

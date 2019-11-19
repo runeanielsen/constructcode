@@ -1,25 +1,23 @@
-﻿var destinationFolder = 'wwwroot/';
-var htmlFilePath = 'App/js/**/*.html';
-var htmlFileDestination = 'templates/';
+﻿const destinationFolder = 'wwwroot/';
+const htmlFilePath = 'App/js/**/*.html';
+const htmlFileDestination = 'templates/';
 
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     concat = require('gulp-concat'),
     sass = require('gulp-sass'),
     cssmin = require('gulp-clean-css'),
-    htmlmin = require('gulp-htmlmin'),
     uglify = require('gulp-uglify'),
     merge = require('merge-stream'),
-    del = require('del'),
     babel = require("gulp-babel"),
     plumber = require('gulp-plumber'),
     autoprefixer = require('gulp-autoprefixer'),
     flatten = require('gulp-flatten'),
     rimraf = require('rimraf');
 
-var bundleconfig = require('./Gulp/bundle-files.json'),
+const bundleconfig = require('./Gulp/bundle-files.json'),
     filesToMove = require('./Gulp/move-files.json');
 
-var regex = {
+const regex = {
     scss: /\.scss$/,
     css: /\.css$/,
     html: /\.html$/,
@@ -27,44 +25,36 @@ var regex = {
 };
 
 
-// Tasks
-gulp.task('deploy', ['deploy:js', 'deploy:css', 'deploy:html', 'move:files']);
-gulp.task('serve', ['serve:js', 'serve:css', 'serve:html', 'move:files']);
-
-
-// Watches
-gulp.task('watch', function () {
+const watch = () => {
     getBundles(regex.css).forEach(function (bundle) {
-        gulp.watch(bundle.inputFiles, ['serve:css']);
+        gulp.watch(bundle.inputFiles, gulp.series(serveCss));
     });
 
     getBundles(regex.js).forEach(function (bundle) {
-        gulp.watch(bundle.inputFiles, ['serve:js']);
+        gulp.watch(bundle.inputFiles, gulp.series(serveJs));
     });
 
-    gulp.watch(htmlFilePath, ['serve:html']);
+    gulp.watch(htmlFilePath, gulp.series(serveHtml));
 
     filesToMove.filter(function (fileToMove) {
-        gulp.watch(fileToMove.source, ["serve:files"]);
+        gulp.watch(fileToMove.source, gulp.series(moveFiles));
     });
-});
-
+}
 
 // Common
-gulp.task('clean', function (cb) {
+const clean = (cb) => {
     return rimraf(destinationFolder + '**/*', cb);
-});
+}
 
-gulp.task('move:files', function () {
+const moveFiles = async () => {
     filesToMove.filter(function (fileToMove) {
         gulp.src(fileToMove.source)
             .pipe(gulp.dest(fileToMove.destination));
     });
-});
-
+}
 
 // Production tasks
-gulp.task('deploy:js', function () {
+const deployJs = () => {
     var tasks = getBundles(regex.js).map(function (bundle) {
         return gulp.src(bundle.inputFiles, {
             base: "."
@@ -83,9 +73,9 @@ gulp.task('deploy:js', function () {
     });
 
     return merge(tasks);
-});
+}
 
-gulp.task('deploy:css', function () {
+const deployCss = () => {
     var cssTask = getBundles(regex.css).map(function (bundle) {
         return gulp.src(bundle.inputFiles,
             {
@@ -117,17 +107,16 @@ gulp.task('deploy:css', function () {
         .pipe(gulp.dest("."));
 
     return merged;
-});
+}
 
-gulp.task('deploy:html', function () {
-    gulp.src(htmlFilePath)
+const deployHtml = () => {
+    return gulp.src(htmlFilePath)
         .pipe(flatten())
         .pipe(gulp.dest(destinationFolder + htmlFileDestination));
-});
-
+}
 
 // Development tasks
-gulp.task('serve:js', function () {
+const serveJs = () => {
     var tasks = getBundles(regex.js).map(function (bundle) {
         return gulp.src(bundle.inputFiles, {
             base: "."
@@ -138,9 +127,9 @@ gulp.task('serve:js', function () {
     });
 
     return merge(tasks);
-});
+}
 
-gulp.task('serve:css', function () {
+const serveCss = () => {
     var cssTask = getBundles(regex.css).map(function (bundle) {
         return gulp.src(bundle.inputFiles,
             {
@@ -165,14 +154,14 @@ gulp.task('serve:css', function () {
         .pipe(gulp.dest("."));
 
     return merged;
-});
+}
 
-gulp.task('serve:html', function () {
-    gulp.src(htmlFilePath)
+const serveHtml = () => {
+    return gulp.src(htmlFilePath)
         .pipe(flatten())
         .pipe(gulp.dest(destinationFolder + htmlFileDestination));
-});
-
+    
+} 
 
 // Helpers
 function getBundles(regexPattern) {
@@ -180,3 +169,9 @@ function getBundles(regexPattern) {
         return regexPattern.test(bundle.outputFileName);
     });
 }
+
+// Exports
+exports.deploy = gulp.series(deployJs, deployCss, deployHtml, moveFiles);
+exports.serve = gulp.series(serveJs, serveCss, serveHtml, moveFiles);
+exports.watch = watch;
+exports.clean = clean;

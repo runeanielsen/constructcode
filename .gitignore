@@ -254,6 +254,6 @@ wwwroot/
 /Constructcode.Web/wwwroot/sitemap-pages.xml
 /Constructcode.Web/wwwroot/sitemap-categories.xml
 /Constructcode.Web/package-lock.json
-
+/ConstructCode.Web/.vscode/*
 .DS_Store
 .idea/

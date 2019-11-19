@@ -8,19 +8,19 @@
     "destination": "wwwroot/fonts/"
   },
   {
-    "source": "node_modules/tinymce/themes/modern/theme.min.js",
+    "source": "node_modules/tinymce/themes/silver/theme.min.js",
     "destination": "wwwroot/themes/modern/"
   },
   {
-    "source": "node_modules/tinymce/skins/lightgray/skin.min.css",
-    "destination": "wwwroot/skins/lightgray/"
+    "source": "node_modules/tinymce/skins/ui/oxide/skin.min.css",
+    "destination": "wwwroot/skins/oxide/"
   },
   {
-    "source": "node_modules/tinymce/skins/lightgray/content.min.css",
-    "destination": "wwwroot/skins/lightgray/"
+    "source": "node_modules/tinymce/skins/content/default/content.min.css",
+    "destination": "wwwroot/skins/oxide/"
   },
   {
-    "source": "node_modules/tinymce/plugins/codesample/css/prism.css",
+    "source": "node_modules/prismjs/themes/prism.css",
     "destination": "wwwroot/plugins/codesample/css/"
   },
   {
