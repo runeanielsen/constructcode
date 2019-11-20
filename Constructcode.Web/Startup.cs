@@ -51,7 +51,7 @@ namespace ConstructCode.Web
             }
 
             app.UseStaticResources(env);
-
+            app.UseStaticFiles();
             app.UseAuthentication();
 
             app.UseMvc(routes =>
