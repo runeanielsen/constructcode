@@ -19,11 +19,16 @@ namespace Constructcode.Web.Configurations
         {
             if (env.IsProduction())
             {
+               	var acmeChallengePath = Path.Combine(Directory.GetCurrentDirectory(), ".well-known", "acme-challenge");
+		var exists = Directory.Exists(acmeChallengePath);
+		if (!exists)
+    		    Directory.CreateDirectory(acmeChallengePath);
+
                 app.UseStaticFiles(new StaticFileOptions
                 {
                     FileProvider = new PhysicalFileProvider(
                         Path.Combine(Directory.GetCurrentDirectory(), ".well-known", "acme-challenge")),
-                    RequestPath = "/.well-known/acme-challenge"                 
+                    RequestPath = "/.well-known/acme-challenge"
                 });
             }
         }
