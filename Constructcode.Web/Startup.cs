@@ -36,11 +36,6 @@ namespace ConstructCode.Web
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            var options = new RewriteOptions()
-                .AddRedirectToHttpsPermanent();
-
-            app.UseRewriter(options);
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -48,6 +43,10 @@ namespace ConstructCode.Web
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+
+                var options = new RewriteOptions()
+                    .AddRedirectToHttpsPermanent();
+		app.UseRewriter(options);
             }
 
             app.UseStaticResources(env);
