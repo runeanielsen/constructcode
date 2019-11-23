@@ -46,7 +46,7 @@ namespace ConstructCode.Web
 
                 var options = new RewriteOptions()
                     .AddRedirectToHttpsPermanent();
-		app.UseRewriter(options);
+        		app.UseRewriter(options);
             }
 
             app.UseStaticResources(env);
