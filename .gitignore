@@ -257,3 +257,4 @@ wwwroot/
 /ConstructCode.Web/.vscode/*
 .DS_Store
 .idea/
+.vscode/

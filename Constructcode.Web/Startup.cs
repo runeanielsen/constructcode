@@ -1,11 +1,9 @@
-﻿using System.IO;
-using Constructcode.Web.Configurations;
+﻿using Constructcode.Web.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 namespace ConstructCode.Web
 {
@@ -31,11 +29,11 @@ namespace ConstructCode.Web
             services.SetupAuthenticationMiddlewareConfig();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggingBuilder loggingBuilder)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
+            loggingBuilder.AddConsole();
+            loggingBuilder.AddDebug();
+             
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
