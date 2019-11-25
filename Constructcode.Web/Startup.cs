@@ -29,11 +29,8 @@ namespace ConstructCode.Web
             services.SetupAuthenticationMiddlewareConfig();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggingBuilder loggingBuilder)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            loggingBuilder.AddConsole();
-            loggingBuilder.AddDebug();
-             
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
